@@ -12,6 +12,22 @@ from playwright.async_api import async_playwright
 ROOT = Path(__file__).resolve().parents[1]
 # Expose existing module state only in the test response, never in shipped HTML.
 HARNESS = """
+const batchOriginal=batchStaticScenery;
+window.__batchChecks=[];
+batchStaticScenery=function(){
+ world.updateWorldMatrix(true,true);
+ const triangleCount=()=>{let count=0;world.traverse(o=>{if(o.isMesh)count+=(o.geometry?.index?.count||o.geometry?.attributes?.position?.count||0)/3});return count};
+ const bounds=()=>{const box=new THREE.Box3();world.traverse(o=>{if(o.isMesh&&(o.userData.bhStaticScenery||o.userData.bhStaticBatch))box.union(new THREE.Box3().setFromObject(o,true))});return box};
+ const before=triangleCount(),beforeBounds=bounds(),doors=doorActors.map(d=>[d.pivot,d.pivot.parent]);
+ const colliders=JSON.stringify(estate.floors.map(f=>f.rooms.map(r=>bhSceneryBoxes(r))));
+ const result=batchOriginal();const afterBounds=bounds();
+ window.__batchChecks.push({geometry:triangleCount()===before,
+  bounds:beforeBounds.min.distanceTo(afterBounds.min)<.001&&beforeBounds.max.distanceTo(afterBounds.max)<.001,
+  doors:doors.every(([pivot,parent])=>pivot.parent===parent),
+  collision:colliders===JSON.stringify(estate.floors.map(f=>f.rooms.map(r=>bhSceneryBoxes(r)))),
+  savings:staticBatchStats.drawCallsSaved});
+ return result;
+};
 window.__performanceTest={
  stop:()=>{playing=false},
  spawn:()=>{const light=createGamePointLight(0xffffff,5,10,2);light.position.set(player.x,zBase(player.fi)+3.4,player.z);scene.add(light);lightSelectionTime=-Infinity;budgetNearbyLights(performance.now());const selected=selectedLightSources.includes(light);light.removeFromParent();lightSelectionTime=-Infinity;budgetNearbyLights(performance.now());return selected},
@@ -54,7 +70,9 @@ async def run(base):
             assert await page.locator('#overlay').evaluate('(el)=>el.classList.contains("hidden")')
             assert not await page.locator('#error').text_content()
             await page.evaluate('window.__performanceTest.stop()')
-            print('House ready:', preset, flush=True)
+            batch = await page.evaluate('window.__batchChecks.at(-1)')
+            assert batch['geometry'] and batch['bounds'] and batch['doors'] and batch['collision'] and batch['savings'] > 0, batch
+            print('House ready; batching preserved geometry, bounds, doors and collision:', preset, batch, flush=True)
         for quality, expected in [('low', 4), ('high', 8), ('low', 4)]:
             await page.locator('#quality').evaluate('(el,value)=>{el.value=value;el.dispatchEvent(new Event("change"))}', quality)
             await page.wait_for_function('!document.getElementById("gameLoading")', timeout=120000)

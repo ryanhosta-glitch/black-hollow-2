@@ -35,3 +35,7 @@ Performance mode limits the 3D drawing buffer to at most 1280×720 pixels; Cinem
 Run the rendering regression checks with `node --test tests/performance.test.cjs`.
 
 For the real-browser house-loading, mode-switching and stable-light-budget checks, install Python Playwright and Chromium, then run `python3 tests/browser-performance.py`. In the cloud proxy environment, use `BH_TEST_PROXY_CDN=1 python3 tests/browser-performance.py`; this fetches CDN modules with Python’s verified TLS rather than changing browser trust settings.
+
+Stationary opaque architecture and cemetery scenery are merged into spatial batches by material and render settings after house construction. Batches use 12-unit cells to retain frustum culling. Animated objects, doors, characters, portraits, transparent effects and interactive props remain separate. Navigation and collision data are captured before batching. The browser regression check verifies unchanged triangle totals, bounds, door parents and collision data across house reloads.
+
+In a seeded Performance-mode sample-house comparison at 960×540, batching reduced draw calls from 845 to 546 for the exterior view and from 451 to 259 for an interior view. Total scene triangles were unchanged; spatial batches can draw a few more offscreen triangles near their edges. These are draw-call measurements in cloud Chromium, not FPS measurements on a player's hardware.

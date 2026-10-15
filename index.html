@@ -171,6 +171,7 @@ function updateInvestigatorHint(time){if(time-investigatorPromptTick<240)return;
 
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {clone as cloneSkinnedScene} from 'three/addons/utils/SkeletonUtils.js';
+import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 // v5.7 — Student-safe field guide and non-destructive blueprint diagnostics.
 let classroomReport=[];
 function blueprintReview(data){
@@ -545,7 +546,7 @@ function masterpieceRoomDetails(r,b){
 }
 function floorMaterialForRoom(r){const profile=roomVisualProfile(r);return new THREE.MeshStandardMaterial({map:floorTexture(profile,r.id||r.name||'floor'),roughness:profile.floor.includes('checker')?.45:.86,color:0xffffff,side:THREE.DoubleSide})}
 function addFloorOverlay(r,base){if(themeForRoom(r)==='conservatory')return;const profile=roomVisualProfile(r);if(!profile.rug&&profile.floor!=='parquet-runner'&&profile.floor!=='soft-rug'&&profile.floor!=='circle-rug')return;const m=new THREE.MeshStandardMaterial({map:floorTexture({floor:profile.floor==='circle-rug'?'circle-rug':'soft-rug'},(r.id||r.name)+'-overlay'),roughness:.9,transparent:true,color:0xffffff});if(profile.floor==='circle-rug'){const rug=new THREE.Mesh(new THREE.CylinderGeometry(Math.min(r.l,r.w)*.22,Math.min(r.l,r.w)*.22,.05,28),m);rug.position.set(r.x+r.l/2,base+.04,r.y+r.w/2);world.add(rug)}else{let rw=Math.min(r.l*.58,5.8), rd=Math.min(r.w*.42,3.4);planeBox(r.x+r.l/2-rw/2,base+.01,r.y+r.w/2-rd/2,rw,.03,rd,m)}}
-function addCeilingDetail(r,base){const p=roomVisualProfile(r);if(r.h<7) return;const cx=r.x+r.l/2, cz=r.y+r.w/2, cy=base+r.h-.03;if(themeForRoom(r)==='conservatory'){const frameMat=new THREE.MeshStandardMaterial({color:0x44514c,roughness:.72,metalness:.18});const glassMat=new THREE.MeshStandardMaterial({color:0xd8efe9,transparent:true,opacity:.22,roughness:.06,emissive:0x193628,emissiveIntensity:.08});for(let i=0;i<3;i++){let px=r.x+.9+i*(Math.max(1.8,(r.l-1.8)/3));let pane=new THREE.Mesh(new THREE.BoxGeometry(Math.min(2.1,r.l/3),.04,1.55),glassMat);pane.position.set(px,base+r.h-.18,r.y+r.w*.32+i%2*.18);pane.rotation.z=(i-1)*.08;world.add(pane);planeBox(px-Math.min(2.1,r.l/3)/2,base+r.h-.2,r.y+r.w*.32+i%2*.18-.78,Math.min(2.1,r.l/3),.06,1.56,frameMat);addMoonbeam(px,base+r.h-.12,r.y+r.w*.32+i%2*.18,'top',1.1,4.2,.13)}for(let i=1;i<Math.max(2,Math.floor(r.l/3));i++)planeBox(r.x+i*(r.l/(Math.max(2,Math.floor(r.l/3))+1))-.05,base+r.h-.18,r.y,.1,.14,r.w,frameMat);return}if(p.ceiling==='medallion'){const med=new THREE.Mesh(new THREE.CylinderGeometry(.7,.7,.08,18),new THREE.MeshStandardMaterial({color:0x8d7a66,roughness:.78}));med.position.set(cx,cy,cz);world.add(med)}else if(p.ceiling==='beams'&&r.l>6&&r.w>6){for(let i=1;i<Math.max(2,Math.floor(r.l/3));i++){planeBox(r.x+i*(r.l/(Math.max(2,Math.floor(r.l/3))+1))-.06,base+r.h-.18,r.y,.12,.16,r.w,new THREE.MeshStandardMaterial({color:0x483528,roughness:.9}))}}}
+function addCeilingDetail(r,base){const p=roomVisualProfile(r);if(r.h<7) return;const cx=r.x+r.l/2, cz=r.y+r.w/2, cy=base+r.h-.03;if(themeForRoom(r)==='conservatory'){const frameMat=new THREE.MeshStandardMaterial({color:0x44514c,roughness:.72,metalness:.18});const glassMat=new THREE.MeshStandardMaterial({color:0xd8efe9,transparent:true,opacity:.22,roughness:.06,emissive:0x193628,emissiveIntensity:.08});for(let i=0;i<3;i++){let px=r.x+.9+i*(Math.max(1.8,(r.l-1.8)/3));let pane=new THREE.Mesh(new THREE.BoxGeometry(Math.min(2.1,r.l/3),.04,1.55),glassMat);pane.position.set(px,base+r.h-.18,r.y+r.w*.32+i%2*.18);pane.rotation.z=(i-1)*.08;world.add(pane);staticPlaneBox(px-Math.min(2.1,r.l/3)/2,base+r.h-.2,r.y+r.w*.32+i%2*.18-.78,Math.min(2.1,r.l/3),.06,1.56,frameMat);addMoonbeam(px,base+r.h-.12,r.y+r.w*.32+i%2*.18,'top',1.1,4.2,.13)}for(let i=1;i<Math.max(2,Math.floor(r.l/3));i++)staticPlaneBox(r.x+i*(r.l/(Math.max(2,Math.floor(r.l/3))+1))-.05,base+r.h-.18,r.y,.1,.14,r.w,frameMat);return}if(p.ceiling==='medallion'){const med=new THREE.Mesh(new THREE.CylinderGeometry(.7,.7,.08,18),new THREE.MeshStandardMaterial({color:0x8d7a66,roughness:.78}));med.position.set(cx,cy,cz);world.add(med)}else if(p.ceiling==='beams'&&r.l>6&&r.w>6){for(let i=1;i<Math.max(2,Math.floor(r.l/3));i++){staticPlaneBox(r.x+i*(r.l/(Math.max(2,Math.floor(r.l/3))+1))-.06,base+r.h-.18,r.y,.12,.16,r.w,new THREE.MeshStandardMaterial({color:0x483528,roughness:.9}))}}}
 function addSconceFixture(x,y,z,wall,style='brass',key=''){const g=new THREE.Group();const baseMat=new THREE.MeshStandardMaterial({color:style==='iron'?0x404247:0x7a5a34,metalness:.25,roughness:.6});const warm=style==='green'?0x98ffb0:style==='blue'?0x97c7ff:style==='violet'?0xd49cff:0xffc38f;const wallOffset=.08;if(wall==='top'||wall==='bottom'){g.position.set(x,y,z+(wall==='top'?wallOffset:-wallOffset));g.rotation.y=wall==='top'?0:Math.PI}else{g.position.set(x+(wall==='left'?wallOffset:-wallOffset),y,z);g.rotation.y=wall==='left'?Math.PI/2:-Math.PI/2}const plate=new THREE.Mesh(new THREE.BoxGeometry(.18,.58,.06),baseMat);plate.position.z=.02;g.add(plate);const arm=new THREE.Mesh(new THREE.CylinderGeometry(.03,.04,.34,8),baseMat);arm.rotation.x=Math.PI/2;arm.position.set(0,.06,.14);g.add(arm);if(style==='pumpkin'){const body=new THREE.Mesh(new THREE.SphereGeometry(.17,14,12),new THREE.MeshStandardMaterial({color:0xdb7c1f,emissive:0x7e2d00,emissiveIntensity:.18,roughness:.8}));body.position.set(0,.03,.28);body.scale.set(1.12,.95,.95);g.add(body);const stem=new THREE.Mesh(new THREE.CylinderGeometry(.03,.04,.1,6),new THREE.MeshStandardMaterial({color:0x49502f,roughness:1}));stem.position.set(0,.2,.27);g.add(stem)}else{const cup=new THREE.Mesh(new THREE.CylinderGeometry(.09,.11,.18,8),baseMat);cup.position.set(0,.02,.26);g.add(cup);const bulb=new THREE.Mesh(new THREE.SphereGeometry(.08,10,10),new THREE.MeshBasicMaterial({color:warm}));bulb.position.set(0,.14,.28);g.add(bulb);animatedFlames.push(bulb)}world.add(g);const light=createGamePointLight(warm,quality==='high'?4.5:2.8,6,2);light.position.copy(g.position);light.position.y+=.12;light.position.x+=wall==='left'?-.18:wall==='right'?.18:0;light.position.z+=wall==='top'?.18:wall==='bottom'?- .18:0;world.add(light);flickerLights.push({light,base:quality==='high'?4.5:2.8,variance:.28,speed:1.4,phase:seeded(key)()*10});return g}
 function addRoomLightingDecor(r,base){const p=roomVisualProfile(r);if(r.l<5||r.w<5)return;const style=p.lighting;const walls=['top','bottom'];for(const wall of walls){const span=r.l;let doors=doorPositions(r,wall);const positions=[.23,.77].filter(pos=>!doors.some(d=>Math.abs(d.center/span-pos)<.16));for(const pos of positions){addSconceFixture(r.x+r.l*pos,base+Math.min(r.h-1.2,4.8),wall==='top'?r.y+.02:r.y+r.w-.02,wall,style,(r.id||r.name)+wall+pos)}}if(r.w>7&&style!=='pumpkin'){const wall='left';const span=r.w;const doors=doorPositions(r,wall);[.32,.68].filter(pos=>!doors.some(d=>Math.abs(d.center/span-pos)<.18)).forEach(pos=>addSconceFixture(r.x+.02,base+Math.min(r.h-1.4,4.7),r.y+r.w*pos,wall,style,(r.id||r.name)+wall+pos))}}
 
@@ -585,10 +586,49 @@ function addDoorReveals(r,base){
  }
 }
 
-function addDoorwayDecor(r,base){const p=roomVisualProfile(r);const trimMat=new THREE.MeshStandardMaterial({color:new THREE.Color(p.trim),roughness:.72});const accentMat=new THREE.MeshStandardMaterial({color:new THREE.Color(p.accent),roughness:.62,metalness:.08});const plinthMat=new THREE.MeshStandardMaterial({color:new THREE.Color(p.baseColor||p.trim),roughness:.84});for(const o of r.openings||[]){if(o.type!=='door')continue;const wall=o.wall,span=(wall==='top'||wall==='bottom')?r.l:r.w,center=(o.pos??.5)*span,width=Math.max(1.9,doorW(o)),height=Math.min(r.h-.35,7),jamb=.16,pedestal=.26,crown=p.door==='gothic'?.32:.22; if(wall==='top'||wall==='bottom'){const z=wall==='top'?r.y+.04:r.y+r.w-.04,dir=wall==='top'?1:-1,depth=.1,face=z-(dir<0?.06:0),left=r.x+center-width/2; planeBox(left-jamb,base,face,jamb,height,depth,trimMat); planeBox(left+width,base,face,jamb,height,depth,trimMat); planeBox(left-jamb-.05,base,face-.02,pedestal,.34,depth+.04,plinthMat); planeBox(left+width+jamb-pedestal+.05,base,face-.02,pedestal,.34,depth+.04,plinthMat); planeBox(left-jamb,base+height,face,width+jamb*2,.14,depth,trimMat); planeBox(left+.14,base+height+.18,face,width-.28,.1,depth,accentMat); planeBox(left+.22,base+height+.32,face,width-.44,.06,depth,accentMat);   if(p.door==='gothic'){planeBox(r.x+center-.24,base+height+.24,face,.48,crown,depth,accentMat); planeBox(left+.22,base+height+.1,face,.12,.18,depth,accentMat); planeBox(left+width-.34,base+height+.1,face,.12,.18,depth,accentMat)}} else {const x=wall==='left'?r.x+.04:r.x+r.l-.04,dir=wall==='left'?1:-1,depth=.1,face=x-(dir<0?.06:0),top=r.y+center-width/2; planeBox(face,base,top-jamb,depth,height,jamb,trimMat); planeBox(face,base,top+width,depth,height,jamb,trimMat); planeBox(face-.02,base,top-jamb-.05,depth+.04,.34,pedestal,plinthMat); planeBox(face-.02,base,top+width+jamb-pedestal+.05,depth+.04,.34,pedestal,plinthMat); planeBox(face,base+height,top-jamb,depth,.14,width+jamb*2,trimMat); planeBox(face,base+height+.18,top+.14,depth,.1,width-.28,accentMat); planeBox(face,base+height+.32,top+.22,depth,.06,width-.44,accentMat);   if(p.door==='gothic'){planeBox(face,base+height+.24,r.y+center-.24,depth,crown,.48,accentMat); planeBox(face,base+height+.1,top+.22,depth,.18,.12,accentMat); planeBox(face,base+height+.1,top+width-.34,depth,.18,.12,accentMat)}}}}
+function addDoorwayDecor(r,base){const p=roomVisualProfile(r);const trimMat=new THREE.MeshStandardMaterial({color:new THREE.Color(p.trim),roughness:.72});const accentMat=new THREE.MeshStandardMaterial({color:new THREE.Color(p.accent),roughness:.62,metalness:.08});const plinthMat=new THREE.MeshStandardMaterial({color:new THREE.Color(p.baseColor||p.trim),roughness:.84});for(const o of r.openings||[]){if(o.type!=='door')continue;const wall=o.wall,span=(wall==='top'||wall==='bottom')?r.l:r.w,center=(o.pos??.5)*span,width=Math.max(1.9,doorW(o)),height=Math.min(r.h-.35,7),jamb=.16,pedestal=.26,crown=p.door==='gothic'?.32:.22; if(wall==='top'||wall==='bottom'){const z=wall==='top'?r.y+.04:r.y+r.w-.04,dir=wall==='top'?1:-1,depth=.1,face=z-(dir<0?.06:0),left=r.x+center-width/2; staticPlaneBox(left-jamb,base,face,jamb,height,depth,trimMat); staticPlaneBox(left+width,base,face,jamb,height,depth,trimMat); staticPlaneBox(left-jamb-.05,base,face-.02,pedestal,.34,depth+.04,plinthMat); staticPlaneBox(left+width+jamb-pedestal+.05,base,face-.02,pedestal,.34,depth+.04,plinthMat); staticPlaneBox(left-jamb,base+height,face,width+jamb*2,.14,depth,trimMat); staticPlaneBox(left+.14,base+height+.18,face,width-.28,.1,depth,accentMat); staticPlaneBox(left+.22,base+height+.32,face,width-.44,.06,depth,accentMat);   if(p.door==='gothic'){staticPlaneBox(r.x+center-.24,base+height+.24,face,.48,crown,depth,accentMat); staticPlaneBox(left+.22,base+height+.1,face,.12,.18,depth,accentMat); staticPlaneBox(left+width-.34,base+height+.1,face,.12,.18,depth,accentMat)}} else {const x=wall==='left'?r.x+.04:r.x+r.l-.04,dir=wall==='left'?1:-1,depth=.1,face=x-(dir<0?.06:0),top=r.y+center-width/2; staticPlaneBox(face,base,top-jamb,depth,height,jamb,trimMat); staticPlaneBox(face,base,top+width,depth,height,jamb,trimMat); staticPlaneBox(face-.02,base,top-jamb-.05,depth+.04,.34,pedestal,plinthMat); staticPlaneBox(face-.02,base,top+width+jamb-pedestal+.05,depth+.04,.34,pedestal,plinthMat); staticPlaneBox(face,base+height,top-jamb,depth,.14,width+jamb*2,trimMat); staticPlaneBox(face,base+height+.18,top+.14,depth,.1,width-.28,accentMat); staticPlaneBox(face,base+height+.32,top+.22,depth,.06,width-.44,accentMat);   if(p.door==='gothic'){staticPlaneBox(face,base+height+.24,r.y+center-.24,depth,crown,.48,accentMat); staticPlaneBox(face,base+height+.1,top+.22,depth,.18,.12,accentMat); staticPlaneBox(face,base+height+.1,top+width-.34,depth,.18,.12,accentMat)}}}}
 
 function artTexture(theme='portrait',key=''){const cacheKey=theme+'|'+key;if(_seedCache.has(cacheKey))return _seedCache.get(cacheKey);const rand=seeded(cacheKey);const c=document.createElement('canvas');c.width=512;c.height=640;const g=c.getContext('2d');const crackle=(strength=1)=>{for(let i=0;i<18*strength;i++){g.strokeStyle=rand()>.5?'#ffffff14':'#1a120f25';g.lineWidth=.6+rand()*1.3;g.beginPath();let x=rand()*512,y=rand()*640;g.moveTo(x,y);for(let j=0;j<4;j++){x+=rand()*44-22;y+=rand()*44-22;g.lineTo(x,y)}g.stroke()}};const dust=amt=>{for(let i=0;i<amt;i++){g.fillStyle=rand()>.5?'#ffffff07':'#00000010';let r=rand()*11+1;g.beginPath();g.arc(rand()*512,rand()*640,r,0,Math.PI*2);g.fill()}};if(theme==='portrait'){const bg=g.createLinearGradient(0,0,0,640);bg.addColorStop(0,['#302228','#2c2630','#33261e'][Math.floor(rand()*3)]);bg.addColorStop(.55,['#5e4642','#4e3d46','#574835'][Math.floor(rand()*3)]);bg.addColorStop(1,'#171117');g.fillStyle=bg;g.fillRect(0,0,512,640);dust(130);const oval=g.createRadialGradient(256,280,40,256,280,260);oval.addColorStop(0,'#8c7f75');oval.addColorStop(.55,'#463a38');oval.addColorStop(1,'#181218');g.fillStyle=oval;g.fillRect(0,0,512,640);const modes=['gentleman','lady','child','pair'];const mode=modes[Math.floor(rand()*modes.length)];const skin=['#dbc8b1','#cfb59e','#e5d1bd'][Math.floor(rand()*3)];const hair=['#241a17','#4f382d','#6a5948','#8f846f'][Math.floor(rand()*4)];const coat=['#1d2028','#2a2224','#27313a','#3a2831'][Math.floor(rand()*4)];const accent=['#b9ab8b','#d3cab9','#8d6d5e','#8797ad'][Math.floor(rand()*4)];function person(cx,cy,scale,kind,turn=0){g.save();g.translate(cx,cy);g.scale(scale,scale);g.rotate(turn);g.fillStyle=coat;g.beginPath();g.moveTo(-95,175);g.quadraticCurveTo(-82,45,-12,22);g.lineTo(12,22);g.quadraticCurveTo(82,45,95,175);g.lineTo(-95,175);g.closePath();g.fill();g.fillStyle=accent;g.beginPath();g.moveTo(-24,28);g.lineTo(0,115);g.lineTo(24,28);g.closePath();g.fill();g.fillStyle=skin;g.beginPath();g.ellipse(0,-18,37,48,0,0,Math.PI*2);g.fill();g.fillStyle=hair;g.beginPath();g.ellipse(0,-38,41,34,0,Math.PI,Math.PI*2);g.fill();if(kind==='lady'){g.beginPath();g.ellipse(0,-6,46,58,0,Math.PI*.95,Math.PI*2.05);g.fill();g.fillStyle=coat;g.fillRect(-68,118,136,16)}if(kind==='child'){g.fillStyle=coat;g.fillRect(-60,104,120,14);g.fillStyle=hair;g.beginPath();g.ellipse(0,-28,34,22,0,Math.PI,Math.PI*2);g.fill()}g.strokeStyle='#362824';g.lineWidth=2.1;g.beginPath();g.moveTo(-13,-12);g.lineTo(-4,-10);g.moveTo(4,-10);g.lineTo(13,-12);g.stroke();g.fillStyle='#1c1718';g.beginPath();g.arc(-11,-3,2.8,0,Math.PI*2);g.arc(11,-3,2.8,0,Math.PI*2);g.fill();g.strokeStyle='#5a3a33';g.lineWidth=1.6;g.beginPath();g.moveTo(-8,20);g.quadraticCurveTo(0,25,8,20);g.stroke();g.restore()}if(mode==='pair'){person(194,318,.82,rand()>.5?'lady':'gentleman',-.05);person(318,326,.72,rand()>.5?'child':'gentleman',.05)}else if(mode==='child'){person(256,326,.86,'child',(rand()-.5)*.08)}else if(mode==='lady'){person(256,320,1,'lady',(rand()-.5)*.07)}else{person(256,320,1,'gentleman',(rand()-.5)*.07)}g.fillStyle='#ffffff08';for(let i=0;i<20;i++)g.fillRect(rand()*512,rand()*640,rand()*100+10,1+rand()*2);crackle(1.2);const vign=g.createRadialGradient(256,320,180,256,320,360);vign.addColorStop(0,'#00000000');vign.addColorStop(1,'#00000060');g.fillStyle=vign;g.fillRect(0,0,512,640)}else if(theme==='storm'){const bg=g.createLinearGradient(0,0,0,640);bg.addColorStop(0,'#161b2a');bg.addColorStop(.65,'#3f4558');bg.addColorStop(1,'#090c12');g.fillStyle=bg;g.fillRect(0,0,512,640);for(let i=0;i<7;i++){g.fillStyle=['#1a2034','#243047','#2d3b54'][i%3];g.beginPath();g.moveTo(0,420+i*24);for(let x=0;x<=512;x+=42)g.lineTo(x,400+i*22+Math.sin((x+i*12)/90)*25);g.lineTo(512,640);g.lineTo(0,640);g.closePath();g.fill()}g.strokeStyle='#d7ecff';g.lineWidth=6;g.beginPath();let lx=280+rand()*60,ly=70;g.moveTo(lx,ly);for(let i=0;i<7;i++){lx+=rand()*40-20;ly+=58+rand()*18;g.lineTo(lx,ly)}g.stroke();g.fillStyle='#cad7f0';g.fillRect(238,210,28,150);g.fillRect(274,210,28,150);g.fillRect(250,180,40,40);dust(60);crackle(.7)}else{const palettes={landscape:['#263228','#4e6554','#1a2018'],crypt:['#2a2320','#5a4f46','#1d1614']};const p=palettes[theme]||['#252029','#453a49','#16121a'];const bg=g.createLinearGradient(0,0,0,640);bg.addColorStop(0,p[0]);bg.addColorStop(.55,p[1]);bg.addColorStop(1,p[2]);g.fillStyle=bg;g.fillRect(0,0,512,640);dust(90);if(theme==='landscape'){g.fillStyle='#111820';g.beginPath();g.moveTo(0,470);for(let x=0;x<=512;x+=40)g.lineTo(x,430+Math.sin(x/80)*30);g.lineTo(512,640);g.lineTo(0,640);g.closePath();g.fill();g.fillStyle='#90a19a';g.beginPath();g.arc(392,128,40,0,Math.PI*2);g.fill()}else{g.fillStyle='#100e10';for(let i=0;i<8;i++)g.fillRect(40+i*55,320+Math.sin(i)*25,16,180)}}const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;_seedCache.set(cacheKey,t);return t}
 
+// Only explicitly marked, stationary, opaque meshes may enter a static batch.
+function markStaticScenery(root){root?.traverse(o=>{if(o.isMesh)o.userData.bhStaticScenery=true;});return root;}
+function staticPlaneBox(...args){return markStaticScenery(planeBox(...args));}
+let staticBatchStats={sources:0,batches:0,drawCallsSaved:0};
+function batchStaticScenery(){
+ staticBatchStats={sources:0,batches:0,drawCallsSaved:0};
+ if(!world)return;
+ world.updateWorldMatrix(true,true);
+ const groups=new Map(),worldInverse=new THREE.Matrix4().copy(world.matrixWorld).invert();
+ world.traverse(mesh=>{
+  const geometry=mesh.geometry,material=mesh.material;
+  if(!mesh.userData.bhStaticScenery||!mesh.isMesh||mesh.isSkinnedMesh||!mesh.visible||mesh.children.length||
+    !geometry||Array.isArray(material)||!material||material.transparent||material.opacity<1||geometry.morphAttributes.position)return;
+  // A nearby spatial cell bounds each batch, preserving useful frustum culling.
+  const position=new THREE.Vector3();mesh.getWorldPosition(position);
+  const attributes=Object.entries(geometry.attributes).map(([key,a])=>key+':'+a.itemSize+':'+a.normalized).sort().join(',');
+  const key=[material.uuid,Math.floor(position.x/12),Math.floor(position.y/12),Math.floor(position.z/12),mesh.castShadow,mesh.receiveShadow,mesh.layers.mask,mesh.renderOrder,attributes].join('|');
+  if(!groups.has(key))groups.set(key,[]);groups.get(key).push(mesh);
+ });
+ const removedGeometries=new Set();
+ for(const meshes of groups.values()){
+  if(meshes.length<3)continue;
+  const geometries=meshes.map(mesh=>{const geometry=mesh.geometry.index?mesh.geometry.toNonIndexed():mesh.geometry.clone();geometry.applyMatrix4(new THREE.Matrix4().multiplyMatrices(worldInverse,mesh.matrixWorld));return geometry;});
+  let geometry;
+  try{geometry=mergeGeometries(geometries,false);}finally{for(const part of geometries)part.dispose();}
+  if(!geometry)continue;
+  geometry.computeBoundingBox();geometry.computeBoundingSphere();
+  const first=meshes[0],batch=new THREE.Mesh(geometry,first.material);
+  batch.name='Static scenery batch';batch.castShadow=first.castShadow;batch.receiveShadow=first.receiveShadow;
+  batch.layers.mask=first.layers.mask;batch.renderOrder=first.renderOrder;batch.userData.bhStaticBatch=true;
+  // Bake into the common parent's local coordinates; preserve its transform.
+  batch.matrixAutoUpdate=false;world.add(batch);
+  for(const mesh of meshes){removedGeometries.add(mesh.geometry);mesh.removeFromParent();}
+  staticBatchStats.sources+=meshes.length;staticBatchStats.batches++;staticBatchStats.drawCallsSaved+=meshes.length-1;
+ }
+ // Dispose only geometries no remaining actor references; materials stay shared.
+ const retainedGeometries=new Set();world.traverse(o=>{if(o.geometry)retainedGeometries.add(o.geometry);});
+ for(const geometry of removedGeometries)if(!retainedGeometries.has(geometry))geometry.dispose();
+}
 function planeBox(x,y,z,w,h,d,mat,parent=world){if(w<=.001||h<=.001||d<=.001)return;let mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);mesh.position.set(x+w/2,y+h/2,z+d/2);mesh.castShadow=quality==='high';mesh.receiveShadow=quality==='high';parent.add(mesh);return mesh}
 function bhStoryRise(fi){const f=estate.floors[fi];if(!f)return 10;const ordinary=f.rooms.filter(r=>r.h<=10.01);return Math.max(10,...ordinary.map(r=>r.h));}
 function zBase(fi){let main=estate.floors.findIndex(f=>f.kind==='main');if(main<0)main=0;let sum=0;if(fi>=main){for(let i=main;i<fi;i++)sum+=bhStoryRise(i)}else{for(let i=fi;i<main;i++)sum-=bhStoryRise(i)}return sum;}
@@ -658,7 +698,7 @@ function addWall(r,fi,wall,base){
  function section(a,b,bottom,height){if(height<=.005)return;for(const [lo,hi] of solid){const aa=Math.max(a,lo),bb=Math.min(b,hi);if(bb-aa<.005)continue;
   if(useGlass){addConservatoryWallSection(r,fi,wall,base,aa,bb,bottom,height);continue}
   let x,z,w,d;if(wall==='top'){x=r.x+aa;z=r.y-t/2;w=bb-aa;d=t}else if(wall==='bottom'){x=r.x+aa;z=r.y+r.w-t/2;w=bb-aa;d=t}else if(wall==='left'){x=r.x-t/2;z=r.y+aa;w=t;d=bb-aa}else{x=r.x+r.l-t/2;z=r.y+aa;w=t;d=bb-aa}
-  planeBox(x,base+bottom,z,w,height,d,mat);
+  staticPlaneBox(x,base+bottom,z,w,height,d,mat);
  }}
  let cursor=0;for(const o of openings){const left=Math.max(cursor,o.center-o.width/2),right=Math.min(span,o.center+o.width/2);if(right<=left)continue;section(cursor,left,0,h);
  if(o.type==='door'){const top=Math.max(.1,Math.min(h-.1,7.2));section(left,right,top,h-top)}else{const low=Math.min(3,h*.3),hi=Math.min(h-.2,low+3.2);section(left,right,0,low);section(left,right,hi,h-hi);if(!useGlass)addWindowFeature(r,fi,wall,base,left,right,low,hi)}
@@ -666,7 +706,7 @@ function addWall(r,fi,wall,base){
  }section(cursor,span,0,h);
  if(useGlass)return;
  const trim=new THREE.MeshStandardMaterial({color:new THREE.Color(p.accent),roughness:.68});
- function trimSpan(a,b,y,height,depth){for(const [lo,hi] of solid){let aa=Math.max(a,lo),bb=Math.min(b,hi);if(bb-aa<.05)continue;if(wall==='top'||wall==='bottom')planeBox(r.x+aa,base+y,wall==='top'?r.y+.08:r.y+r.w-.17,bb-aa,height,depth,trim);else planeBox(wall==='left'?r.x+.08:r.x+r.l-.17,base+y,r.y+aa,depth,height,bb-aa,trim)}}
+ function trimSpan(a,b,y,height,depth){for(const [lo,hi] of solid){let aa=Math.max(a,lo),bb=Math.min(b,hi);if(bb-aa<.05)continue;if(wall==='top'||wall==='bottom')staticPlaneBox(r.x+aa,base+y,wall==='top'?r.y+.08:r.y+r.w-.17,bb-aa,height,depth,trim);else staticPlaneBox(wall==='left'?r.x+.08:r.x+r.l-.17,base+y,r.y+aa,depth,height,bb-aa,trim)}}
  function trimBand(y,height,depth){let cursor=0;for(const o of openings){const left=Math.max(cursor,o.center-o.width/2),right=Math.min(span,o.center+o.width/2);trimSpan(cursor,left,y,height,depth);cursor=Math.max(cursor,right)}trimSpan(cursor,span,y,height,depth)}
  trimBand(.12,.24,.09);if(p.wall!=='stone'&&p.wall!=='mossy'&&h>2.3)trimBand(Math.min(1.76,h*.27),.12,.07);
 }
@@ -1350,8 +1390,8 @@ function addVictorianArchitecture(r,base){
  const gold=new THREE.MeshStandardMaterial({color:theme==='chapel'?0x9f845c:0x7a6647,metalness:.18,roughness:.74});
  // Ceiling cornice and its secondary shadow-gap, limited to the room perimeter.
  const y=base+r.h-.3;
- for(const dz of [r.y+.13,r.y+r.w-.23]){planeBox(r.x+.15,y,dz,r.l-.3,.13,.1,molding);planeBox(r.x+.15,y-.13,dz,r.l-.3,.035,.07,gold)}
- for(const dx of [r.x+.13,r.x+r.l-.23]){planeBox(dx,y,r.y+.16,.1,.13,r.w-.32,molding);planeBox(dx,y-.13,r.y+.16,.07,.035,r.w-.32,gold)}
+ for(const dz of [r.y+.13,r.y+r.w-.23]){staticPlaneBox(r.x+.15,y,dz,r.l-.3,.13,.1,molding);staticPlaneBox(r.x+.15,y-.13,dz,r.l-.3,.035,.07,gold)}
+ for(const dx of [r.x+.13,r.x+r.l-.23]){staticPlaneBox(dx,y,r.y+.16,.1,.13,r.w-.32,molding);staticPlaneBox(dx,y-.13,r.y+.16,.07,.035,r.w-.32,gold)}
  // Paneled wall bays skip all openings; no cross-door bars or obstructing geometry.
  if(theme==='conservatory')return;
  for(const wall of ['top','bottom','left','right']){
@@ -1365,20 +1405,20 @@ function addVictorianArchitecture(r,base){
    const x=horizontal?r.x+c:r.x+(wall==='left'?.14:r.l-.17);
    const z=horizontal?r.y+(wall==='top'?.14:r.w-.17):r.y+c;
    const bw=horizontal?w:.055,bd=horizontal?.055:w;
-   if(horizontal){planeBox(x-w/2,paneBase,z,bw,.055,bd,molding);planeBox(x-w/2,paneBase+paneH,z,bw,.055,bd,molding);
-    for(const ox of [-w/2,w/2])planeBox(x+ox-.027,paneBase,z,.054,paneH,bd,molding);
-    planeBox(x-w*.29,paneBase+.24,z-.008,w*.58,.032,.07,gold);
-   }else{planeBox(x,paneBase,z-w/2,bw,.055,bd,molding);planeBox(x,paneBase+paneH,z-w/2,bw,.055,bd,molding);
-    for(const oz of [-w/2,w/2])planeBox(x,paneBase,z+oz-.027,bw,paneH,.054,molding);
-    planeBox(x-.008,paneBase+.24,z-w*.29,.07,.032,w*.58,gold);
+   if(horizontal){staticPlaneBox(x-w/2,paneBase,z,bw,.055,bd,molding);staticPlaneBox(x-w/2,paneBase+paneH,z,bw,.055,bd,molding);
+    for(const ox of [-w/2,w/2])staticPlaneBox(x+ox-.027,paneBase,z,.054,paneH,bd,molding);
+    staticPlaneBox(x-w*.29,paneBase+.24,z-.008,w*.58,.032,.07,gold);
+   }else{staticPlaneBox(x,paneBase,z-w/2,bw,.055,bd,molding);staticPlaneBox(x,paneBase+paneH,z-w/2,bw,.055,bd,molding);
+    for(const oz of [-w/2,w/2])staticPlaneBox(x,paneBase,z+oz-.027,bw,paneH,.054,molding);
+    staticPlaneBox(x-.008,paneBase+.24,z-w*.29,.07,.032,w*.58,gold);
    }
   }
  }
  if(r.h>8&&theme!=='crypt'){
   // Small corner pilasters anchor the room and give the walls real depth.
   for(const [cx,cz] of [[r.x+.19,r.y+.19],[r.x+r.l-.29,r.y+.19],[r.x+.19,r.y+r.w-.29],[r.x+r.l-.29,r.y+r.w-.29]]){
-   planeBox(cx,base+.15,cz,.1,Math.min(5.0,r.h-.8),.1,molding);
-   planeBox(cx-.07,base+Math.min(5.12,r.h-.65),cz-.07,.24,.23,.24,gold);
+   staticPlaneBox(cx,base+.15,cz,.1,Math.min(5.0,r.h-.8),.1,molding);
+   staticPlaneBox(cx-.07,base+Math.min(5.12,r.h-.65),cz-.07,.24,.23,.24,gold);
   }
  }
 }
@@ -1801,10 +1841,10 @@ function bhStairCutout(r,fi,which){if(which==='ceiling'&&bhStairPair(r,fi,1))ret
  if(which==='floor'&&bhStairPair(r,fi,-1))return bhStairFootprint(r);
  return null;}
 function bhRoomSlab(r,fi,base,which,mat){const cut=bhStairCutout(r,fi,which),y=which==='floor'?base-.16:base+r.h,thick=which==='floor'?.16:.14;
- if(!cut){planeBox(r.x,y,r.y,r.l,thick,r.w,mat);return;}
+ if(!cut){staticPlaneBox(r.x,y,r.y,r.l,thick,r.w,mat);return;}
  const lx=Math.max(0,cut.x-r.x),rx=Math.min(r.l,cut.x+cut.l-r.x),tz=Math.max(0,cut.y-r.y),bz=Math.min(r.w,cut.y+cut.w-r.y);
- if(lx>0)planeBox(r.x,y,r.y,lx,thick,r.w,mat);if(rx<r.l)planeBox(r.x+rx,y,r.y,r.l-rx,thick,r.w,mat);
- if(tz>0)planeBox(r.x+lx,y,r.y,rx-lx,thick,tz,mat);if(bz<r.w)planeBox(r.x+lx,y,r.y+bz,rx-lx,thick,r.w-bz,mat);
+ if(lx>0)staticPlaneBox(r.x,y,r.y,lx,thick,r.w,mat);if(rx<r.l)staticPlaneBox(r.x+rx,y,r.y,r.l-rx,thick,r.w,mat);
+ if(tz>0)staticPlaneBox(r.x+lx,y,r.y,rx-lx,thick,tz,mat);if(bz<r.w)staticPlaneBox(r.x+lx,y,r.y+bz,rx-lx,thick,r.w-bz,mat);
 }
 function bhRenderEmbeddedStair(r,fi){const s=bhStairFootprint(r);if(!s)return;const base=zBase(fi),height=bhStairPair(r,fi,1)?zBase(fi+1)-base:Math.min(r.h,4.8);
  const count=Math.max(12,Math.min(38,Math.ceil(height*12/7))),mat=new THREE.MeshStandardMaterial({color:0x5a423e,roughness:.8}),brass=new THREE.MeshStandardMaterial({color:0xb59a67,metalness:.55,roughness:.4});
@@ -1894,7 +1934,7 @@ function makeGraveMarkers(x,z,style,scale,tilt,stoneM,weatherM,ironM){
   monument(new THREE.BoxGeometry(.82,.14,.5),weatherM,0,.35,0);
   monument(new THREE.BoxGeometry(.24,.02,.025),ironM,0,.46,.29);
  }
- world.add(g);
+ markStaticScenery(g);world.add(g);
 }
 function makeAncientTree(x,z,h,seed){
  const rnd=seeded('ancient-tree-'+seed);const wood=new THREE.MeshStandardMaterial({color:0x302923,roughness:1});const bark=new THREE.MeshStandardMaterial({color:0x4b4238,roughness:1});
@@ -1907,7 +1947,7 @@ function makeAncientTree(x,z,h,seed){
   branch(ex,ey,ez,ex+Math.cos(a+.6)*.5,ey+.42,ez+Math.sin(a+.6)*.4,.046,.014,wood);
  }
  for(let i=0;i<4;i++){const a=i*Math.PI*.5+rnd()*.3;branch(0,.1,0,Math.cos(a)*.7,.17,Math.sin(a)*.7,.11,.022,bark)}
- world.add(g);
+ markStaticScenery(g);world.add(g);
 }
 function addCemeteryMoon(minx,maxx,minz,maxz){
  const rand=seeded('black-hollow-moon');const canvas=document.createElement('canvas');canvas.width=canvas.height=256;const ctx=canvas.getContext('2d');
@@ -1944,16 +1984,16 @@ function outdoorGeometry(){
  for(let j=0;j<pathCount;j++){
   const stonePath=new THREE.Mesh(new THREE.BoxGeometry(1.3+rand()*.45,.035,1.0+rand()*.4),pathMat);
   stonePath.position.set(px+Math.sin(j*.55)*.55,groundY-.185,pz+j*1.45);stonePath.rotation.y=(rand()-.5)*.3;
-  if(clearOfRooms(stonePath.position.x,stonePath.position.z,1.2))world.add(stonePath)
+  if(clearOfRooms(stonePath.position.x,stonePath.position.z,1.2)){markStaticScenery(stonePath);world.add(stonePath)}
  }
  // Original wrought-iron perimeter, with finials and a second crossbar.
  for(let x=minx+1;x<=maxx-1;x+=2.4)for(const z of [minz+1,maxz-1]){
-  planeBox(x,groundY-.2,z,.085,3,.09,iron);planeBox(x-.035,groundY+1.0,z,.16,.06,.13,iron);
-  const cap=new THREE.Mesh(new THREE.ConeGeometry(.13,.29,4),iron);cap.position.set(x,groundY+2.95,z);world.add(cap)
+  staticPlaneBox(x,groundY-.2,z,.085,3,.09,iron);staticPlaneBox(x-.035,groundY+1.0,z,.16,.06,.13,iron);
+  const cap=new THREE.Mesh(new THREE.ConeGeometry(.13,.29,4),iron);cap.position.set(x,groundY+2.95,z);markStaticScenery(cap);world.add(cap)
  }
- for(let z=minz+1;z<=maxz-1;z+=2.4)for(const x of [minx+1,maxx-1])planeBox(x,groundY-.2,z,.09,3,.085,iron);
- for(const z of [minz+1,maxz-1])for(const y of [groundY+.65,groundY+1.95])planeBox(minx+1,y,z,maxx-minx-2,.055,.055,iron);
- for(const x of [minx+1,maxx-1])for(const y of [groundY+.65,groundY+1.95])planeBox(x,y,minz+1,.055,.055,maxz-minz-2,iron);
+ for(let z=minz+1;z<=maxz-1;z+=2.4)for(const x of [minx+1,maxx-1])staticPlaneBox(x,groundY-.2,z,.09,3,.085,iron);
+ for(const z of [minz+1,maxz-1])for(const y of [groundY+.65,groundY+1.95])staticPlaneBox(minx+1,y,z,maxx-minx-2,.055,.055,iron);
+ for(const x of [minx+1,maxx-1])for(const y of [groundY+.65,groundY+1.95])staticPlaneBox(x,y,minz+1,.055,.055,maxz-minz-2,iron);
  for(const r of rooms){if(themeForRoom(r)==='conservatory')addConservatoryExterior(r)}
  addCemeteryMoon(minx,maxx,minz,maxz);addCemeteryFireflies(minx,maxx,minz,maxz,clearOfRooms);
  outdoorGhosts=[];
@@ -2148,7 +2188,7 @@ async function attempt(data){
  try{
   // Let the browser paint feedback before generating the house.
   await new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));
-  classroomReport=blueprintReview(data);load(data);collectLights();budgetNearbyLights(performance.now());
+  classroomReport=blueprintReview(data);load(data);batchStaticScenery();collectLights();budgetNearbyLights(performance.now());
   loading.textContent='Preparing graphics…';
   await new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));
   await renderer.compileAsync(scene,camera);
