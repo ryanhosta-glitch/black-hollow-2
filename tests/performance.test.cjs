@@ -23,7 +23,7 @@ test('paused scene renders once, then stays idle; invalidation redraws once', ()
   let frames = 0;
   const context = vm.createContext({ requestAnimationFrame() {}, document: { hidden: false }, playing: true,
     renderer: { render() { frames++; } }, player: {}, scene: {}, camera: {}, storyPaused: true,
-    lastFrameTime: 10, pausedFrameRendered: false });
+    lastFrameTime: 10, preparingGame: false, pausedFrameRendered: false });
   vm.runInContext(loopFunction, context);
   for (let time = 16; time < 4000; time += 16) context.loop(time);
   assert.equal(frames, 1);
@@ -37,4 +37,26 @@ test('paused scene renders once, then stays idle; invalidation redraws once', ()
   context.document.hidden = false;
   context.loop(4048);
   assert.equal(frames, 3);
+});
+
+test('Performance material settings disable costly effects and restore Cinematic values', () => {
+  const source = html.slice(html.indexOf('function configureGameMaterial('), html.indexOf('function createGamePhysicalMaterial('));
+  const context = vm.createContext({ quality: 'low', physicalMaterialSettings: new WeakMap(),
+    physicalFeatures: ['transmission', 'clearcoat', 'iridescence', 'sheen', 'anisotropy', 'dispersion'] });
+  vm.runInContext(source, context);
+  const material = { isMaterial: true, transmission: 0.12, clearcoat: 1, iridescence: 0.1, forceSinglePass: false, needsUpdate: false };
+  context.configureGameMaterial(material);
+  assert.equal(material.transmission, 0);
+  assert.equal(material.clearcoat, 0);
+  assert.equal(material.iridescence, 0);
+  assert.equal(material.forceSinglePass, true);
+  material.needsUpdate = false;
+  context.configureGameMaterial(material);
+  assert.equal(material.needsUpdate, false, 'unchanged settings should not trigger shader recompilation');
+  context.quality = 'high';
+  context.configureGameMaterial(material);
+  assert.equal(material.transmission, 0.12);
+  assert.equal(material.clearcoat, 1);
+  assert.equal(material.iridescence, 0.1);
+  assert.equal(material.forceSinglePass, false);
 });
