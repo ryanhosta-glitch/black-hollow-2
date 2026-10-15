@@ -428,7 +428,7 @@ function graphicsPixelRatio(){
  const high=quality==='high', budget=high?1920*1080:1280*720;
  return Math.min(window.devicePixelRatio||1,high?1.35:.9,Math.sqrt(budget/(Math.max(1,innerWidth)*Math.max(1,innerHeight))));
 }
-function applyGraphicsSettings(){if(!renderer)return;const economical=quality!=='high';renderer.setPixelRatio(graphicsPixelRatio());renderer.shadowMap.enabled=!economical;renderer.toneMappingExposure=economical?1.36:1.28;resize();if(torch){torch.castShadow=!economical;torch.intensity=economical?24:45;}if(scene){const moon=scene.children.find(n=>n.isDirectionalLight&&n!==stormLight);if(moon)moon.castShadow=!economical;
+function applyGraphicsSettings(){if(!renderer)return;const economical=quality!=='high';renderer.setPixelRatio(graphicsPixelRatio());renderer.shadowMap.enabled=!economical;renderer.toneMappingExposure=economical?1.36:1.28;resize();if(torch){torch.castShadow=!economical;torch.intensity=economical?24:45;}if(scene){scene.environmentIntensity=economical?.12:.18;const moon=scene.children.find(n=>n.isDirectionalLight&&n!==stormLight);if(moon)moon.castShadow=!economical;
  scene.traverse(o=>{for(const material of [].concat(o.material||[]))configureGameMaterial(material);});
  }
  const cap=economical?4:8;
@@ -6907,16 +6907,16 @@ window.__BlackHollowFire=bh8515;
    const t=makeSurfaces(kind);
    const isMetal=metalSet.has(kind),isFabric=fabricSet.has(kind),isWood=woodSet.has(kind);
    const params={...t,color:0xffffff,metalness:isMetal?(kind==='brass'||kind==='gold'?.92:.98):kind==='ceramic'?.07:0,
-    roughness:isMetal?(kind==='silver'?.22:kind==='gold'?.29:.44):isWood?.65:isFabric?.94:kind==='ceramic'?.31:.88,
+    roughness:isMetal?.62:isWood?.82:isFabric?.94:kind==='ceramic'?.66:.88,
     normalScale:new THREE.Vector2(isMetal?.22:isFabric?.62:.56,isMetal?.22:isFabric?.62:.56)};
    let mat;
    if(['oak','mahogany','walnut','leather','brass','gold','silver','ceramic','wax'].includes(kind)){
-     mat=createGamePhysicalMaterial({...params,clearcoat:isWood?.55:kind==='leather'?.13:isMetal?.42:kind==='ceramic'?.7:0,
-       clearcoatRoughness:isWood?.23:isMetal?.18:.28,envMapIntensity:isMetal?1.7:isWood?.65:.9,
+     mat=createGamePhysicalMaterial({...params,clearcoat:isWood?.06:kind==='leather'?.03:isMetal?.1:kind==='ceramic'?.08:0,
+       clearcoatRoughness:.65,envMapIntensity:isMetal?.4:isWood?.15:.2,
        ...(kind==='wax'?{transmission:.04,thickness:.13}: {})});
    }else{
      mat=new THREE.MeshStandardMaterial(params);
-     mat.envMapIntensity=.7;
+     mat.envMapIntensity=.2;
    }
    mat.userData.bh8518Finish=kind;
    V.materials.set(kind,mat);return mat;
@@ -6939,7 +6939,7 @@ window.__BlackHollowFire=bh8515;
    }
    const env=new THREE.CanvasTexture(canvas);env.mapping=THREE.EquirectangularReflectionMapping;
    env.colorSpace=THREE.SRGBColorSpace;env.needsUpdate=true;
-   scene.environment=env;scene.environmentIntensity=quality==='high'?.7:.55;
+   scene.environment=env;scene.environmentIntensity=quality==='high'?.18:.12;
    V.environment=env;V.envCanvas=canvas;
  }
  function finishMesh(mesh,kind){
@@ -6953,9 +6953,9 @@ window.__BlackHollowFire=bh8515;
  function physicalGlass(old){
    if(!old||old.userData?.bh8518Glass)return old;
    const m=createGamePhysicalMaterial({map:old.map||null,color:old.color||0xffffff,side:THREE.DoubleSide,
-      transparent:true,opacity:.73,depthWrite:false,roughness:.08,metalness:.02,
-      transmission:.12,thickness:.035,ior:1.48,clearcoat:1,clearcoatRoughness:.07,
-      envMapIntensity:1.45,specularIntensity:1.0,iridescence:.1,iridescenceIOR:1.35,
+      transparent:true,opacity:.73,depthWrite:false,roughness:.42,metalness:0,
+      transmission:0,thickness:.035,ior:1.48,clearcoat:.08,clearcoatRoughness:.65,
+      envMapIntensity:.15,specularIntensity:.25,iridescence:0,iridescenceIOR:1.35,
       emissive:old.emissive||0x0b1821,emissiveIntensity:Math.max(.08,(old.emissiveIntensity||0)*.7)});
    m.userData.bh8518Glass=true;V.glass++;
    return m;
@@ -7061,7 +7061,7 @@ window.__BlackHollowFire=bh8515;
    const parquet=/wood|parquet|herringbone|boards/i.test(profile.floor||'');
    const k=parquet?'oak':/checker|mosaic/i.test(profile.floor||'')?'ceramic':'stone';
    const surf=makeSurfaces(k);m.normalMap=surf.normalMap;m.roughnessMap=surf.roughnessMap;
-   m.normalScale.set(parquet?.32:.48,parquet?.32:.48);m.roughness=parquet?.46:k==='ceramic'?.35:.87;
+   m.normalScale.set(parquet?.32:.48,parquet?.32:.48);m.roughness=parquet?.8:k==='ceramic'?.7:.87;
    m.needsUpdate=true;V.faces++;return m;
  };
  const prevDoorTrim=addDoorwayDecor;
@@ -7091,7 +7091,7 @@ window.__BlackHollowFire=bh8515;
       const geo=obj.geometry?.parameters||{};
       const w=geo.width||2, h=geo.height||3;
       const glint=new THREE.Mesh(new THREE.PlaneGeometry(Math.max(.04,w*.1),Math.max(.25,h*.82)),
-        new THREE.MeshBasicMaterial({color:0xeaf3ff,transparent:true,opacity:.05,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide}));
+        new THREE.MeshBasicMaterial({color:0xeaf3ff,transparent:true,opacity:.005,depthWrite:false,blending:THREE.AdditiveBlending,side:THREE.DoubleSide}));
       glint.position.z=.008;
       obj.add(glint);obj.userData.bh8518GlassRig=true;
       V.paneActors.push({pane:obj,glint,w,phase:Math.random()*7});
@@ -7116,7 +7116,7 @@ window.__BlackHollowFire=bh8515;
      if(Math.hypot(bh8518WorldPos.x-player.x,bh8518WorldPos.z-player.z)>16)continue;
      const wave=.5+.5*Math.sin(time*.00062+a.phase);
      a.glint.position.x=(-.36+wave*.72)*a.w;
-     a.glint.material.opacity=.022+wave*.044+(stormLight?.intensity>1?.07:0);
+     a.glint.material.opacity=.003+wave*.006+(stormLight?.intensity>1?.01:0);
    }
  }
  const prevWindow=addWindowFeature;
