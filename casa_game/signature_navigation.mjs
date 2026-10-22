@@ -21,8 +21,8 @@ export function signatureBlocked(kind,x,z,y,blockers,radius=.21){
 }
 export function signatureActions(kind,p){
  const near=(x,y,z,r)=>Math.hypot(p[0]-x,p[2]-z)<=r&&Math.abs(p[1]-y)<.45;
- if(kind==='hall')return {returnHouse:near(0,0,-14.2,1.65),boardElevator:near(0,5.25,14,1.25)};
+ if(kind==='hall')return {returnHouse:near(0,0,14.4,1.65),outside:near(0,0,-14.2,1.65),boardElevator:near(0,5.25,14,1.25)};
  if(kind==='floor13')return {returnElevator:near(0,0,-15.6,1.15)};
  return {};
 }
-export function signatureLinks(entry){return {version:1,units:'meters',mode:'explicit-pocket-portals',estateEntryRoom:entry,connections:[{id:'estate-hall',from:{scene:'estate',roomId:entry},to:{scene:'hall',position:[0,0,-13.5]},type:'door-portal',bidirectional:true},{id:'hall-elevator',from:{scene:'hall',position:[0,5.25,14],radius:1.25},to:{scene:'floor13',position:[0,0,-14.8]},type:'elevator',requiresCabinEntry:true,bidirectional:true}],gameOwned:['quest-floor13-unlock','elevator-animation','save-state'],runtime:'forge-inspection-only',gameplayCertified:false};}
+export function signatureLinks(entry){return {version:1,units:'meters',mode:'explicit-pocket-portals',estateEntryRoom:entry,connections:[{id:'estate-hall',from:{scene:'estate',roomId:entry},to:{scene:'hall',position:[0,0,14.1]},type:'door-portal',bidirectional:true},{id:'hall-elevator',from:{scene:'hall',position:[0,5.25,14],radius:1.25},to:{scene:'floor13',position:[0,0,-14.8]},type:'elevator',requiresCabinEntry:true,bidirectional:true}],gameOwned:['quest-floor13-unlock','elevator-animation','save-state'],runtime:'forge-inspection-only',gameplayCertified:false};}
