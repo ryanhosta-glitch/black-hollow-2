@@ -3,6 +3,8 @@
   "houses": [
     {
       "id": "demo-moonveil",
+      "fingerprint": "c0a0977e0e12144801b6b2ad48e6053743e22ff694c7946b8081b6776bf28c59",
+      "geometryLevel": "victorian-textured-architecture-4.3",
       "name": "Moonveil Manor — Three-Level Staircase Test Estate",
       "package": "./samples/moonveil.casa",
       "architect": "Black Hollow Forge",
@@ -10,6 +12,8 @@
     },
     {
       "id": "demo-lonely-candle",
+      "fingerprint": "7a5a231871a275daa73aab8d5d379909342be8c26c10160caec1ec810de8e255",
+      "geometryLevel": "victorian-textured-architecture-4.3",
       "name": "The Lonely Candle",
       "package": "./samples/one-room.casa",
       "architect": "Black Hollow Forge",
@@ -17,6 +21,8 @@
     },
     {
       "id": "demo-split-lantern",
+      "fingerprint": "9603464358fdf7939c2b7fcd4120df32c21d45f41e1ed1c5608e36d2068e0f57",
+      "geometryLevel": "victorian-textured-architecture-4.3",
       "name": "The Split Lantern",
       "package": "./samples/split-lantern.casa",
       "architect": "Black Hollow Forge",

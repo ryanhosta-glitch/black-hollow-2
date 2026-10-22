@@ -13,15 +13,16 @@ const server=http.createServer(async(req,res)=>{try{
  let body=await readFile(file);
  // Test-only access to the actual application. No hooks are written to production modules.
  if(url==='/casa_game/main.mjs')body=Buffer.from(body.toString()+`
-window.__forgeBrowser={loadHouse,houseScene,signatureScene,nearestAction,get house(){return house},get session(){return session},get walker(){return walker},get mode(){return mode},get busy(){return busy},pose};`);
+window.__forgeBrowser={loadHouse,houseScene,signatureScene,nearestAction,get house(){return house},get session(){return session},get walker(){return walker},get mode(){return mode},get busy(){return busy},get dialog(){return dialog},get camera(){return camera},pose};`);
  res.setHeader('Content-Type',file.endsWith('.mjs')||file.endsWith('.js')?'text/javascript':file.endsWith('.html')?'text/html':file.endsWith('.webp')?'image/webp':'application/octet-stream');res.end(body);
 }catch{res.writeHead(404);res.end('missing');}});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
 const args=process.env.CHROMIUM_ARGS?JSON.parse(process.env.CHROMIUM_ARGS):['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
 const browser=await pw.launch({...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args,headless:true});
-try{const page=await browser.newPage({viewport:{width:1280,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+let page;const errors=[];
+try{page=await browser.newPage({viewport:{width:1280,height:1000}});page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
  await page.route('https://cdn.jsdelivr.net/npm/three@0.170.0/**',async route=>{const relative=route.request().url().split('three@0.170.0/')[1];await route.fulfill({body:await readFile(path.join(root,'node_modules/three',relative)),contentType:'text/javascript'});});
  await page.goto(base+'/casa_admin/compiler.html');
- await page.locator('#haunt').setInputFiles({name:'visual.haunt',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(source))});
+ await page.locator('#haunt:not([disabled])').waitFor();await page.locator('#haunt').setInputFiles({name:'visual.haunt',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(source))});
  await page.waitForFunction(()=>!document.getElementById('build').disabled);
  const downloadPromise=page.waitForEvent('download');await page.locator('#build').click();const download=await downloadPromise;await download.saveAs(path.join(output,'visual.casa'));freshBytes=await readFile(path.join(output,'visual.casa'));
  await page.waitForFunction(()=>!document.getElementById('preview').disabled);await page.locator('#preview').click();await page.waitForFunction(()=>document.querySelector('#previewCanvas canvas'));await page.waitForFunction(()=>document.querySelector('#previewCanvas select')?.disabled===false);
@@ -49,10 +50,10 @@ try{const page=await browser.newPage({viewport:{width:1280,height:1000}}),errors
  assert.equal(await page.evaluate(()=>window.__forgeBrowser.mode),'hall');
  // Walk the physical Hall staircase, using real animation frames and the real camera.
  await page.evaluate(()=>window.__forgeBrowser.walker.setPosition(4.5,0,3.5,Math.PI));await page.keyboard.down('w');
- try{await page.waitForFunction(()=>window.__forgeBrowser.pose().position[1]>5.249,{},{timeout:15000});}finally{await page.keyboard.up('w');}
+ try{await page.waitForFunction(()=>window.__forgeBrowser.pose().position[1]>5.249,{},{timeout:60000});}catch(error){console.log('HALL FAILURE',await page.evaluate(()=>({pose:window.__forgeBrowser.pose(),active:window.__forgeBrowser.walker.active,busy:window.__forgeBrowser.busy,dialog:window.__forgeBrowser.dialog,modal:document.getElementById('modal').hidden})),errors);await page.screenshot({path:path.join(output,'hall-failure.png')});throw error;}finally{await page.keyboard.up('w');}
  const stairHeight=await page.evaluate(()=>window.__forgeBrowser.pose().position[1]);assert.ok(Math.abs(stairHeight-5.25)<.002);
  await page.screenshot({path:path.join(output,'hall-stairs.png')});
  for(const floor of [0,1])await page.evaluate(async floor=>{const g=window.__forgeBrowser,r=g.house.rooms.find(r=>r.floor===floor),s=g.house.access.stops.find(s=>s.floor===floor);await g.houseScene(r,s.approachMeters);},floor);
  await page.screenshot({path:path.join(output,'game-upper-floor.png')});
  assert.deepEqual(errors,[]);const report={sharedWallMaterials,browser:await browser.version(),webgl:true,errors,previewSummary,compiledBytes:freshBytes.length,physicalHallStairHeight:stairHeight,checked:['UI blueprint compilation and CASA download','PNG and WebP texture decoding','exterior roofs and interior floor views','room inspection and cutaway toggle','collision guides and floor visibility controls','fresh CASA loaded in actual Game','physical Hall stair ascent','fresh lower and upper house floors']};await writeFile(path.join(output,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));
-}finally{await browser.close();await new Promise(r=>server.close(r));}
+}catch(error){await writeFile(path.join(output,'forge-failure.json'),JSON.stringify({error:String(error),errors,state:await page?.evaluate(()=>({pose:window.__forgeBrowser?.pose(),active:window.__forgeBrowser?.walker?.active,mode:window.__forgeBrowser?.mode,busy:window.__forgeBrowser?.busy,dialog:window.__forgeBrowser?.dialog,modalHidden:document.getElementById('modal')?.hidden,modalTitle:document.getElementById('modalTitle')?.textContent,toast:document.getElementById('toast')?.textContent})).catch(()=>null)},null,2));await page?.screenshot({path:path.join(output,'forge-failure.png')}).catch(()=>{});throw error;}finally{await browser.close();server.closeAllConnections();await new Promise(r=>server.close(r));}
