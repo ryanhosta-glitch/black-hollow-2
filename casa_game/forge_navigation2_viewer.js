@@ -1,3 +1,4 @@
+import {createExplorer} from './explorer.mjs';
 import {circleTouchesRectangle} from './navigation/door_leaf_collision.mjs';
 // Black Hollow Forge — Navigation 2 main-viewer compatibility controller.
 // Reusable preview controller, not yet a certified game physics engine. Closed/locked doors require game logic.
@@ -11,14 +12,7 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
  const panel=document.createElement('section');panel.id='bh-walk-panel';panel.innerHTML=`<style>
  #bh-walk-panel{position:fixed;z-index:1200;bottom:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px;width:min(94vw,820px);padding:8px;background:#10131ef0;color:#f6e8d7;border:1px solid #a08462;border-radius:12px;font:12px system-ui;box-sizing:border-box}#bh-walk-panel button{background:#342839;color:#fff;border:1px solid #997a62;padding:8px;border-radius:7px;cursor:pointer}#bh-walk-panel .walking{display:none}#bh-walk-panel.active .walking{display:inline-block}#bh-walk-panel small{width:100%;text-align:center;color:#d3bfa6}#bh-walk-panel .room{font-weight:bold}#bh-walk-panel .touch{touch-action:none}#bh-walk-panel #bh-walk-status{color:#e8cc9a}</style>
  <button id="bh-walk-toggle">Walk</button><span class="room" id="bh-walk-room">Black Hollow</span><button class="walking" id="bh-walk-camera">Camera: CINEMATIC</button><button class="walking" id="bh-walk-exit">Exit</button><button class="walking touch" data-walk="forward">▲</button><button class="walking touch" data-walk="turnleft">↶</button><button class="walking touch" data-walk="backward">▼</button><button class="walking touch" data-walk="turnright">↷</button><button class="walking" id="bh-director-mode">Director: HYBRID</button><small id="bh-walk-status">W/↑ forward · S/↓ back · A/← turn left · D/→ turn right</small>`;
- document.body.append(panel);const q=id=>panel.querySelector('#'+id);const avatar=new THREE.Group();avatar.name='forge_victorian_explorer_preview';
- const coat=new THREE.MeshStandardMaterial({color:0x27334a,roughness:.9}),vest=new THREE.MeshStandardMaterial({color:0x665344}),skin=new THREE.MeshStandardMaterial({color:0xc6a68c}),hat=new THREE.MeshStandardMaterial({color:0x191922}),cloth=new THREE.MeshStandardMaterial({color:0x252733}),boots=new THREE.MeshStandardMaterial({color:0x17161c});
- function addBox(parent,w,h,d,x,y,z,material){let a=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),material);a.position.set(x,y,z);parent.add(a);return a}
- const torso=new THREE.Group();avatar.add(torso);const body=new THREE.Mesh(new THREE.CylinderGeometry(.26,.37,1.08,10),coat);body.position.y=1.2;torso.add(body);addBox(torso,.29,.5,.09,0,1.30,-.28,vest);
- const head=new THREE.Mesh(new THREE.SphereGeometry(.245,12,10),skin);head.position.y=1.96;torso.add(head);const brim=new THREE.Mesh(new THREE.CylinderGeometry(.39,.39,.055,14),hat);brim.position.y=2.19;torso.add(brim);const crown=new THREE.Mesh(new THREE.CylinderGeometry(.245,.29,.34,12),hat);crown.position.y=2.39;torso.add(crown);
- const legs=[],arms=[];for(const side of [-1,1]){let leg=new THREE.Group();leg.position.set(side*.16,.71,0);avatar.add(leg);addBox(leg,.22,.72,.25,0,-.32,0,cloth);addBox(leg,.26,.15,.38,0,-.74,-.09,boots);legs.push(leg);let arm=new THREE.Group();arm.position.set(side*.34,1.57,0);torso.add(arm);addBox(arm,.17,.65,.18,side*.015,-.3,0,coat);arms.push(arm)}
- avatar.scale.setScalar(.68); // 1.75m including hat; architectural feet-to-meter scale.
- avatar.visible=false;
+ document.body.append(panel);const q=id=>panel.querySelector('#'+id);const {avatar,torso,legs,arms,animate:animateExplorer}=createExplorer(THREE);
  function bnd(r){const b=r?.boundsFeet;if(!b)return null;return {minX:b.x*K,maxX:(b.x+b.l)*K,minZ:b.y*K,maxZ:(b.y+b.w)*K,y:getSurfaceHeight&&r===S.room?S.groundY:levelY(r.floor),floor:r.floor};}
  const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
  function sync(){q('bh-director-mode').textContent='Director: '+S.directorMode.toUpperCase();panel.classList.toggle('active',S.active);q('bh-walk-toggle').textContent=S.active?'Explorer ON':'Walk';q('bh-walk-room').textContent=S.room?.name||'Black Hollow';q('bh-walk-camera').textContent='Camera: '+S.mode.toUpperCase();avatar.visible=S.active&&S.mode!=='first';}
@@ -348,10 +342,10 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
   }
   const len=Math.abs(S.speed);
   const moving=len>.001;
-  stride+=dt*(moving?10:0);const a=moving?Math.sin(stride)*.45:0;
+  stride+=dt*(moving?10*Math.min(1.8,len/2.55):0);const a=moving?Math.sin(stride)*.45:0;
   legs[0].rotation.x=a;legs[1].rotation.x=-a;
   arms[0].rotation.x=-a*.75;arms[1].rotation.x=a*.75;
-  torso.position.y=moving?Math.abs(Math.sin(stride))*.035:0;
+  animateExplorer(stride,moving,t);torso.position.y=moving?Math.abs(Math.sin(stride))*.035:0;
   follow(dt);
  }
  const keymap={KeyW:'forward',ArrowUp:'forward',KeyS:'backward',ArrowDown:'backward',KeyA:'turnleft',KeyD:'turnright',ArrowLeft:'turnleft',ArrowRight:'turnright',ShiftLeft:'sprint',ShiftRight:'sprint'};

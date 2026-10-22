@@ -1,0 +1,7 @@
+import {random,seedNumber} from './session.mjs';
+export const encounterKinds=['whisper','reflection','portrait','draft','clock'];
+export function createEncounterDirector(seed,{saved={},reducedMotion=false}={}){
+ const rng=random(seedNumber(String(seed)+':encounters'));let clock=0,next=22+rng()*18,lastRoom='';
+ return {saved,tick(dt,{roomId,stage,paused=false}={}){if(paused||!roomId||stage==='complete')return null;if(lastRoom!==roomId){lastRoom=roomId;next=Math.max(next,clock+12);}clock+=Math.min(.1,dt);if(clock<next)return null;next=clock+28+rng()*35;const count=saved[roomId]||0,kind=encounterKinds[(seedNumber(roomId+seed)+count)%encounterKinds.length];saved[roomId]=count+1;return {id:roomId+':'+count,kind,motion:!reducedMotion,text:{whisper:'A whisper slips through the wall. Then the house falls quiet.',reflection:'A pale shape crosses the mirror. The room behind you is empty.',portrait:'For a moment, the portrait looks past your shoulder.',draft:'The curtain stirs against the wind.',clock:'A distant clock strikes once, though its hands have stopped.'}[kind]};},get elapsed(){return clock;}};
+}
+export const spiritProfiles=[{name:'The Pale Watcher',motive:'helpful',line:'Follow the names, not the shadows. The Founder remembers the beginning.'},{name:'The Veiled Guest',motive:'grieving',line:'Someone kept my place at the table. Please find out why.'},{name:'The Lantern Wisp',motive:'mischievous',line:'Three little treasures, thirteen little secrets. The Seer knows which comes first.'}];

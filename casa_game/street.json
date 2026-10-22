@@ -14,6 +14,13 @@
       "package": "./samples/one-room.casa",
       "architect": "Black Hollow Forge",
       "description": "A prepared house with a different mystery whenever you begin a new haunting."
+    },
+    {
+      "id": "demo-split-lantern",
+      "name": "The Split Lantern",
+      "package": "./samples/split-lantern.casa",
+      "architect": "Black Hollow Forge",
+      "description": "A prepared house with a different mystery whenever you begin a new haunting."
     }
   ]
 }
