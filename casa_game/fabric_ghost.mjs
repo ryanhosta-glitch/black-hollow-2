@@ -14,9 +14,6 @@ export function createFabricGhost(THREE,{kind=0,color=0xc4dce9,reducedMotion=fal
  const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geometry.setIndex(indices);geometry.computeVertexNormals();
  const material=new THREE.MeshStandardMaterial({color,roughness:.96,metalness:0,transparent:true,opacity:.76,side:THREE.DoubleSide,depthWrite:false,emissive:color,emissiveIntensity:.07});
  const cloth=new THREE.Mesh(geometry,material);cloth.name='flowing spectral fabric';group.add(cloth);
- // A recessed shadow beneath the hood, with small eyes rather than protruding balls.
- const face=new THREE.Mesh(new THREE.SphereGeometry(.15,16,12),new THREE.MeshStandardMaterial({color:0x111d29,roughness:1}));face.scale.set(.88,1.12,.16);face.position.set(0,1.70,.207);group.add(face);
- for(const side of [-1,1]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.019,8,6),new THREE.MeshBasicMaterial({color:0xdceeff}));eye.scale.set(1,.65,.4);eye.position.set(side*.06,1.73,.234);group.add(eye);}
  let last=-Infinity;
  group.userData.animateFabric=time=>{if(reducedMotion||time-last<80)return;last=time;const attr=geometry.attributes.position;for(let j=0;j<=rings;j++)for(let i=0;i<=segments;i++)attr.setXYZ(j*(segments+1)+i,...point(j/rings,i/segments*Math.PI*2,time/1000));attr.needsUpdate=true;geometry.computeVertexNormals();};
  return group;

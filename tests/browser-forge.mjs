@@ -13,7 +13,7 @@ const server=http.createServer(async(req,res)=>{try{
  let body=await readFile(file);
  // Test-only access to the actual application. No hooks are written to production modules.
  if(url==='/casa_game/main.mjs')body=Buffer.from(body.toString()+`
-window.__forgeBrowser={loadHouse,houseScene,signatureScene,nearestAction,get house(){return house},get session(){return session},get walker(){return walker},get mode(){return mode},get busy(){return busy},get dialog(){return dialog},get camera(){return camera},pose};`);
+window.__forgeBrowser={loadHouse,houseScene,signatureScene,nearestAction,get house(){return house},get session(){return session},get walker(){return walker},get mode(){return mode},get busy(){return busy},get dialog(){return dialog},get camera(){return camera},get markers(){return markers},get atmosphere(){return atmosphere},pose};`);
  res.setHeader('Content-Type',file.endsWith('.mjs')||file.endsWith('.js')?'text/javascript':file.endsWith('.html')?'text/html':file.endsWith('.webp')?'image/webp':'application/octet-stream');res.end(body);
 }catch{res.writeHead(404);res.end('missing');}});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
 const args=process.env.CHROMIUM_ARGS?JSON.parse(process.env.CHROMIUM_ARGS):['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
@@ -48,6 +48,11 @@ try{page=await browser.newPage({viewport:{width:1280,height:1000}});page.on('pag
  await page.goto(base+'/casa_game.html');await page.waitForFunction(()=>!document.getElementById('startStreet').disabled);await page.locator('#startStreet').click();await page.waitForFunction(()=>window.__forgeBrowser?.mode==='street'&&!window.__forgeBrowser.busy&&window.__forgeBrowser.walker?.active);
  await page.evaluate(async()=>{await window.__forgeBrowser.loadHouse({id:'browser-fresh',name:'Victorian Visual Estate',package:'/__fresh.casa'});});await page.locator('#closeModal').click();
  assert.equal(await page.evaluate(()=>window.__forgeBrowser.mode),'hall');
+ await page.evaluate(()=>{window.__forgeBrowser.walker.setCameraMode('first');window.__forgeBrowser.walker.setPosition(0,0,-9,Math.PI);});await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await page.screenshot({path:path.join(output,'creepy-gallery.png')});
+ await page.evaluate(()=>window.__forgeBrowser.walker.setPosition(0,5.25,10.3,Math.PI));
+ await page.waitForFunction(()=>window.__forgeBrowser.markers.children.find(g=>g.name==='Automatic elevator entrance')?.userData.open===1);
+ await page.screenshot({path:path.join(output,'automatic-elevator.png')});
+
  // Walk the physical Hall staircase, using real animation frames and the real camera.
  await page.evaluate(()=>window.__forgeBrowser.walker.setPosition(4.5,0,3.5,Math.PI));await page.keyboard.down('w');
  try{await page.waitForFunction(()=>window.__forgeBrowser.pose().position[1]>5.249,{},{timeout:60000});}catch(error){console.log('HALL FAILURE',await page.evaluate(()=>({pose:window.__forgeBrowser.pose(),active:window.__forgeBrowser.walker.active,busy:window.__forgeBrowser.busy,dialog:window.__forgeBrowser.dialog,modal:document.getElementById('modal').hidden})),errors);await page.screenshot({path:path.join(output,'hall-failure.png')});throw error;}finally{await page.keyboard.up('w');}
