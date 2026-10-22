@@ -45,3 +45,31 @@ The new tests found and fixed furniture-blocked portrait interaction anchors in 
 ## Review and try
 
 Check out this branch, run `npm ci --ignore-scripts`, `npm test`, then serve the repository over HTTP (for example `python -m http.server 8000`). Open `casa_admin.html`, expand Forge, build a blueprint and use Open 3D inspection. The compiled CASA is staged in Administrator step 2; inspect, download and playtest before any publication. Pages currently deploys main only.
+
+# Pass 2 — production architecture and real rendering
+
+This section supersedes the Pass 1 browser limitation above. Development continues on the same branch; published house archives and main remain unchanged.
+
+## Added
+
+- Roof generation now visits every story. Uncovered lower wings receive roofs, and partially covered wings receive roof caps around upper-story footprints. Convex roof boundary clipping removes buried faces where gable/hip/mansard volumes intersect. A regression checks a closed overlapping-volume union against its exact surface area.
+- Authored `roofType: "tower"` adds an octagonal exterior roof lantern and conical cap. `dormers: 1..4` (or `roof.dormers`) adds gabled dormer ornaments to suitable gable roofs. These are exterior details, not new walkable rooms.
+- The main exterior entrance receives a covered porch when jamb clearance permits. The posts have exported collision bounds, and the central entrance lane remains clear. Tight entries omit the porch with an advisory rather than blocking the door.
+- Libraries, laboratories, bedrooms, ballrooms, crypts and conservatories use distinct wall/floor/panel/ceiling palettes. Four additional procedural tiles cover glazed ceramic, parquet, masonry and encaustic floors. Shared walls now have separate inward finish skins and panel offsets, so a neighboring room cannot overwrite its wallpaper or wainscot.
+- Preview controls include eye-level room inspection, material names/roughness/texture diagnostics, undecoded-texture counts, draw calls and estimated texture memory, per-floor/roof visibility, and colored collision guides. Placement warnings include floating furniture/portraits, elevator alignment and stair bypass status.
+- `qa/vertical_geometry.json` records measured elevator alignment, stair pair alignment, rise, headroom, tread count and straight-run feasibility. This is evidence, not a new physical stair certification.
+- GLB vertices are welded by position/normal/UV, reducing a box from 36 to 24 vertices. Only referenced embedded texture tiles are included. Indoor floor streaming excludes cemetery meshes, correcting both an appearance defect and unnecessary indoor geometry.
+
+## Verified
+
+- `npm test`: 41 Node cases plus existing navigation, scene-loading and complete application-flow suites, against both shipped and freshly compiled fixtures.
+- `npm run test:browser`: actual Chromium 153 with WebGL via software rendering. The browser uploads a multi-story, six-theme blueprint into the real compiler, downloads the CASA, inspects roofs/floors/rooms, toggles cutaway/collision/visibility controls, verifies PNG/WebP decoding, then loads that same CASA in the actual Game.
+- Keyboard walking reaches the physical shared Hall stair landing at exactly 5.25 m. The real Game renders fresh lower and upper house floors. Existing full-quest tests continue to cover elevators, ghost encounters, Floor 13 and map rewards.
+- Browser raycasts verify both sides of a library/laboratory shared wall at wallpaper and panel heights, confirming each room's own material is foremost.
+- Browser runs report zero page/console errors and zero undecoded textures. Screenshots are inspected after generation. This verifies the exercised fixtures on a software renderer, not arbitrary blueprints, all devices or hardware GPU performance.
+
+Run browser checks with `npx playwright-core install chromium` followed by `npm run test:browser`, or point `CHROMIUM_PATH` to an existing browser. Optional `CHROMIUM_ARGS` accepts a JSON argument array. Screenshots, the temporary CASA and a JSON report go to ignored `tests/artifacts/`. CI runs the browser suite and uploads its evidence separately from Pages publishing.
+
+## Still unfinished
+
+Arbitrary Blueprint stairs remain on the existing elevator bypass. Continuous traversal across streamed house floors, stair landings/railings and capsule/camera clearance still require implementation; this pass does not silently enable unsafe stair meshes. The tested Hall stairs are preserved. Roof clipping and ornaments still need broader coverage of unusual footprints, near-degenerate intersections, varying ceiling heights and large estates. Towers/dormers are exterior ornaments. New textures and porch detail are a first production palette, not historical reconstruction or exhaustive authored-style support. Hardware GPU/mobile performance is unverified. No old CASA receives new geometry until explicitly recompiled and published.
