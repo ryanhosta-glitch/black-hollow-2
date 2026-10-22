@@ -8,7 +8,8 @@
   "street": {
     "publishedCatalogFromCasaMetadata": true,
     "maximumLoadedPreviews": 2,
-    "localImportsStayOnDevice": true
+    "localImportsStayOnDevice": true,
+    "publishedSampleHouses": 3
   },
   "house": {
     "residentFloorCacheLimit": 1,
@@ -26,10 +27,19 @@
     "floor13Echoes": 13,
     "mapReward": true,
     "savedMysteries": true,
-    "oneRoomStaging": true
+    "oneRoomStaging": true,
+    "portraitCollection": 14,
+    "puzzleFamilies": [
+      "testimony",
+      "history",
+      "signal",
+      "keepsake"
+    ],
+    "savedConversationAndEncounterHistory": true,
+    "optionalGamepadSupport": true
   },
   "validation": {
-    "unitAndLegacyPerformanceTestsPassed": 13,
+    "unitAndLegacyPerformanceTestsPassed": 24,
     "realThreeSceneGraphsPassed": true,
     "navigationDoorRegressionPassed": true,
     "actualApplicationFlowWithSimulatedRendererPassed": true,
@@ -44,8 +54,22 @@
     "automaticCabinEntryMenuPassed": true,
     "outdoorInteriorFixtureExclusionPassed": true,
     "completeExteriorFallbackPassed": true,
-    "fabricGhostDeformationPassed": true
+    "fabricGhostDeformationPassed": true,
+    "largeCasaImportsMiBPassed": [
+      6,
+      20
+    ],
+    "maximumCompressedCasaMiB": 128,
+    "thirdDisconnectedRoomQuestPassed": true,
+    "signFrontAndRearOrientationPassed": true,
+    "headAttachedHatAndPlayerScalePassed": true,
+    "reducedMotionSkyPassed": true,
+    "browserWebGLContextAvailable": false,
+    "physicalHallDoorIntoAllThreeCasasPassed": true,
+    "simulatedGamepadTestsPassed": 5,
+    "physicalUsbControllerTested": false
   },
   "releaseStatus": "PLAYTEST_BUILD",
-  "gameplayCertification": false
+  "gameplayCertification": false,
+  "update": "seven-haunting-passes"
 }

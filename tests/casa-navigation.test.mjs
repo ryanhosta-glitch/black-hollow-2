@@ -6,6 +6,7 @@ const THREE=await import(pathToFileURL(process.argv[2]).href);
 const {createNavigation2ForgeViewer}=await import('../casa_game/forge_navigation2_viewer.js');
 class Element extends EventTarget {
  constructor(){super();this.nodes=new Map();this.classList={toggle(){}};this.dataset={};}
+ getContext(){return new Proxy({},{get:(o,k)=>o[k]??(()=>{}),set:(o,k,v)=>(o[k]=v,true)});}
  querySelector(id){if(!this.nodes.has(id))this.nodes.set(id,new Element());return this.nodes.get(id);}
  querySelectorAll(){return [];}
 }
