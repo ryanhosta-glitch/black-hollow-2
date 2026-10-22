@@ -9,8 +9,10 @@ export function planGameplaySlots(source,access,playability){
   else issues.push({severity:'BLOCK_GAME_READY',code:'GAMEPLAY_SLOT_NO_SAFE_LOCATION',role});
  }
  for(const role of roles)if(authored.filter(a=>a.role===role).length>1)issues.push({severity:'BLOCK_GAME_READY',code:'DUPLICATE_GAMEPLAY_ROLE',role});if(new Set(slots.map(s=>s.id)).size!==slots.length)issues.push({severity:'BLOCK_GAME_READY',code:'DUPLICATE_GAMEPLAY_OBJECT_ID'});
+ // Offer several prevalidated approach points without inventing room geometry.
+ for(const slot of slots.filter(s=>!s.authored)){const candidates=(playability.routes||[]).filter(r=>r.roomId===slot.roomId).flatMap(r=>r.waypointsMeters||[]);const prior=slots.slice(0,slots.indexOf(slot)).filter(s=>s.roomId===slot.roomId);const best=candidates.filter(p=>p.every(Number.isFinite)).map(p=>({p,d:prior.length?Math.min(...prior.map(s=>Math.hypot(p[0]-s.approachMeters[0],p[2]-s.approachMeters[2]))):0})).sort((a,b)=>b.d-a.d)[0];if(best&&best.d>1.4)slot.approachMeters=[...best.p];}
  const groups=new Map();for(const slot of slots){const key=JSON.stringify([slot.roomId,slot.approachMeters]);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(slot.id);}for(const group of groups.values())if(group.length>1)for(const id of group)slots.find(s=>s.id===id).presentation='staged-single-interaction-point';
- return {version:1,units:'meters',roles,slots,issues,gameplayCertified:false,storyOwner:'game',floor13UnlockOwner:'game',oneRoomPolicy:'reuse one safe interaction point with stage-specific presentation; do not stack physical quest objects',unbound:slots.filter(s=>s.requiresBinding).map(s=>s.id)};
+ return {version:1,units:'meters',roles,slots,issues,gameplayCertified:false,storyOwner:'game',floor13UnlockOwner:'game',oneRoomPolicy:'Game distributes estate roles across Hall, grounds and interior; keep validated house anchors as interior fallbacks',unbound:slots.filter(s=>s.requiresBinding).map(s=>s.id)};
 }
 export function createGameplayBindings(contract,{canStand=()=>true,onInteract=()=>{},isEnabled=()=>true}={}){
  const slots=new Map(contract.slots.map(s=>[s.id,s]));
