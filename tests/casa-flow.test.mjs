@@ -1,3 +1,4 @@
+import {createGamepadInput,controllerActions} from '../casa_game/gamepad.mjs';
 import {createInvestigation} from '../casa_game/investigation.mjs';
 import {createEncounterDirector,spiritProfiles} from '../casa_game/encounters.mjs';
 import {createHauntedInteriors} from '../casa_game/haunted_interiors.mjs';
@@ -16,9 +17,9 @@ let frameCount=0;class Renderer{constructor({canvas}){this.domElement=canvas;}se
 class Loader extends RealLoader{constructor(manager){super(manager);this.manager.addHandler(/\.webp$/,{load(_url,onLoad){const t=new RealThree.Texture();queueMicrotask(()=>onLoad(t));return t;}});}}
 const THREE={...RealThree,WebGLRenderer:Renderer};Object.assign(globalThis,{document,window,Image,self:globalThis,Audio,localStorage:storage,requestAnimationFrame(){}});
 const fakeFetch=async url=>{try{return new Response(await readFile(fileURLToPath(String(url))));}catch{return new Response('missing',{status:404});}};globalThis.fetch=fakeFetch;
-const context=vm.createContext({THREE,GLTFLoader:Loader,createInvestigation,createEncounterDirector,spiritProfiles,createHauntedInteriors,portraitCatalog,createFabricGhost,createNavigation2ForgeViewer,SIGNATURE_ROOMS,signatureSurface,signatureBlocked,createCatalog,createPackageAssets,createFloorStreamer,createExterior,createGroundsDecoration,disposeGroup,createSession,createElevator,blockedByFurniture,roomContains,floorY,random,seedNumber,createStreet,createAudio,__createAtmosphere:createAtmosphere,document,window,localStorage:storage,matchMedia:()=>({matches:true}),innerWidth:960,innerHeight:540,devicePixelRatio:1,performance:globalThis.performance,requestAnimationFrame(){},speechSynthesis:window.speechSynthesis,SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},URL,Response,Blob,DecompressionStream,fetch:fakeFetch,console,crypto,Image,Audio,__mainURL:new URL('../casa_game/main.mjs',import.meta.url).href});
+const context=vm.createContext({THREE,GLTFLoader:Loader,createGamepadInput,controllerActions,createInvestigation,createEncounterDirector,spiritProfiles,createHauntedInteriors,portraitCatalog,createFabricGhost,createNavigation2ForgeViewer,SIGNATURE_ROOMS,signatureSurface,signatureBlocked,createCatalog,createPackageAssets,createFloorStreamer,createExterior,createGroundsDecoration,disposeGroup,createSession,createElevator,blockedByFurniture,roomContains,floorY,random,seedNumber,createStreet,createAudio,__createAtmosphere:createAtmosphere,document,window,localStorage:storage,matchMedia:()=>({matches:true}),innerWidth:960,innerHeight:540,devicePixelRatio:1,performance:globalThis.performance,requestAnimationFrame(){},speechSynthesis:window.speechSynthesis,SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},URL,Response,Blob,DecompressionStream,fetch:fakeFetch,console,crypto,Image,Audio,__mainURL:new URL('../casa_game/main.mjs',import.meta.url).href});
 let source=await readFile(new URL('../casa_game/main.mjs',import.meta.url),'utf8');source=source.replace(/^import .*;$/gm,'').replaceAll('import.meta.url','__mainURL').replace("await import('./atmosphere.mjs')",'({createAtmosphere:__createAtmosphere})');source+='\nglobalThis.game={tick,pose,nearestAction,loadHouse,houseScene,signatureScene,streetScene,board,get house(){return house},get session(){return session},get investigation(){return investigation},get walker(){return walker},get mode(){return mode},get dialog(){return dialog},get busy(){return busy},get floors(){return floors},get elevator(){return elevator},get echoes(){return echoes},get actors(){return markerActors}};';await vm.runInContext('(async()=>{'+source+'})()',context);const game=context.game;
-async function settle(){for(let i=0;i<1000&&game.busy;i++)await new Promise(setImmediate);assert.equal(game.busy,false,'transition finishes');}
+async function settle(){const deadline=performance.now()+5000;while(game.busy&&performance.now()<deadline)await new Promise(setImmediate);assert.equal(game.busy,false,'transition finishes');}
 function close(){element('closeModal').click();}
 assert.equal(element('startStreet').disabled,false);await element('startStreet').click();assert.equal(game.mode,'street');assert.equal(game.walker?.active,true,element('loadStatus').textContent);
 await game.loadHouse({id:'test-moonveil',package:'./samples/moonveil.casa'});assert.equal(game.mode,'hall');assert.equal(game.dialog,true);close();assert.equal(game.walker?.active,true,element('loadStatus').textContent);assert.equal(game.walker.yaw,Math.PI,'initial view faces the Hall stairs');
@@ -64,3 +65,15 @@ const thirdStop=game.house.access.stops[0];await game.houseScene(game.house.room
 for(const echo of game.echoes){game.walker.setPosition(...echo.position);await game.nearestAction().run();}
 await doQuestAction();assert.equal(game.session.mapUnlocked,true);await doQuestAction();await settle();assert.equal(game.mode,'street');
 console.log('PASS: third CASA complete investigation including evidence puzzles, disconnected-room access, memories and return.');
+// Every new house starts in the shared Hall and its marked physical threshold
+// must load that CASA's own authored entry, without using the elevator.
+for(const packageName of ['moonveil','one-room','split-lantern']){
+ await game.loadHouse({id:'door-'+packageName,package:'./samples/'+packageName+'.casa'},{fresh:true});close();assert.equal(game.mode,'hall');
+ const spawn=game.walker.position;game.walker.setPosition(...spawn,0);
+ await walkUntil(()=>game.mode==='house'||game.busy,100);
+ assert.equal(game.mode,'house',packageName+' Hall doorway opens into its CASA');
+ assert.equal(game.walker.currentRoomId,game.house.manifest.entry.roomId);
+ assert.equal(game.floors.residentFloors,1);assert.ok(game.walker.position.every(Number.isFinite));
+ await game.streetScene();
+}
+console.log('PASS: physical starting-Hall door enters each of the three CASA interiors, independent of elevator boarding.');

@@ -3,7 +3,7 @@ import {circleTouchesRectangle} from './navigation/door_leaf_collision.mjs';
 // Black Hollow Forge — Navigation 2 main-viewer compatibility controller.
 // Reusable preview controller, not yet a certified game physics engine. Closed/locked doors require game logic.
 export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas,getRoom,levelY,selectRoom,getConnections,isReady,getSurfaceHeight=null,canOccupy=null,getCameraOccluders=null}){
- const S={groundY:0,active:false,room:null,x:0,z:0,yaw:0,pitch:0,moving:new Set(),mouse:false,px:0,py:0,mode:'cinematic',directorMode:'hybrid',clock:performance.now(),hintUntil:0,revealUntil:0,facingYaw:0,cameraYaw:0,movementAnchor:null,speed:0,turnSpeed:0,lookYaw:0,lookUntil:0,cameraRoomId:null,requireFreshForward:false,arrivalUntil:0,lastPortal:null,lastPortalAt:0,doorState:new Map()};
+ const S={pad:{forward:0,turn:0},groundY:0,active:false,room:null,x:0,z:0,yaw:0,pitch:0,moving:new Set(),mouse:false,px:0,py:0,mode:'cinematic',directorMode:'hybrid',clock:performance.now(),hintUntil:0,revealUntil:0,facingYaw:0,cameraYaw:0,movementAnchor:null,speed:0,turnSpeed:0,lookYaw:0,lookUntil:0,cameraRoomId:null,requireFreshForward:false,arrivalUntil:0,lastPortal:null,lastPortalAt:0,doorState:new Map()};
  const K=.3048,margin=.20,eye=1.68,radius=.20,topPitch=0.65;
  const heading=()=>new THREE.Vector3(-Math.sin(S.yaw),0,-Math.cos(S.yaw));
  const doorMeshes=new Map();
@@ -20,7 +20,7 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
  function orient(){return heading();}
  function placeAtCenter(r){const b=bnd(r);if(!b)return;S.x=(b.minX+b.maxX)*.5;S.z=(b.minZ+b.maxZ)*.5;S.groundY=getSurfaceHeight?.(r,S.x,S.z,0)??levelY(r.floor);}
  function enter(){if(!isReady())return false;buildDoors();S.room=getRoom();const b=bnd(S.room);if(!b)return false;S.active=true;S.mode='cinematic';S.moving.clear();S.lastPortal=null;S.lastPortalAt=0;S.doorState.clear();placeAtCenter(S.room);S.yaw=0;S.facingYaw=0;S.cameraYaw=0;S.movementAnchor=null;S.pitch=0;S.speed=0;S.turnSpeed=0;S.lookYaw=0;S.lookUntil=0;S.cameraRoomId=null;S.requireFreshForward=false;S.arrivalUntil=0;controls.enabled=false;S.clock=performance.now();if(scene&&avatar.parent!==scene)scene.add(avatar);sync();follow(.05,true);status('W/↑ forward · S/↓ back · A/← turn left · D/→ turn right · camera behind explorer');return true;}
- function exit(){if(!S.active)return;S.active=false;for(const d of doorMeshes.values()){d.pivot.visible=false;d.open=0;d.pivot.rotation.y=0;}S.moving.clear();S.movementAnchor=null;S.speed=0;S.turnSpeed=0;S.requireFreshForward=false;S.mouse=false;avatar.visible=false;controls.enabled=true;camera.near=.1;camera.fov=62;camera.updateProjectionMatrix();controls.target.set(S.x,(bnd(S.room)?.y??0)+1.18,S.z);sync();}
+ function exit(){S.pad={forward:0,turn:0};if(!S.active)return;S.active=false;for(const d of doorMeshes.values()){d.pivot.visible=false;d.open=0;d.pivot.rotation.y=0;}S.moving.clear();S.movementAnchor=null;S.speed=0;S.turnSpeed=0;S.requireFreshForward=false;S.mouse=false;avatar.visible=false;controls.enabled=true;camera.near=.1;camera.fov=62;camera.updateProjectionMatrix();controls.target.set(S.x,(bnd(S.room)?.y??0)+1.18,S.z);sync();}
  function changeCamera(){S.mode=S.mode==='cinematic'?'explorer':S.mode==='explorer'?'first':'cinematic';sync();follow(.05,true)}
  // 4.3: Only a matched, same-floor architect-door is walkable. Magical elevator and stairs stay explicit.
  function doorPortal(r,o){const b=bnd(r);if(!b||!o||!['door','open','arch'].includes(o.type)||!o.shared)return null;const pos=clamp(Number(o.pos??.5),0,1),w=clamp(Number(o.clearWidthMeters??Number(o.width||o.widthFeet||3.54)*K), .44, 30);let x,z,axis,dir;
@@ -323,13 +323,13 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
   tickDoors(t,dt);
   // Agreed controls: W/S translate, A/D turn the character, never strafe.
   // Smooth acceleration prevents instantaneous pivots and foot sliding.
-  const turn=Number(S.moving.has('turnright'))-Number(S.moving.has('turnleft'));
+  const turn=(Number(S.moving.has('turnright'))-Number(S.moving.has('turnleft')))||S.pad.turn;
   // Turning must remain available after the Forge room selector updates.
   const turnTarget=-turn*1.5;
   S.turnSpeed+=(turnTarget-S.turnSpeed)*Math.min(1,dt*(turn?7:10));
   S.yaw+=S.turnSpeed*dt;
   S.facingYaw=S.yaw;
-  const f=Number(S.moving.has('forward')&&!S.requireFreshForward)-Number(S.moving.has('backward'));
+  const f=(Number(S.moving.has('forward')&&!S.requireFreshForward)-Number(S.moving.has('backward')))||S.pad.forward;
   const targetSpeed=f*(S.moving.has('sprint')?4.6:2.55);
   S.speed+=(targetSpeed-S.speed)*Math.min(1,dt*(f?7:11));
   if(Math.abs(S.speed)>.015){
@@ -358,5 +358,5 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
  function setCameraMode(mode){if(!['cinematic','explorer','first'].includes(mode))return false;S.mode=mode;sync();if(S.active)follow(.05,true);return true;}
  function setPosition(x,y,z,yaw=0){if(!S.active)return;S.x=x;S.z=z;S.groundY=y;S.yaw=yaw;S.facingYaw=yaw;S.cameraYaw=yaw;S.moving.clear();S.speed=0;follow(.05,true);}
  function onRoomChanged(){if(!S.active)return;S.room=getRoom();placeAtCenter(S.room);sync();follow(.05,true);}
- return {enter,exit,update,onRoomChanged,setPosition,setCameraMode,get yaw(){return S.yaw},get cameraMode(){return S.mode},get active(){return S.active},get position(){return [S.x,bnd(S.room)?.y??0,S.z]},get currentRoomId(){return S.room?.id||null},get doorStates(){return [...doorMeshes].map(([id,d])=>({shared:id,open:d.open}))},get cameraPlan(){return cameraPlan()},get directorMode(){return S.directorMode}};
+ return {setGamepadState(value){S.pad={forward:Math.max(-1,Math.min(1,Number(value?.forward)||0)),turn:Math.max(-1,Math.min(1,Number(value?.turn)||0))};},enter,exit,update,onRoomChanged,setPosition,setCameraMode,get yaw(){return S.yaw},get cameraMode(){return S.mode},get active(){return S.active},get position(){return [S.x,bnd(S.room)?.y??0,S.z]},get currentRoomId(){return S.room?.id||null},get doorStates(){return [...doorMeshes].map(([id,d])=>({shared:id,open:d.open}))},get cameraPlan(){return cameraPlan()},get directorMode(){return S.directorMode}};
 }

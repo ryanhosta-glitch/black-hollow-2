@@ -35,10 +35,11 @@
       "signal",
       "keepsake"
     ],
-    "savedConversationAndEncounterHistory": true
+    "savedConversationAndEncounterHistory": true,
+    "optionalGamepadSupport": true
   },
   "validation": {
-    "unitAndLegacyPerformanceTestsPassed": 19,
+    "unitAndLegacyPerformanceTestsPassed": 24,
     "realThreeSceneGraphsPassed": true,
     "navigationDoorRegressionPassed": true,
     "actualApplicationFlowWithSimulatedRendererPassed": true,
@@ -63,7 +64,10 @@
     "signFrontAndRearOrientationPassed": true,
     "headAttachedHatAndPlayerScalePassed": true,
     "reducedMotionSkyPassed": true,
-    "browserWebGLContextAvailable": false
+    "browserWebGLContextAvailable": false,
+    "physicalHallDoorIntoAllThreeCasasPassed": true,
+    "simulatedGamepadTestsPassed": 5,
+    "physicalUsbControllerTested": false
   },
   "releaseStatus": "PLAYTEST_BUILD",
   "gameplayCertification": false,
