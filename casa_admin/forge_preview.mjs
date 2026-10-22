@@ -5,6 +5,7 @@ import {stairRoutes} from '../casa_game/stairs.mjs';
 import {floorY} from '../casa_game/session.mjs';
 import {openCasa} from '../casa_game/archive.mjs';
 import {createPackageAssets,createFloorStreamer,createExterior,disposeGroup} from '../casa_game/resources.mjs';
+import {formatRoomCompleteness} from './forge_room_completeness.mjs';
 import {inspectPlacement,inspectMaterials} from './forge_diagnostics.mjs';
 export async function createForgePreview(container,blob){
  const house=await openCasa(await blob.arrayBuffer()),assets=createPackageAssets(house,{THREE,GLTFLoader}),stream=createFloorStreamer(house,assets,THREE);
@@ -18,6 +19,7 @@ export async function createForgePreview(container,blob){
  for(const [value,text]of [['outside','Exported street model'],['assembly','Floor visibility'],...house.manifest.floors.map((f,i)=>[String(i),f.name])]){const option=element('option');option.value=value;option.textContent=text;select.append(option);}
  toolbar.prepend(select,rooms,home);container.replaceChildren(toolbar,floorControls,status,stats,renderer.domElement,warnings);renderer.domElement.style.width='100%';renderer.domElement.style.height='480px';
  const materialDetails=element('details'),materialSummary=element('summary'),materialReport=element('pre');materialSummary.textContent='Material diagnostics';materialDetails.append(materialSummary,materialReport);container.append(materialDetails);
+ if(house.roomCompleteness){const details=element('details'),summary=element('summary'),report=element('pre');summary.textContent='Room completeness — static checks';report.textContent=formatRoomCompleteness(house.roomCompleteness);details.append(summary,report);container.append(details);}
  const findings=inspectPlacement(house);warnings.textContent=findings.length?findings.map(w=>w.code+' · '+w.objectId+(w.detail?' · '+w.detail:'')).join('\n'):'Placement checks: no flagged furniture or elevator alignment problems.';
  const stairReport=element('pre');stairReport.textContent=(house.access.stairRoutes||[]).map(s=>`${s.roomId} → ${s.upperRoomId||'?'} · ${s.status} · ${stairRoutes(house).includes(s)?`${s.treadCount} risers, ${(s.riserMeters*100).toFixed(1)} cm rise, ${(s.treadMeters*100).toFixed(1)} cm tread, ${s.headroomMeters.toFixed(2)} m headroom · static contract; rendered traversal requires testing`:'Elevator fallback'}`).join('\n');container.append(stairReport);
  let current=null,exterior=null,assembly=null,closed=false,request=0;const guides=new THREE.Group();scene.add(guides);guides.visible=false;

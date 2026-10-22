@@ -125,3 +125,27 @@ The recovered wraith skin now uses its 65-joint rig. A posed resting stance lowe
 CPU scene checks verify joint motion, actual skinned vertex deformation, relaxed arm height, finite transforms, exact authored-pose restoration and reduced motion. The actual House Office browser pipeline waits for the recovered rig and verifies changing head, elbow, wrist and calf quaternions in the running Game. Chromium 153 software WebGL passes with zero page errors; screenshots and the pipeline report record the result. This is a first procedural spectral idle/reach, not a claim of authored cinematic animation clips or cloth simulation.
 
 Release verification: rerun all three browser suites against the current PR head before merging; a green result from an earlier commit does not certify a later one.
+
+## Reactive estate gameplay
+
+The Game opts into an estate layout over the CASA's validated interior anchors. The Founder uses a wall portrait in the Grand Hall; the Seer uses a framed outdoor stand when usable grounds exist. One-room houses put the doll inside, spellbook in the Hall and crystal ball outside. Multi-room collectible rooms vary deterministically by mystery seed. Explicit authored anchors remain authoritative. No new interior positions are guessed; candidates come from the compiled playability report. Forge also selects spaced route points for new non-authored interior anchors. Existing packages gain the runtime changes without recompilation.
+
+Automatic encounters use persisted discovery keys, one pending performance, a quiet interval, same-scene/height checks and interior visibility rays. Moving away or changing scenes cancels the performance. Ghosts approach in a bounded local arc; portraits shake/backlight before dialogue. Character dialogue uses dismissible subtitles over the live scene, leaving walking enabled. The Founder and Seer remain visible between quest stages. Reduced motion uses a short static introduction. Puzzle answers and revisits stay explicit; closing an unanswered puzzle leaves it available. Saves retain completed evidence and Floor 13 gating.
+
+Large newly compiled rooms can receive up to seven safely placed furnishings instead of the old fixed three, still respecting reserved routes and existing placement checks.
+
+Runtime dressing adds frames to supplemental portraits and wall-mounted books/candles, without adding floor obstacles. Wall spiders have eight two-segment legs and reveal evidence scraps; rats expose clue hints on approach. Owls watch from outdoor perches. One indoor bat has a brief periodic flight contained in a room. Ambient ghosts follow supplied route waypoints and stop to attend to nearby visitors. Wildlife clues are supplementary and never gate completion.
+
+Speech still uses device-provided browser voices, now with per-character selection and slower delivery over the existing whisper sound bed. This is not recorded voice acting or processed/reverberated speech. Voice quality remains device-dependent. Recorded dialogue is a separate asset pass.
+
+Validation adds estate-layout/save tests, encounter scheduling/visibility tests, wall-spider anatomy, owl and indoor bat scene tests, and a Chromium reactions suite exercising automatic ghost → Hall Founder → outdoor Seer progression. Screenshots are test evidence, not art assets.
+
+## Furnished rooms and the Hall organ
+
+Forge now assigns room identities, places proportional furniture around reserved routes, and packages wall ornamentation and a small environmental story for each room. Bedrooms, libraries, laboratories, dining rooms, conservatories, crypts, galleries and circulation spaces use different content. Tiny rooms use wall displays instead of obstructing the floor. Tall generated furniture avoids window approaches. Existing authored placements retain priority.
+
+`qa/room_completeness.json` and the visible compiler/preview report show actual and target furniture, ornamentation, reachable optional discoveries, reactions and unresolved gaps. These are static preparation checks, not rendered, physics or gameplay certification. Missing space or budget remains visible as a review item. New furniture requires recompiling the HAUNT into CASA; older packages receive runtime ornamentation and room discoveries without silently rewriting their archive.
+
+The Main Hall contains a pipe organ and an articulated wraith organist. Approaching triggers a turn, a flight around the Hall, and departure through the upper elevator; the doors open for that exit. Departure is remembered in the investigation save. Reduced motion uses a fade. Both keyboard manuals respond to the frequency spectrum of the actual playing music and settle when it stops. This is audio-reactive synchronization, not a note-perfect MIDI transcription. No unrelated animation clock pretends to represent the music.
+
+Validation: `npm test` includes 64 core tests and actual-app quest regressions against shipped and freshly compiled packages. `tests/browser-rooms.mjs` renders eight room identities and a tiny room and checks the real Forge report. `tests/browser-organ.mjs` checks the loaded wraith, actual music analysis, departure persistence and continuing keys. Screenshots are collected under `tests/artifacts/` by the browser suites.
