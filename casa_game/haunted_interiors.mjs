@@ -1,3 +1,4 @@
+import {wallMount} from './wall_mount.mjs';
 import {random,seedNumber,roomContains,blockedByFurniture,floorY} from './session.mjs';
 import {disposeGroup} from './resources.mjs';
 export function roomTheme(name=''){return /libr|study|atlas/i.test(name)?'library':/din|kitchen|banquet/i.test(name)?'dining':/bed|chamber|nursery/i.test(name)?'bedroom':/conserv|garden|glass/i.test(name)?'conservatory':'hall';}
@@ -8,21 +9,25 @@ export function createHauntedInteriors(THREE,{reducedMotion=false}={}){
  for(const room of house.rooms.filter(r=>r.floor===floor).slice(0,48)){const b=room.boundsFeet,x=+b.x*.3048,z=+b.y*.3048,w=+b.l*.3048,d=+b.w*.3048,y=floorY(house,floor),h=+b.h*.3048,theme=roomTheme(room.name);if(w<1.3||d<1.3||h<2.1)continue;
   const web=[];for(let i=0;i<8;i++){const a=i/7*Math.PI/2;web.push(x+.03,y+h-.1,z+.03,x+Math.cos(a)*.8,y+h-.1-Math.sin(a)*.6,z+.03);}for(let ring=1;ring<=3;ring++)for(let i=0;i<7;i++){const a=i/7*Math.PI/2,b=(i+1)/7*Math.PI/2;web.push(x+Math.cos(a)*ring*.25,y+h-.1-Math.sin(a)*ring*.18,z+.03,x+Math.cos(b)*ring*.25,y+h-.1-Math.sin(b)*ring*.18,z+.03);}const line=new THREE.LineSegments(new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute(web,3)),webMaterial);root.add(line);
   // Wall-hugging cloth stays above walking clearance and does not add colliders.
-  const curtain=new THREE.Mesh(new THREE.PlaneGeometry(Math.min(1,w*.4),.7,10,10),cloth);curtain.position.set(x+w*.7,y+Math.min(h-.5,2.35),z+.025);curtain.userData.roomId=room.id;root.add(curtain);curtains.push(curtain);
+  const curtainMount=wallMount(room,{width:Math.min(1,w*.4),height:.7,y:Math.min(h-.5,2.35)});
+  if(curtainMount){const curtain=new THREE.Mesh(new THREE.PlaneGeometry(Math.min(1,w*.4),.7,10,10),cloth);curtain.position.set(curtainMount.position[0],y+curtainMount.position[1],curtainMount.position[2]);curtain.rotation.y=curtainMount.rotationY;curtain.userData.roomId=room.id;root.add(curtain);curtains.push(curtain);}
 
   const accent={library:0x655b46,dining:0x644047,bedroom:0x4e4764,conservatory:0x436354,hall:0x565567}[theme];
   // Small wall-mounted evidence tableaux give room types different visual identities.
-  const tableau=new THREE.Group();tableau.position.set(x+w-.035,y+Math.min(2.25,h-.4),z+d*.6);tableau.rotation.y=-Math.PI/2;root.add(tableau);
+  const tableauMount=wallMount(room,{width:.8,height:.7,y:Math.min(2.25,h-.5),preferred:['right','left','bottom','top']});
+  if(tableauMount){const tableau=new THREE.Group();tableau.position.set(tableauMount.position[0],y+tableauMount.position[1],tableauMount.position[2]);tableau.rotation.y=tableauMount.rotationY;root.add(tableau);
   const frame=new THREE.Mesh(new THREE.BoxGeometry(.73,.56,.025),new THREE.MeshStandardMaterial({color:0x806b45,metalness:.35,roughness:.8}));tableau.add(frame);
   const panel=new THREE.Mesh(new THREE.PlaneGeometry(.65,.48),new THREE.MeshStandardMaterial({color:accent,roughness:.9,metalness:theme==='bedroom'?.5:0}));panel.position.z=.018;tableau.add(panel);
   const shadow=new THREE.Mesh(new THREE.SphereGeometry(.10,10,8),new THREE.MeshBasicMaterial({color:0xb2c3ce,transparent:true,opacity:.55}));shadow.scale.set(.7,1.8,.1);shadow.position.set(0,0,.025);shadow.visible=false;tableau.add(shadow);mirrors.push({roomId:room.id,shadow});
   if(theme==='library'||theme==='hall'){const pendulum=new THREE.Mesh(new THREE.CylinderGeometry(.012,.012,.32,5),new THREE.MeshStandardMaterial({color:0xb6a16c,metalness:.5}));pendulum.position.set(0,-.12,.03);tableau.add(pendulum);clocks.push({roomId:room.id,mesh:pendulum});}
   if(theme==='dining')for(let k=0;k<3;k++){const plate=new THREE.Mesh(new THREE.CircleGeometry(.06,16),new THREE.MeshStandardMaterial({color:0xa89b87}));plate.position.set((k-1)*.18,0,.025);tableau.add(plate);}
   if(theme==='bedroom'){const ribbon=new THREE.Mesh(new THREE.PlaneGeometry(.1,.3),new THREE.MeshStandardMaterial({color:0x9a6e7b,side:THREE.DoubleSide}));ribbon.position.set(.24,-.06,.03);ribbon.rotation.z=.25;tableau.add(ribbon);}
+  }
+  const portraitMount=wallMount(room,{width:.60,height:.78,y:1.55});
   const anchor=house.playability?.rooms?.find(r=>r.roomId===room.id||r.id===room.id)?.standingPointMeters||house.access.stops.find(s=>s.roomId===room.id)?.approachMeters;
   if(anchor&&roomContains(room,anchor)&&!blockedByFurniture(house,floor,anchor[0],anchor[2],anchor[1])){
    const index=seedNumber(room.id+seed)%Math.max(1,portraitCatalog.length),spec=portraitCatalog[index];
-   if(spec&&portraits.length<12){if(!textures.has(spec.file))textures.set(spec.file,new THREE.TextureLoader().load(new URL('./assets/portraits/'+spec.file,import.meta.url).href));const texture=textures.get(spec.file);texture.colorSpace=THREE.SRGBColorSpace;const panel=new THREE.Mesh(new THREE.PlaneGeometry(.50,.67),new THREE.MeshStandardMaterial({map:texture,roughness:.9,side:THREE.DoubleSide,emissive:0x363139,emissiveIntensity:.15}));panel.position.set(x+w*.45,y+1.55,z+.035);panel.rotation.z=(rng()-.5)*.08;root.add(panel);portraits.push({id:'portrait:'+room.id,roomId:room.id,anchor:[...anchor],mesh:panel,spec,theme});}
+   if(spec&&portraitMount&&portraits.length<12){if(!textures.has(spec.file))textures.set(spec.file,new THREE.TextureLoader().load(new URL('./assets/portraits/'+spec.file,import.meta.url).href));const texture=textures.get(spec.file);texture.colorSpace=THREE.SRGBColorSpace;const panel=new THREE.Mesh(new THREE.PlaneGeometry(.50,.67),new THREE.MeshStandardMaterial({map:texture,roughness:.9,side:THREE.DoubleSide,emissive:0x363139,emissiveIntensity:.15}));panel.position.set(portraitMount.position[0],y+portraitMount.position[1],portraitMount.position[2]);panel.rotation.y=portraitMount.rotationY;panel.rotation.z=(rng()-.5)*.08;root.add(panel);portraits.push({id:'portrait:'+room.id,roomId:room.id,anchor:[...anchor],mesh:panel,spec,theme});}
   }
   if(theme==='conservatory'){for(let k=0;k<3;k++){const vine=new THREE.Mesh(new THREE.TorusGeometry(.3,.015,4,12,Math.PI),new THREE.MeshStandardMaterial({color:0x344735}));vine.position.set(x+.04,y+1.2+k*.3,z+.1);vine.rotation.y=Math.PI/2;root.add(vine);}}
  }
