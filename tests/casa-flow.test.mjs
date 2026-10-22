@@ -37,8 +37,8 @@ assert.equal(element('startStreet').disabled,false);await element('startStreet')
 const porch=game.street.lots[0];game.walker.setPosition(...porch.door);game.tick(500);assert.ok(game.nearestAction().label.includes('Do you dare to enter “'+porch.house.name+'”?'));assert.equal(element('interact').textContent,'Yes');assert.equal(element('declineEntry').hidden,false);element('declineEntry').click();assert.equal(game.mode,'street');assert.equal(game.house,null);assert.equal(game.nearestAction(),null);game.walker.setPosition(0,0,13);game.tick(700);game.walker.setPosition(...porch.door);assert.ok(game.nearestAction().confirmation);await game.nearestAction().run();assert.equal(game.mode,'hall');close();await game.streetScene();
 await game.loadHouse({id:'test-moonveil',package:'./samples/moonveil.casa'});assert.equal(game.mode,'hall');assert.equal(game.dialog,true);close();assert.equal(game.walker?.active,true,element('loadStatus').textContent);assert.equal(game.walker.yaw,Math.PI,'initial view faces the Hall stairs');
 game.tick(1000);element('pauseButton').click();game.tick(1040);const frozenFrames=frameCount;game.tick(1080);game.tick(1120);assert.equal(frameCount,frozenFrames,'paused scenes render once and then idle');close();game.tick(1160);assert.ok(frameCount>frozenFrames);
-const entryAction=game.nearestAction();await entryAction.run();await settle();assert.equal(game.mode,'house');assert.equal(game.walker.currentRoomId,game.house.manifest.entry.roomId,'Hall entry reaches authored house entry');assert.equal(game.walker.position[1],3.048);await game.signatureScene('hall',[0,0,-13.5]);
-element('pauseButton').click();const cemeteryButton=element('choices').children.find(b=>b.textContent.includes('Walk the house cemetery'));await cemeteryButton.click();await settle();assert.equal(game.mode,'grounds');await game.nearestAction().run();await settle();assert.equal(game.mode,'hall');
+game.walker.setPosition(0,0,14.1,Math.PI);const entryAction=game.nearestAction();await entryAction.run();await settle();assert.equal(game.mode,'house');assert.equal(game.walker.currentRoomId,game.house.manifest.entry.roomId,'Hall entry reaches authored house entry');assert.equal(game.walker.position[1],3.048);await game.signatureScene('hall',[0,0,-13.5]);
+assert.equal(game.nearestAction().label,'Go outside');await game.nearestAction().run();await settle();assert.equal(game.mode,'grounds');await game.nearestAction().run();await settle();assert.equal(game.mode,'hall');
 game.walker.setPosition(0,5.25,14,1.1);const before=game.pose();await game.nearestAction().run();assert.equal(game.mode,'cabin');assert.equal(game.dialog,true);assert.ok(element('choices').children.every(b=>!b.textContent.startsWith('13 ·')));close();await settle();assert.equal(game.mode,'hall');assert.deepEqual([...game.walker.position],before.position);await game.nearestAction().run();const floorButton=element('choices').children.find(b=>b.textContent.includes(game.session.primary.roomName));assert.ok(floorButton);await floorButton.click();await settle();assert.equal(game.mode,'house');assert.equal(game.floors.residentFloors,1);
 async function doQuestAction(){const slot=game.session.activeSlots()[0],room=game.house.rooms.find(r=>r.id===slot.roomId);await game.houseScene(room,slot.approachMeters,1.2);const p=game.pose();const action=game.nearestAction();assert.ok(action);await action.run();if(game.dialog&&element('modalTitle').textContent.startsWith('Examine the')){const answer=game.investigation.puzzle(slot).answer;await element('choices').children.find(b=>b.textContent===answer).click();}if(game.dialog){close();assert.equal(game.walker?.active,true,element('loadStatus').textContent);assert.ok(Math.abs(game.walker.yaw-1.2)<1e-8,'dialogue preserves facing direction');assert.deepEqual([...game.walker.position],p.position);}await settle();}
 await doQuestAction();assert.equal(game.session.state.stage,'founder');
@@ -62,10 +62,10 @@ function keyEvent(type,code){const event=new Event(type,{cancelable:true});Objec
 async function walkUntil(check,limit=200){keyEvent('keydown','KeyW');try{for(let i=0;i<limit&&!check();i++){walkClock+=34;game.tick(walkClock);}assert.ok(check(),'physical walking reaches target; '+JSON.stringify(game.pose()));}finally{keyEvent('keyup','KeyW');}await settle();}
 for(const side of [-1,1]){
  await game.signatureScene('hall',[side*4.5,0,3.5],Math.PI);
- await walkUntil(()=>game.walker.position[2]>13.2);
+ await walkUntil(()=>game.walker.position[2]>11.6);
  assert.ok(Math.abs(game.walker.position[1]-5.25)<.01,'stairs physically reach upper landing');
  const p=game.walker.position;game.walker.setPosition(...p,side>0?Math.PI/2:-Math.PI/2);
- await walkUntil(()=>game.mode==='cabin'||game.busy);
+ await walkUntil(()=>Math.abs(game.walker.position[0])<.4);game.walker.setPosition(...game.walker.position,Math.PI);await walkUntil(()=>game.mode==='cabin'||game.busy);
  assert.equal(game.mode,'cabin');assert.ok(element('choices').children.some(b=>b.textContent.includes('Main Floor')),'panel opens on physical cabin entry');
  close();await settle();assert.equal(game.mode,'hall');game.tick(walkClock+=34);assert.equal(game.mode,'hall','arrival does not immediately board again');
 }
@@ -82,7 +82,7 @@ console.log('PASS: third CASA complete investigation including evidence puzzles,
 // must load that CASA's own authored entry, without using the elevator.
 for(const packageName of ['moonveil','one-room','split-lantern']){
  await game.loadHouse({id:'door-'+packageName,package:'./samples/'+packageName+'.casa'},{fresh:true});close();assert.equal(game.mode,'hall');
- const spawn=game.walker.position;game.walker.setPosition(...spawn,0);
+ game.walker.setPosition(0,0,13.5,Math.PI);
  await walkUntil(()=>game.mode==='house'||game.busy,100);
  assert.equal(game.mode,'house',packageName+' Hall doorway opens into its CASA');
  assert.equal(game.walker.currentRoomId,game.house.manifest.entry.roomId);

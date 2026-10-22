@@ -51,7 +51,7 @@ export function createElevator(access,{isUnlocked=()=>false}={}){
  function canBoard(id,pose){const s=visible().find(s=>s.id===id);if(origin||!s||pose?.scene!==s.kind||s.kind==='house'&&pose.roomId!==s.roomId||!Array.isArray(pose.position)||pose.position.length!==3||!pose.position.every(Number.isFinite)||Math.abs(pose.position[1]-s.approachMeters[1])>=.35)return false;
   const dx=pose.position[0]-s.approachMeters[0],dz=pose.position[2]-s.approachMeters[2];
   // Hall's built-in cabin spans x ±1.2 and z 12.8–15; stay inside its walls.
-  return s.kind==='hall'?Math.abs(dx)<.95&&dz> -1.15&&dz<.85:Math.hypot(dx,dz)<.65;
+  return s.kind==='hall'?Math.abs(dx)<.95&&dz> -1.5&&dz<.85:Math.hypot(dx,dz)<.65;
  }
  return {get aboard(){return !!origin;},canBoard,destinations:()=>origin?visible().filter(s=>s.id!==origin.id).map(s=>({...s,otherWing:s.kind==='house'&&origin.kind==='house'&&s.floor===origin.floor})):[],board(id,pose){if(!canBoard(id,pose))return false;origin=visible().find(s=>s.id===id);return true;},travel(id){if(!origin)return null;const s=visible().find(s=>s.id===id&&s.id!==origin.id);if(!s)return null;origin=null;return s;},cancel(){const s=origin;origin=null;return s;}};
 }
