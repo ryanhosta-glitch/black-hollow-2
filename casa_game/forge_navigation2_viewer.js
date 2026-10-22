@@ -2,7 +2,7 @@ import {createExplorer} from './explorer.mjs';
 import {circleTouchesRectangle} from './navigation/door_leaf_collision.mjs';
 // Black Hollow Forge — Navigation 2 main-viewer compatibility controller.
 // Reusable preview controller, not yet a certified game physics engine. Closed/locked doors require game logic.
-export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas,getRoom,levelY,selectRoom,getConnections,isReady,getSurfaceHeight=null,canOccupy=null,getCameraOccluders=null}){
+export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas,getRoom,levelY,selectRoom,getConnections,isReady,getSurfaceHeight=null,canOccupy=null,getCameraOccluders=null,getRoomAtPosition=null}){
  const S={pad:{forward:0,turn:0},groundY:0,active:false,room:null,x:0,z:0,yaw:0,pitch:0,moving:new Set(),mouse:false,px:0,py:0,mode:'cinematic',directorMode:'hybrid',clock:performance.now(),hintUntil:0,revealUntil:0,facingYaw:0,cameraYaw:0,movementAnchor:null,speed:0,turnSpeed:0,lookYaw:0,lookUntil:0,cameraRoomId:null,requireFreshForward:false,arrivalUntil:0,lastPortal:null,lastPortalAt:0,doorState:new Map()};
  const K=.3048,margin=.20,eye=1.68,radius=.20,topPitch=0.65;
  const heading=()=>new THREE.Vector3(-Math.sin(S.yaw),0,-Math.cos(S.yaw));
@@ -53,7 +53,7 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
     // Continuous traversal is controlled by wall crossing, not by a time lock.
     for(const id of ids){
      const other=all.find(a=>a.id===id);
-     if(!other||other.floor!==r.floor)continue;
+     if(!other||other.floor!==r.floor||Math.abs(S.groundY-levelY(other.floor))>.205)continue;
      const opposing={left:'right',right:'left',top:'bottom',bottom:'top'}[side];
      const receiving=(other.openings||[]).find(d=>['door','open','arch'].includes(d.type)&&d.shared===o.shared&&d.wall===opposing);
      const receivingPortal=doorPortal(other,receiving);
@@ -86,6 +86,7 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
   const count=Math.max(1,Math.ceil(Math.hypot(dx,dz)/.055));
   const vx=dx/count,vz=dz/count;
   for(let i=0;i<count;i++){
+   if(getRoomAtPosition){const next=getRoomAtPosition(S.room,S.x,S.groundY,S.z);if(next&&next.id!==S.room.id){S.room=next;selectRoom(next.id);sync();}}
    const current=bnd(S.room);if(!current)break;
    // Resolve each short move against every leaf before room-interior shortcuts.
    // Axis separation retains wall-style sliding instead of freezing both axes.
@@ -358,5 +359,5 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
  function setCameraMode(mode){if(!['cinematic','explorer','first'].includes(mode))return false;S.mode=mode;sync();if(S.active)follow(.05,true);return true;}
  function setPosition(x,y,z,yaw=0){if(!S.active)return;S.x=x;S.z=z;S.groundY=y;S.yaw=yaw;S.facingYaw=yaw;S.cameraYaw=yaw;S.moving.clear();S.speed=0;follow(.05,true);}
  function onRoomChanged(){if(!S.active)return;S.room=getRoom();placeAtCenter(S.room);sync();follow(.05,true);}
- return {setGamepadState(value){S.pad={forward:Math.max(-1,Math.min(1,Number(value?.forward)||0)),turn:Math.max(-1,Math.min(1,Number(value?.turn)||0))};},enter,exit,update,onRoomChanged,setPosition,setCameraMode,get yaw(){return S.yaw},get cameraMode(){return S.mode},get active(){return S.active},get position(){return [S.x,bnd(S.room)?.y??0,S.z]},get currentRoomId(){return S.room?.id||null},get doorStates(){return [...doorMeshes].map(([id,d])=>({shared:id,open:d.open}))},get cameraPlan(){return cameraPlan()},get directorMode(){return S.directorMode}};
+ return {refreshRooms(){buildDoors();sync();},setGamepadState(value){S.pad={forward:Math.max(-1,Math.min(1,Number(value?.forward)||0)),turn:Math.max(-1,Math.min(1,Number(value?.turn)||0))};},enter,exit,update,onRoomChanged,setPosition,setCameraMode,get yaw(){return S.yaw},get cameraMode(){return S.mode},get active(){return S.active},get position(){return [S.x,bnd(S.room)?.y??0,S.z]},get currentRoomId(){return S.room?.id||null},get doorStates(){return [...doorMeshes].map(([id,d])=>({shared:id,open:d.open}))},get cameraPlan(){return cameraPlan()},get directorMode(){return S.directorMode}};
 }

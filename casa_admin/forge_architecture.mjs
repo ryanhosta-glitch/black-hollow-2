@@ -1,3 +1,5 @@
+import {roofOrnaments} from './forge_roof_ornaments.mjs';
+import {unionRoofSurfaces,uncoveredRectangles} from './forge_roof_union.mjs';
 // Architectural dimensions are feet until the compiler's single feet→meters conversion.
 import {MAT} from './forge_glb.mjs';
 export function openingShape(op,span,height){
@@ -65,23 +67,28 @@ export function architecturalDetails(floor,fi,allFloors,levels){
 // share the same indexed writer rather than intersecting disconnected roof boards.
 export function buildRoofs(floors,levels,sourceRoof={}){
  let top=floors.length-1;while(top>=0&&!floors[top].rooms.length)top--;if(top<0)return [];
- const boxes=[],floor=floors[top],base=levels[top]||0;
+ const boxes=[],volumes=[];
  const solid=(x,z,l,w,y,rise,insetX,insetZ,mat)=>{
   const a=l/2,e=w/2,d=rise/2,ax=Math.max(0,a-insetX),ez=Math.max(0,e-insetZ);
-  boxes.push({c:[x+l/2,y+d,z+w/2],s:[l,rise,w],mat,vertices:[[-a,-d,-e],[a,-d,-e],[ax,d,-ez],[-ax,d,-ez],[-a,-d,e],[a,-d,e],[ax,d,ez],[-ax,d,ez]]});
+  volumes.push({c:[x+l/2,y+d,z+w/2],s:[l,rise,w],mat,vertices:[[-a,-d,-e],[a,-d,-e],[ax,d,-ez],[-ax,d,-ez],[-a,-d,e],[a,-d,e],[ax,d,ez],[-ax,d,ez]]});
  };
- for(const r of floor.rooms){
+ for(const [fi,floor]of floors.entries())for(const r of floor.rooms){
+  const base=levels[fi]||0,above=floors.slice(fi+1).flatMap(f=>f.rooms),uncovered=uncoveredRectangles(r,above);
+  if(!uncovered.length)continue;
+  const area=uncovered.reduce((a,p)=>a+p.l*p.w,0);
+  if(area<Number(r.l)*Number(r.w)-.001){for(const p of uncovered)boxes.push({c:[p.x+p.l/2,base+Number(r.h)+.20,p.z+p.w/2],s:[p.l,.24,p.w],mat:MAT.roof});continue;}
   const x=+r.x-.35,z=+r.y-.35,l=+r.l+.7,w=+r.w+.7,y=base+Number(r.h)+.20,roof=r.roof||floor.roof||sourceRoof||{},kind=String(r.roofType||floor.roofType||roof.type||'gable').toLowerCase(),rise=Math.max(.5,Math.min(14,Number(r.roofRise??floor.roofRise??roof.rise??Math.min(l*.65,8))));
   if(kind==='flat'||kind==='none')boxes.push({c:[x+l/2,y+.10,z+w/2],s:[l,.2,w],mat:MAT.roof});
   else if(kind==='mansard'){
    const inset=Math.min(l,w)*.18,lower=rise*.72;solid(x,z,l,w,y,lower,inset,inset,MAT.roof);
    solid(x+inset,z+inset,l-2*inset,w-2*inset,y+lower,rise-lower,(l-2*inset)/2,Math.min((w-2*inset)/2,(l-2*inset)/2),MAT.roof);
-  }else solid(x,z,l,w,y,rise,l/2,kind==='hip'||kind==='hipped'?Math.min(w/2,l/2):0,MAT.roof);
+  }else solid(x,z,l,w,y,rise,l/2,kind==='hip'||kind==='hipped'||kind==='tower'?Math.min(w/2,l/2):0,MAT.roof);
+  boxes.push(...roofOrnaments(r,base,rise,kind));
   // Eave fascia and a raised ridge crown give silhouette detail without room obstructions.
   for(const zz of [z,z+w])boxes.push({c:[x+l/2,y-.03,zz],s:[l,.17,.16],mat:MAT.trim});
   for(const xx of [x,x+l])boxes.push({c:[xx,y-.03,z+w/2],s:[.16,.17,w],mat:MAT.trim});
   if(!['flat','none'].includes(kind))boxes.push({c:[x+l/2,y+rise+.04,z+w/2],s:[.16,.14,Math.max(.18,kind==='gable'?w:w-Math.min(w,l))],mat:MAT.metal});
   if(Math.min(l,w)>10){const cx=x+l*.18,cz=z+w*.22,chimneyTop=y+rise+.8;boxes.push({c:[cx,(y+chimneyTop)/2,cz],s:[1.15,chimneyTop-y,1.4],mat:MAT.stone},{c:[cx,chimneyTop,cz],s:[1.4,.18,1.65],mat:MAT.trim});for(const dx of [-.25,.25])boxes.push({c:[cx+dx,chimneyTop+.35,cz],s:[.3,.6,.45],mat:MAT.wood});}
  }
- return boxes;
+ return [...unionRoofSurfaces(volumes),...boxes];
 }

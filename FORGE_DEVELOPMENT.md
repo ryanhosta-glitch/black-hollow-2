@@ -45,3 +45,83 @@ The new tests found and fixed furniture-blocked portrait interaction anchors in 
 ## Review and try
 
 Check out this branch, run `npm ci --ignore-scripts`, `npm test`, then serve the repository over HTTP (for example `python -m http.server 8000`). Open `casa_admin.html`, expand Forge, build a blueprint and use Open 3D inspection. The compiled CASA is staged in Administrator step 2; inspect, download and playtest before any publication. Pages currently deploys main only.
+
+# Pass 2 — production architecture and real rendering
+
+This section supersedes the Pass 1 browser limitation above. Development continues on the same branch; published house archives and main remain unchanged.
+
+## Added
+
+- Roof generation now visits every story. Uncovered lower wings receive roofs, and partially covered wings receive roof caps around upper-story footprints. Convex roof boundary clipping removes buried faces where gable/hip/mansard volumes intersect. A regression checks a closed overlapping-volume union against its exact surface area.
+- Authored `roofType: "tower"` adds an octagonal exterior roof lantern and conical cap. `dormers: 1..4` (or `roof.dormers`) adds gabled dormer ornaments to suitable gable roofs. These are exterior details, not new walkable rooms.
+- The main exterior entrance receives a covered porch when jamb clearance permits. The posts have exported collision bounds, and the central entrance lane remains clear. Tight entries omit the porch with an advisory rather than blocking the door.
+- Libraries, laboratories, bedrooms, ballrooms, crypts and conservatories use distinct wall/floor/panel/ceiling palettes. Four additional procedural tiles cover glazed ceramic, parquet, masonry and encaustic floors. Shared walls now have separate inward finish skins and panel offsets, so a neighboring room cannot overwrite its wallpaper or wainscot.
+- Preview controls include eye-level room inspection, material names/roughness/texture diagnostics, undecoded-texture counts, draw calls and estimated texture memory, per-floor/roof visibility, and colored collision guides. Placement warnings include floating furniture/portraits, elevator alignment and stair bypass status.
+- `qa/vertical_geometry.json` records measured elevator alignment, stair pair alignment, rise, headroom, tread count and straight-run feasibility. This is evidence, not a new physical stair certification.
+- GLB vertices are welded by position/normal/UV, reducing a box from 36 to 24 vertices. Only referenced embedded texture tiles are included. Indoor floor streaming excludes cemetery meshes, correcting both an appearance defect and unnecessary indoor geometry.
+
+## Verified
+
+- `npm test`: 41 Node cases plus existing navigation, scene-loading and complete application-flow suites, against both shipped and freshly compiled fixtures.
+- `npm run test:browser`: actual Chromium 153 with WebGL via software rendering. The browser uploads a multi-story, six-theme blueprint into the real compiler, downloads the CASA, inspects roofs/floors/rooms, toggles cutaway/collision/visibility controls, verifies PNG/WebP decoding, then loads that same CASA in the actual Game.
+- Keyboard walking reaches the physical shared Hall stair landing at exactly 5.25 m. The real Game renders fresh lower and upper house floors. Existing full-quest tests continue to cover elevators, ghost encounters, Floor 13 and map rewards.
+- Browser raycasts verify both sides of a library/laboratory shared wall at wallpaper and panel heights, confirming each room's own material is foremost.
+- Browser runs report zero page/console errors and zero undecoded textures. Screenshots are inspected after generation. This verifies the exercised fixtures on a software renderer, not arbitrary blueprints, all devices or hardware GPU performance.
+
+Run browser checks with `npx playwright-core install chromium` followed by `npm run test:browser`, or point `CHROMIUM_PATH` to an existing browser. Optional `CHROMIUM_ARGS` accepts a JSON argument array. Screenshots, the temporary CASA and a JSON report go to ignored `tests/artifacts/`. CI runs the browser suite and uploads its evidence separately from Pages publishing.
+
+## Still unfinished
+
+Arbitrary Blueprint stairs remain on the existing elevator bypass. Continuous traversal across streamed house floors, stair landings/railings and capsule/camera clearance still require implementation; this pass does not silently enable unsafe stair meshes. The tested Hall stairs are preserved. Roof clipping and ornaments still need broader coverage of unusual footprints, near-degenerate intersections, varying ceiling heights and large estates. Towers/dormers are exterior ornaments. New textures and porch detail are a first production palette, not historical reconstruction or exhaustive authored-style support. Hardware GPU/mobile performance is unverified. No old CASA receives new geometry until explicitly recompiled and published.
+
+## Pass 2 diagnostic follow-up
+
+The inspection preview now includes exterior porch-post collision bounds in street and assembly views. Portrait diagnostics additionally identify opening overlap and positions outside the room, and reject malformed position vectors. Regression coverage includes a portrait over an entrance, a valid solid-wall mount, an out-of-room mount and an invalid vector. This does not alter published packages or enable arbitrary authored stair traversal.
+
+Rendered screenshot review also exposed long exterior walkway triangles leaking into the indoor cutaway. Indoor decoration filtering now requires every triangle vertex to fit the floor and horizontal bounds, rather than accepting its centroid alone. The browser regression checks the loaded indoor decoration bounding box; the corrected cutaway screenshot has no exterior spikes. Final validation: 42 Node cases, navigation/scene/full quest suites and Chromium WebGL fixture checks. Software rendering remains the browser verification limit.
+
+# Pass 3 — supported straight stairs and continuous floor transitions
+
+This pass supersedes the blanket authored-stair bypass limitation for the bounded contract below. Packages remain QA exports, with `physicsCertified: false`; supported geometry is not a claim that all Blueprint stairs are safe.
+
+## Supported contract
+
+Dedicated, aligned staircase rooms on consecutive floors, with matching `stairLink` when supplied and explicit `stairDirection: "z+"` on both rooms. Embedded, spiral, switchback and other directions retain elevator access. The pair must have identical bounds, no authored furnishings/decor requiring clearance review, at least 1.4 m width, 1.3 m landings at both ends, risers no taller than 0.19 m, treads at least 0.25 m and upper headroom of at least 2.1 m. The lower room's height must reach the actual upper floor elevation. Non-window portals must meet their corresponding lower/upper landing; a generated elevator opening on the flight also disables traversal. Adjacent-floor chains sharing different floor partners and locked Floor 13 destinations are not enabled.
+
+The repaired source records the generated `forgeStair` contract; the untouched original remains in `source.haunt`. `navigation/access_plan.json` and `navigation/stairs.json` record enabled routes or explicit fallback reasons. All existing elevators remain available.
+
+## Implementation
+
+- Forge builds solid treads/risers, nosings, railings, a supported upper landing, an open lower ceiling and an upper-floor shaft opening. The upper room's ceiling remains intact. Exported GLB raycasts verify tread heights, shaft clearance, landing support and overhead enclosure.
+- The Game consumes compiled surface heights and limits each move to one riser. The rail lane blocks side entry; floor-height checks prevent walking through a side portal midway up a flight. Room/floor handoffs preserve world position, heading and held movement keys.
+- A nearby flight preloads both floors before climbing. The resident cache stays at two floors near the shaft, drops to one away from it, and reloads the neighbor on return. Shared signature scenes release cached house floors. Normal houses retain their one-floor behavior.
+- Camera occlusion now uses actual house meshes. Midflight saves validate against the compiled supported surface; quest locks are checked on restoration and traversal. Generated decorations, haunting tableaux and quest slots are excluded from the active stair shaft.
+- Preview displays static traversal status, fallback reasons, riser/tread/headroom measurements, green landing/route guides and cyan upper-landing headroom. Room inspection positions the camera on the appropriate landing. Guide resources are disposed on replacement.
+
+## Validation and limits
+
+Node cases cover 8/10/12-foot rises, misaligned pairs, insufficient run, unsafe headroom, blocked landings, unsupported embedded stairs, Floor 13 locks, malformed runtime contracts, surface ascent/descent, side entry, streamed resource eviction and fresh exported GLB geometry. Existing application-flow suites still exercise shipped packages and three fresh exports, elevators, ghosts, Floor 13, map rewards and street return.
+
+The Chromium regression uploads the stair fixture through the actual compiler, inspects the preview and loads the downloaded CASA in the actual Game. It uses keyboard ascent/descent of the 3.048 m authored flight, checks frame-by-frame position and camera bounds, walks through the landing arch, checks neighboring-floor eviction/reload and restores a midflight save. Evidence goes to the ignored CI artifact directory. Rendering uses software WebGL; hardware/mobile performance and exhaustive authored layouts remain unverified. Other directions, embedded stairs, spiral/switchback stairs and more complex shared stair chains remain future work. No existing CASA or catalog is rewritten.
+
+Final local validation for Pass 3: `npm test` passes 48 Node cases plus navigation, scene-loading and full-quest harnesses against shipped and freshly compiled packages. Browser checks exercise the existing Victorian fixture, physical Hall stairs, and the new authored-stair fixture. Browser harnesses explicitly wait for street startup before opening a house, preventing a test-only race with the initial scene transition.
+
+# Mansion pipeline release
+
+The three bundled samples have been explicitly rebuilt with Forge 4.3, preserving their mansion IDs, names and source blueprints. `npm run rebuild:houses` repeats that migration and refreshes catalog fingerprints; deployment still only catalogs existing CASA files. Stored CASA geometry never upgrades merely because Forge changes.
+
+The House Office reports the compiler geometry version and package fingerprint. The Game identifies local/published copies, lists local overrides and lets users restore the published version or remove a local-only house. Local descriptor/bytes writes and removals are atomic; replacement invalidates decoded packages, including a preview already in flight. Published catalog/package fetches bypass stale HTTP cache, and fingerprint mismatches fail explicitly. The root legacy game links to the CASA game without deleting the legacy application. The initial mansion dialogue identifies the shared Grand Hall.
+
+`tests/browser-pipeline.mjs` exercises the real embedded compiler, administrator handoff, preview, persistent browser-local import, keyboard entrance through the Hall doorway, publisher review/confirmation against an intercepted in-memory GitHub API, local override removal, and a clean browser context loading the identical published bytes with decoded textures. The publisher portion is a mock, not evidence of live GitHub publication. Screenshots and JSON evidence are saved alongside the other browser suites. CI runs Forge, stairs and pipeline independently; one failure cannot prevent the other suites from running. Failure reports retain browser errors, dialog and movement state. Hall traversal allows 60 seconds for software renderers while retaining the full measured-height assertion.
+
+Browser testing also found an upload-startup race: an iframe's file input could be used before its module installed the change listener. Forge now enables upload only after initialization. All packages remain QA exports; unsupported stair configurations keep explicit elevator fallbacks. These changes do not claim support for arbitrary rotated furniture, authored decoration, spiral stairs or every device.
+
+GitHub runner validation passed the Forge and complete publication-pipeline browser suites and all core/quest tests. The authored-stair suite reached the penultimate riser with both floors resident and no browser errors, then exhausted its 45-second allowance. That points to slow software rendering rather than proving a blocked flight. Stair ascent/descent now allow 120 seconds, doorway travel 60 seconds; the same exact height, continuous movement, camera clearance, resource eviction and save-restoration assertions remain. Failure artifacts now include the last timestamped movement samples and resident floors, so a persistent obstruction can be distinguished from low frame throughput.
+
+# Wraith skeletal motion
+
+The recovered wraith skin now uses its 65-joint rig. A posed resting stance lowers the T-pose arms and bends the elbows and knees. Additive quaternion motion independently drives pelvis, spine, head, shoulders, elbows, wrists, fingers, thighs, calves and feet. Motions use game time, so dialogs pause them with the game; reduced motion keeps the posed silhouette still. No new binary model or external animation dependency is needed. Marker disposal restores the authored pose and releases animation references.
+
+CPU scene checks verify joint motion, actual skinned vertex deformation, relaxed arm height, finite transforms, exact authored-pose restoration and reduced motion. The actual House Office browser pipeline waits for the recovered rig and verifies changing head, elbow, wrist and calf quaternions in the running Game. Chromium 153 software WebGL passes with zero page errors; screenshots and the pipeline report record the result. This is a first procedural spectral idle/reach, not a claim of authored cinematic animation clips or cloth simulation.
+
+Release verification: rerun all three browser suites against the current PR head before merging; a green result from an earlier commit does not certify a later one.

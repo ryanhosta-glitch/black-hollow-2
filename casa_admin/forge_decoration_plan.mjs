@@ -1,3 +1,4 @@
+import {exteriorDetails} from './forge_exterior_details.mjs';
 import {wallMount} from '../casa_game/wall_mount.mjs';
 import {AVAILABLE_HOUSE_PHOTOS} from './unique_house_photo_pool.js';
 import {FURNITURE_CATALOG} from './victorian_furniture_library.js';
@@ -14,6 +15,7 @@ export function planDecoration(source){
  for(const [floor,f] of source.floors.entries())for(const r of f.rooms){
   const x=+r.x*FT,z=+r.y*FT,w=+r.l*FT,d=+r.w*FT,h=+r.h*FT,y=levels[floor]*FT,id=String(r.id),center=[x+w/2,y,z+d/2],roomBounds=rect(center[0],center[2],w,d),blocked=[];
   rooms.push({id,floor,bounds:roomBounds,y});
+  if(r.forgeStair){reserved.push({roomId:id,floor,kind:'stair-clearance',bounds:roomBounds});continue;}
   // Protect conservative rectangles containing every portal-to-room-center segment, plus leaf sweeps.
   for(const o of r.openings||[]){if(o.type==='window')continue;const p=portal(r,o,y),margin=Math.max(.48,(o.clearWidthMeters||1.08)/2+.16),a={minX:Math.min(p[0],center[0])-.48,maxX:Math.max(p[0],center[0])+.48,minZ:Math.min(p[2],center[2])-.48,maxZ:Math.max(p[2],center[2])+.48};blocked.push(a);reserved.push({roomId:id,floor,kind:'portal-route',openingId:o.id||null,bounds:a});const leaf=rect(p[0],p[2],margin*4,margin*4);blocked.push(leaf);reserved.push({roomId:id,floor,kind:o.forgeElevator?'elevator-approach':'door-sweep',openingId:o.id||null,bounds:leaf});}
   const central=rect(center[0],center[2],.96,.96);blocked.push(central);reserved.push({roomId:id,floor,kind:'arrival',bounds:central});
@@ -40,6 +42,7 @@ export function planDecoration(source){
  for(const [fi,f]of source.floors.entries())if(levels[fi]*FT===groundY)for(const r of f.rooms)for(const o of r.openings||[])if(o.type!=='window'&&!o.shared){const p=portal(r,o,groundY),vertical=o.wall==='left'||o.wall==='right',end=vertical?[o.wall==='left'?bounds.minX-9:bounds.maxX+9,groundY,p[2]]:[p[0],groundY,o.wall==='top'?bounds.minZ-9:bounds.maxZ+9];paths.push({id:`path:${r.id}:${o.id||o.wall}`,fromMeters:p,toMeters:end,widthMeters:1.8});}
  const treeStyles=['lightning-split','crooked-willow','skeletal-oak'],graveStyles=['arched','cross','obelisk','shouldered'];
  let i=0,attempts=0;outer:for(let x=bounds.minX-8;x<=bounds.maxX+8;x+=2.6)for(let z=bounds.minZ-8;z<=bounds.maxZ+8;z+=2.8){if(++attempts>20000){issues.push({severity:'ADVISORY',code:'GROUNDS_DENSITY_CAPPED'});break outer;}if(x>bounds.minX-3&&x<bounds.maxX+3&&z>bounds.minZ-3&&z<bounds.maxZ+3)continue;if(grounds.length>=160)break outer;const tree=i%5===0,size=tree?1.6:.9,b=rect(x,z,size,size);if(paths.some(p=>overlap(b,{minX:Math.min(p.fromMeters[0],p.toMeters[0])-.9,maxX:Math.max(p.fromMeters[0],p.toMeters[0])+.9,minZ:Math.min(p.fromMeters[2],p.toMeters[2])-.9,maxZ:Math.max(p.fromMeters[2],p.toMeters[2])+.9})))continue;const obj={id:`forge:grounds:${i}`,type:tree?'tree':'headstone',style:tree?treeStyles[i%3]:graveStyles[i%4],positionMeters:[x,groundY,z],rotationY:(i%7-.5)*.13};grounds.push(obj);colliders.push({objectId:obj.id,roomId:null,floor:null,bounds:b,minY:groundY,maxY:groundY+(tree?4.5:1.2)});i++;}
+ const exterior=exteriorDetails(source,levels);colliders.push(...exterior.colliders);issues.push(...exterior.warnings.map(w=>({severity:'ADVISORY',...w})));
  return {version:1,units:'meters',geometrySpace:'world',furniture,artwork,lights,grounds,paths,reserved,colliders,bounds,groundY,groundFloor,issues,changes,readiness:{placementChecked:true,physicsCertified:false,browserVerified:false,gameplayCertified:false},authoredSourcePreserved:true};
 }
 /** Box parts reuse the compiler's grouped material palette. Furniture uses the existing detailed catalog models. */

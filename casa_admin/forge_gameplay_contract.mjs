@@ -1,7 +1,7 @@
 /** Locations and proximity checks for the game. Story, asset selection, unlock flags and saves remain game-owned. */
 const roles=['founder','seer','porcelain-doll','spellbook','crystal-ball','exit'];
 export function planGameplaySlots(source,access,playability){
- const issues=[],safe=playability.rooms.filter(r=>r.reachable&&r.standingPointMeters&&!access.stops.some(s=>s.floor===r.floor&&s.requiresUnlock)),authored=Array.isArray(source.gameplay?.anchors)?source.gameplay.anchors:[],slots=[],primary=safe.find(r=>r.roomId===source.gameEntry?.roomId)||safe[0];
+ const issues=[],safe=playability.rooms.filter(r=>!source.floors.some(f=>f.rooms.some(q=>q.id===r.roomId&&q.forgeStair))&&r.reachable&&r.standingPointMeters&&!access.stops.some(s=>s.floor===r.floor&&s.requiresUnlock)),authored=Array.isArray(source.gameplay?.anchors)?source.gameplay.anchors:[],slots=[],primary=safe.find(r=>r.roomId===source.gameEntry?.roomId)||safe[0];
  for(const [i,role]of roles.entries()){
   const existing=authored.find(a=>a.role===role),fallback=(role==='founder'||role==='exit')?primary:safe[i%safe.length];
   if(existing){const room=playability.rooms.find(r=>r.roomId===existing.roomId);slots.push({...structuredClone(existing),id:existing.id||'game:'+role,role,authored:true,validated:playability.interactions.some(i=>i.objectId===(existing.id||'game:'+role)&&i.passed),requiresBinding:true});if(!slots.at(-1).validated)issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_GAMEPLAY_ANCHOR_UNVERIFIED',role,objectId:existing.id||'game:'+role});if(!room?.reachable)issues.push({severity:'BLOCK_GAME_READY',code:'GAMEPLAY_ROOM_UNREACHABLE',role,roomId:existing.roomId});}

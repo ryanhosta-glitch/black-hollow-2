@@ -13,7 +13,7 @@ function array(bytes,g,index){const a=g.accessors[index],v=g.bufferViews[a.buffe
 test('architectural triangles face outward and match declared normals, including rotated roof panels',()=>{
  const bytes=glb([{c:[0,0,0],s:[2,2,2],mat:0},{c:[3,2,1],s:[3,.2,4],mat:4,rot:.65}]),g=doc(bytes),p=array(bytes,g,0),n=array(bytes,g,1);
  for(const primitive of g.meshes[0].primitives){const ids=array(bytes,g,primitive.indices);for(let i=0;i<ids.length;i+=3){const [a,b,c]=[ids[i],ids[i+1],ids[i+2]].map(id=>Array.from(p.subarray(id*3,id*3+3))),u=b.map((v,j)=>v-a[j]),v=c.map((v,j)=>v-a[j]),cross=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];assert.ok(cross.reduce((sum,val,j)=>sum+val*n[ids[i]*3+j],0)>0);}}
- assert.ok(g.meshes[0].primitives.every(p=>p.attributes.TEXCOORD_0===2));assert.ok(g.images.length>=6);assert.ok(g.images.every(i=>i.mimeType==='image/png'&&!i.uri));
+ assert.ok(g.meshes[0].primitives.every(p=>p.attributes.TEXCOORD_0===2));assert.equal(g.images.length,2);assert.ok(g.images.every(i=>i.mimeType==='image/png'&&!i.uri));
  for(const m of g.materials.filter(m=>m.pbrMetallicRoughness.baseColorTexture))assert.equal(m.pbrMetallicRoughness.baseColorFactor[0],1);
 });
 test('partially shared walls receive siding only on exposed runs; window and door apertures stay empty',()=>{
@@ -32,7 +32,7 @@ test('wall props use solid wall spans or are omitted; invalid authored furniture
 // Drive the actual embedded compiler, including its asset fetches, ZIP writer and admin handoff.
 test('fresh Blueprint → actual Forge → Game archive includes embedded architectural materials and preserved elevator contracts',async()=>{
  const {house}=await compileFixture({name:'Victorian Regression',gameEntry:{roomId:'a',openingId:'entry'},floors:[{name:'Ground Floor',rooms:[room]}]});
- assert.equal(house.manifest.geometrySpace,'world');assert.equal(house.manifest.casa.geometryLevel,'victorian-textured-architecture-4.2');assert.ok(house.access.hiddenDestination);assert.ok(house.access.stops.length);assert.ok(house.playability.staticRoutesVerified);
+ assert.equal(house.manifest.geometrySpace,'world');assert.equal(house.manifest.casa.geometryLevel,'victorian-textured-architecture-4.3');assert.ok(house.access.hiddenDestination);assert.ok(house.access.stops.length);assert.ok(house.playability.staticRoutesVerified);
  for(const path of [house.manifest.floors[0].model,house.manifest.casa.streetPreview,house.manifest.roof]){const g=doc(await house.read(path));assert.ok(g.images.length);assert.ok(g.meshes[0].primitives.some(p=>g.accessors[p.indices].count>0));}
  for(const [path,entry]of house.entries)assert.ok((await house.read(path)).length===entry.size);
 });
