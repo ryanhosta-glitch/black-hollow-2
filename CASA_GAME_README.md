@@ -14,7 +14,7 @@ python3 -m http.server 8000
 
 Open `http://localhost:8000/casa_game.html`. Internet access is needed for Three.js on its first load. No build or npm install is needed to play. WebGL and a modern browser supporting native ZIP Deflate/Gzip decompression are required.
 
-Walk Haunted Hollow Street. Read a mailbox, then approach its porch and interact to enter. Climb either Grand Main Hall staircase, board the upper elevator cabin, and choose a destination. Explore the house and approach its apparition.
+Walk Haunted Hollow Street. Read a mailbox, then approach its porch and interact to enter. Use the entrance behind the Hall spawn to enter the main house, or climb either staircase and walk inside the upper elevator cabin. Its destination panel opens automatically once inside; returning does not immediately board again. Explore the house and approach its apparition.
 
 W/S walk, A/D turn, drag to look, V changes camera, E interacts, M opens your discoveries/map, Escape pauses. Visible buttons also support interactions and touch movement. Pause and dialogue preserve player position and direction. Sound/voices can be disabled independently. Reduced-motion settings disable lightning.
 
@@ -43,7 +43,7 @@ CASA ZIP directories are validated with size limits, path isolation, CRC and ava
 
 One house floor is resident in the floor streamer. Signature Hall/Conservatory pocket scenes are independent reusable assets; returning to the street releases the house scene resources. Models use the Forge's meter coordinates directly; navigation contracts in feet are converted explicitly. Texture dependencies remain in the archive. Furniture instances use shared templates on the active floor. Artwork is filtered to its floor; precompiled decoration triangles are filtered without rebuilding architecture. Street solids and lamps are instanced. Signature camera checks use simple proxies instead of raycasting every botanical ornament. The drawing buffer is capped near 1280×720 with a 30 FPS target. These are budgets and design choices, not measured player-device FPS claims.
 
-Floor models are still the Forge's render chunks. Very large single-floor models need smaller Forge chunks for finer streaming. The runtime deliberately uses the supplied street preview; an incomplete preview must be fixed by the Forge exporter. Unverified authored stairs remain sealed and use the compiled elevator fallback. No new free-form stair solver is introduced.
+Floor models are still the Forge's render chunks. Very large single-floor models need smaller Forge chunks for finer streaming. Complete street previews are used directly. For older exports that copied only the basement into their preview, the runtime composes the already compiled floor models and roof as an exterior fallback. This separate outdoor representation contains no added interior props and is released on house entry; at most two street exteriors are loaded. The cemetery filters interior fixtures from the shared decoration mesh and adds a visible terrain surface. Forge should export a dedicated full exterior mesh for large estates. Unverified authored stairs remain sealed and use the compiled elevator fallback. No new free-form stair solver is introduced.
 
 ## Validation and limitations
 
@@ -66,3 +66,5 @@ node tests/casa-flow.test.mjs /path/to/three.module.mjs /path/to/GLTFLoader.mjs
 ```
 
 This is a complete playtest build of the new runtime, not a claim of fully certified geometry or device performance. The Work browser has previously failed to create a WebGL context; a rendered playthrough, sound/voice checks and phone testing remain required. Legacy optional minigames and every old decorative effect have not been copied wholesale. They can be added as CASA-driven game modules without bringing back the old house generator.
+
+Playtest fixes: wandering spirits use continuous folded fabric with a rounded hood and flowing hem; reduced motion keeps the cloth still. The game HUD hides the shared inspector labels and director switch. Tests now walk both Hall stairs continuously into the cabin, and exercise the authored main-house entrance. Rendered WebGL and audible checks remain unverified in this environment.

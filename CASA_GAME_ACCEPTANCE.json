@@ -38,7 +38,13 @@
     "pausedRenderingIdles": true,
     "sourceHouseUnchanged": true,
     "webglRenderedPlaythroughVerified": false,
-    "audibleAndDevicePerformanceVerified": false
+    "audibleAndDevicePerformanceVerified": false,
+    "physicalHallStairRoutesPassed": true,
+    "hallToAuthoredEntryPassed": true,
+    "automaticCabinEntryMenuPassed": true,
+    "outdoorInteriorFixtureExclusionPassed": true,
+    "completeExteriorFallbackPassed": true,
+    "fabricGhostDeformationPassed": true
   },
   "releaseStatus": "PLAYTEST_BUILD",
   "gameplayCertification": false

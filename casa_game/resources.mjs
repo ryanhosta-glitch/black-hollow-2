@@ -13,10 +13,26 @@ export function createPackageAssets(house,{THREE,GLTFLoader}){
  return {glb,close(){closed=true;for(const url of urls.values())URL.revokeObjectURL(url);urls.clear();}};
 }
 // Filter precompiled triangles; this does not create or repair architecture.
-function sliceDecoration(root,lo,hi,THREE){root.updateMatrixWorld(true);root.traverse(o=>{if(!o.isMesh||o.isInstancedMesh)return;const src=(o.geometry.index?o.geometry.toNonIndexed():o.geometry.clone()).applyMatrix4(o.matrixWorld),attrs=Object.fromEntries(Object.entries(src.attributes).map(([name,a])=>[name,{size:a.itemSize,values:[]}])),groups=[];let cursor=0;
- for(const g of src.groups.length?src.groups:[{start:0,count:src.attributes.position.count,materialIndex:0}]){const start=cursor;for(let i=g.start;i<g.start+g.count;i+=3){let y=0;for(let j=0;j<3;j++)y+=src.attributes.position.getY(i+j)/3;if(y<lo||y>=hi)continue;for(const [name,a]of Object.entries(src.attributes))for(let j=0;j<3;j++)for(let k=0;k<a.itemSize;k++)attrs[name].values.push(a.array[(i+j)*a.itemSize+k]);cursor+=3;}if(cursor>start)groups.push({start,count:cursor-start,materialIndex:g.materialIndex});}
+function filterTriangles(root,accept,THREE){root.updateMatrixWorld(true);root.traverse(o=>{if(!o.isMesh||o.isInstancedMesh)return;const src=(o.geometry.index?o.geometry.toNonIndexed():o.geometry.clone()).applyMatrix4(o.matrixWorld),attrs=Object.fromEntries(Object.entries(src.attributes).map(([name,a])=>[name,{size:a.itemSize,values:[]}])),groups=[];let cursor=0;
+ for(const g of src.groups.length?src.groups:[{start:0,count:src.attributes.position.count,materialIndex:0}]){const start=cursor;for(let i=g.start;i<g.start+g.count;i+=3){let x=0,y=0,z=0;for(let j=0;j<3;j++){x+=src.attributes.position.getX(i+j)/3;y+=src.attributes.position.getY(i+j)/3;z+=src.attributes.position.getZ(i+j)/3;}if(!accept(x,y,z))continue;for(const [name,a]of Object.entries(src.attributes))for(let j=0;j<3;j++)for(let k=0;k<a.itemSize;k++)attrs[name].values.push(a.array[(i+j)*a.itemSize+k]);cursor+=3;}if(cursor>start)groups.push({start,count:cursor-start,materialIndex:g.materialIndex});}
  const geo=new THREE.BufferGeometry();for(const [name,a]of Object.entries(attrs))geo.setAttribute(name,new THREE.Float32BufferAttribute(a.values,a.size));for(const g of groups)geo.addGroup(g.start,g.count,g.materialIndex);o.geometry.dispose();src.dispose();o.geometry=geo;o.position.set(0,0,0);o.rotation.set(0,0,0);o.scale.set(1,1,1);o.updateMatrix();});return root;}
+const sliceDecoration=(root,lo,hi,THREE)=>filterTriangles(root,(_x,y)=>y>=lo&&y<hi,THREE);
 export function createFloorStreamer(house,assets,THREE){const cache=new ResidentCache({limit:1,dispose:disposeGroup,load:async floor=>{const group=new THREE.Group();group.name='Compiled floor '+floor;try{const spec=house.manifest.floors[floor],model=await assets.glb(spec.model);if(house.manifest.geometrySpace!=='world')model.position.y=floorY(house,floor);group.add(model);
   const templates=new Map();for(const item of house.decoration.furniture||[]){if(item.floor!==floor)continue;if(!templates.has(item.model))templates.set(item.model,await assets.glb(item.model));const prop=templates.get(item.model).clone(true);prop.position.fromArray(item.positionMeters);prop.rotation.y=item.rotationY||0;group.add(prop);}
   if(house.manifest.artworkGeometry)group.add(await assets.glb(house.manifest.artworkGeometry,{floor}));if(house.manifest.decorationGeometry){const lo=floorY(house,floor)-.15,hi=floor+1<house.manifest.floors.length?floorY(house,floor+1)-.06:Infinity;group.add(sliceDecoration(await assets.glb(house.manifest.decorationGeometry),lo,hi,THREE));}group.updateMatrixWorld(true);return group;
  }catch(e){disposeGroup(group);throw e;}}});return {get:floor=>cache.get(floor),clear:()=>cache.clear(),get residentFloors(){return cache.items.size;}};}
+
+// Older Forge exports accidentally use only floor 0 as their street preview.
+// Compose already compiled geometry when that preview lacks the upper floors.
+// This never reads or converts a haunt file, or adds interior furnishings.
+export async function createExterior(house,assets,THREE){
+ const path=house.manifest.casa?.streetPreview||'exterior/street_preview.glb',preview=await assets.glb(path),box=new THREE.Box3().setFromObject(preview),top=Math.max(...house.manifest.floors.map((_,i)=>floorY(house,i)));
+ const previewEntry=house.entries.get(path),firstEntry=house.entries.get(house.manifest.floors[0].model),copiedFloor=previewEntry&&firstEntry&&previewEntry.size===firstEntry.size&&previewEntry.crc===firstEntry.crc;
+ if(!copiedFloor&&box.max.y>top+1.5)return preview;
+ disposeGroup(preview);const root=new THREE.Group();root.name='Compiled complete exterior';
+ try{for(const [i,spec]of house.manifest.floors.entries()){const model=await assets.glb(spec.model);if(house.manifest.geometrySpace!=='world')model.position.y=floorY(house,i);root.add(model);}if(house.manifest.roof)root.add(await assets.glb(house.manifest.roof));root.updateMatrixWorld(true);return root;}catch(e){disposeGroup(root);throw e;}
+}
+export async function createGroundsDecoration(house,assets,THREE){
+ const b=house.decoration.bounds,model=await assets.glb(house.manifest.decorationGeometry);
+ return filterTriangles(model,(x,_y,z)=>x<b.minX-.06||x>b.maxX+.06||z<b.minZ-.06||z>b.maxZ+.06,THREE);
+}
