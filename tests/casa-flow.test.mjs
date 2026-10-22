@@ -1,3 +1,5 @@
+import {compileFixture} from './helpers/compile-forge.mjs';
+import {openCasa} from '../casa_game/archive.mjs';
 import {createGamepadInput,controllerActions} from '../casa_game/gamepad.mjs';
 import {createInvestigation} from '../casa_game/investigation.mjs';
 import {createEncounterDirector,spiritProfiles} from '../casa_game/encounters.mjs';
@@ -16,7 +18,12 @@ const document=new EventTarget();Object.assign(document,{getElementById:element,
 let frameCount=0;class Renderer{constructor({canvas}){this.domElement=canvas;}setPixelRatio(){}setSize(){}render(){frameCount++;}dispose(){}}
 class Loader extends RealLoader{constructor(manager){super(manager);this.manager.addHandler(/\.webp$/,{load(_url,onLoad){const t=new RealThree.Texture();queueMicrotask(()=>onLoad(t));return t;}});}}
 const THREE={...RealThree,WebGLRenderer:Renderer};Object.assign(globalThis,{document,window,Image,self:globalThis,Audio,localStorage:storage,requestAnimationFrame(){}});
-const fakeFetch=async url=>{try{return new Response(await readFile(fileURLToPath(String(url))));}catch{return new Response('missing',{status:404});}};globalThis.fetch=fakeFetch;
+const freshPackages=new Map();
+if(process.argv.includes('--fresh-forge')){
+ for(const name of ['one-room','moonveil','split-lantern']){const url=new URL('../casa_game/samples/'+name+'.casa',import.meta.url),existing=await openCasa(new Uint8Array(await readFile(url))),blueprint=await existing.json(existing.manifest.casa?.source||'source.haunt'),fresh=await compileFixture(blueprint);freshPackages.set(url.href,fresh.bytes);}
+ console.log('Testing the actual Game with three freshly recompiled Forge exports.');
+}
+const fakeFetch=async url=>{try{return new Response(freshPackages.get(String(url))||await readFile(fileURLToPath(String(url))));}catch{return new Response('missing',{status:404});}};globalThis.fetch=fakeFetch;
 const context=vm.createContext({THREE,GLTFLoader:Loader,createGamepadInput,controllerActions,createInvestigation,createEncounterDirector,spiritProfiles,createHauntedInteriors,portraitCatalog,createFabricGhost,createNavigation2ForgeViewer,SIGNATURE_ROOMS,signatureSurface,signatureBlocked,createCatalog,createPackageAssets,createFloorStreamer,createExterior,createGroundsDecoration,disposeGroup,createSession,createElevator,blockedByFurniture,roomContains,floorY,random,seedNumber,createStreet,createAudio,__createAtmosphere:createAtmosphere,document,window,localStorage:storage,matchMedia:()=>({matches:true}),innerWidth:960,innerHeight:540,devicePixelRatio:1,performance:globalThis.performance,requestAnimationFrame(){},speechSynthesis:window.speechSynthesis,SpeechSynthesisUtterance:class{constructor(text){this.text=text;}},URL,Response,Blob,DecompressionStream,fetch:fakeFetch,console,crypto,Image,Audio,__mainURL:new URL('../casa_game/main.mjs',import.meta.url).href});
 let source=await readFile(new URL('../casa_game/main.mjs',import.meta.url),'utf8');source=source.replace(/^import .*;$/gm,'').replaceAll('import.meta.url','__mainURL').replace("await import('./atmosphere.mjs')",'({createAtmosphere:__createAtmosphere})');source+='\nglobalThis.game={tick,pose,nearestAction,loadHouse,houseScene,signatureScene,streetScene,board,get street(){return street},get house(){return house},get session(){return session},get investigation(){return investigation},get walker(){return walker},get mode(){return mode},get dialog(){return dialog},get busy(){return busy},get floors(){return floors},get elevator(){return elevator},get echoes(){return echoes},get actors(){return markerActors}};';await vm.runInContext('(async()=>{'+source+'})()',context);const game=context.game;
 async function settle(){const deadline=performance.now()+5000;while(game.busy&&performance.now()<deadline)await new Promise(setImmediate);assert.equal(game.busy,false,'transition finishes');}

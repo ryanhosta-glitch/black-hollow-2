@@ -1,3 +1,4 @@
+import {wallMount} from '../casa_game/wall_mount.mjs';
 import {AVAILABLE_HOUSE_PHOTOS} from './unique_house_photo_pool.js';
 import {FURNITURE_CATALOG} from './victorian_furniture_library.js';
 import {floorElevationsFeet} from './forge_readiness_audit.mjs';
@@ -20,7 +21,7 @@ export function planDecoration(source){
    const spec=FURNITURE_CATALOG[type];if(!spec){issues.push({severity:'ADVISORY',code:'UNSUPPORTED_AUTHORED_FURNITURE',roomId:id,object:structuredClone(authored)});return false;}
    const b=rect(px,pz,spec.footprint[0]+.18,spec.footprint[1]+.18),fits=b.minX>x+.12&&b.maxX<x+w-.12&&b.minZ>z+.12&&b.maxZ<z+d-.12&&spec.height<h-.15,clear=!blocked.some(a=>overlap(a,b));
    const oid=String(authored?.id||`forge:${id}:furniture:${index}`);
-   if(!fits||!clear){if(authored)issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_FURNITURE_CLEARANCE',objectId:oid,roomId:id,authored:structuredClone(authored)});if(!authored)return false;}
+   if(!fits||!clear){if(authored)issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_FURNITURE_CLEARANCE',objectId:oid,roomId:id,authored:structuredClone(authored)});return false;}
    const obj={id:oid,roomId:id,floor,type,model:`geometry/furniture/${type}.glb`,positionMeters:[px,y,pz],rotationY:0,authored:!!authored,source:authored?structuredClone(authored):null};
    furniture.push(obj);blocked.push(b);colliders.push({objectId:oid,roomId:id,floor,bounds:b,minY:y,maxY:y+spec.height});changes.push({code:authored?'COMPILE_AUTHORED_FURNITURE':'ADD_ROOM_FURNITURE',objectId:oid,roomId:id});return true;
   };
@@ -29,8 +30,8 @@ export function planDecoration(source){
   const types=Object.keys(FURNITURE_CATALOG).filter(t=>FURNITURE_CATALOG[t].rooms.includes(kind(r)));
   if(!(r.furniture||[]).length){let count=0;for(const t of types){let placed=false;const [fw,fd]=FURNITURE_CATALOG[t].footprint;for(const px of [x+fw/2+.24,x+w-fw/2-.24])for(const pz of [z+fd/2+.24,z+d-fd/2-.24]){if(count>=3||placed)continue;if(place(t,px,pz,null,count)){count++;placed=true;}}if(count>=3)break;}}
   // Never place generated pictures over windows, doors, or removed partitions.
-  const wall=['top','bottom','left','right'].find(side=>!(r.openings||[]).some(o=>o.wall===side));
-  if(wall&&h>=2.35&&Math.min(w,d)>=1.35&&artIndex<AVAILABLE_PORTRAITS.length){const pic=AVAILABLE_PORTRAITS[artIndex++],p=portal(r,{wall,pos:.5},y+1.6),normal=wall==='top'?[0,0,1]:wall==='bottom'?[0,0,-1]:wall==='left'?[1,0,0]:[-1,0,0];p[0]+=normal[0]*.22;p[2]+=normal[2]*.22;artwork.push({id:`forge:${id}:portrait`,roomId:id,floor,artworkId:pic,asset:`assets/portraits/${pic}.webp`,positionMeters:p,normal,sizeMeters:[.87*(AVAILABLE_HOUSE_PHOTOS.find(photo=>photo.id===pic)?.aspectRatio||2/3),.87],interaction:{action:'inspect',anchorMeters:[p[0]+normal[0]*.75,y,p[2]+normal[2]*.75],gameplayBinding:null}});}
+  const pic=AVAILABLE_PORTRAITS[artIndex],size=[.87*(AVAILABLE_HOUSE_PHOTOS.find(photo=>photo.id===pic)?.aspectRatio||2/3),.87],mount=pic&&['top','bottom','left','right'].map(side=>wallMount(r,{width:size[0],height:size[1],preferred:[side]})).find(m=>{if(!m)return false;const ax=m.position[0]+m.normal[0]*.75,az=m.position[2]+m.normal[2]*.75,standing=rect(ax,az,.60,.60);return standing.minX>x+.05&&standing.maxX<x+w-.05&&standing.minZ>z+.05&&standing.maxZ<z+d-.05&&!colliders.some(c=>c.roomId===id&&overlap(c.bounds,standing));});
+  if(mount&&Math.min(w,d)>=1.35){artIndex++;const p=[mount.position[0],y+mount.position[1],mount.position[2]],normal=mount.normal;artwork.push({id:`forge:${id}:portrait`,roomId:id,floor,artworkId:pic,asset:`assets/portraits/${pic}.webp`,positionMeters:p,normal,sizeMeters:size,interaction:{action:'inspect',anchorMeters:[p[0]+normal[0]*.75,y,p[2]+normal[2]*.75],gameplayBinding:null}});}
   for(const field of ['decor','artwork','photos'])if(r[field]?.length)issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_DECOR_REQUIRES_BINDING',roomId:id,field,records:structuredClone(r[field])});
   lights.push({id:`forge:${id}:ceiling-light`,roomId:id,floor,positionMeters:[center[0],y+h-.22,center[2]],color:'#ffd6a0',intensity:1.2,rangeMeters:Math.max(w,d),static:true,castShadow:false,gameEffects:[]});
  }
