@@ -19,10 +19,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Catalog prepared CASA houses
+        run: node tools/build-casa-street.mjs
       - name: Prepare static site
         run: |
           mkdir _site
-          cp index.html _site/
+          cp index.html casa_game.html _site/
+          cp -R casa_game _site/
           cp -R assets _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
