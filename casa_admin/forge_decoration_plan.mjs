@@ -15,6 +15,7 @@ export function planDecoration(source){
  for(const [floor,f] of source.floors.entries())for(const r of f.rooms){
   const x=+r.x*FT,z=+r.y*FT,w=+r.l*FT,d=+r.w*FT,h=+r.h*FT,y=levels[floor]*FT,id=String(r.id),center=[x+w/2,y,z+d/2],roomBounds=rect(center[0],center[2],w,d),blocked=[];
   rooms.push({id,floor,bounds:roomBounds,y});
+  if(r.forgeStair){reserved.push({roomId:id,floor,kind:'stair-clearance',bounds:roomBounds});continue;}
   // Protect conservative rectangles containing every portal-to-room-center segment, plus leaf sweeps.
   for(const o of r.openings||[]){if(o.type==='window')continue;const p=portal(r,o,y),margin=Math.max(.48,(o.clearWidthMeters||1.08)/2+.16),a={minX:Math.min(p[0],center[0])-.48,maxX:Math.max(p[0],center[0])+.48,minZ:Math.min(p[2],center[2])-.48,maxZ:Math.max(p[2],center[2])+.48};blocked.push(a);reserved.push({roomId:id,floor,kind:'portal-route',openingId:o.id||null,bounds:a});const leaf=rect(p[0],p[2],margin*4,margin*4);blocked.push(leaf);reserved.push({roomId:id,floor,kind:o.forgeElevator?'elevator-approach':'door-sweep',openingId:o.id||null,bounds:leaf});}
   const central=rect(center[0],center[2],.96,.96);blocked.push(central);reserved.push({roomId:id,floor,kind:'arrival',bounds:central});

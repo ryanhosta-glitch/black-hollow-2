@@ -13,7 +13,7 @@ const server=http.createServer(async(req,res)=>{try{
  let body=await readFile(file);
  // Test-only access to the actual application. No hooks are written to production modules.
  if(url==='/casa_game/main.mjs')body=Buffer.from(body.toString()+`
-window.__forgeBrowser={loadHouse,houseScene,signatureScene,nearestAction,get house(){return house},get session(){return session},get walker(){return walker},get mode(){return mode},pose};`);
+window.__forgeBrowser={loadHouse,houseScene,signatureScene,nearestAction,get house(){return house},get session(){return session},get walker(){return walker},get mode(){return mode},get busy(){return busy},pose};`);
  res.setHeader('Content-Type',file.endsWith('.mjs')||file.endsWith('.js')?'text/javascript':file.endsWith('.html')?'text/html':file.endsWith('.webp')?'image/webp':'application/octet-stream');res.end(body);
 }catch{res.writeHead(404);res.end('missing');}});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
 const args=process.env.CHROMIUM_ARGS?JSON.parse(process.env.CHROMIUM_ARGS):['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
@@ -44,7 +44,7 @@ try{const page=await browser.newPage({viewport:{width:1280,height:1000}}),errors
  });
  assert.deepEqual(sharedWallMaterials,['library emerald damask','laboratory glazed ivory tile','dark mahogany','laboratory glazed ivory tile']);
 
- await page.goto(base+'/casa_game.html');await page.waitForFunction(()=>!document.getElementById('startStreet').disabled);await page.locator('#startStreet').click();
+ await page.goto(base+'/casa_game.html');await page.waitForFunction(()=>!document.getElementById('startStreet').disabled);await page.locator('#startStreet').click();await page.waitForFunction(()=>window.__forgeBrowser?.mode==='street'&&!window.__forgeBrowser.busy&&window.__forgeBrowser.walker?.active);
  await page.evaluate(async()=>{await window.__forgeBrowser.loadHouse({id:'browser-fresh',name:'Victorian Visual Estate',package:'/__fresh.casa'});});await page.locator('#closeModal').click();
  assert.equal(await page.evaluate(()=>window.__forgeBrowser.mode),'hall');
  // Walk the physical Hall staircase, using real animation frames and the real camera.

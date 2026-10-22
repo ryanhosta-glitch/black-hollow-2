@@ -79,3 +79,29 @@ Arbitrary Blueprint stairs remain on the existing elevator bypass. Continuous tr
 The inspection preview now includes exterior porch-post collision bounds in street and assembly views. Portrait diagnostics additionally identify opening overlap and positions outside the room, and reject malformed position vectors. Regression coverage includes a portrait over an entrance, a valid solid-wall mount, an out-of-room mount and an invalid vector. This does not alter published packages or enable arbitrary authored stair traversal.
 
 Rendered screenshot review also exposed long exterior walkway triangles leaking into the indoor cutaway. Indoor decoration filtering now requires every triangle vertex to fit the floor and horizontal bounds, rather than accepting its centroid alone. The browser regression checks the loaded indoor decoration bounding box; the corrected cutaway screenshot has no exterior spikes. Final validation: 42 Node cases, navigation/scene/full quest suites and Chromium WebGL fixture checks. Software rendering remains the browser verification limit.
+
+# Pass 3 — supported straight stairs and continuous floor transitions
+
+This pass supersedes the blanket authored-stair bypass limitation for the bounded contract below. Packages remain QA exports, with `physicsCertified: false`; supported geometry is not a claim that all Blueprint stairs are safe.
+
+## Supported contract
+
+Dedicated, aligned staircase rooms on consecutive floors, with matching `stairLink` when supplied and explicit `stairDirection: "z+"` on both rooms. Embedded, spiral, switchback and other directions retain elevator access. The pair must have identical bounds, no authored furnishings/decor requiring clearance review, at least 1.4 m width, 1.3 m landings at both ends, risers no taller than 0.19 m, treads at least 0.25 m and upper headroom of at least 2.1 m. The lower room's height must reach the actual upper floor elevation. Non-window portals must meet their corresponding lower/upper landing; a generated elevator opening on the flight also disables traversal. Adjacent-floor chains sharing different floor partners and locked Floor 13 destinations are not enabled.
+
+The repaired source records the generated `forgeStair` contract; the untouched original remains in `source.haunt`. `navigation/access_plan.json` and `navigation/stairs.json` record enabled routes or explicit fallback reasons. All existing elevators remain available.
+
+## Implementation
+
+- Forge builds solid treads/risers, nosings, railings, a supported upper landing, an open lower ceiling and an upper-floor shaft opening. The upper room's ceiling remains intact. Exported GLB raycasts verify tread heights, shaft clearance, landing support and overhead enclosure.
+- The Game consumes compiled surface heights and limits each move to one riser. The rail lane blocks side entry; floor-height checks prevent walking through a side portal midway up a flight. Room/floor handoffs preserve world position, heading and held movement keys.
+- A nearby flight preloads both floors before climbing. The resident cache stays at two floors near the shaft, drops to one away from it, and reloads the neighbor on return. Shared signature scenes release cached house floors. Normal houses retain their one-floor behavior.
+- Camera occlusion now uses actual house meshes. Midflight saves validate against the compiled supported surface; quest locks are checked on restoration and traversal. Generated decorations, haunting tableaux and quest slots are excluded from the active stair shaft.
+- Preview displays static traversal status, fallback reasons, riser/tread/headroom measurements, green landing/route guides and cyan upper-landing headroom. Room inspection positions the camera on the appropriate landing. Guide resources are disposed on replacement.
+
+## Validation and limits
+
+Node cases cover 8/10/12-foot rises, misaligned pairs, insufficient run, unsafe headroom, blocked landings, unsupported embedded stairs, Floor 13 locks, malformed runtime contracts, surface ascent/descent, side entry, streamed resource eviction and fresh exported GLB geometry. Existing application-flow suites still exercise shipped packages and three fresh exports, elevators, ghosts, Floor 13, map rewards and street return.
+
+The Chromium regression uploads the stair fixture through the actual compiler, inspects the preview and loads the downloaded CASA in the actual Game. It uses keyboard ascent/descent of the 3.048 m authored flight, checks frame-by-frame position and camera bounds, walks through the landing arch, checks neighboring-floor eviction/reload and restores a midflight save. Evidence goes to the ignored CI artifact directory. Rendering uses software WebGL; hardware/mobile performance and exhaustive authored layouts remain unverified. Other directions, embedded stairs, spiral/switchback stairs and more complex shared stair chains remain future work. No existing CASA or catalog is rewritten.
+
+Final local validation for Pass 3: `npm test` passes 48 Node cases plus navigation, scene-loading and full-quest harnesses against shipped and freshly compiled packages. Browser checks exercise the existing Victorian fixture, physical Hall stairs, and the new authored-stair fixture. Browser harnesses explicitly wait for street startup before opening a house, preventing a test-only race with the initial scene transition.
