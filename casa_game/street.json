@@ -3,7 +3,10 @@
   "houses": [
     {
       "id": "demo-moonveil",
-      "fingerprint": "c0a0977e0e12144801b6b2ad48e6053743e22ff694c7946b8081b6776bf28c59",
+      "fingerprint": "e6bfad78d459e5abc750b6fa16eb8e6e1fd329532fd1a1e8188af23a49249d6f",
+      "previousFingerprints": [
+        "c0a0977e0e12144801b6b2ad48e6053743e22ff694c7946b8081b6776bf28c59"
+      ],
       "geometryLevel": "victorian-textured-architecture-4.3",
       "name": "Moonveil Manor — Three-Level Staircase Test Estate",
       "package": "./samples/moonveil.casa",
@@ -12,7 +15,10 @@
     },
     {
       "id": "demo-lonely-candle",
-      "fingerprint": "7a5a231871a275daa73aab8d5d379909342be8c26c10160caec1ec810de8e255",
+      "fingerprint": "a277e3e89d20b615d508da68ece927cfd0f05535a9496089fe47035f1b81bd94",
+      "previousFingerprints": [
+        "7a5a231871a275daa73aab8d5d379909342be8c26c10160caec1ec810de8e255"
+      ],
       "geometryLevel": "victorian-textured-architecture-4.3",
       "name": "The Lonely Candle",
       "package": "./samples/one-room.casa",
@@ -21,7 +27,10 @@
     },
     {
       "id": "demo-split-lantern",
-      "fingerprint": "9603464358fdf7939c2b7fcd4120df32c21d45f41e1ed1c5608e36d2068e0f57",
+      "fingerprint": "7200f5ef19c7de54d6783be4c716437ae7cda42d166ff77fbaf7649c9142eb22",
+      "previousFingerprints": [
+        "9603464358fdf7939c2b7fcd4120df32c21d45f41e1ed1c5608e36d2068e0f57"
+      ],
       "geometryLevel": "victorian-textured-architecture-4.3",
       "name": "The Split Lantern",
       "package": "./samples/split-lantern.casa",
