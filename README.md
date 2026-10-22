@@ -39,3 +39,7 @@ For the real-browser house-loading, mode-switching and stable-light-budget check
 Stationary opaque architecture and cemetery scenery are merged into spatial batches by material and render settings after house construction. Batches use 12-unit cells to retain frustum culling. Animated objects, doors, characters, portraits, transparent effects and interactive props remain separate. Navigation and collision data are captured before batching. The browser regression check verifies unchanged triangle totals, bounds, door parents and collision data across house reloads.
 
 In a seeded Performance-mode sample-house comparison at 960×540, batching reduced draw calls from 845 to 546 for the exterior view and from 451 to 259 for an interior view. Total scene triangles were unchanged; spatial batches can draw a few more offscreen triangles near their edges. These are draw-call measurements in cloud Chromium, not FPS measurements on a player's hardware.
+
+## New CASA Edition
+
+The separate [CASA Edition](casa_game.html) loads prepared houses, streams one house floor at a time, and starts on Haunted Hollow Street. See [its guide](CASA_GAME_README.md) for publishing CASA houses, controls, validation and known limits. The original game entry remains unchanged.

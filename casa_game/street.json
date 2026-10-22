@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "houses": [
+    {
+      "id": "demo-moonveil",
+      "name": "Moonveil Manor — Three-Level Staircase Test Estate",
+      "package": "./samples/moonveil.casa",
+      "architect": "Black Hollow Forge",
+      "description": "A prepared house with a different mystery whenever you begin a new haunting."
+    },
+    {
+      "id": "demo-lonely-candle",
+      "name": "The Lonely Candle",
+      "package": "./samples/one-room.casa",
+      "architect": "Black Hollow Forge",
+      "description": "A prepared house with a different mystery whenever you begin a new haunting."
+    }
+  ]
+}

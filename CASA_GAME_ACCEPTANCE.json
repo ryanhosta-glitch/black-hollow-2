@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "entry": "casa_game.html",
+  "separateFromOriginal": true,
+  "originalEntrySha256": "d695abf6c077d7b1a1f5d5c4627340a196f53e4e3543dc06cccbabbb93e42f4d",
+  "runtimeInput": "compiled CASA ZIP",
+  "blueprintConversionInRuntime": false,
+  "street": {
+    "publishedCatalogFromCasaMetadata": true,
+    "maximumLoadedPreviews": 2,
+    "localImportsStayOnDevice": true
+  },
+  "house": {
+    "residentFloorCacheLimit": 1,
+    "additionalPocketScenes": [
+      "Grand Main Hall",
+      "Conservatory"
+    ],
+    "usesCompiledGeometry": true,
+    "usesCompiledFurnitureAndCollision": true
+  },
+  "game": {
+    "seededCases": 6,
+    "spiritForms": 4,
+    "requiredKeepsakes": 3,
+    "floor13Echoes": 13,
+    "mapReward": true,
+    "savedMysteries": true,
+    "oneRoomStaging": true
+  },
+  "validation": {
+    "unitAndLegacyPerformanceTestsPassed": 13,
+    "realThreeSceneGraphsPassed": true,
+    "navigationDoorRegressionPassed": true,
+    "actualApplicationFlowWithSimulatedRendererPassed": true,
+    "fullQuestAndStreetReturnPassed": true,
+    "cabinsCancellationAndEscapePassed": true,
+    "pausedRenderingIdles": true,
+    "sourceHouseUnchanged": true,
+    "webglRenderedPlaythroughVerified": false,
+    "audibleAndDevicePerformanceVerified": false
+  },
+  "releaseStatus": "PLAYTEST_BUILD",
+  "gameplayCertification": false
+}

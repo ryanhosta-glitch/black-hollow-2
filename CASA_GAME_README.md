@@ -1,0 +1,68 @@
+# Black Hollow — CASA Edition
+
+A separate game entry point: **casa_game.html**. The original index.html remains untouched.
+
+The new runtime reads prepared CASA archives. It never imports the original game script, reads source.haunt, repairs a blueprint, or generates house walls/roofs/furnishings. The game owns the street, characters, atmosphere, interactions and story. Forge owns the house assets and contracts.
+
+## Play
+
+Serve this directory over HTTPS or localhost:
+
+```
+python3 -m http.server 8000
+```
+
+Open `http://localhost:8000/casa_game.html`. Internet access is needed for Three.js on its first load. No build or npm install is needed to play. WebGL and a modern browser supporting native ZIP Deflate/Gzip decompression are required.
+
+Walk Haunted Hollow Street. Read a mailbox, then approach its porch and interact to enter. Climb either Grand Main Hall staircase, board the upper elevator cabin, and choose a destination. Explore the house and approach its apparition.
+
+W/S walk, A/D turn, drag to look, V changes camera, E interacts, M opens your discoveries/map, Escape pauses. Visible buttons also support interactions and touch movement. Pause and dialogue preserve player position and direction. Sound/voices can be disabled independently. Reduced-motion settings disable lightning.
+
+## The four parts of the game
+
+1. **The living house:** spiders and rats react and scurry; hanging fixtures use a fixed pool of three nearby point lights; the shared Hall hearth burns; prepared house fireplace anchors can also receive flames. Street/grounds have rain and restrained single lightning flashes, separated by 32–77 seconds. Original organ tracks crossfade for entrance, exploration and encounters; pickups, the lift and completion have organ cues. Thunder/elevator effects have independent audio paths and do not stop the soundtrack. Paused scenes render once and then idle.
+2. **The dead:** the original Ranger Wraith is recovered as a separate compressed asset. Three additional procedural spirit forms can haunt the house/grounds. Founder and Seer portraits reuse the original artwork and speak through optional browser speech synthesis. Compiled decorative portraits whisper history. Grave inscriptions connect the cemetery to the current case. These are fictional generated histories, not biographies.
+3. **The investigation:** six seeded story cases, varied keepsake assignments and ghost appearances, persistent progress, and a complete ghost → Founder → Seer → three keepsakes → Founder → Floor 13 → thirteen distinct narrative echoes and memory journal → Founder/map reward → street loop. New investigations get new seeds; reopening resumes the saved mystery rather than silently changing it. One-room houses stage objects sequentially at a safe interaction point instead of stacking them. The default prepared Floor 13 space is the Conservatory, with thirteen memories; this release does not invent thirteen architectural rooms.
+4. **The street:** mailbox names/descriptions come from CASA metadata. Only the two nearest house previews load. Published houses are cataloged from CASA files; players can also add local houses that persist in IndexedDB on their device when available. Local imports are never uploaded. Old packages missing the elevator/navigation contract must be recompiled in the current Forge.
+
+## Publish houses for everyone
+
+Put compiled `.casa` files in `casa_game/houses/` and run:
+
+```
+node tools/build-casa-street.mjs
+```
+
+The Pages workflow runs this automatically. It reads package metadata and writes street.json; it does not convert blueprints. Permanent house IDs must be unique. The repository includes prepared Moonveil and one-room demonstration packages. Their source architecture comes from the Forge's test fixtures; demo identity IDs are distinct.
+
+Deployment copies casa_game.html and casa_game/ alongside the existing original game and assets. After publishing, the new entry is `/black-hollow-2/casa_game.html`.
+
+## Loading and performance
+
+CASA ZIP directories are validated with size limits, path isolation, CRC and available SHA-256 inventory checks. Stored and Deflate entries are supported. Metadata and requested models are decoded lazily. External GLB asset references are rejected; images resolve inside the same package. The source blueprint is archival only.
+
+One house floor is resident in the floor streamer. Signature Hall/Conservatory pocket scenes are independent reusable assets; returning to the street releases the house scene resources. Models use the Forge's meter coordinates directly; navigation contracts in feet are converted explicitly. Texture dependencies remain in the archive. Furniture instances use shared templates on the active floor. Artwork is filtered to its floor; precompiled decoration triangles are filtered without rebuilding architecture. Street solids and lamps are instanced. Signature camera checks use simple proxies instead of raycasting every botanical ornament. The drawing buffer is capped near 1280×720 with a 30 FPS target. These are budgets and design choices, not measured player-device FPS claims.
+
+Floor models are still the Forge's render chunks. Very large single-floor models need smaller Forge chunks for finer streaming. The runtime deliberately uses the supplied street preview; an incomplete preview must be fixed by the Forge exporter. Unverified authored stairs remain sealed and use the compiled elevator fallback. No new free-form stair solver is introduced.
+
+## Validation and limitations
+
+Passed:
+
+- Stored/compressed archive loading, corruption/hash/path/duplicate failures and current-format compatibility.
+- Complete quest progression, one-room support, replay/save restoration, location/height/scene checks, concealed Floor 13 and map reward.
+- One-floor cache residency, deduplicated/cancelled loads and resource disposal.
+- Actual application code executed with a simulated DOM/renderer and real Three.js geometry: street → Hall → cabin → house → complete quest → 13 spatial echoes → map → saved completion → street. Also checks cabin cancellation, Escape, direction preservation, one-room staging and paused rendering.
+- Real GLTFLoader parses the compiled floors, filtered artwork and signature metadata, plus the recovered original ghost. Image decoding in CPU tests is stubbed; this is not visual validation.
+- Physical-door/navigation regressions and existing original-game performance regressions.
+
+Run:
+
+```
+node --test tests/casa-game.test.mjs tests/performance.test.cjs
+node tests/casa-navigation.test.mjs /path/to/three.module.mjs
+node tests/casa-scenes.test.mjs /path/to/three.module.mjs /path/to/GLTFLoader.mjs
+node tests/casa-flow.test.mjs /path/to/three.module.mjs /path/to/GLTFLoader.mjs
+```
+
+This is a complete playtest build of the new runtime, not a claim of fully certified geometry or device performance. The Work browser has previously failed to create a WebGL context; a rendered playthrough, sound/voice checks and phone testing remain required. Legacy optional minigames and every old decorative effect have not been copied wholesale. They can be added as CASA-driven game modules without bringing back the old house generator.
