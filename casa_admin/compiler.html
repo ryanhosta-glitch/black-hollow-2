@@ -75,6 +75,39 @@ for(const side of ['top','bottom']){if(r.openings.some(o=>o.wall===side&&o.type!
 for(const side of ['left','right']){if(r.openings.some(o=>o.wall===side&&o.type!=='window'))continue;const xx=side==='left'?x:x+l;add([xx,b+.17,z+w/2],[.32,.32,w],MAT.stone);for(const level of [.24,Math.max(.6,h-.30),Math.max(.75,h*.70)])add([xx,b+level,z+w/2],[.29,.085,w],MAT.trim)}
 // Vertical panel stiles avoid openings by being laid against wall edges and corner bays.
 for(let q=1;q<Math.floor(l/3);q++){const xx=x+q*l/Math.ceil(l/3);for(const zz of [z,z+w])if(!r.openings.some(o=>o.wall===(zz===z?'top':'bottom')&&o.type!=='window'))add([xx,b+h*.45,zz],[.075,h*.44,.08],MAT.trim)}
+// Architectural finish pass: keep molding and wall panels clear of authored openings.
+// A wall run is split at every opening, preventing trim or wainscoting across doorways.
+for(const side of ['top','bottom','left','right']){
+ const vertical=side==='left'||side==='right',span=vertical?w:l,wall=vertical?(side==='left'?x:x+l):(side==='top'?z:z+w);
+ const gaps=(r.openings||[]).filter(o=>o.wall===side&&['door','arch','open','window'].includes(o.type)).map(o=>{
+   const sh=openingShape(o,span,h);return [Math.max(0,sh.center-sh.width/2-.12),Math.min(span,sh.center+sh.width/2+.12)];
+ }).sort((a,b)=>a[0]-b[0]);
+ let cursor=.12;
+ const segment=(from,to)=>{
+   const length=to-from;if(length<.48)return;
+   const center=(from+to)/2;
+   const place=(height,thick,mat)=>{
+     const c=vertical?[wall,b+height,z+center]:[x+center,b+height,wall];
+     const size=vertical?[thick,.085,length]:[length,.085,thick];add(c,size,mat);
+   };
+   // Raised wainscot rails, picture rail and ceiling cornice.
+   for(const height of [.26,1.02,Math.max(1.5,h-.34)])if(height<h-.1)place(height,.30,MAT.trim);
+   // Recessed panels live inside a solid wall run rather than in a doorway.
+   const bays=Math.max(1,Math.floor(length/2.4)),bw=length/bays;
+   for(let q=0;q<bays;q++){
+     const at=from+(q+.5)*bw;
+     const c=vertical?[wall,b+.63,z+at]:[x+at,b+.63,wall];
+     const size=vertical?[.265,.62,Math.max(.18,bw-.2)]:[Math.max(.18,bw-.2),.62,.265];
+     add(c,size,MAT.wood);
+     for(const edge of [from+q*bw+.08,from+(q+1)*bw-.08]){
+       const stile=vertical?[wall,b+.63,z+edge]:[x+edge,b+.63,wall];
+       add(stile,vertical?[.32,.76,.075]:[.075,.76,.32],MAT.trim);
+     }
+   }
+ };
+ for(const [start,end] of gaps){if(start>cursor)segment(cursor,start);cursor=Math.max(cursor,end);}
+ if(cursor<span-.12)segment(cursor,span-.12);
+}
 // Elevator entrances have exported brass jambs outside the clear aperture.
 for(const o of r.openings.filter(o=>o.forgeElevator)){const vertical=o.wall==='left'||o.wall==='right',length=vertical?w:l,sh=openingShape(o,length,h),center=sh.center,wall=vertical?(o.wall==='left'?x:x+l):(o.wall==='top'?z:z+w);for(const sign of [-1,1]){const along=center+sign*(sh.width/2+.045);add([vertical?wall:x+along,b+sh.high/2,vertical?z+along:wall],[vertical?.16:.06,sh.high,vertical?.06:.16],MAT.metal);}add([vertical?wall:x+center,b+sh.high+.06,vertical?z+center:wall],[vertical?.16:sh.width+.18,.10,vertical?sh.width+.18:.16],MAT.metal);}
 // Furnishings now come from the shared detailed catalog and decoration contract.
