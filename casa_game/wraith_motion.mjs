@@ -1,6 +1,6 @@
 // Animate the recovered wraith's existing skin, keeping its authored bind pose.
 // Bone rotations are additive to a posed rest state; the mesh is never rebuilt.
-export function createWraithMotion(THREE,model,{reducedMotion=false,seed=0}={}){
+export function createWraithMotion(THREE,model,{reducedMotion=false,seed=0,activity='haunt'}={}){
  const bones=new Map();model.traverse(o=>{if(o.isBone)bones.set(o.name,o);});
  const originals=new Map([...bones].map(([name,b])=>[name,b.quaternion.clone()]));
  const vector=new THREE.Vector3(),start=new THREE.Vector3(),end=new THREE.Vector3(),parentQ=new THREE.Quaternion(),worldQ=new THREE.Quaternion(),turn=new THREE.Quaternion(),delta=new THREE.Quaternion(),angles=new THREE.Euler();
@@ -14,9 +14,9 @@ export function createWraithMotion(THREE,model,{reducedMotion=false,seed=0}={}){
  // Relax the T-pose into a suspended, forward-reaching silhouette. Left/right
  // signs follow this asset's actual bone names (left is positive model X).
  for(const [side,sign]of [['l',1],['r',-1]]){
-  aim('upperarm_'+side,'lowerarm_'+side,[sign*.32,-.83,.45]);
-  aim('lowerarm_'+side,'hand_'+side,[sign*.20,-.30,.93]);
-  aim('thigh_'+side,'calf_'+side,[sign*.035,-.99,.12]);
+  aim('upperarm_'+side,'lowerarm_'+side,activity==='organ'?[sign*.22,-.45,.88]:[sign*.32,-.83,.45]);
+  aim('lowerarm_'+side,'hand_'+side,activity==='organ'?[sign*.10,-.10,.99]:[sign*.20,-.30,.93]);
+  aim('thigh_'+side,'calf_'+side,activity==='organ'?[sign*.035,-.4,.91]:[sign*.035,-.99,.12]);
   aim('calf_'+side,'foot_'+side,[sign*.02,-.94,-.34]);
  }
  const posed=new Map([...bones].map(([name,b])=>[name,b.quaternion.clone()]));

@@ -139,3 +139,13 @@ Runtime dressing adds frames to supplemental portraits and wall-mounted books/ca
 Speech still uses device-provided browser voices, now with per-character selection and slower delivery over the existing whisper sound bed. This is not recorded voice acting or processed/reverberated speech. Voice quality remains device-dependent. Recorded dialogue is a separate asset pass.
 
 Validation adds estate-layout/save tests, encounter scheduling/visibility tests, wall-spider anatomy, owl and indoor bat scene tests, and a Chromium reactions suite exercising automatic ghost → Hall Founder → outdoor Seer progression. Screenshots are test evidence, not art assets.
+
+## Furnished rooms and the Hall organ
+
+Forge now assigns room identities, places proportional furniture around reserved routes, and packages wall ornamentation and a small environmental story for each room. Bedrooms, libraries, laboratories, dining rooms, conservatories, crypts, galleries and circulation spaces use different content. Tiny rooms use wall displays instead of obstructing the floor. Tall generated furniture avoids window approaches. Existing authored placements retain priority.
+
+`qa/room_completeness.json` and the visible compiler/preview report show actual and target furniture, ornamentation, reachable optional discoveries, reactions and unresolved gaps. These are static preparation checks, not rendered, physics or gameplay certification. Missing space or budget remains visible as a review item. New furniture requires recompiling the HAUNT into CASA; older packages receive runtime ornamentation and room discoveries without silently rewriting their archive.
+
+The Main Hall contains a pipe organ and an articulated wraith organist. Approaching triggers a turn, a flight around the Hall, and departure through the upper elevator; the doors open for that exit. Departure is remembered in the investigation save. Reduced motion uses a fade. Both keyboard manuals respond to the frequency spectrum of the actual playing music and settle when it stops. This is audio-reactive synchronization, not a note-perfect MIDI transcription. No unrelated animation clock pretends to represent the music.
+
+Validation: `npm test` includes 64 core tests and actual-app quest regressions against shipped and freshly compiled packages. `tests/browser-rooms.mjs` renders eight room identities and a tiny room and checks the real Forge report. `tests/browser-organ.mjs` checks the loaded wraith, actual music analysis, departure persistence and continuing keys. Screenshots are collected under `tests/artifacts/` by the browser suites.

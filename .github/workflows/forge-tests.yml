@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [forge, stairs, pipeline, reactions]
+        suite: [forge, stairs, pipeline, reactions, rooms, organ]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
