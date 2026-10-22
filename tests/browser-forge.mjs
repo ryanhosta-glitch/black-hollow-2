@@ -35,8 +35,11 @@ try{const page=await browser.newPage({viewport:{width:1280,height:1000}}),errors
  await selectors.first().selectOption('1');await page.waitForFunction(()=>!document.querySelector('#previewCanvas select').disabled);assert.equal(await canvas.getAttribute('data-undecoded'),'0');
  const previewSummary=await page.locator('#previewCanvas output').textContent();
  const sharedWallMaterials=await page.evaluate(async()=>{
-  const THREE=await import('three'),{GLTFLoader}=await import('three/addons/loaders/GLTFLoader.js'),{openCasa}=await import('/casa_game/archive.mjs'),{createPackageAssets,disposeGroup}=await import('/casa_game/resources.mjs'),house=await openCasa(await (await fetch('/__fresh.casa')).arrayBuffer()),assets=createPackageAssets(house,{THREE,GLTFLoader}),model=await assets.glb(house.manifest.floors[0].model),wall=22*.3048;
+  const THREE=await import('three'),{GLTFLoader}=await import('three/addons/loaders/GLTFLoader.js'),{openCasa}=await import('/casa_game/archive.mjs'),{createPackageAssets,createFloorStreamer,disposeGroup}=await import('/casa_game/resources.mjs'),house=await openCasa(await (await fetch('/__fresh.casa')).arrayBuffer()),assets=createPackageAssets(house,{THREE,GLTFLoader}),model=await assets.glb(house.manifest.floors[0].model),wall=22*.3048;
   const sample=(x,y,dx)=>new THREE.Raycaster(new THREE.Vector3(x,y,1.2),new THREE.Vector3(dx,0,0),0,.6).intersectObject(model,true)[0]?.object.material.name;
+  const stream=createFloorStreamer(house,assets,THREE),floor=await stream.get(0),decoration=floor.children.at(-1),bounds=new THREE.Box3().setFromObject(decoration),b=house.decoration.bounds;
+  if(bounds.min.x<b.minX-.061||bounds.max.x>b.maxX+.061||bounds.min.z<b.minZ-.061||bounds.max.z>b.maxZ+.061)throw Error('Indoor decoration leaks exterior path triangles');
+  stream.clear();
   const result=[sample(wall-.5,1.6,1),sample(wall+.5,1.6,-1),sample(wall-.5,.5,1),sample(wall+.5,.5,-1)];disposeGroup(model);assets.close();return result;
  });
  assert.deepEqual(sharedWallMaterials,['library emerald damask','laboratory glazed ivory tile','dark mahogany','laboratory glazed ivory tile']);

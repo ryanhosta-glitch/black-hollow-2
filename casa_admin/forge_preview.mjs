@@ -27,7 +27,7 @@ export async function createForgePreview(container,blob){
  const addGuide=(min,max,color)=>{const helper=new THREE.Box3Helper(new THREE.Box3(new THREE.Vector3(...min),new THREE.Vector3(...max)),color);helper.material.depthTest=false;helper.renderOrder=10;guides.add(helper);};
  const nav=house.manifest.collision?await house.json(house.manifest.collision):{walls:[]};
  function updateGuides(){for(const g of [...guides.children])disposeGroup(g);const floor=Number(select.value),matches=f=>['outside','assembly'].includes(select.value)||f===floor;
-  for(const c of house.decoration.colliders||[])if(c.floor!==null&&matches(c.floor))addGuide([c.bounds.minX,c.minY,c.bounds.minZ],[c.bounds.maxX,c.maxY,c.bounds.maxZ],0xffad55);
+  for(const c of house.decoration.colliders||[])if(c.floor===null?['outside','assembly'].includes(select.value):matches(c.floor))addGuide([c.bounds.minX,c.minY,c.bounds.minZ],[c.bounds.maxX,c.maxY,c.bounds.maxZ],0xffad55);
   for(const w of nav.walls||[])if(matches(w.floor)){const r=house.rooms.find(r=>r.id===w.roomId);if(!r)continue;const b=r.boundsFeet,y=floorY(house,w.floor),start=(w.axis==='x'?+b.x:+b.y)*.3048+w.fromMeters,end=start+w.toMeters-w.fromMeters,t=w.thicknessMeters/2;addGuide(w.axis==='x'?[start,y,w.wallCoordinateMeters-t]:[w.wallCoordinateMeters-t,y,start],w.axis==='x'?[end,y+w.heightMeters,w.wallCoordinateMeters+t]:[w.wallCoordinateMeters+t,y+w.heightMeters,end],0x77c7ff);}
   for(const s of house.access.stops)if(matches(s.floor)){const [x,y,z]=s.approachMeters;addGuide([x-.65,y,z-.65],[x+.65,y+2,z+.65],0xdb77ff);}guides.visible=collision.checked;
  }

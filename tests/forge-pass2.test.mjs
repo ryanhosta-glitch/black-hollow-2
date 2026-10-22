@@ -17,3 +17,14 @@ test('fresh multi-story CASA includes aligned elevator evidence and grounded por
 
 test('authored dormers and roof lantern towers generate finite renderable geometry',()=>{for(const r of [{...room,roofType:'gable',dormers:2},{...room,roofType:'tower'}]){const parts=buildRoofs([{rooms:[r]}],[0]);assert.ok(parts.length>12);const g=doc(glb(parts));assert.ok(g.accessors.every(a=>!a.min||a.min.every(Number.isFinite)));assert.ok(g.meshes[0].primitives.length>2);}});
 test('placement diagnostics flag floating furniture and misaligned elevator arrivals',()=>{const house={manifest:{floors:[{elevationMeters:0}]},rooms:[{...room,floor:0,boundsFeet:room}],decoration:{furniture:[{id:'floating',roomId:'a',positionMeters:[2,.5,2]}],artwork:[]},access:{stops:[{id:'off-level',roomId:'a',approachMeters:[2,1,2]}]}};const codes=inspectPlacement(house).map(w=>w.code);assert.ok(codes.includes('FLOATING_FURNITURE'));assert.ok(codes.includes('ELEVATOR_ALIGNMENT'));});
+
+test('portrait diagnostics reject aperture overlap, out-of-room and malformed placements',()=>{
+ const house={manifest:{floors:[{elevationMeters:0}]},rooms:[{...room,floor:0,boundsFeet:room}],access:{stops:[]},decoration:{furniture:[],artwork:[]}};
+ const portrait=(id,p)=>({id,roomId:'a',positionMeters:p,sizeMeters:[.8,.8]});
+ house.decoration.artwork=[portrait('door',[12*.3048,1.5,.16]),portrait('solid',[2*.3048,1.5,.16]),portrait('outside',[-2,1.5,.16]),portrait('invalid',[1,1])];
+ const warnings=inspectPlacement(house);
+ assert.ok(warnings.some(w=>w.objectId==='door'&&w.code==='PORTRAIT_BLOCKS_OPENING'&&w.detail==='entry'));
+ assert.ok(!warnings.some(w=>w.objectId==='solid'));
+ assert.ok(warnings.some(w=>w.objectId==='outside'&&w.code==='PORTRAIT_OUTSIDE_ROOM'));
+ assert.ok(warnings.some(w=>w.objectId==='invalid'&&w.code==='PORTRAIT_HEIGHT'));
+});

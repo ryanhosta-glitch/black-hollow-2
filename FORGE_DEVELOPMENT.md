@@ -73,3 +73,9 @@ Run browser checks with `npx playwright-core install chromium` followed by `npm 
 ## Still unfinished
 
 Arbitrary Blueprint stairs remain on the existing elevator bypass. Continuous traversal across streamed house floors, stair landings/railings and capsule/camera clearance still require implementation; this pass does not silently enable unsafe stair meshes. The tested Hall stairs are preserved. Roof clipping and ornaments still need broader coverage of unusual footprints, near-degenerate intersections, varying ceiling heights and large estates. Towers/dormers are exterior ornaments. New textures and porch detail are a first production palette, not historical reconstruction or exhaustive authored-style support. Hardware GPU/mobile performance is unverified. No old CASA receives new geometry until explicitly recompiled and published.
+
+## Pass 2 diagnostic follow-up
+
+The inspection preview now includes exterior porch-post collision bounds in street and assembly views. Portrait diagnostics additionally identify opening overlap and positions outside the room, and reject malformed position vectors. Regression coverage includes a portrait over an entrance, a valid solid-wall mount, an out-of-room mount and an invalid vector. This does not alter published packages or enable arbitrary authored stair traversal.
+
+Rendered screenshot review also exposed long exterior walkway triangles leaking into the indoor cutaway. Indoor decoration filtering now requires every triangle vertex to fit the floor and horizontal bounds, rather than accepting its centroid alone. The browser regression checks the loaded indoor decoration bounding box; the corrected cutaway screenshot has no exterior spikes. Final validation: 42 Node cases, navigation/scene/full quest suites and Chromium WebGL fixture checks. Software rendering remains the browser verification limit.
