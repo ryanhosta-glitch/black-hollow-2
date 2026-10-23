@@ -30,7 +30,7 @@ export function architecturalDetails(floor,fi,allFloors,levels){
     for(let i=1;i<cuts.length;i++){
      const lo=cuts[i-1],hi=cuts[i],mid=(lo+hi)/2;if(hi-lo<.01)continue;
      const holes=openings.filter(o=>Math.abs(mid-o.center)<o.width/2+.001),ys=[...new Set([0,h,...holes.flatMap(o=>[o.low,o.high])])].sort((a,b)=>a-b);
-     for(let j=1;j<ys.length;j++){const low=ys[j-1],high=ys[j];if(holes.some(o=>(low+high)/2>o.low&&(low+high)/2<o.high))continue;put(mid,(low+high)/2,hi-lo,high-low,.075,out*.16,MAT.siding);}
+     for(let j=1;j<ys.length;j++){const low=ys[j-1],high=ys[j];if(holes.some(o=>(low+high)/2>o.low&&(low+high)/2<o.high))continue;put(mid,(low+high)/2,hi-lo,high-low,.075,out*.24,MAT.siding);}
     }
     put((a+c)/2,-.23,c-a,.40,.38,0,MAT.stone);
     // Continuous eaves remain above door heads; lower skirt is split by apertures.
