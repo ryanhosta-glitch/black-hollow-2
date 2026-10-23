@@ -13,5 +13,5 @@ export async function prepareCasa(file){
 export function batchStorage(){
  const db=new Promise((resolve,reject)=>{const r=indexedDB.open('black-hollow-forge-batches',1);r.onupgradeneeded=()=>r.result.createObjectStore('queue',{keyPath:'key'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
  async function transaction(mode,action){const d=await db;return new Promise((resolve,reject)=>{const tx=d.transaction('queue',mode),r=action(tx.objectStore('queue'));tx.oncomplete=()=>resolve(r?.result);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});}
- return {list:()=>transaction('readonly',s=>s.getAll()),put:row=>transaction('readwrite',s=>s.put(row)),clear:()=>transaction('readwrite',s=>s.clear())};
+ return {list:()=>transaction('readonly',s=>s.getAll()),put:row=>transaction('readwrite',s=>s.put(row)),remove:key=>transaction('readwrite',s=>s.delete(key)),clear:()=>transaction('readwrite',s=>s.clear())};
 }
