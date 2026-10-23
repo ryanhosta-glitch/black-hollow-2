@@ -1,6 +1,6 @@
 import {TEXTURES} from './forge_textures.mjs';
 const enc=new TextEncoder();
-export const MAT={floor:0,wall:1,ceiling:2,trim:3,roof:4,wood:5,upholstery:6,stone:7,metal:8,glass:9,siding:10,library:11,laboratory:12,bedroom:13,parquet:14,crypt:15,conservatory:16,ivory:17,silver:18,ebony:19,linen:20,plaster:21,leadedGlass:22,rubyGlass:23,amberGlass:24};
+export const MAT={floor:0,wall:1,ceiling:2,trim:3,roof:4,wood:5,upholstery:6,stone:7,metal:8,glass:9,siding:10,library:11,laboratory:12,bedroom:13,parquet:14,crypt:15,conservatory:16,ivory:17,silver:18,ebony:19,linen:20,plaster:21,leadedGlass:22,rubyGlass:23,amberGlass:24,leather:25};
 export const PALETTE=[
 {n:'aged oak floor',c:[1,1,1,1],rough:.82},{n:'weathered Victorian plaster',c:[1,1,1,1],rough:.92},
 {n:'soot-dark ceiling',c:[1,1,1,1],rough:.95},{n:'painted ogee trim',c:[.65,.58,.49,1],rough:.75},
@@ -20,7 +20,8 @@ export const PALETTE=[
 {n:'ivory plaster relief',c:[.81,.76,.64,1],rough:.82},
 {n:'pearl leaded glass',c:[.58,.67,.68,.56],rough:.26},
 {n:'ruby leaded glass',c:[.51,.07,.13,.72],rough:.28},
-{n:'amber leaded glass',c:[.72,.47,.13,.62],rough:.25}];
+{n:'amber leaded glass',c:[.72,.47,.13,.62],rough:.25},
+{n:'tufted black leather',c:[.035,.025,.040,1],rough:.42}];
 export function glb(boxes,{exterior=null}={}){const palette=PALETTE.map(m=>({...m}));if(exterior){palette[MAT.siding]={n:exterior.label,c:exterior.color,textureMaterial:exterior.textureMaterial,rough:.93};palette[MAT.trim].c=exterior.trimColor;palette[MAT.roof].c=exterior.roofColor;}const positions=[],normals=[],uvs=[],vertexMap=new Map(),ranges=palette.map(()=>[]);const faces=[[0,1,2,3,[0,0,-1]],[5,4,7,6,[0,0,1]],[4,0,3,7,[-1,0,0]],[1,5,6,2,[1,0,0]],[3,2,6,7,[0,1,0]],[4,5,1,0,[0,-1,0]]];
 for(const b of boxes){
  const [x,y,z]=b.c,[a,d,e]=b.s.map(v=>v/2),verts=b.vertices||[[-a,-d,-e],[a,-d,-e],[a,d,-e],[-a,d,-e],[-a,-d,e],[a,-d,e],[a,d,e],[-a,d,e]];

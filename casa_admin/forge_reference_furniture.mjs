@@ -1,5 +1,5 @@
 // Sculpted portable furniture. Curved surfaces are baked into CASA, not remote assets.
-export const REFERENCE_FURNITURE={supper_table:{footprint:[2.1,1.2],height:1.42},banquet_ensemble:{footprint:[2.7,3.45],height:1.65},coffin_cabinet:{footprint:[1.0,.52],height:2.18},gothic_headboard:{footprint:[1.65,.26],height:1.82}};
+export const REFERENCE_FURNITURE={gothic_armchair:{footprint:[.94,.94],height:1.72},tufted_settee:{footprint:[1.9,.88],height:1.30},supper_table:{footprint:[2.1,1.2],height:1.42},banquet_ensemble:{footprint:[2.7,3.45],height:1.65},coffin_cabinet:{footprint:[1.0,.52],height:2.18},gothic_headboard:{footprint:[1.65,.26],height:1.82}};
 export function referenceFurnitureParts(item){
  const parts=[],[px,py,pz]=item.positionMeters,a=item.rotationY||0,cs=Math.cos(a),sn=Math.sin(a),world=([x,y,z])=>[px+x*cs+z*sn,py+y,pz-x*sn+z*cs];
  const box=(x,y,z,w,h,d,mat=5)=>parts.push({c:world([x,y,z]),s:[w,h,d],mat,rot:a,rotAxis:'y'});
@@ -8,6 +8,20 @@ export function referenceFurnitureParts(item){
  function rail(x1,y1,x2,y2,z,width,depth,mat=8){const length=Math.hypot(x2-x1,y2-y1),ang=Math.atan2(y2-y1,x2-x1),v=[[-length/2,-width/2],[length/2,-width/2],[length/2,width/2],[-length/2,width/2]],points=v.map(([x,y])=>[(x1+x2)/2+x*Math.cos(ang)-y*Math.sin(ang),(y1+y2)/2+x*Math.sin(ang)+y*Math.cos(ang)]),t=[];for(let i=0;i<4;i++){const j=(i+1)%4,A=[...points[i],z-depth/2],B=[...points[j],z-depth/2],C=[...points[j],z+depth/2],D=[...points[i],z+depth/2];t.push([A,B,C],[A,C,D]);}mesh(t,mat);}
  function goblet(x,y,z){lathe(x,y,z,[[0,0],[.045,0],[.045,.012],[.012,.025],[.009,.08],[.035,.10],[.045,.15],[.04,.17],[.032,.17],[.035,.145],[.027,.11],[0,.10]],18,10);}
  function candle(x,y,z,height=.19){lathe(x,y,z,[[0,0],[.06,0],[.055,.025],[.015,.045],[.015,.09],[.04,.10],[.04,.12],[0,.12]],18);lathe(x,y+.12,z,[[0,0],[.022,0],[.022,height],[0,height]],17);lathe(x,y+.12+height,z,[[0,0],[.012,.018],[0,.055]],8,8);}
+ function bead(x,y,z,r=.03,mat=8){lathe(x,y-r,z,[[0,0],[r*.8,r*.3],[r,r],[r*.8,r*1.7],[0,r*2]],mat,10);}
+ function scroll(cx,cy,z,r=.10,mat=19,phase=0){let prev=null;for(let k=0;k<=18;k++){const a=phase+k/18*Math.PI*2.2,rr=r*(1-k/24),p=[cx+Math.cos(a)*rr,cy+Math.sin(a)*rr];if(prev)rail(...prev,...p,z,.018,.028,mat);prev=p;}}
+ if(['gothic_armchair','tufted_settee'].includes(item.type)){
+  const sofa=item.type==='tufted_settee',width=sofa?1.76:.78,half=width/2,back=sofa?1.15:1.52;
+  box(0,.42,0,width,.14,.70,19);box(0,.51,.015,width-.10,.13,.61,25);box(0,.65,-.30,width-.11,.20,.065,19);
+  for(const side of [-1,1])for(const end of [-1,1]){const lx=side*(half-.08),lz=end*.27;lathe(lx,0,lz,[[0,0],[.065,0],[.07,.04],[.045,.10],[.035,.17],[.065,.22],[.035,.30],[.05,.40],[0,.40]],19);bead(lx,.06,lz,.055,19);}
+  box(0,(back+.55)/2,-.34,width-.10,back-.55,.075,19);box(0,(back+.59)/2,-.285,width-.20,back-.59,.04,25);
+  // Raised upholstery lobes and small recessed-looking brass buttons.
+  const cols=sofa?9:4,rows=sofa?3:5;for(let row=0;row<rows;row++)for(let col=0;col<cols;col++){const xx=(col-(cols-1)/2)*(width-.28)/cols,yy=.67+row*(back-.73)/Math.max(1,rows-1);lathe(xx,yy-.065,-.245,[[0,0],[.055,.015],[.065,.065],[.055,.115],[0,.13]],25,10);bead(xx,yy,-.205,.011,8);}
+  // Curving carved crest: pointed Gothic arch on chairs, scalloped sofa crest.
+  for(const side of [-1,1]){box(side*(half-.035),(.55+back)/2,-.32,.055,back-.45,.075,19);bead(side*(half-.035),back+.045,-.32,.052,19);for(let k=0;k<6;k++){const u1=k/6,u2=(k+1)/6,x1=side*(half-.04)*(1-u1),x2=side*(half-.04)*(1-u2),y1=back+(sofa?.10*Math.sin(u1*Math.PI):.13*u1),y2=back+(sofa?.10*Math.sin(u2*Math.PI):.13*u2);rail(x1,y1,x2,y2,-.32,.055,.08,19);}scroll(side*half*.7,back+.035,-.26,.055,19,side);}
+  if(!sofa){rail(-.24,1.32,0,1.58,-.235,.035,.04,8);rail(0,1.58,.24,1.32,-.235,.035,.04,8);bead(0,1.61,-.25,.055,19);}
+  for(const side of [-1,1]){box(side*(half-.025),.69,.01,.09,.11,.66,19);lathe(side*(half-.025),.52,.24,[[0,0],[.045,0],[.035,.15],[.06,.22],[0,.22]],19);scroll(side*(half-.03),.75,.27,.065,19,side);}
+ }
  if(item.type==='coffin_cabinet'){
   const profile=[[-.28,.05],[.28,.05],[.46,1.55],[.31,2.12],[-.31,2.12],[-.46,1.55]],tri=[];
   for(let i=1;i<profile.length-1;i++)tri.push([[...profile[0],-.19],[...profile[i],-.19],[...profile[i+1],-.19]]);mesh(tri,19);

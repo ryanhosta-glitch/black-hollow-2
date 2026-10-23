@@ -1,3 +1,4 @@
+import {artisanDetails} from './room_ornamentation.mjs';
 import {referenceRoomDetails} from './room_reference_details.mjs';
 import {wallMount} from './wall_mount.mjs';
 const FT=.3048;
@@ -8,6 +9,7 @@ export function dressRoom(room,{identity,y=0,furniture=[],occupied=[],add:emit})
  const cx=x+w/2,cz=z+d/2,privateRoom=['bedroom','nursery','parlor','ballroom','gallery'].includes(identity),stone=identity==='crypt',metal=identity==='laboratory'||identity==='conservatory',trim=stone?7:8;
  let written=0,checkpoint=0;const add=(...args)=>{const ok=emit(...args);if(ok)written++;return ok;};
  const group=(type,p,width,height,wall)=>{if(written===checkpoint)return;checkpoint=written;ornaments.push({id:`opulence:${room.id}:${ornaments.length}`,type,positionMeters:p,width,height,...(wall?{wall}:{})});};
+ const artisan=artisanDetails(room,{identity,y,occupied,furniture,add});ornaments.push(...artisan.ornaments);lights.push(...artisan.lights);
  // Layered ceiling rose, radial brass arms, candle cups and hanging prisms.
  // The lowest part always stays above 2.18 m, even in low student rooms.
  if(w>1.25&&d>1.25&&h>2.55&&!room.forgeStair){
@@ -50,5 +52,5 @@ export function dressRoom(room,{identity,y=0,furniture=[],occupied=[],add:emit})
   group('high-corner-web',[px,cy,pz],.4,.4);
  }
  ornaments.push(...referenceRoomDetails(room,{identity,y,add}));
- return {ornaments,lights,edition:'mansion-room-2',variant:seed%7};
+ return {ornaments,lights,edition:'mansion-room-3',variant:seed%7};
 }
