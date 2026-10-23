@@ -169,7 +169,7 @@ function showHauntingAction(slot){
  showModal(result.title,result.text,{choices:(result.choices||[]).map(choice=>({label:choice.label,action:()=>performHauntingAction(slot,choice.id)}))});
 }
 function performHauntingAction(slot,choice){
- const result=session.act(slot,choice,pose());
+ const inspection=session.inspect(slot,pose()),result=session.act(slot,choice,pose());
  if(!result.ok){toast(result.text);resume();return;}
  if(result.leave)return transition(streetScene);
  if(result.replay)return loadHouse(houseDescriptor,{fresh:true});
@@ -177,10 +177,10 @@ function performHauntingAction(slot,choice){
  if(result.phrase){audio.scoreQuiet(5.5);audio.phrase(result.phrase);}else if(result.note!==undefined){audio.scoreQuiet(1.5);audio.note(result.note);}else audio.cue(result.completed?'complete':'find');
  if(result.completed){
   night.record(session,house.manifest.name,house.manifest.id);endingPerformance?.dispose();
-  const p=walker.position,yaw=walker.yaw;
-  endingPerformance=createEndingTheatre(THREE,session,[p[0]-Math.sin(yaw)*1.8,p[1],p[2]-Math.cos(yaw)*1.8],{reducedMotion:reduced});scene.add(endingPerformance.root);needsRender=true;
+  dismissStoryBeat();finishNarration();$('toast').style.display='none';const view=camera.getWorldPosition(new THREE.Vector3()),forward=camera.getWorldDirection(new THREE.Vector3());view.addScaledVector(forward,2.6);view.y-=.85;
+  endingPerformance=createEndingTheatre(THREE,session,view.toArray(),{reducedMotion:reduced});endingPerformance.root.rotation.y=Math.atan2(-forward.x,-forward.z);scene.add(endingPerformance.root);needsRender=true;
   showModal(result.title,result.text+'\n\nSeal earned · '+night.data.seals.length+'/8 haunting families. Relic: '+RELICS[session.ending.relic].name+'.',{choices:[{label:'Walk back into the street',action:()=>transition(streetScene)},{label:'Stay and explore',action:()=>resume()},{label:'Inspect my relic collection',action:relicCollection}]});$('modal').classList.add('ending-view');
- }else{resume();toast(result.text,4500);}
+ }else{resume();toast(result.text,4500);if(['read','examine'].includes(choice))showObjectNote(inspection.title,inspection.text);}
 }
 function updateDirectActions(action){
  const tray=$('worldChoices');if(!tray)return;const key=action?.slot?.id+':'+(action?.choices||[]).map(c=>c.id).join(',')+':'+dialog+':'+busy;if(tray.dataset.key===key)return;tray.dataset.key=key;tray.replaceChildren();
@@ -209,8 +209,9 @@ function tickHaunting(dt){
  if(session.type==='escort'&&session.state.escortStarted&&session.state.escortIndex<3){const c=session.state.companion;if(c?.scene===mode){if(!hauntCompanion){hauntCompanion=createHauntingProp(THREE,{...session.stations[0],label:'Your traveling guest'},session);markers.add(hauntCompanion);}hauntCompanion.position.fromArray(c.position);hauntCompanion.rotation.y=Math.atan2(walker.position[0]-c.position[0],walker.position[2]-c.position[2]);}else if(hauntCompanion)hauntCompanion.visible=false;}
  updateNightHUD();
 }
+function showObjectNote(title,text){$('storyBeatEyebrow').textContent='FIELD NOTE';$('storyBeatTitle').textContent=title;$('storyBeatText').textContent=text;$('storyBeat').hidden=false;storyBeatUntil=performance.now()+14000;}
 function dismissStoryBeat(){storyBeatUntil=0;const panel=$('storyBeat');if(panel)panel.hidden=true;}
-function presentStoryBeat(text){if(!session?.phoenix||session.state.encounters['director:reveal'])return;session.state.encounters['director:reveal']=true;finishNarration();checkpoint();$('storyBeatTitle').textContent=HOUSE_VOICES[session.type].turn;$('storyBeatText').textContent=text;$('storyBeat').hidden=false;storyBeatUntil=performance.now()+8500;audio.scoreQuiet(.8);}
+function presentStoryBeat(text){if(!session?.phoenix||session.state.encounters['director:reveal'])return;session.state.encounters['director:reveal']=true;finishNarration();checkpoint();$('storyBeatEyebrow').textContent='THE HOUSE TURNS';$('storyBeatTitle').textContent=HOUSE_VOICES[session.type].turn;$('storyBeatText').textContent=text;$('storyBeat').hidden=false;storyBeatUntil=performance.now()+8500;audio.scoreQuiet(.8);}
 $('dismissStoryBeat').onclick=dismissStoryBeat;
 function toggleLanternGuide(){night.setGuide(!night.data.guide);if(session&&markers){refreshMarkers();updateNightHUD();}}
 $('guideButton').onclick=toggleLanternGuide;
@@ -227,7 +228,7 @@ function relicCollection(){
  showModal('Your relic cabinet',night.data.relics.length+'/4 relics collected · '+night.data.seals.length+'/8 seals. Carry one relic into your NEXT house. The current haunting keeps the relic it began with.',{choices:[{label:'Back to the field journal',action:hauntingJournal}]});
  const grid=document.createElement('div');grid.className='relic-grid';grid.id='relicCabinet';
  for(const [id,relic]of Object.entries(RELICS)){const owned=night.data.relics.includes(id),card=document.createElement('button');card.className='relic-card';card.disabled=!owned;card.setAttribute('aria-pressed',String(night.data.equipped===id));const icon=document.createElement('span');icon.className='relic-icon';icon.textContent=owned?RELIC_SYMBOLS[id]:'?';icon.setAttribute('aria-hidden','true');const title=document.createElement('strong');title.textContent=relic.name;const detail=document.createElement('span');detail.textContent=owned?relic.description:'Finish more hauntings to discover this relic.';const status=document.createElement('small');status.textContent=!owned?'UNDISCOVERED':night.data.equipped===id?'PACKED FOR NEXT HOUSE':'Tap to pack for your next house';card.append(icon,title,detail,status);card.onclick=()=>{night.equip(id);relicCollection();};grid.append(card);}
- $('modalText').after(grid);
+ $('modalText').after(grid);controllerMenuIndex=0;modalButtons()[0]?.focus();
 }
 $('journalButton').onclick=hauntingJournal;$('landingJournal').onclick=hauntingJournal;
 $('nightBell').onclick=()=>{if(session?.phoenix&&session.useBell()){checkpoint();updateNightHUD();}};

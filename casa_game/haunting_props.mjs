@@ -23,7 +23,7 @@ export function createHauntingProp(T,slot,run){
  }else if(slot.visual==='guest'||slot.visual==='broker'){
   add(new T.ConeGeometry(.22,.73,16),glow,0,.53);add(new T.SphereGeometry(.13,14,10),ivory,0,1.03);for(const side of [-1,1])add(new T.SphereGeometry(.025,8,6),dark,side*.045,1.05,.12);const lantern=box(brass,.30,.49,.07,.16,.23,.16);box(glow,.30,.49,.16,.11,.15,.02);g.userData.guest=slot.visual==='guest';
  }else if(run.type==='vigil'&&slot.index===3){
-  const eye=add(new T.SphereGeometry(.36,20,12),ivory,0,1.05);eye.scale.set(1,.65,.5);add(new T.SphereGeometry(.13,16,10),glow,0,1.05,.18);add(new T.SphereGeometry(.06,12,8),dark,0,1.05,.29);box(brass,0,.47,0,.045,.52,.045);g.userData.eye=eye;
+  const eye=add(new T.SphereGeometry(.36,20,12),ivory,0,1.05);eye.scale.set(1,.65,.5);const iris=add(new T.SphereGeometry(.13,16,10),glow,0,1.05,.18),pupil=add(new T.SphereGeometry(.06,12,8),dark,0,1.05,.29);g.userData.eyeParts=[iris,pupil];box(brass,0,.47,0,.045,.52,.045);g.userData.eye=eye;
  }else{
   box(dark,0,.3,0,.44,.6,.44);const seal=add(new T.TorusGeometry(.20,.027,6,32),brass,0,.82,.03);seal.rotation.z=Math.PI/4;add(new T.OctahedronGeometry(.13),glow,0,.82,.03);box(brass,0,.52,0,.035,.24,.035);
  }
@@ -44,6 +44,6 @@ export function createHauntingProp(T,slot,run){
  // A small object plaque stays on the plinth; the nearby interaction HUD supplies the readable name.
  const canvas=globalThis.document?.createElement('canvas'),ctx=canvas?.getContext('2d');
  if(ctx){canvas.width=512;canvas.height=96;ctx.fillStyle='#11131be8';ctx.fillRect(0,0,512,96);ctx.strokeStyle='#ad9569';ctx.lineWidth=3;ctx.strokeRect(2,2,508,92);ctx.fillStyle='#f4e7cb';ctx.textAlign='center';ctx.font='22px Georgia';ctx.fillText(objectClue(run,slot).slice(0,45),256,58);const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;add(new T.PlaneGeometry(.36,.067),new T.MeshBasicMaterial({map:texture,side:T.DoubleSide}),0,.15,.245);}
- g.userData.tick=time=>{if(slot.index<3&&run.type==='garden'){const open=run.state.bloomed.includes(slot.index);glow.emissiveIntensity=open?1:.35;}if(g.userData.bell)g.userData.bell.rotation.z=Math.sin(time*.0018+slot.index)*.07;if(g.userData.clockHand&&!run.state.solved.includes(slot.index)&&!run.state.pinned.includes(slot.index))g.userData.clockHand.rotation.z=-(run.state.elapsed*.6+slot.index*.9);if(g.userData.eye){const open=!run.watch().watching;g.userData.eye.scale.y=open?.09:.65;}ring.material.emissiveIntensity=.6;};
+ g.userData.tick=time=>{if(slot.index<3&&run.type==='garden'){const open=run.state.bloomed.includes(slot.index);glow.emissiveIntensity=open?1:.35;}if(g.userData.bell)g.userData.bell.rotation.z=Math.sin(time*.0018+slot.index)*.07;if(g.userData.clockHand&&!run.state.solved.includes(slot.index)&&!run.state.pinned.includes(slot.index))g.userData.clockHand.rotation.z=-(run.state.elapsed*.6+slot.index*.9);if(g.userData.eye){const open=!run.watch().watching;g.userData.eye.scale.y=open?.09:.65;for(const part of g.userData.eyeParts)part.visible=!open;}ring.material.emissiveIntensity=.6;};
  return g;
 }
