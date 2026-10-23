@@ -1,0 +1,13 @@
+# Retired-path cleanup
+
+The root site still served the standalone v8 engine, while `/casa_game.html` served The Unwritten Night. The v8 entry was 6.2 MiB and could construct `.haunt` files during gameplay. It now lives unchanged at `archive/black-hollow-v8.html`; root bookmarks route to the prepared-CASA Game with query/fragment preservation. Historical source and three legacy performance checks remain available, but the Pages artifact excludes that engine and its unused 1.7 MiB root asset directory.
+
+The live Game had retained a 24-file selection cap. It now imports a class-sized selection sequentially, preserves each successful package and reports failures without losing the rest. A running batch disables overlapping file selections. The Foundry's separate compile/publication path is preserved. Browser coverage exercises all 34 actual Forge exports through the direct Game file input as well as the Foundry/test-street route.
+
+WebAudio cues had connected directly to the output, allowing scheduled choir notes and active generated effects to outlive mute/hidden state. They now use one controlled output bus and tracked sources. Muting or hiding cancels pending cues, active ambience and recorded effects including lift doors. Unmuting resumes the selected music and fresh ambience rather than cancelled cues. Completed thunder nodes disconnect, and a late entrance-track `ended` event cannot replace encounter music. Page hide/show handles the same lifecycle.
+
+New hauntings no longer allocate the classic investigation/director state. Explicit classic-save restoration remains supported and tested. The viewport's drawing-buffer budget is shared by initialization and resize, avoiding the old oversized-resize path. Visibility transitions reset the frame-clock baseline. Current guides and Forge limitation text replace contradictory prototype-era instructions.
+
+A dependency walk from the Game, House Office and compiler found no unreferenced `.mjs`/`.js` modules in either active directory. Referenced compatibility, geometry and navigation modules were retained deliberately. This pass does not recompile or replace any published mansion archive, alter saved haunting keys, remove classic investigations, or change the Forge's publication blockers.
+
+Validation: 119 maintained core tests, real-scene playthroughs against published and freshly compiled houses, and the three separate archived-engine checks pass locally. The browser matrix additionally checks current root routing without archived assets, actual WebAudio cancellation, viewport resize budgets and the full 34-file import route.

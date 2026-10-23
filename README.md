@@ -1,45 +1,23 @@
-# Black Hollow 2 — The Cartographer's Secret
+# Black Hollow · The Unwritten Night
 
-A static Three.js/WebGL2 game, ready to host on GitHub Pages. No build or package installation is required.
+The production game is [casa_game.html](casa_game.html). The root [index.html](index.html) redirects there, preserving bookmark parameters and fragments. The [House Office](casa_admin.html) compiles and publishes student mansions.
 
-## GitHub Pages
+The Blueprint authors `.haunt` files. The Forge compiles their architecture, finishes, furnishings, navigation and reports into `.casa` archives. The Game loads those prepared mansions; it does not rebuild blueprints during play. Eight haunting families, choice-dependent endings, relics and the town's Ninth Door connect the individual mansions.
 
-1. Commit and push `index.html`, `assets/`, and `.github/workflows/pages.yml` to `main`.
-2. In the repository's **Settings → Pages → Build and deployment**, select **GitHub Actions**.
-3. Run **Deploy GitHub Pages** from the Actions tab, or push to `main`.
+## Run and test
 
-The workflow publishes only the game and its assets. Relative asset URLs support GitHub Pages project subdirectories and custom domains.
+Use `npm ci --ignore-scripts`, then `npm test` for the maintained runtime, Forge, publication, navigation and scene checks. Serve the repository with `python3 -m http.server 8000 --bind 127.0.0.1` and open the root URL. Three.js 0.170.0 loads from its CDN; use an HTTP server and a WebGL2-capable browser.
 
-## Local development
+For real browser checks, install Chromium with `npx playwright-core install chromium`, then run `npm run test:browser`. GitHub Actions runs each browser suite separately and retains its evidence. The game targets a bounded drawing buffer and 30 Hz rendering; hardware frame rates still need testing on players' devices.
 
-From the repository root:
+## Publish
 
-```sh
-python3 -m http.server 8000 --bind 127.0.0.1
-```
+Push to `main` to deploy GitHub Pages through `.github/workflows/pages.yml`. The workflow catalogs existing prepared CASA archives and publishes the current Game and House Office. It never compiles blueprints or silently replaces mansion geometry.
 
-Open the served site in a WebGL2-capable browser. Use an HTTP server rather than opening the HTML directly. Internet access is required for Three.js 0.180.0 from `cdn.jsdelivr.net`.
+Upload all student blueprints together in House Office's Mansion Foundry. Preparation is sequential, resumable on the same browser, and reports failed houses individually. Prepared mansions publish with one catalog change and one non-forced Git commit. A repository-scoped Contents read/write token is needed only for permanent publication. Local Game imports also accept class-sized selections and never upload files.
 
-## Hosting optimization
+See [the Game guide](CASA_GAME_README.md), [House Office guide](casa_admin/README.md), [haunting rules](docs/phoenix/README.md) and [town consequences](docs/living-street/README.md).
 
-Portraits and elevator audio are stored as binary files in `assets/` instead of base64 strings in the HTML. Content-based filenames allow browsers to reuse cached assets and change automatically when asset contents change. Keep the asset directory alongside `index.html` when uploading or downloading the game; the HTML is no longer a standalone file.
+## Historical engine
 
-The embedded Ranger Wraith model remains in the HTML to preserve its existing loader behavior. This change reduces HTML transfer and base64 overhead; it does not claim improved rendering FPS.
-
-For release details and manual gameplay checks, see `BLACK_HOLLOW_2_v8_5_19_README.md` and `BLACK_HOLLOW_2_v8_5_19_QA_REPORT.md`.
-
-## Runtime performance
-
-Performance mode limits the 3D drawing buffer to at most 1280×720 pixels; Cinematic mode uses at most 1920×1080. The UI remains at the window's native size. Active gameplay retains its 30 FPS target. Story dialogs draw the frozen scene once instead of continuously rendering it; resizing or returning to the tab refreshes that frame. Music selection runs at 10 Hz, and hidden tabs skip music-selection and nearby-choice updates. House loading and graphics-mode changes prepare shader programs asynchronously behind a loading screen. Point lighting uses a fixed pool of four lights in Performance mode and eight in Cinematic mode, including newly spawned effects; unused slots have zero intensity, so changing rooms does not change the renderer's point-light shader configuration. Performance mode disables transmission/refraction, clearcoat, iridescence, sheen and anisotropy, uses single-pass transparent materials, and generates smaller procedural textures. Cinematic restores the material effects. Detailed scenes still have a substantial draw-call cost during exploration.
-
-Run the rendering regression checks with `node --test tests/performance.test.cjs`.
-
-For the real-browser house-loading, mode-switching and stable-light-budget checks, install Python Playwright and Chromium, then run `python3 tests/browser-performance.py`. In the cloud proxy environment, use `BH_TEST_PROXY_CDN=1 python3 tests/browser-performance.py`; this fetches CDN modules with Python’s verified TLS rather than changing browser trust settings.
-
-Stationary opaque architecture and cemetery scenery are merged into spatial batches by material and render settings after house construction. Batches use 12-unit cells to retain frustum culling. Animated objects, doors, characters, portraits, transparent effects and interactive props remain separate. Navigation and collision data are captured before batching. The browser regression check verifies unchanged triangle totals, bounds, door parents and collision data across house reloads.
-
-In a seeded Performance-mode sample-house comparison at 960×540, batching reduced draw calls from 845 to 546 for the exterior view and from 451 to 259 for an interior view. Total scene triangles were unchanged; spatial batches can draw a few more offscreen triangles near their edges. These are draw-call measurements in cloud Chromium, not FPS measurements on a player's hardware.
-
-## New CASA Edition
-
-The separate [CASA Edition](casa_game.html) loads prepared houses, streams one house floor at a time, and starts on Haunted Hollow Street. See [its guide](CASA_GAME_README.md) for publishing CASA houses, controls, validation and known limits. The original game entry remains unchanged.
+The pre-CASA v8 engine is retained in `archive/black-hollow-v8.html` for reference. It and its old root assets are not deployed. `npm run test:legacy` runs its historical source checks separately. The explicit option to resume an existing original investigation save in the current Game remains supported; it is independent of that retired standalone engine.
