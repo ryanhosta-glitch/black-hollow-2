@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import * as T from 'three';
+import {createRoomTheatre} from '../casa_game/room_theatre.mjs';
+import {roomFurnitureParts,ROOM_FURNITURE} from '../casa_admin/forge_room_furniture.mjs';
+import {roofOrnaments} from '../casa_admin/forge_roof_ornaments.mjs';
+const room=(id,name,x=0)=>({id,name,floor:0,boundsFeet:{x,y:0,l:16,w:16,h:10},openings:[{wall:'top',type:'door',pos:.5,clearWidthMeters:1.2}]});
+const house={rooms:[room('bed','Bedroom'),room('lib','Library',20),room('stairs','Stairwell',40)],manifest:{floors:[{elevationMeters:0}]},decoration:{roomContents:[],artwork:[]}};
+test('room performances stay wall mounted, skip circulation and batch static frames',()=>{const a=createRoomTheatre(T,house,0);assert.equal(a.actorCount,2);assert.ok(a.root.children.some(c=>c.isInstancedMesh));a.root.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(a.root);assert.ok(bounds.min.y>1);for(const kind of ['reflection','clock','portrait']){a.event({roomId:kind==='clock'?'lib':'bed',kind},1000);for(const t of [1000,2000,10000]){a.tick(t,'bed');a.root.traverse(o=>{for(const v of [...o.position.toArray(),...o.rotation.toArray().slice(0,3)])assert.ok(Number.isFinite(v));});}}});
+test('reduced motion keeps clock hands still during clock haunting',()=>{const a=createRoomTheatre(T,house,0,{reducedMotion:true});a.event({roomId:'lib',kind:'clock'},0);a.tick(100,'lib');const rotations=[];a.root.traverse(o=>{if(o.children.some(c=>c.isMesh&&c.geometry.type==='BoxGeometry'))rotations.push(o.rotation.z);});a.tick(2000,'lib');const later=[];a.root.traverse(o=>{if(o.children.some(c=>c.isMesh&&c.geometry.type==='BoxGeometry'))later.push(o.rotation.z);});assert.deepEqual(rotations,later);});
+test('canopy geometry fits its declared collision envelope',()=>{const spec=ROOM_FURNITURE.bed,parts=roomFurnitureParts({type:'bed',positionMeters:[0,0,0]});for(const p of parts){assert.ok(Math.abs(p.c[0])+p.s[0]/2<=spec.footprint[0]/2+.001);assert.ok(Math.abs(p.c[2])+p.s[2]/2<=spec.footprint[1]/2+.001);assert.ok(p.c[1]+p.s[1]/2<=spec.height+.001);}});
+test('Gothic roof ornaments remain bounded on large wings',()=>{for(const kind of ['gable','tower']){const parts=roofOrnaments({x:0,y:0,l:40,w:20,h:12},0,8,kind);assert.ok(parts.length>5);assert.ok(parts.length<100);for(const p of parts)assert.ok([...p.c,...p.s].every(Number.isFinite));}});
