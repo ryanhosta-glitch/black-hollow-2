@@ -1,3 +1,4 @@
+import {dressGrandHall} from './grand_hall.mjs';
 // Runtime dressing leaves the compiled navigation apertures and stairs intact.
 export function createLiftEntrance(THREE,stop){
  const g=new THREE.Group();g.name='Automatic elevator entrance';g.userData.stopId=stop.id;g.position.fromArray(stop.wallCenterMeters||stop.approachMeters);g.rotation.y=({top:0,bottom:Math.PI,left:Math.PI/2,right:-Math.PI/2})[stop.wall]||0;
@@ -13,7 +14,7 @@ export function createLiftEntrance(THREE,stop){
  let openness=0,announced=false;const local=new THREE.Vector3();g.userData.updateLift=(dt,p,{forceOpen=false}={})=>{g.updateWorldMatrix(true,false);local.fromArray(p);g.worldToLocal(local);const target=forceOpen||Math.abs(local.y)<.55&&Math.abs(local.x)<w/2+1&&Math.abs(local.z)<2.6?1:0;openness=THREE.MathUtils.clamp(openness+(target?1:-1)*dt*1.8,0,1);for(const{leaf,side}of doors){leaf.position.x=side*(w/4+openness*w*.49);leaf.visible=openness<.99;}if(openness>=.98&&!announced){announced=true;g.userData.onOpened?.();}if(openness<.1)announced=false;g.userData.open=openness;};return g;
 }
 export function decorateGallery(THREE,root){
- const g=new THREE.Group();g.name='Decaying grand gallery';root.add(g);
+ const g=new THREE.Group();g.name='Decaying grand gallery';root.add(g);dressGrandHall(THREE,root);
  const wood=new THREE.MeshStandardMaterial({color:0x241621,roughness:.93}),gold=new THREE.MeshStandardMaterial({color:0x80603c,metalness:.5,roughness:.65}),web=new THREE.LineBasicMaterial({color:0xc4bca9,transparent:true,opacity:.32});
  function box(x,y,z,w,h,d,mat){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);g.add(m);return m;}
  const paper=document.createElement('canvas');paper.width=256;paper.height=256;const pc=paper.getContext('2d');pc.fillStyle='#302031';pc.fillRect(0,0,256,256);pc.strokeStyle='#604554';pc.lineWidth=2;for(let x=0;x<256;x+=64)for(let y=0;y<256;y+=64){pc.beginPath();pc.ellipse(x+32,y+32,20,29,0,0,Math.PI*2);pc.stroke();pc.beginPath();pc.moveTo(x+32,y+6);pc.lineTo(x+23,y+32);pc.lineTo(x+32,y+58);pc.lineTo(x+41,y+32);pc.closePath();pc.stroke();}pc.strokeStyle='#19191b';pc.lineWidth=3;for(let i=0;i<18;i++){pc.beginPath();pc.moveTo(i*17,0);pc.lineTo(i*17-9,55+i*11);pc.stroke();}const wallpaper=new THREE.CanvasTexture(paper);wallpaper.colorSpace=THREE.SRGBColorSpace;wallpaper.wrapS=wallpaper.wrapT=THREE.RepeatWrapping;wallpaper.repeat.set(5,6);const paperMat=new THREE.MeshStandardMaterial({map:wallpaper,roughness:1});for(const side of [-1,1]){const wall=new THREE.Mesh(new THREE.PlaneGeometry(10.4,13.1),paperMat);wall.position.set(side*6.7,6.55,15.29);wall.rotation.y=Math.PI;g.add(wall);}
