@@ -38,8 +38,8 @@ export function createSpellPerformance(T,kind,position,{seed=1,reducedMotion=fal
  }else if(kind==='wildbloom'){
   const flowers=4+Math.min(4,Math.floor(power/2)),petals=new T.InstancedMesh(petalGeometry(T),color,flowers*8),leaves=new T.InstancedMesh(petalGeometry(T),green,flowers*2),stems=new T.InstancedMesh(new T.CylinderGeometry(.012,.018,1,6),green,flowers),hearts=new T.InstancedMesh(new T.SphereGeometry(.065,10,8),white,flowers),dummy=new T.Object3D();root.add(petals,leaves,stems,hearts);
   for(let i=0;i<flowers;i++){const a=i*Math.PI*2/flowers,r=.55+(i%2)*.25,x=Math.cos(a)*r,z=Math.sin(a)*r,h=.45+(i%3)*.17;dummy.position.set(x,h/2,z);dummy.rotation.set(0,0,0);dummy.scale.set(1,h,1);dummy.updateMatrix();stems.setMatrixAt(i,dummy.matrix);dummy.position.set(x,h,z);dummy.scale.set(1,1,1);dummy.updateMatrix();hearts.setMatrixAt(i,dummy.matrix);
-   for(let j=0;j<8;j++){dummy.position.set(x,h,z);dummy.rotation.set(Math.PI/2-.4,j*Math.PI/4+a,0);dummy.scale.set(.65,.65,1);dummy.updateMatrix();petals.setMatrixAt(i*8+j,dummy.matrix);}
-   for(let j=0;j<2;j++){dummy.position.set(x,h*.45,z);dummy.rotation.set(.55,(j?Math.PI:0)+a,0);dummy.scale.set(.45,.55,1);dummy.updateMatrix();leaves.setMatrixAt(i*2+j,dummy.matrix);}
+   for(let j=0;j<8;j++){dummy.position.set(x,h,z);const angle=j*Math.PI/4+a;dummy.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),new T.Vector3(Math.cos(angle),.28,Math.sin(angle)).normalize());dummy.scale.set(.65,.65,1);dummy.updateMatrix();petals.setMatrixAt(i*8+j,dummy.matrix);}
+   for(let j=0;j<2;j++){dummy.position.set(x,h*.45,z);const angle=(j?Math.PI:0)+a;dummy.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),new T.Vector3(Math.cos(angle),.7,Math.sin(angle)).normalize());dummy.scale.set(.45,.55,1);dummy.updateMatrix();leaves.setMatrixAt(i*2+j,dummy.matrix);}
   }
   for(const mesh of [petals,leaves,stems,hearts]){mesh.instanceMatrix.needsUpdate=true;animated.push({object:mesh,grow:true});}
  }else{
