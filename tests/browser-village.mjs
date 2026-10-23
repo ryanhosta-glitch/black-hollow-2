@@ -16,7 +16,7 @@ try{
  }
  // Controller-style menu fallback returns the walker to active play.
  await page.keyboard.press('e');await page.locator('#choices button').first().click();assert.ok(await page.evaluate(()=>window.__fair.walker.active));
- await page.evaluate(()=>{const g=window.__fair;g.freeze();document.querySelectorAll('#hud,#promptBar,#toast,#storyDock').forEach(e=>e.style.visibility='hidden');g.view([19,13,24],[0,2,0]);});await page.screenshot({path:path.join(out,'village-plaza.png'),timeout:120000});
- for(const site of sites){await page.evaluate(s=>{const g=window.__fair;g.view([s.p[0]+2,3.1,s.p[2]+4],[s.p[0],1.5,s.p[2]-2.3]);},site);await page.screenshot({path:path.join(out,'village-'+site.id+'.png'),timeout:120000});}
+ await page.evaluate(()=>{const g=window.__fair;g.freeze();document.querySelectorAll('#hud,#promptBar,#toast,#storyDock').forEach(e=>e.style.visibility='hidden');g.view([16,10,20],[0,2,0]);});await page.screenshot({path:path.join(out,'village-plaza.png'),timeout:120000});
+ for(const site of sites){await page.evaluate(s=>{const g=window.__fair;g.view([s.p[0]+1,2.2,s.p[2]+2.5],[s.p[0],1.5,s.p[2]-2.3]);},site);await page.screenshot({path:path.join(out,'village-'+site.id+'.png'),timeout:120000});}
  assert.deepEqual(errors,[]);await page.reload();await page.locator('#startStreet:not([disabled])').waitFor();assert.equal(await page.evaluate(()=>window.__fair.passport.badges.length),3);await writeFile(path.join(out,'village-report.json'),JSON.stringify({bothModes:true,savedPassport:true,keyboardChoices:true,controllerFallback:true,cappedFestivalSweets:3,errors},null,2));console.log('PASS: playable village in both modes, saved stamps, capped bonus sweets, live controls and rendered evidence.');
 }catch(e){await page?.screenshot({path:path.join(out,'village-failure.png'),timeout:120000}).catch(()=>{});throw e;}finally{await browser?.close();server.closeAllConnections();await new Promise(r=>server.close(r));}
