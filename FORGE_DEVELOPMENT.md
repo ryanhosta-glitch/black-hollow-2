@@ -209,3 +209,13 @@ Validation: 151 core tests passed and full packaged/fresh-Forge scene/game-flow 
 Lossless packaging follow-up: native DEFLATE is now used for compressible CASA entries, with standard ZIP32 local/central method and size fields and unchanged CRC32/inventory verification. The writer removes only the standard zlib wrapper from the native `deflate` stream to produce ZIP's raw DEFLATE payload, and retains a stored-entry fallback when compression is unavailable or unhelpful. The existing reader already supports both methods. A real-package regression compares every decoded entry byte-for-byte against a stored archive. Whole-house Moonveil falls from roughly 14.1 MiB stored to 3.3 MiB downloaded, with the same semantic fingerprint and models; the smaller houses are about 0.75 and 0.99 MiB. Static geometry-budget reports still describe expanded model contents, not a measured frame rate.
 
 Curved tufted upholstery now exports shared smooth vertex normals; architectural edges retain flat normals. Added a geometry regression check and rebuilt Moonveil.
+
+## Forge and Game polish — October 23
+
+Forge now offers inspection versus haunted room lighting, using the same exported fixtures and bounded room-light selection as the Game. Reflection lighting and display-size render budgets keep metal readable and previews bounded. Material diagnostics are cached per loaded model instead of traversing every mesh on every orbit. Closing a preview releases its WebGL context and reflection map; package loads disposed during finishing cannot escape cleanup.
+
+Game dialogs focus their first action, contain Tab/Shift+Tab, and restore their opener. Losing window focus pauses safely and clears keyboard, drag, and controller motion. Porch confirmation supports Enter; interaction buttons name the nearby action. Resident practical lights retain stable slots and fade dark before changing fixtures, keeping beams from jumping through walls. These changes apply to existing CASA files without recompiling them.
+
+Validation covers light slot stability, handover and zero intensity; browser checks cover dialog focus/wrapping/restoration, blur pause/position recovery, and visibly distinct Forge lighting modes.
+
+Material polish preserves embedded claret textures and their authored color instead of replacing them with a runtime download. Submillimeter wallpaper relief, fine wood grain and coarser masonry relief now differ; leather, ebony and marble receive stronger environment reflections. Existing packages benefit at load time.

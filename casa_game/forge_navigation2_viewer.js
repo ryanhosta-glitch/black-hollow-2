@@ -353,10 +353,10 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
   follow(dt);
  }
  const keymap={KeyW:'forward',ArrowUp:'forward',KeyS:'backward',ArrowDown:'backward',KeyA:'turnleft',KeyD:'turnright',ArrowLeft:'turnleft',ArrowRight:'turnright',ShiftLeft:'sprint',ShiftRight:'sprint'};
- window.addEventListener('keydown',e=>{if(!S.active)return;const m=keymap[e.code];if(m){S.moving.add(m);e.preventDefault();e.stopPropagation();return;}if(e.code==='KeyV'){changeCamera();e.preventDefault();return;}},true);
- document.addEventListener('keyup',e=>{const m=keymap[e.code];if(m){S.moving.delete(m);if(m==='forward')S.requireFreshForward=false;}});window.addEventListener('blur',()=>S.moving.clear());
+ window.addEventListener('keydown',e=>{if(!S.active||e.isComposing||e.target?.matches?.('input,select,textarea,[contenteditable="true"]'))return;const m=keymap[e.code];if(m){S.moving.add(m);e.preventDefault();e.stopPropagation();return;}if(e.code==='KeyV'){changeCamera();e.preventDefault();return;}},true);
+ document.addEventListener('keyup',e=>{const m=keymap[e.code];if(m){S.moving.delete(m);if(m==='forward')S.requireFreshForward=false;}});window.addEventListener('blur',()=>{S.moving.clear();S.mouse=false;S.pad={forward:0,turn:0};S.speed=0;S.turnSpeed=0;});
  canvas.addEventListener('pointerdown',e=>{if(!S.active)return;S.mouse=true;S.px=e.clientX;S.py=e.clientY;});canvas.addEventListener('pointermove',e=>{if(!S.active||!S.mouse)return;S.lookYaw=clamp(S.lookYaw-(e.clientX-S.px)*.004,-1.15,1.15);S.lookUntil=performance.now()+950;S.pitch=clamp(S.pitch-(e.clientY-S.py)*.004,-topPitch,topPitch);S.px=e.clientX;S.py=e.clientY;});for(const event of ['pointerup','pointercancel','pointerleave'])canvas.addEventListener(event,()=>S.mouse=false);
- for(const btn of panel.querySelectorAll('[data-walk]')){const m=btn.dataset.walk;btn.addEventListener('pointerdown',e=>{e.preventDefault();btn.setPointerCapture(e.pointerId);S.moving.add(m)});for(const evt of ['pointerup','pointercancel','lostpointercapture'])btn.addEventListener(evt,()=>S.moving.delete(m));}
+ for(const btn of panel.querySelectorAll('[data-walk]')){const m=btn.dataset.walk;btn.addEventListener('pointerdown',e=>{e.preventDefault();if(!S.active)return;btn.setPointerCapture(e.pointerId);S.moving.add(m)});for(const evt of ['pointerup','pointercancel','lostpointercapture'])btn.addEventListener(evt,()=>S.moving.delete(m));}
  q('bh-walk-toggle').onclick=()=>S.active?exit():enter();q('bh-walk-exit').onclick=exit;q('bh-walk-camera').onclick=changeCamera;q('bh-director-mode').onclick=changeDirector;
 
  function setCameraMode(mode){if(!['cinematic','explorer','first'].includes(mode))return false;S.mode=mode;sync();if(S.active)follow(.05,true);return true;}
