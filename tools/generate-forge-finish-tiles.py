@@ -4,7 +4,7 @@ from PIL import Image
 import base64, io, json, math, random
 path=Path(__file__).resolve().parents[1]/'casa_admin/forge_textures.mjs'
 text=path.read_text();tiles=json.loads(text.split('export const TEXTURES=')[1].rstrip(';\n'))
-tiles=[t for t in tiles if t['material']<11]
+tiles=[t for t in tiles if t['material']<11 or t['material']>16]
 for name,material in [('laboratory ceramic',12),('herringbone parquet',14),('crypt masonry',15),('encaustic tile',16)]:
  image=Image.new('RGB',(128,128));pixels=image.load();rng=random.Random(material)
  for y in range(128):
