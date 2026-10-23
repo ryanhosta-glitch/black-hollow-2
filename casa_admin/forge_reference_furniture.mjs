@@ -37,7 +37,7 @@ export function referenceFurnitureParts(item){
   candle(0,.84,0,.20);
  }
  if(item.type==='gothic_headboard'){
-  box(0,.87,0,1.62,1.42,.13);box(0,.94,.08,1.43,1.16,.025,20);
+  box(0,.87,0,1.62,1.42,.13);box(0,.94,.08,1.43,1.16,.025,5);
   for(const side of [-1,1]){box(side*.78,.88,.07,.055,1.55,.055,8);lathe(side*.74,1.62,0,[[0,0],[.06,.03],[.07,.08],[.02,.13],[0,.16]],8);}
   for(let i=0;i<12;i++){const x1=-.73+i/12*1.46,x2=-.73+(i+1)/12*1.46,y1=1.52+.23*Math.cos(x1/.73*Math.PI/2),y2=1.52+.23*Math.cos(x2/.73*Math.PI/2);rail(x1,y1,x2,y2,.07,.06,.08,5);rail(x1,y1-.08,x2,y2-.08,.12,.015,.025,8);}
  }

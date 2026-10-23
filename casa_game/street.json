@@ -3,8 +3,9 @@
   "houses": [
     {
       "id": "demo-moonveil",
-      "fingerprint": "e741badf7fafaaa921cfb72e70b110092fb6099a9767cf9b60ac9df6f19ca38e",
+      "fingerprint": "d0f17a9f9e29289dacde52396ae5556a32c7bdc2fd86ce16c5b3deaaab0ace1d",
       "previousFingerprints": [
+        "e741badf7fafaaa921cfb72e70b110092fb6099a9767cf9b60ac9df6f19ca38e",
         "8accad5d1aaf125e63867af879097f95aefc51efb3f797de839a7aca6d7310bf",
         "df43e6d0deb417e1ab42718ae79fce496cdd08f08738c38b73c57832d39db411",
         "c2fcb9f84a17bf45ed00b0a4c04f5365e115aa7a962eb9d66fc832c826f17dca",
