@@ -123,7 +123,7 @@ for(const type of Object.keys(phoenixEndings)){
  const run=game.session;
  if(type==='vigil'){for(let i=0;i<3;i++){while(run.watch().watching)await pulsePhoenix(.1);await chooseHaunt(i,'hold');await pulsePhoenix(2.8);assert.ok(run.state.solved.includes(i));}}
  if(type==='choir'){await chooseHaunt(3,'read');for(const i of run.order)await chooseHaunt(i,'sound');for(const i of [...run.order].reverse())await chooseHaunt(i,'sound');}
- if(type==='escort'){await chooseHaunt(0,'wake');await pulsePhoenix(.1);for(let i=1;i<3;i++){await standAtHaunt(run.stations[i]);await pulsePhoenix(.2);if(run.state.companion.scene===run.stations[i].scene){run.state.companion.position=[...run.stations[i].approachMeters];run.state.companion.roomId=run.stations[i].roomId;}await chooseHaunt(i,'shelter');}}
+ if(type==='escort'){await chooseHaunt(0,'wake');await pulsePhoenix(.1);for(let i=1;i<3;i++){await standAtHaunt(run.stations[i]);await pulsePhoenix(.2);assert.equal(run.state.companion.scene,run.stations[i].scene);await chooseHaunt(i,'shelter');}}
  if(type==='loop'){await chooseHaunt(3,'read');for(const i of run.order)await chooseHaunt(i,'stop');}
  if(type==='masquerade'){await chooseHaunt(3,'read');for(let i=0;i<3;i++)await chooseHaunt(i,'examine');await chooseHaunt(3,'accuse:'+run.suspect);}
  if(type==='bargain'){await chooseHaunt(1,'read');await chooseHaunt(2,'read');await chooseHaunt(3,'burn');}
