@@ -27,7 +27,7 @@ Live status uses words, numerals and a meter; color and audio are supplementary.
 
 ## Validation
 
-- `npm test`: original core/scene checks plus 24 new gameplay tests, both endings of eight families across three shipped CASA layouts, and actual-app UI playthroughs of all eight families with published and freshly compiled houses.
+- `npm test`: original core/scene checks plus 25 new gameplay tests, both endings of eight families across three shipped CASA layouts, and actual-app UI playthroughs of all eight families with published and freshly compiled houses.
 - `node tests/browser-phoenix.mjs`: real WebGL startup, physical props, rule HUD, eight UI endings, timed holds, journal, saved completion and mobile overflow check; screenshots and resource counts in `tests/artifacts`.
 - The browser escort check includes a keyboard walk between hall havens and waits for the companion to follow. Portal/elevator arrival carries the companion through the same transition; floor traversal continues along the player’s recorded breadcrumbs. Engine checks also cover distance-gated shelter, fading and recovery.
 - GPU resource counts and software WebGL output do not establish hardware frame rate or subjective horror quality. In-person playtesting still matters, especially on student Chromebooks.
