@@ -7,7 +7,7 @@ export function createScareTheatre(T,house,floor,{seed=1,seen={},quiet,options={
  const root=new T.Group();root.name='Room scare performances — no collision';let actor=null,performance=null,elapsed=0,mat=null;
  const plan=planScareLocations(house.rooms,house.decoration,f=>floorY(house,f)),compiled=house.decoration.scarePlan,allowed=new Map(plan.sites.map(s=>[s.id,s]));
  const sites=(compiled?.version===1&&Array.isArray(compiled.sites)?compiled.sites:plan.sites).filter(s=>{const safe=allowed.get(s?.id);return safe&&safe.floor===floor&&s.kind===safe.kind&&Array.isArray(s.positionMeters)&&s.positionMeters.length===3&&s.positionMeters.every((v,i)=>Number.isFinite(v)&&Math.abs(v-safe.positionMeters[i])<.05);}).map(s=>allowed.get(s.id));
- function clear(){disposeGroup(root);root.clear();actor=null;performance=null;mat=null;}
+ function clear(){for(const child of [...root.children])disposeGroup(child);root.clear();actor=null;performance=null;mat=null;}
  function reveal(event){clear();performance=event;elapsed=0;const site=event.site;actor=new T.Group();actor.name='Scare '+site.kind;actor.position.fromArray(site.positionMeters);actor.rotation.y=Math.atan2(site.normal[0],site.normal[2]);root.add(actor);
   mat=new T.MeshBasicMaterial({color:site.kind==='wall-shadow'?0x090611:0xc8dce1,transparent:true,opacity:0,depthWrite:false});
   const mesh=(geometry,x,y,z)=>{const m=new T.Mesh(geometry,mat);m.position.set(x,y,z);actor.add(m);return m;};
