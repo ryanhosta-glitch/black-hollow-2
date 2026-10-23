@@ -46,7 +46,7 @@ try{page=await browser.newPage({viewport:{width:1280,height:1000}});page.on('pag
  assert.deepEqual(sharedWallMaterials,['library emerald damask','laboratory glazed ivory tile','dark mahogany','laboratory glazed ivory tile']);
 
  await page.goto(base+'/casa_game.html');await page.waitForFunction(()=>!document.getElementById('startStreet').disabled);await page.locator('#startStreet').click();await page.waitForFunction(()=>window.__forgeBrowser?.mode==='street'&&!window.__forgeBrowser.busy&&window.__forgeBrowser.walker?.active);
- await page.evaluate(async()=>{await window.__forgeBrowser.loadHouse({id:'browser-fresh',name:'Victorian Visual Estate',package:'/__fresh.casa'});});await page.locator('#closeModal').click();
+ await page.evaluate(async()=>{await window.__forgeBrowser.loadHouse({id:'browser-fresh',name:'Victorian Visual Estate',package:'/__fresh.casa'});});if(await page.locator('#closeModal').isVisible())await page.locator('#closeModal').click();
  assert.equal(await page.evaluate(()=>window.__forgeBrowser.mode),'hall');
  await page.evaluate(()=>{window.__forgeBrowser.walker.setCameraMode('first');window.__forgeBrowser.walker.setPosition(0,0,-9,Math.PI);});await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await page.screenshot({path:path.join(output,'creepy-gallery.png')});
  await page.evaluate(()=>window.__forgeBrowser.walker.setPosition(0,5.25,10.3,Math.PI));
@@ -59,7 +59,7 @@ try{page=await browser.newPage({viewport:{width:1280,height:1000}});page.on('pag
  const stairHeight=await page.evaluate(()=>window.__forgeBrowser.pose().position[1]);assert.ok(Math.abs(stairHeight-5.25)<.002);
  await page.screenshot({path:path.join(output,'hall-stairs.png')});
  await page.evaluate(()=>window.__forgeBrowser.walker.setPosition(4.5,5.25,11.65,Math.PI/2));await page.keyboard.down('w');try{await page.waitForFunction(()=>Math.abs(window.__forgeBrowser.pose().position[0])<.35,{},{timeout:60000});}finally{await page.keyboard.up('w');}
- await page.evaluate(()=>window.__forgeBrowser.walker.setPosition(...window.__forgeBrowser.walker.position,Math.PI));await page.keyboard.down('w');try{await page.waitForFunction(()=>window.__forgeBrowser.mode==='cabin',{},{timeout:30000});}finally{await page.keyboard.up('w');}await page.locator('#closeModal').click();
+ await page.evaluate(()=>window.__forgeBrowser.walker.setPosition(...window.__forgeBrowser.walker.position,Math.PI));await page.keyboard.down('w');try{await page.waitForFunction(()=>window.__forgeBrowser.mode==='cabin',{},{timeout:30000});}finally{await page.keyboard.up('w');}if(await page.locator('#closeModal').isVisible())await page.locator('#closeModal').click();
  await page.evaluate(async()=>{await window.__forgeBrowser.signatureScene('hall',[0,0,11],Math.PI);window.__forgeBrowser.walker.setCameraMode('first');});await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await page.screenshot({path:path.join(output,'hall-rear-door-and-banister.png')});
 
  for(const floor of [0,1])await page.evaluate(async floor=>{const g=window.__forgeBrowser,r=g.house.rooms.find(r=>r.floor===floor),s=g.house.access.stops.find(s=>s.floor===floor);await g.houseScene(r,s.approachMeters);},floor);

@@ -1,0 +1,25 @@
+{
+  "town": {
+    "lots": 33,
+    "streets": [
+      "Nevermore Circle",
+      "Blackhollow Way",
+      "Coffin Cove",
+      "Haunted Forest Lane"
+    ],
+    "unique": 33
+  },
+  "media": {
+    "first": 0.311655,
+    "after": 1.573152,
+    "playing": true,
+    "decoded": [
+      3.030204081632653,
+      6.0836281179138325
+    ]
+  },
+  "buttons": [
+    "1"
+  ],
+  "errors": []
+}

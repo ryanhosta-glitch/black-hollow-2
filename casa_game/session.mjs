@@ -1,3 +1,4 @@
+import {assignElevatorButtons} from './elevator_buttons.mjs';
 import {estateQuestLayout} from './quest_layout.mjs';
 const FT=.3048;
 export function seedNumber(value){let h=2166136261;for(const c of value){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
@@ -50,6 +51,7 @@ export function createSession(house,{saved=null,estate=false,seed=crypto.getRand
  return {state,story,slots,primary,activeSlots,displaySlots(){const active=activeSlots();return estate?[...slots.filter(s=>['founder','seer'].includes(s.role)&&!active.some(a=>a.id===s.id)),...active]:active;},interact,remember,setEchoLocations(points){if(!Array.isArray(points)||points.length!==13||points.some(p=>!Array.isArray(p)||p.length!==3||!p.every(Number.isFinite)))throw Error('Invalid memory locations');echoLocations=structuredClone(points);},objective,near,get floor13Unlocked(){return ['floor13','return','complete'].includes(state.stage);},get mapUnlocked(){return state.stage==='complete';},visit(id){if(!state.visited.includes(id))state.visited.push(id);},snapshot(pose){return {...structuredClone(state),pose:pose?structuredClone(pose):null};}};
 }
 export function createElevator(access,{isUnlocked=()=>false}={}){
+ assignElevatorButtons(access);
  let origin=null;const visible=()=>[access.hub,...access.stops,access.hiddenDestination].filter(s=>s&&(!s.requiresUnlock||isUnlocked(s.requiresUnlock)));
  function canBoard(id,pose){const s=visible().find(s=>s.id===id);if(origin||!s||pose?.scene!==s.kind||s.kind==='house'&&pose.roomId!==s.roomId||!Array.isArray(pose.position)||pose.position.length!==3||!pose.position.every(Number.isFinite)||Math.abs(pose.position[1]-s.approachMeters[1])>=.35)return false;
   const dx=pose.position[0]-s.approachMeters[0],dz=pose.position[2]-s.approachMeters[2];
