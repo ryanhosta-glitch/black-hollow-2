@@ -274,6 +274,9 @@ export function createNavigation2ForgeViewer(THREE,{scene,camera,controls,canvas
   const plan=directorPlan(S.room),long=S.mode==='cinematic';
   const distance=hallway?1.35:S.directorMode==='chase'?2.15:S.directorMode==='dollhouse'?Math.min(2.25,plan.preferredDistanceMeters):long?2.35:1.85;
   const desired=aim.clone().addScaledVector(back,distance);
+  // Offset the cinematic camera over the shoulder, keeping plaques and doors visible
+  // instead of hiding them directly behind the avatar.
+  if(long){const shoulder=new THREE.Vector3(-back.z,0,back.x);desired.addScaledVector(shoulder,hallway?.24:.72);}
   desired.y=Math.min(floor+(hallway?1.78:2.03)-dip*.58,ceiling-.42);
   // Gather actual visible architecture. Do not treat nonstructural atmosphere,
   // decorations, invisible models, or the explorer as camera walls.
