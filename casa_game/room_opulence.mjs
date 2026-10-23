@@ -52,5 +52,5 @@ export function dressRoom(room,{identity,y=0,furniture=[],occupied=[],add:emit})
   group('high-corner-web',[px,cy,pz],.4,.4);
  }
  ornaments.push(...referenceRoomDetails(room,{identity,y,add}));
- return {ornaments,lights,edition:'mansion-room-3',variant:seed%7};
+ return {ornaments,lights,edition:'whole-house-1',variant:seed%7};
 }

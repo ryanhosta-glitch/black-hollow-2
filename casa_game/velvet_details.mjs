@@ -22,7 +22,7 @@ export function createVelvetDetails(T,house,floor){
  for(const item of (house.decoration.furniture||[]).filter(i=>i.floor===floor&&i.type==='bed').slice(0,8)){const g=new T.Group();g.position.fromArray(item.positionMeters);g.rotation.y=item.rotationY||0;root.add(g);for(const side of [-1,1]){const p=add(g,cushion(),cloth,side*.35,.77,-.57);p.scale.set(.32,.20,.12);p.rotation.x=-.2;const q=add(g,cushion(),wax,side*.35,.72,-.32);q.scale.set(.27,.13,.10);}const bolster=add(g,new T.CylinderGeometry(.075,.075,1.15,14),cloth,0,.69,-.08);bolster.rotation.z=Math.PI/2;}
  // Per-room suspended fixtures use no additional dynamic light or collision solid.
  for(const room of house.rooms.filter(r=>r.floor===floor&&!r.forgeStair&&!r.id.startsWith('signature-')).slice(0,16)){
-  if(house.decoration.roomContents?.some(c=>c.roomId===room.id&&c.edition?.startsWith('mansion-room-')))continue;
+  if(house.decoration.roomContents?.some(c=>c.roomId===room.id&&c.edition&&house.decoration.contentGeometryCompiled))continue;
   const b=room.boundsFeet,h=+b.h*.3048;if(h<2.6||+b.l*.3048<2.5||+b.w*.3048<2.5)continue;
   const y=house.manifest.floors[floor]?.elevationMeters||0,g=new T.Group();g.position.set((+b.x+ +b.l/2)*.3048,y+h-.40,(+b.y+ +b.w/2)*.3048);root.add(g);
   add(g,new T.CylinderGeometry(.015,.015,.7,6),gold,0,.36,0);add(g,new T.TorusGeometry(.32,.022,6,32),gold,0,0,0).rotation.x=Math.PI/2;
