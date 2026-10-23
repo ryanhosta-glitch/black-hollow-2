@@ -14,7 +14,7 @@ export function planScareLocations(rooms,decoration={},elevation=()=>0){
   if(window){const p=Math.max(0,Math.min(1,Number(window.pos??.5))),vertical=['left','right'].includes(window.wall),normal=window.wall==='left'?[1,0,0]:window.wall==='right'?[-1,0,0]:window.wall==='top'?[0,0,1]:[0,0,-1];add('window',[vertical?(window.wall==='left'?x:x+w):x+w*p,y+Math.min(1.8,h-.8),vertical?z+d*p:(window.wall==='top'?z:z+d)].map((n,i)=>n+normal[i]*.13),normal);}
   const mount=wallMount({...room,boundsFeet:b},{width:1.25,height:1.5,y:1.3,inset:.18,preferred:['bottom','right','left','top']});
   if(mount)add('wall-shadow',mount.position.map((n,i)=>n+(i===1?y:0)),mount.normal);
-  if(h>=3.15){const mount=wallMount({...room,boundsFeet:b},{width:.8,height:1.2,y:h-.75,inset:.45});if(mount)add('ceiling',mount.position.map((n,i)=>n+(i===1?y:0)),mount.normal);}
+  if(h>=3.15){const mount=wallMount({...room,boundsFeet:b},{width:.8,height:1.2,y:h-.8,inset:.45});if(mount)add('ceiling',mount.position.map((n,i)=>n+(i===1?y:0)),mount.normal);}
  }
  return {version:1,units:'meters',visualOnly:true,maxResidentActors:1,sites};
 }
