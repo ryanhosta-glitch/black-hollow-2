@@ -1,7 +1,7 @@
 import {HAUNTING_TYPES} from './night_chronicle.mjs';
-import {HAUNTINGS,ENDINGS} from './haunting_catalog.mjs';
+import {HAUNTINGS} from './haunting_catalog.mjs';
 import {twoSidedSign} from './surfaces.mjs';
-export const NINTH_DOOR={position:[7,0,7],approach:[7,0,9.15]};
+export const NINTH_DOOR={position:[0,0,0],approach:[0,0,-2.15]};
 export const STREET_FATES={dawn:{title:'The street that learned morning',text:'You turn the handle toward tomorrow. Warm light travels from window to window. The rescued, the invited and the impossible are allowed to stay. Black Hallow is haunted still—but it no longer has to be afraid of morning.'},night:{title:'The night with an open door',text:'You leave the stars burning. Every house keeps its beautiful strangeness, but no guest is held against their will. The Ninth Door stays open. This night belongs to everyone who chooses to return.'}};
 export function streetWitness(chronicle){const data=chronicle.data||chronicle,seals=HAUNTING_TYPES.filter(t=>(data.seals||[]).includes(t)||(data.history||[]).some(h=>h.type===t));return {seals,missing:HAUNTING_TYPES.filter(t=>!seals.includes(t)),ready:seals.length===8,fate:STREET_FATES[data.streetFate]?data.streetFate:null};}
 export function houseMemory(data,house){return [...(data.history||[])].reverse().find(h=>h.houseId?h.houseId===house.id:h.house===house.name)||null;}
@@ -20,7 +20,7 @@ export function createStreetMemory(THREE,lots,chronicle,{reducedMotion=false}={}
   if(['garden','escort','masquerade'].includes(memory.type))for(const side of [-1,1]){add(sphere,m,[p[0]+side*.25,.3,p[2]],[.12,.3,.07],side*.5);}
   if(['loop','heist','bargain','vigil'].includes(memory.type))add(box,m,[p[0],1.6,p[2]],[.07,.5,.07],Math.PI/4);
  }
- const monument=new THREE.Group();monument.name='The Ninth Door';monument.position.fromArray(NINTH_DOOR.position);root.add(monument);
+ const monument=new THREE.Group();monument.name='The Ninth Door';monument.position.fromArray(NINTH_DOOR.position);monument.rotation.y=Math.PI;root.add(monument);
  const mesh=(g,m,p,s,parent=monument)=>{const o=new THREE.Mesh(g,m);o.position.fromArray(p);o.scale.fromArray(s);parent.add(o);return o;};
  mesh(box,stone,[0,.12,0],[3.6,.24,1.7]);for(const side of [-1,1]){mesh(box,stone,[side*1.3,1.9,0],[.3,3.6,.5]);mesh(box,brass,[side*1.3,3.65,0],[.45,.15,.65]);const spire=mesh(box,brass,[side*1.3,4,0],[.22,.65,.22]);spire.rotation.z=side*.15;}
  const top=mesh(box,stone,[0,3.7,0],[2.7,.3,.5]);top.rotation.z=0;const crown=mesh(box,stone,[0,4.05,0],[1.35,.18,.45]);crown.rotation.z=Math.PI/4;
@@ -30,5 +30,5 @@ export function createStreetMemory(THREE,lots,chronicle,{reducedMotion=false}={}
  const canvas=document.createElement('canvas');canvas.width=768;canvas.height=128;const ctx=canvas.getContext('2d');ctx.fillStyle='#161521';ctx.fillRect(0,0,768,128);ctx.strokeStyle='#bd985f';ctx.strokeRect(6,6,756,116);ctx.fillStyle='#eee0c2';ctx.font='36px Georgia';ctx.textAlign='center';ctx.fillText('THE NINTH DOOR · '+witness.seals.length+'/8',384,77);const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;const sign=twoSidedSign(THREE,new THREE.MeshBasicMaterial({map:texture}),3.3,.55);sign.position.set(0,.48,.9);monument.add(sign);
  const matrix=new THREE.Matrix4(),q=new THREE.Quaternion(),v=new THREE.Vector3();for(const {geometry,material,items}of batches.values()){const batch=new THREE.InstancedMesh(geometry,material,items.length);items.forEach((item,i)=>{q.setFromAxisAngle(new THREE.Vector3(0,0,1),item.rotation);matrix.compose(v.fromArray(item.position),q,new THREE.Vector3(...item.scale));batch.setMatrixAt(i,matrix);});batch.name='Remembered house traces';root.add(batch);}
  let opening=witness.fate?1:0;function tick(_time,dt=0){const target=witness.fate?1:0;opening=reducedMotion?target:Math.min(target,opening+Math.max(0,dt)*.45);pivot.rotation.y=-opening*1.2;portalMaterial.uniforms.time.value=reducedMotion?0:_time*.001;}
- root.userData.memoryResources={geometries:[box,sphere,ring],materials:[stone,brass,dark,...palette,...alternate]};tick(0);return {root,witness,blocked(x,z){return Math.abs(x-7)<1.7&&Math.abs(z-7)<.95;},approach:NINTH_DOOR.approach,tick,resolve(fate){if(!STREET_FATES[fate])return;witness.fate=fate;portal.visible=true;portalMaterial.uniforms.morning.value=fate==='dawn'?1:0;},get doorAngle(){return pivot.rotation.y;},resourceBudget:{newLights:0,houseTraceBatches:batches.size}};
+ root.userData.memoryResources={geometries:[box,sphere,ring],materials:[stone,brass,dark,...palette,...alternate]};tick(0);return {root,witness,blocked(x,z){return Math.abs(x-NINTH_DOOR.position[0])<1.7&&Math.abs(z-NINTH_DOOR.position[2])<.95;},approach:NINTH_DOOR.approach,tick,resolve(fate){if(!STREET_FATES[fate])return;witness.fate=fate;portal.visible=true;portalMaterial.uniforms.morning.value=fate==='dawn'?1:0;},get doorAngle(){return pivot.rotation.y;},resourceBudget:{newLights:0,houseTraceBatches:batches.size}};
 }
