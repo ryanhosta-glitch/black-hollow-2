@@ -1,5 +1,5 @@
 // Sculpted portable furniture. Curved surfaces are baked into CASA, not remote assets.
-export const REFERENCE_FURNITURE={banquet_ensemble:{footprint:[2.7,3.45],height:1.65},coffin_cabinet:{footprint:[1.0,.52],height:2.18},gothic_headboard:{footprint:[1.65,.26],height:1.82}};
+export const REFERENCE_FURNITURE={supper_table:{footprint:[2.1,1.2],height:1.42},banquet_ensemble:{footprint:[2.7,3.45],height:1.65},coffin_cabinet:{footprint:[1.0,.52],height:2.18},gothic_headboard:{footprint:[1.65,.26],height:1.82}};
 export function referenceFurnitureParts(item){
  const parts=[],[px,py,pz]=item.positionMeters,a=item.rotationY||0,cs=Math.cos(a),sn=Math.sin(a),world=([x,y,z])=>[px+x*cs+z*sn,py+y,pz-x*sn+z*cs];
  const box=(x,y,z,w,h,d,mat=5)=>parts.push({c:world([x,y,z]),s:[w,h,d],mat,rot:a,rotAxis:'y'});
@@ -28,6 +28,13 @@ export function referenceFurnitureParts(item){
   for(const side of [-1,1])for(const t of [-.86,0,.86]){chair(side*1.06,t,side);lathe(side*.48,.838,t,[[0,0],[.15,0],[.15,.014],[.11,.028],[0,.028]],17,16);goblet(side*.45,.84,t-.25);box(side*.64,.849,t,.015,.012,.22,18);}
   for(const k of [-1,0,1])candle(k*.17,.85,0,k===0?.36:.22);
   box(0,1.02,0,.40,.025,.04,18);
+ }
+ if(item.type==='supper_table'){
+  box(0,.76,0,1.0,.08,.88);box(0,.81,0,.95,.018,.84,19);box(0,.825,0,.24,.012,.80,20);
+  for(const u of [-1,1])for(const v of [-1,1])lathe(u*.39,0,v*.33,[[0,0],[.035,0],[.025,.25],[.045,.34],[.025,.50],[.035,.72],[0,.72]],5,8);
+  for(const side of [-1,1]){const sx=side*.79;box(sx,.46,0,.43,.08,.46);box(sx,.515,0,.39,.035,.41,6);for(const u of [-1,1])for(const v of [-1,1])box(sx+u*.16,.23,v*.17,.035,.46,.035);for(const v of [-1,1])box(sx+side*.18,.96,v*.19,.04,.88,.04);box(sx+side*.18,1.06,0,.045,.43,.33,6);box(sx+side*.18,1.32,0,.065,.07,.43,8);
+   lathe(side*.29,.84,0,[[0,0],[.13,0],[.13,.012],[.09,.024],[0,.024]],17,14);goblet(side*.29,.84,-.25);}
+  candle(0,.84,0,.20);
  }
  if(item.type==='gothic_headboard'){
   box(0,.87,0,1.62,1.42,.13);box(0,.94,.08,1.43,1.16,.025,20);
