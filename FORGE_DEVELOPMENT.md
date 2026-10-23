@@ -219,3 +219,13 @@ Game dialogs focus their first action, contain Tab/Shift+Tab, and restore their 
 Validation covers light slot stability, handover and zero intensity; browser checks cover dialog focus/wrapping/restoration, blur pause/position recovery, and visibly distinct Forge lighting modes.
 
 Material polish preserves embedded claret textures and their authored color instead of replacing them with a runtime download. Submillimeter wallpaper relief, fine wood grain and coarser masonry relief now differ; leather, ebony and marble receive stronger environment reflections. Existing packages benefit at load time.
+
+## Jump scares — Forge preparation and Game direction
+
+New CASA builds carry `decoration.scarePlan` (version 1, meters). The shared pure planner locates existing mirrors, windows, clear solid wall spans, and high ceiling mounts; stairs, elevators, low ceilings, and narrow circulation are excluded. The Forge preview's Scare locations overlay displays these opportunities without changing authored geometry or clearance. Existing CASA packages derive the same plan at runtime, so no bulk rebuild is needed.
+
+The Game installs a bounded visual theatre over each loaded floor: mirror figures, window faces, moving wall shadows, and descending ceiling figures. One performance at a time, a 15-second opening grace period, room dwell, movement and facing gates, seeded house/run variation, and 35–85 second cooldowns prevent doorway spam. Default Spooky uses 60% false alarms. Used sites persist in the current haunting's encounter save; revisiting the floor does not replay them. Gameplay time drives every stage, with cancellation on dialogs, pause, room changes, objective narration, stillness holds, and watched Vigil phases. Ambient mirror performances and classic encounter direction yield to the scare theatre.
+
+Gentle/Spooky/Intense and an independent scare-sound toggle are available in the journal, including before entering the street, and persist on device. Gentle and OS reduced motion disable sudden figures. No flashes, camera takeover, collision, damage, or input locks are introduced. Procedural filtered sound has a bounded envelope and remains under the existing master mute and hidden-page lifecycle.
+
+Tests cover deterministic exported plans, immutable geometry, safe exclusions, movement/facing/grace gates, quiet intervals, saved nonrepetition, false alarms, pause cancellation, and all four visual lifecycles. A dedicated browser suite verifies saved settings, the actual Game layer, four WebGL screenshots, bounded draws, and disposal; Forge browser evidence includes the location overlay.
