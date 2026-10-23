@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const fs = require('node:fs');
 const path = require('node:path');
-const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+const html = fs.readFileSync(path.join(__dirname, '..', 'archive', 'black-hollow-v8.html'), 'utf8');
 const ratioFunction = html.match(/function graphicsPixelRatio\(\)\{[\s\S]*?\n\}/)[0];
 const loopFunction = html.match(/^function loop\(time\).*$/m)[0];
 

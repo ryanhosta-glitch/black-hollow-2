@@ -29,7 +29,6 @@ jobs:
           mkdir _site
           cp index.html casa_game.html casa_admin.html _site/
           cp -R casa_game casa_admin _site/
-          cp -R assets _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

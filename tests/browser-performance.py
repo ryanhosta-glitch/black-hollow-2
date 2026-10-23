@@ -1,4 +1,4 @@
-"""Real-browser regression check. Requires Playwright and a Chromium browser."""
+"""Archived v8 engine regression check (not the deployed Game). Requires Playwright and a Chromium browser."""
 import asyncio
 import os
 from pathlib import Path
@@ -48,7 +48,7 @@ async def run(base):
         page.on('pageerror', lambda error: errors.append(str(error)))
 
         async def document(route):
-            html = (ROOT / 'index.html').read_text()
+            html = (ROOT / 'archive' / 'black-hollow-v8.html').read_text()
             marker = '</script><style id="doorwayLivingStyle">'
             assert html.count(marker) == 1
             await route.fulfill(content_type='text/html', body=html.replace(marker, HARNESS + marker))
