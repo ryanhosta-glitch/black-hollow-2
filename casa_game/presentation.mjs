@@ -1,16 +1,16 @@
 // Runtime dressing leaves the compiled navigation apertures and stairs intact.
 export function createLiftEntrance(THREE,stop){
- const g=new THREE.Group();g.name='Automatic elevator entrance';g.position.fromArray(stop.wallCenterMeters||stop.approachMeters);g.rotation.y=({top:0,bottom:Math.PI,left:Math.PI/2,right:-Math.PI/2})[stop.wall]||0;
+ const g=new THREE.Group();g.name='Automatic elevator entrance';g.userData.stopId=stop.id;g.position.fromArray(stop.wallCenterMeters||stop.approachMeters);g.rotation.y=({top:0,bottom:Math.PI,left:Math.PI/2,right:-Math.PI/2})[stop.wall]||0;
  const w=stop.clearWidthMeters||1.2,h=stop.heightMeters||2.45;
  const iron=new THREE.MeshStandardMaterial({color:0x202b2c,metalness:.65,roughness:.45}),brass=new THREE.MeshStandardMaterial({color:0xb18b4d,metalness:.75,roughness:.34});
  function box(x,y,z,sx,sy,sz,mat=iron,parent=g){const m=new THREE.Mesh(new THREE.BoxGeometry(sx,sy,sz),mat);m.position.set(x,y,z);parent.add(m);return m;}
  for(const side of [-1,1]){box(side*(w/2+.10),h/2,.06,.18,h+.16,.22);box(side*(w/2+.10),h/2,.19,.045,h,.025,brass);box(side*(w/2+.1),h+.04,.10,.29,.18,.28,brass);}
  box(0,h+.16,.06,w+.48,.22,.24,brass);box(0,.015,.05,w,.03,.3,brass);
  // Recess makes the open entrance read as a deep cabin, rather than a painted door.
- box(0,h/2,-.10,w,h,.02,new THREE.MeshStandardMaterial({color:0x070a0d,roughness:1}));
+ box(0,h/2,-.65,w,h,.02,new THREE.MeshStandardMaterial({color:0x453d32,emissive:0x57432b,emissiveIntensity:.35,roughness:.7}));box(0,.01,-.3,w,.02,.7,brass);
  const doors=[];for(const side of [-1,1]){const leaf=new THREE.Group();leaf.position.set(side*w/4,0,.09);g.add(leaf);box(0,h/2,0,w/2-.015,h,.055,iron,leaf);for(let i=0;i<4;i++)box((i-1.5)*w/9,h/2,.035,.018,h-.16,.025,brass,leaf);doors.push({leaf,side});}
  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=96;const c=canvas.getContext('2d');c.fillStyle='#182020';c.fillRect(0,0,512,96);c.strokeStyle='#b89a60';c.lineWidth=6;c.strokeRect(5,5,502,86);c.fillStyle='#ffe6ad';c.font='bold 54px Georgia';c.textAlign='center';c.fillText('ELEVATOR',256,67);const map=new THREE.CanvasTexture(canvas);map.colorSpace=THREE.SRGBColorSpace;const sign=new THREE.Mesh(new THREE.PlaneGeometry(w+.35,.30),new THREE.MeshBasicMaterial({map}));sign.position.set(0,h+.42,.65);g.add(sign);
- let openness=0;const local=new THREE.Vector3();g.userData.updateLift=(dt,p,{forceOpen=false}={})=>{g.updateWorldMatrix(true,false);local.fromArray(p);g.worldToLocal(local);const target=forceOpen||Math.abs(local.y)<.55&&Math.abs(local.x)<w/2+1&&Math.abs(local.z)<2.6?1:0;openness=THREE.MathUtils.clamp(openness+(target?1:-1)*dt*1.8,0,1);for(const{leaf,side}of doors){leaf.position.x=side*(w/4+openness*w*.49);leaf.visible=openness<.99;}g.userData.open=openness;};return g;
+ let openness=0,announced=false;const local=new THREE.Vector3();g.userData.updateLift=(dt,p,{forceOpen=false}={})=>{g.updateWorldMatrix(true,false);local.fromArray(p);g.worldToLocal(local);const target=forceOpen||Math.abs(local.y)<.55&&Math.abs(local.x)<w/2+1&&Math.abs(local.z)<2.6?1:0;openness=THREE.MathUtils.clamp(openness+(target?1:-1)*dt*1.8,0,1);for(const{leaf,side}of doors){leaf.position.x=side*(w/4+openness*w*.49);leaf.visible=openness<.99;}if(openness>=.98&&!announced){announced=true;g.userData.onOpened?.();}if(openness<.1)announced=false;g.userData.open=openness;};return g;
 }
 export function decorateGallery(THREE,root){
  const g=new THREE.Group();g.name='Decaying grand gallery';root.add(g);

@@ -1,3 +1,4 @@
+import {assignElevatorButtons} from '../casa_game/elevator_buttons.mjs';
 /** Deterministic architectural access repairs. Student source is never mutated.
  * A magical pocket elevator needs no aligned shaft and gets ONE stop per connected
  * floor component, not one per room. Physical stair certification is separate.
@@ -61,6 +62,7 @@ export function planHouseAccess(source,{autoDoors=true}={}){
  const stairRoutes=planStraightStairs(rooms,elevations,stops);
  const unreachable=rooms.filter(r=>!stops.some(s=>s.componentRoomIds.includes(r.id))).map(r=>r.id);
  const elevator={version:2,type:'impossible-pocket-elevator',cabin:{model:'geometry/elevator_cabin.glb',widthMeters:2.4,depthMeters:2.4,heightMeters:2.8},start:{scene:'hall',positionMeters:[0,0,-13.5]},hub:{id:'grand-hall',kind:'hall',label:'Grand Main Hall',approachMeters:[0,5.25,14],requiresCabinEntry:true},stops,hiddenDestination:{id:'floor13',kind:'floor13',requiresUnlock:'floor13',secret:true,approachMeters:[0,0,-15.6]},normalStopPolicy:'one-per-floor-component',stairRoutes,requiresCabinEntry:true,gameplayCertified:false};
+ assignElevatorButtons(elevator);
  return {blueprint,entry,changes,issues,elevator,floorElevationsMeters:elevations,walkableComponents:floorGroups,reachability:{method:'physical-door-open-plan-components-plus-boarded-elevator',rooms:rooms.length,reachable:rooms.filter(r=>!unreachable.includes(r.id)).map(r=>r.id),unreachable,architecturalAccessReady:!unreachable.length&&!issues.some(i=>i.severity==='BLOCK_GAME_READY'),gameplayCertified:false}};
 }
 export function canBoardStop(stop,pose,roomId,scene){return !!stop&&scene===stop.kind&&Array.isArray(pose)&&pose.length===3&&pose.every(Number.isFinite)&&(!stop.roomId||stop.roomId===roomId)&&Math.abs(pose[1]-stop.approachMeters[1])<.35&&Math.hypot(pose[0]-stop.approachMeters[0],pose[2]-stop.approachMeters[2])<.65;}

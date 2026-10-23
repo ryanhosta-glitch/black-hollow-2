@@ -1,0 +1,3 @@
+export const TOWN_NAME='Black Hallow';
+export const STREET_NAMES=['Nevermore Circle','Blackhollow Way','Coffin Cove','Haunted Forest Lane'];
+export function townLayout(houses){const count=Math.ceil(houses.length/4),out=[];let offset=0;for(let i=0;i<4;i++){const n=Math.floor(houses.length/4)+(i<houses.length%4?1:0),angle=i*Math.PI/2,length=Math.max(115,Math.ceil(n/2)*30+55),sin=Math.round(Math.sin(angle)),cos=Math.round(Math.cos(angle)),toWorld=p=>[p[0]*cos+p[2]*sin,p[1],-p[0]*sin+p[2]*cos],toLocal=p=>[p[0]*cos-p[2]*sin,p[1],p[0]*sin+p[2]*cos];out.push({index:i,name:STREET_NAMES[i],angle,length,houses:houses.slice(offset,offset+n).map((h,j)=>({...h,townIndex:offset+j})),toWorld,toLocal});offset+=n;}return out;}
