@@ -1,3 +1,4 @@
+import {batchHallBoxes} from './hall_performance.mjs';
 import {dressGrandHall} from './grand_hall.mjs';
 // Runtime dressing leaves the compiled navigation apertures and stairs intact.
 export function createLiftEntrance(THREE,stop){
@@ -28,5 +29,5 @@ export function decorateGallery(THREE,root){
  // High, crooked mourning portraits along the blank end wall.
  for(const x of [-9,-5,5,9]){const frame=new THREE.Group();frame.position.set(x,7.9,15.22);frame.rotation.z=x*.009;g.add(frame);const backing=new THREE.Mesh(new THREE.BoxGeometry(2.1,2.8,.12),gold);frame.add(backing);const canvas=document.createElement('canvas');canvas.width=256;canvas.height=352;const c=canvas.getContext('2d');c.fillStyle='#1b1820';c.fillRect(0,0,256,352);c.fillStyle='#302733';c.fillRect(12,12,232,328);c.fillStyle='#111218';c.beginPath();c.ellipse(128,123,39,57,.1,0,Math.PI*2);c.fill();c.beginPath();c.ellipse(128,290,83,111,0,0,Math.PI*2);c.fill();c.strokeStyle='#8c7a6c';c.lineWidth=1;for(let i=0;i<8;i++){c.beginPath();c.moveTo(20+i*31,0);c.lineTo(38+i*24,120+i*21);c.stroke();}const map=new THREE.CanvasTexture(canvas);map.colorSpace=THREE.SRGBColorSpace;const portrait=new THREE.Mesh(new THREE.PlaneGeometry(1.86,2.55),new THREE.MeshStandardMaterial({map,roughness:1}));portrait.position.z=-.075;portrait.rotation.y=Math.PI;frame.add(portrait);}
  for(const side of [-1,1]){const points=[];for(let i=0;i<=10;i++){const t=i/10;points.push(side*11.8,12.8,14.9,side*(11.8-3*t),12.8-2*(1-t),14.9);}for(let r=1;r<=5;r++)for(let i=0;i<10;i++){const t=i/10,u=(i+1)/10;points.push(side*(11.8-3*t*r/5),12.8-2*(1-t)*r/5,14.9,side*(11.8-3*u*r/5),12.8-2*(1-u)*r/5,14.9);}g.add(new THREE.LineSegments(new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute(points,3)),web));}
- return g;
+ batchHallBoxes(THREE,g);return g;
 }

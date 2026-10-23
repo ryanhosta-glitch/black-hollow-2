@@ -7,9 +7,9 @@ export const PALETTE=[
 {n:'aged slate roof',c:[1,1,1,1],rough:.91},{n:'dark mahogany',c:[1,1,1,1],rough:.66},
 {n:'burgundy velvet',c:[.30,.08,.15,1],rough:.99},{n:'limestone foundation',c:[.34,.35,.37,1],rough:.95},
 {n:'oxidized brass',c:[.43,.32,.13,1],rough:.43,metal:.67},{n:'smoky window glass',c:[.15,.24,.28,.38],rough:.17,metal:.06},{n:'painted Victorian clapboard',c:[1,1,1,1],rough:.88},
-{n:'library emerald damask',c:[.32,1,.55,1],rough:.86,textureMaterial:1},
+{n:'library emerald damask',c:[.20,.52,.34,1],rough:.86,textureMaterial:1},
 {n:'laboratory glazed ivory tile',c:[1,1,1,1],rough:.38},
-{n:'bedroom rose damask',c:[1,.82,.93,1],rough:.9,textureMaterial:1},
+{n:'bedroom claret damask',c:[.60,.24,.38,1],rough:.9,textureMaterial:1},
 {n:'ballroom parquet',c:[1,1,1,1],rough:.48},
 {n:'crypt cut limestone',c:[1,1,1,1],rough:.98},
 {n:'conservatory encaustic tile',c:[1,1,1,1],rough:.48}];

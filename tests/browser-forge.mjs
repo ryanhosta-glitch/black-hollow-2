@@ -13,7 +13,7 @@ const server=http.createServer(async(req,res)=>{try{
  let body=await readFile(file);
  // Test-only access to the actual application. No hooks are written to production modules.
  if(url==='/casa_game/main.mjs')body=Buffer.from(body.toString()+`
-window.__forgeBrowser={loadHouse,houseScene,signatureScene,nearestAction,get house(){return house},get session(){return session},get walker(){return walker},get mode(){return mode},get busy(){return busy},get dialog(){return dialog},get camera(){return camera},get markers(){return markers},get atmosphere(){return atmosphere},pose};`);
+window.__forgeBrowser={loadHouse:(d,o)=>loadHouse(d,{classic:true,...o}),houseScene,signatureScene,nearestAction,get house(){return house},get session(){return session},get walker(){return walker},get mode(){return mode},get busy(){return busy},get dialog(){return dialog},get camera(){return camera},get markers(){return markers},get atmosphere(){return atmosphere},pose};`);
  res.setHeader('Content-Type',file.endsWith('.mjs')||file.endsWith('.js')?'text/javascript':file.endsWith('.html')?'text/html':file.endsWith('.webp')?'image/webp':'application/octet-stream');res.end(body);
 }catch{res.writeHead(404);res.end('missing');}});await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
 const args=process.env.CHROMIUM_ARGS?JSON.parse(process.env.CHROMIUM_ARGS):['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'];
