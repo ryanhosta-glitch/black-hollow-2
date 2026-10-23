@@ -26,9 +26,9 @@ export function createHauntingProp(T,slot,run){
  }else{
   box(dark,0,.3,0,.44,.6,.44);const seal=add(new T.TorusGeometry(.20,.027,6,32),brass,0,.82,.03);seal.rotation.z=Math.PI/4;add(new T.OctahedronGeometry(.13),glow,0,.82,.03);box(brass,0,.52,0,.035,.24,.035);
  }
- // A high-contrast plaque identifies the physical object without relying on color or audio.
+ // A small object plaque stays on the plinth; the nearby interaction HUD supplies the readable name.
  const canvas=globalThis.document?.createElement('canvas'),ctx=canvas?.getContext('2d');
- if(ctx){canvas.width=512;canvas.height=96;ctx.fillStyle='#11131be8';ctx.fillRect(0,0,512,96);ctx.strokeStyle='#ad9569';ctx.lineWidth=3;ctx.strokeRect(2,2,508,92);ctx.fillStyle='#f4e7cb';ctx.textAlign='center';ctx.font='27px Georgia';ctx.fillText(slot.label.slice(0,31),256,58);const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;add(new T.PlaneGeometry(1.05,.197),new T.MeshBasicMaterial({map:texture,side:T.DoubleSide}),0,2.05,0);}
+ if(ctx){canvas.width=512;canvas.height=96;ctx.fillStyle='#11131be8';ctx.fillRect(0,0,512,96);ctx.strokeStyle='#ad9569';ctx.lineWidth=3;ctx.strokeRect(2,2,508,92);ctx.fillStyle='#f4e7cb';ctx.textAlign='center';ctx.font='27px Georgia';ctx.fillText(slot.label.slice(0,31),256,58);const texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;add(new T.PlaneGeometry(.36,.067),new T.MeshBasicMaterial({map:texture,side:T.DoubleSide}),0,.15,.245);}
  g.userData.tick=time=>{if(slot.index<3&&run.type==='garden'){const open=run.state.bloomed.includes(slot.index);glow.emissiveIntensity=open?1:.35;}if(g.userData.bell)g.userData.bell.rotation.z=Math.sin(time*.0018+slot.index)*.07;if(g.userData.clockHand&&!run.state.solved.includes(slot.index)&&!run.state.pinned.includes(slot.index))g.userData.clockHand.rotation.z=-(run.state.elapsed*.6+slot.index*.9);if(g.userData.eye){const open=!run.watch().watching;g.userData.eye.scale.y=open?.09:.65;}ring.material.emissiveIntensity=.6;};
  return g;
 }
