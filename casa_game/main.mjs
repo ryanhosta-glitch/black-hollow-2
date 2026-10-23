@@ -189,7 +189,7 @@ function tickHaunting(dt){
  updateNightHUD();
 }
 function dismissStoryBeat(){storyBeatUntil=0;const panel=$('storyBeat');if(panel)panel.hidden=true;}
-function presentStoryBeat(text){if(!session?.phoenix||session.state.encounters['director:reveal'])return;session.state.encounters['director:reveal']=true;checkpoint();$('storyBeatTitle').textContent=HOUSE_VOICES[session.type].turn;$('storyBeatText').textContent=text;$('storyBeat').hidden=false;storyBeatUntil=performance.now()+8500;audio.scoreQuiet(.8);}
+function presentStoryBeat(text){if(!session?.phoenix||session.state.encounters['director:reveal'])return;session.state.encounters['director:reveal']=true;finishNarration();checkpoint();$('storyBeatTitle').textContent=HOUSE_VOICES[session.type].turn;$('storyBeatText').textContent=text;$('storyBeat').hidden=false;storyBeatUntil=performance.now()+8500;audio.scoreQuiet(.8);}
 $('dismissStoryBeat').onclick=dismissStoryBeat;
 function toggleLanternGuide(){night.setGuide(!night.data.guide);if(session&&markers){refreshMarkers();updateNightHUD();}}
 $('guideButton').onclick=toggleLanternGuide;
