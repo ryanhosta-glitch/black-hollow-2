@@ -26,7 +26,7 @@ export function artisanDetails(room,{identity,y,occupied,furniture,add}){
      box(0,v(-.06),.19,.034,v(.19),.035,17);box(0,v(.055),.19,.035,v(.045),.035,8);box(0,v(.28),.16,.06,v(.055),.06,8);
     }
    },iron?'chained-iron-votive':'pierced-bronze-lantern');
-   if(fixture)lights.push({id:`artisan:${room.id}:light:${i}`,roomId:String(room.id),floor:room.floor,positionMeters:fixture.p.map((v,k)=>v+(fixture.mount.normal[k]||0)*.27),color:iron?'#f5bc79':'#ffd09a',intensity:.65,rangeMeters:3.5,static:true,castShadow:false,gameEffects:[]});
+   if(fixture)lights.push({id:`artisan:${room.id}:light:${i}`,roomId:String(room.id),floor:room.floor,positionMeters:fixture.p.map((v,k)=>v+(fixture.mount.normal[k]||0)*.27),color:iron?'#f5bc79':'#ffd09a',intensity:.65,rangeMeters:3.5,static:true,castShadow:false,fixtureGeometryCompiled:true,gameEffects:[]});
   }
  }
  if(!['laboratory','conservatory','circulation'].includes(identity)&&h>2.5&&w>2.5&&d>2.5){

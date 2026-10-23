@@ -16,7 +16,10 @@ export function referenceFurnitureParts(item){
   for(const side of [-1,1])for(const end of [-1,1]){const lx=side*(half-.08),lz=end*.27;lathe(lx,0,lz,[[0,0],[.065,0],[.07,.04],[.045,.10],[.035,.17],[.065,.22],[.035,.30],[.05,.40],[0,.40]],19);bead(lx,.06,lz,.055,19);}
   box(0,(back+.55)/2,-.34,width-.10,back-.55,.075,19);box(0,(back+.59)/2,-.285,width-.20,back-.59,.04,25);
   // Raised upholstery lobes and small recessed-looking brass buttons.
-  const cols=sofa?9:4,rows=sofa?3:5;for(let row=0;row<rows;row++)for(let col=0;col<cols;col++){const xx=(col-(cols-1)/2)*(width-.28)/cols,yy=.67+row*(back-.73)/Math.max(1,rows-1);lathe(xx,yy-.065,-.245,[[0,0],[.055,.015],[.065,.065],[.055,.115],[0,.13]],25,10);bead(xx,yy,-.205,.011,8);}
+  const cols=sofa?8:3,rows=sofa?3:4,gridX=cols*6,gridY=rows*6,upholstery=[];
+  const padded=(i,j)=>{const u=i/gridX,v=j/gridY,bulge=.032*(1-(Math.cos(u*cols*Math.PI*2)*Math.cos(v*rows*Math.PI*2)+1)/2);return[(u-.5)*(width-.22),.63+v*(back-.68),-.245+bulge];};
+  for(let i=0;i<gridX;i++)for(let j=0;j<gridY;j++){const a=padded(i,j),b=padded(i+1,j),c=padded(i+1,j+1),d=padded(i,j+1);upholstery.push([a,b,c],[a,c,d]);}mesh(upholstery,25);
+  for(let row=0;row<=rows;row++)for(let col=0;col<=cols;col++){const p=padded(col*6,row*6);bead(p[0],p[1],p[2]+.005,.008,19);}
   // Curving carved crest: pointed Gothic arch on chairs, scalloped sofa crest.
   for(const side of [-1,1]){box(side*(half-.035),(.55+back)/2,-.32,.055,back-.45,.075,19);bead(side*(half-.035),back+.045,-.32,.052,19);for(let k=0;k<6;k++){const u1=k/6,u2=(k+1)/6,x1=side*(half-.04)*(1-u1),x2=side*(half-.04)*(1-u2),y1=back+(sofa?.10*Math.sin(u1*Math.PI):.13*u1),y2=back+(sofa?.10*Math.sin(u2*Math.PI):.13*u2);rail(x1,y1,x2,y2,-.32,.055,.08,19);}scroll(side*half*.7,back+.035,-.26,.055,19,side);}
   if(!sofa){rail(-.24,1.32,0,1.58,-.235,.035,.04,8);rail(0,1.58,.24,1.32,-.235,.035,.04,8);bead(0,1.61,-.25,.055,19);}

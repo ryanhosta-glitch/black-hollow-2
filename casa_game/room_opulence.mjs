@@ -22,7 +22,7 @@ export function dressRoom(room,{identity,y=0,furniture=[],occupied=[],add:emit})
    if(!stone){add([px,base+.025,pz],[.04,.15,.04],9,Math.PI/4);add([px,base-.06,pz],[.065,.055,.065],9,Math.PI/4);}
   }
   group(stone?'votive-crown':metal?'botanical-lantern':'crystal-chandelier',[cx,base+.25,cz],radius*2,drop);
-  lights.push({id:`opulence:${room.id}:chandelier`,roomId:String(room.id),floor:room.floor,positionMeters:[cx,base+.28,cz],color:stone?'#9bc5cc':metal?'#c4dfc3':'#ffd6a0',intensity:1.1,rangeMeters:Math.max(w,d),static:true,castShadow:false,gameEffects:[]});
+  lights.push({id:`opulence:${room.id}:chandelier`,roomId:String(room.id),floor:room.floor,positionMeters:[cx,base+.28,cz],color:stone?'#9bc5cc':metal?'#c4dfc3':'#ffd6a0',intensity:1.1,rangeMeters:Math.max(w,d),static:true,castShadow:false,fixtureGeometryCompiled:true,gameEffects:[]});
  }
  // Solid wall spans only: no dressing across doors, windows or removed walls.
  const sides=['top','right','bottom','left'];

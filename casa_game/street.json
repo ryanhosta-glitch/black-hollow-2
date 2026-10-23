@@ -3,8 +3,9 @@
   "houses": [
     {
       "id": "demo-moonveil",
-      "fingerprint": "f00051cba46c44d2431bb85d9a09810a5f31f29ff9066e3fe67b45f65b833b30",
+      "fingerprint": "ee75c05e034c738bd00e6109fbf83d41dd6590b82c524f3a6e17be0af3094469",
       "previousFingerprints": [
+        "f00051cba46c44d2431bb85d9a09810a5f31f29ff9066e3fe67b45f65b833b30",
         "d0f17a9f9e29289dacde52396ae5556a32c7bdc2fd86ce16c5b3deaaab0ace1d",
         "e741badf7fafaaa921cfb72e70b110092fb6099a9767cf9b60ac9df6f19ca38e",
         "8accad5d1aaf125e63867af879097f95aefc51efb3f797de839a7aca6d7310bf",
@@ -22,8 +23,9 @@
     },
     {
       "id": "demo-lonely-candle",
-      "fingerprint": "8790ce732c35cd5b62743e3de160f529cfda94a4c700be95ac6e2eb051317ad3",
+      "fingerprint": "8e04ea953c317d1d2caf5ef7b9981ab16892ee4a3cf204cadb1f09429966cfc9",
       "previousFingerprints": [
+        "8790ce732c35cd5b62743e3de160f529cfda94a4c700be95ac6e2eb051317ad3",
         "d68d231d02ddf0930c9d069c3da1a17ebc198d57a80229a2a3a88d54946bd5fd",
         "de56b6de2c99c5afaac8d6b7f64e937217d41c2afe635fd6b76506bd046888ef",
         "cf0482d473c79c6df3e9423d80dc6153f107043a152f3aa416821591bf167e12",
@@ -39,8 +41,9 @@
     },
     {
       "id": "demo-split-lantern",
-      "fingerprint": "e9252219904a4d294c3b69c6b994d2fa9b9aa48d26842d5e663df2d15bc3196f",
+      "fingerprint": "07f9580fe0d328ea855a877ca38e1325bc36a61d1c205d9762cda8ac0ec5f9cb",
       "previousFingerprints": [
+        "e9252219904a4d294c3b69c6b994d2fa9b9aa48d26842d5e663df2d15bc3196f",
         "ca072701941e38fe51488427cf3a351b29624534e7a54da2126353cac2e4ea2e",
         "37eaf6857226a9043848bbcf73f434e942db1425fc6ca8f27df14489da28c667",
         "0ea6739743e881fbb456cc1c300452ea6af0910fed65fec2be9d6248864e763d",
