@@ -6,7 +6,7 @@ export function createRoomTheatre(T,house,floor,{reducedMotion=false}={}){
  const root=new T.Group();root.name='The house remembers';const actors=[];
  const gold=new T.MeshStandardMaterial({color:0xa07c42,metalness:.7,roughness:.4}),wood=new T.MeshStandardMaterial({color:0x20141c,roughness:.72});
  function box(parent,mat,x,y,z,w,h,d){const m=new T.Mesh(new T.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);parent.add(m);return m;}
- for(const room of house.rooms.filter(r=>r.floor===floor&&!r.forgeStair&&!r.id.startsWith('signature-')).slice(0,12)){
+ for(const room of house.rooms.filter(r=>r.floor===floor&&!r.forgeStair&&!r.id.startsWith('signature-')).slice(0,64)){
   const theme=roomIdentity(room);if(theme==='circulation')continue;
   const b=room.boundsFeet,h=+b.h*.3048;if(h<2.5)continue;
   const ornaments=house.decoration.roomContents?.find(c=>c.roomId===room.id)?.ornaments||[];

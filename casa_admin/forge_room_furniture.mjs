@@ -6,4 +6,35 @@ export function roomFurnitureParts(item){const out=[],[x,y,z]=item.positionMeter
  if(item.type==='plant_stand'){box(0,.42,0,.12,.84,.12);box(0,.035,0,.55,.07,.55,7);box(0,.83,0,.57,.06,.57);box(0,.94,0,.30,.18,.30,7);for(let k=0;k<5;k++)box((k-2)*.055,1.12+Math.abs(k-2)*.015,0,.03,.21,.14,16);}
  if(item.type==='sarcophagus'){box(0,.12,0,.84,.24,1.84,7);box(0,.48,0,.70,.48,1.68,15);box(0,.80,0,.84,.16,1.84,7);box(0,.89,0,.12,.025,.68,8);box(0,.89,-.10,.40,.025,.12,8);}
  if(item.type==='console'){box(0,.83,0,.84,.08,.36);box(0,.70,0,.74,.18,.27);for(const side of [-1,1]){box(side*.34,.37,0,.06,.74,.26);box(side*.20,.72,.15,.045,.035,.025,8);}box(0,.06,0,.75,.07,.28);}
- return out;}
+ return out.concat(heirloomParts(item));}
+
+Object.assign(ROOM_FURNITURE,{
+ grandfather_clock:{footprint:[.70,.54],height:2.15},curio_cabinet:{footprint:[.95,.50],height:1.9},
+ marble_fireplace:{footprint:[1.55,.48],height:1.45},fern_urn:{footprint:[.72,.72],height:1.38}
+});
+export function heirloomParts(item){
+ const out=[],[x,y,z]=item.positionMeters,a=item.rotationY||0,cs=Math.cos(a),sn=Math.sin(a),box=(u,v,t,w,h,d,mat=5)=>out.push({c:[x+u*cs+t*sn,y+v,z-u*sn+t*cs],s:[w,h,d],mat,rot:a,rotAxis:'y'});
+ if(item.type==='grandfather_clock'){
+  box(0,.09,0,.64,.18,.42);box(0,.91,0,.48,1.55,.33);box(0,1.78,0,.62,.58,.40);box(0,2.09,0,.67,.12,.44,8);box(0,1.80,.211,.43,.43,.025,3);
+  for(let i=0;i<12;i++){const t=i*Math.PI/6;box(Math.sin(t)*.16,1.80+Math.cos(t)*.16,.23,.018,.035,.012,5);}box(.07,1.81,.244,.14,.016,.015,5);box(0,1.87,.244,.018,.15,.015,5);
+  box(0,.96,.174,.30,1.07,.018,9);box(0,1.03,.19,.018,.72,.018,8);box(0,.69,.20,.15,.15,.025,8);for(const side of [-1,1])box(side*.21,.98,.20,.035,1.24,.045,8);
+ }
+ if(item.type==='curio_cabinet'){
+  box(0,.12,0,.94,.16,.42);box(0,1.02,-.17,.88,1.68,.06);box(0,1.85,0,.95,.10,.42,8);
+  for(const side of [-1,1]){box(side*.43,1,0,.065,1.72,.38);box(side*.44,.07,0,.065,.14,.32);}
+  for(let shelf=0;shelf<4;shelf++){const sy=.34+shelf*.36;box(0,sy,0,.83,.035,.34);for(let j=0;j<3;j++){box((j-1)*.23,sy+.12,0,.10,.22,.10,shelf%2?9:3);box((j-1)*.23,sy+.24,0,.06,.025,.06,8);}}
+  box(0,1.06,.185,.81,1.47,.015,9);box(0,1.06,.20,.025,1.50,.025,8);for(const sign of [-1,1])box(sign*.045,1.03,.23,.025,.08,.025,8);
+ }
+ if(item.type==='marble_fireplace'){
+  box(0,.04,0,1.54,.08,.47,7);box(0,.53,-.17,1.36,.98,.10,15);
+  for(const side of [-1,1]){box(side*.57,.63,.01,.23,1.10,.36,7);box(side*.57,.60,.205,.045,.83,.025,8);box(side*.57,1.14,.01,.29,.12,.40,3);}
+  box(0,1.25,0,1.54,.13,.47,7);box(0,1.12,.15,.91,.18,.13,8);box(0,.20,.08,.77,.12,.21,5);
+  for(let k=0;k<7;k++)box((k-3)*.10,.29,.21,.018,.36,.025,8);
+  for(const side of [-1,1]){box(side*.54,1.35,0,.11,.05,.11,8);box(side*.54,1.41,0,.045,.08,.045,3);}
+ }
+ if(item.type==='fern_urn'){
+  box(0,.07,0,.45,.14,.45,7);box(0,.33,0,.20,.42,.20,7);box(0,.57,0,.42,.12,.42,8);box(0,.71,0,.37,.20,.37,7);
+  for(let k=0;k<8;k++){const t=k*Math.PI/4;box(Math.sin(t)*.13,.94,Math.cos(t)*.13,.06,.36,.09,16);for(let j=0;j<3;j++)box(Math.sin(t)*(.16+j*.045),1.02+j*.07,Math.cos(t)*(.16+j*.045),.12,.055,.14,16);}
+ }
+ return out;
+}

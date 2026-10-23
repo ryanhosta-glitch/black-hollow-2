@@ -2,14 +2,17 @@
   "version": 1,
   "previousFingerprints": {
     "demo-moonveil": [
+      "c2fcb9f84a17bf45ed00b0a4c04f5365e115aa7a962eb9d66fc832c826f17dca",
       "e6bfad78d459e5abc750b6fa16eb8e6e1fd329532fd1a1e8188af23a49249d6f",
       "c0a0977e0e12144801b6b2ad48e6053743e22ff694c7946b8081b6776bf28c59"
     ],
     "demo-lonely-candle": [
+      "cf0482d473c79c6df3e9423d80dc6153f107043a152f3aa416821591bf167e12",
       "a277e3e89d20b615d508da68ece927cfd0f05535a9496089fe47035f1b81bd94",
       "7a5a231871a275daa73aab8d5d379909342be8c26c10160caec1ec810de8e255"
     ],
     "demo-split-lantern": [
+      "0ea6739743e881fbb456cc1c300452ea6af0910fed65fec2be9d6248864e763d",
       "7200f5ef19c7de54d6783be4c716437ae7cda42d166ff77fbaf7649c9142eb22",
       "9603464358fdf7939c2b7fcd4120df32c21d45f41e1ed1c5608e36d2068e0f57"
     ]

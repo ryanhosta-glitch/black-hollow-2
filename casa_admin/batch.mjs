@@ -15,3 +15,17 @@ export function batchStorage(){
  async function transaction(mode,action){const d=await db;return new Promise((resolve,reject)=>{const tx=d.transaction('queue',mode),r=action(tx.objectStore('queue'));tx.oncomplete=()=>resolve(r?.result);tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});}
  return {list:()=>transaction('readonly',s=>s.getAll()),put:row=>transaction('readwrite',s=>s.put(row)),remove:key=>transaction('readwrite',s=>s.delete(key)),clear:()=>transaction('readwrite',s=>s.clear())};
 }
+
+/** Rebuild compiled uploads from their authored source, retaining published identity/finishes. */
+export async function forgeInput(row){
+ let source=row.source,edits={...row.edits};
+ if(/\.casa$/i.test(source.name)){
+  const archive=await openCasa(new Uint8Array(await source.arrayBuffer()));
+  if(!archive.entries.has('source.haunt'))throw Error('This CASA has no embedded blueprint. Upload its original .haunt to rebuild.');
+  const identity=archive.entries.has('casa_identity.json')?await archive.json('casa_identity.json'):{},finish=archive.entries.has('exterior/finishes.json')?await archive.json('exterior/finishes.json'):{};
+  source=new File([await archive.read('source.haunt')],'source.haunt',{type:'application/json'});
+  edits={name:archive.manifest.name,architect:identity.architect||'',description:identity.description||'',style:finish.style||'auto',trim:finish.trim||'auto',roof:finish.roof||'auto',...edits,houseId:archive.manifest.id};
+ }
+ if(row.house?.id)edits.houseId=row.house.id;
+ return {source,edits};
+}
