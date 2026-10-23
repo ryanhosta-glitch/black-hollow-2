@@ -18,5 +18,8 @@ export function roofOrnaments(r,base,rise,kind){
   out.push({c:[0,0,0],s:[1,1,1],mat:MAT.siding,triangles:sides},{c:[0,0,0],s:[1,1,1],mat:MAT.roof,triangles:roof});
   for(let i=0;i<n;i++){const a=i*2*Math.PI/n;box([cx+radius*Math.cos(a),high,cz+radius*Math.sin(a)],[.13,.18,.13],MAT.trim);}
  }
+ // Ridge cresting adds a readable Gothic silhouette without altering roof volume.
+ if(kind==='gable'&&Math.min(l,w)>10){const alongX=l>=w,length=alongX?l:w,cx=x+l/2,cz=z+w/2,top=y+rise;const n=Math.min(32,Math.max(3,Math.floor(length/1.2)));for(let i=0;i<=n;i++){const t=(i/n-.5)*(length-.6),px=cx+(alongX?t:0),pz=cz+(alongX?0:t);box([px,top+.35,pz],[.07,.7,.07],MAT.metal);box([px,top+.66,pz],[.16,.12,.16],MAT.metal);}box([cx,top+.20,cz],alongX?[length,.055,.055]:[.055,.055,length],MAT.metal);}
+ if(kind==='tower'){const cx=x+l/2,cz=z+w/2,radius=Math.min(l,w)*.27,top=y+rise*.35+Math.max(3,rise*.5)+radius*1.5;box([cx,top+.7,cz],[.10,1.5,.10],MAT.metal);box([cx,top+.95,cz],[.65,.07,.07],MAT.metal);}
  return out;
 }
