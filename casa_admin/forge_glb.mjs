@@ -33,10 +33,13 @@ for(const b of boxes){
  const rotate=q=>{const [vx,vy,vz]=q;if(axis==='z')return[vx*co-vy*si,vx*si+vy*co,vz];if(axis==='x')return[vx,vy*co-vz*si,vy*si+vz*co];return[vx*co+vz*si,vy,-vx*si+vz*co]};
  const v=verts.map(q=>{const t=rotate(q);return[t[0]+x,t[1]+y,t[2]+z]});
  const triangles=b.triangles||faces.flatMap(([i,j,k,l])=>[[v[i],v[k],v[j]],[v[i],v[l],v[k]]]);
+ const smooth=new Map(),pointKey=p=>p.map(v=>v.toFixed(6)).join(',');
+ if(b.smooth)for(const [p,q,r]of triangles){const u=q.map((v,i)=>v-p[i]),v=r.map((n,i)=>n-p[i]),normal=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];for(const point of [p,q,r]){const key=pointKey(point),sum=smooth.get(key)||[0,0,0];for(let k=0;k<3;k++)sum[k]+=normal[k];smooth.set(key,sum);}}
+ if(b.smooth)for(const [key,n]of smooth){const size=Math.hypot(...n);if(size>1e-12)smooth.set(key,n.map(v=>v/size));else smooth.delete(key);}
  for(const points of triangles){
   const [p,q,r]=points,u=q.map((t,i)=>t-p[i]),w=r.map((t,i)=>t-p[i]),cross=[u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0]],length=Math.hypot(...cross);
   if(length<1e-10)continue;const nn=cross.map(t=>t/length),first=positions.length/3;
-  for(const q of points){const scale=b.mat===0?1.5:1,uv=[(Math.abs(nn[0])>.7?q[2]:q[0])*scale,(Math.abs(nn[1])>.7?q[2]:q[1])*scale],key=[...q,...nn,...uv].map(v=>v.toFixed(6)).join(',' );let id=vertexMap.get(key);if(id===undefined){id=positions.length/3;vertexMap.set(key,id);positions.push(...q);normals.push(...nn);uvs.push(...uv);}ranges[b.mat??0].push(id);}
+  for(const q of points){const normal=b.smooth?(smooth.get(pointKey(q))||nn):nn;const scale=b.mat===0?1.5:1,uv=[(Math.abs(nn[0])>.7?q[2]:q[0])*scale,(Math.abs(nn[1])>.7?q[2]:q[1])*scale],key=[...q,...normal,...uv].map(v=>v.toFixed(6)).join(',' );let id=vertexMap.get(key);if(id===undefined){id=positions.length/3;vertexMap.set(key,id);positions.push(...q);normals.push(...normal);uvs.push(...uv);}ranges[b.mat??0].push(id);}
 
  }
 }
