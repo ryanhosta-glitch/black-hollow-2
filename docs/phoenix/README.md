@@ -1,6 +1,6 @@
 # Black Hollow: The Unwritten Night
 
-The default game now begins inside the authored house. The repeated ghost → Founder → Seer → three keepsakes → thirteen memories progression is replaced by eight different rule systems. Original investigation saves use their existing key and can be resumed from the field journal; the new game has separate versioned saves. Trick or Treat remains available.
+The default game now begins inside the authored house in first person. The camera toggle still offers cinematic and explorer views. The repeated ghost → Founder → Seer → three keepsakes → thirteen memories progression is replaced by eight different rule systems. Original investigation saves use their existing key and can be resumed from the field journal; the new game has separate versioned saves. Trick or Treat remains available.
 
 | Haunting | What the player does | Actual turning point |
 | --- | --- | --- |
@@ -21,13 +21,13 @@ A saved haunting retains its seed and rules. “Awaken a different haunting” a
 
 ## Playability and accessibility
 
-Encounters use verified room standing points and checked route points. Stair rooms, locked floors, furniture collision and elevator boarding zones are excluded. Small houses borrow ground-level hall anchors rather than placing objects inside walls. The house's original architecture, room travel and physical elevators remain in use. Floor 13 is optional after completion.
+Encounters use verified room standing points and checked route points. Stair rooms, locked floors, furniture collision and elevator boarding zones are excluded. Small houses borrow ground-level hall anchors rather than placing objects inside walls. The house's original architecture, room travel and physical elevators remain in use. Floor 13 is optional after completion. The hall’s decorative boxes share instanced draws, and its lamps use the existing three shader-light slots rather than adding nine more per-pixel lights.
 
 Live status uses words, numerals and a meter; color and audio are supplementary. Quiet holds take place in the world; moving cancels them. Pause, hidden-tab and cabin time do not advance the rule engines. Gentle pace lengthens loops and reduces pressure. Missteps permit recovery rather than losing the entire investigation. The companion follows recorded player positions; scene transitions carry it through the same portal. Light failure rekindles it rather than leaving an unreachable guest.
 
 ## Validation
 
-- `npm test`: original core/scene checks plus 25 new gameplay tests, both endings of eight families across three shipped CASA layouts, and actual-app UI playthroughs of all eight families with published and freshly compiled houses.
+- `npm test`: original core/scene checks plus 26 new gameplay tests, both endings of eight families across three shipped CASA layouts, and actual-app UI playthroughs of all eight families with published and freshly compiled houses.
 - `node tests/browser-phoenix.mjs`: real WebGL startup, physical props, rule HUD, eight UI endings, timed holds, journal, saved completion and mobile overflow check; screenshots and resource counts in `tests/artifacts`.
 - The browser escort check includes a keyboard walk between hall havens and waits for the companion to follow. Portal/elevator arrival carries the companion through the same transition; floor traversal continues along the player’s recorded breadcrumbs. Engine checks also cover distance-gated shelter, fading and recovery.
 - GPU resource counts and software WebGL output do not establish hardware frame rate or subjective horror quality. In-person playtesting still matters, especially on student Chromebooks.
