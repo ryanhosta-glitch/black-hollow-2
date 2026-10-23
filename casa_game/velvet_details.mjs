@@ -14,14 +14,15 @@ export function createVelvetDetails(T,house,floor){
   for(const end of [-1,1]){const geo=new T.PlaneGeometry(1.55,.4,32,6),p=geo.attributes.position;for(let i=0;i<p.count;i++){const xx=p.getX(i);p.setY(i,p.getY(i)-.17*Math.cos(xx/1.55*Math.PI));p.setZ(i,Math.cos(xx*40)*.035);}geo.computeVertexNormals();add(g,geo,cloth,0,2.12,end*1.025);for(let i=0;i<24;i++)add(g,new T.SphereGeometry(.015,6,4),gold,-.74+i/23*1.48,1.92-.17*Math.cos((-.74+i/23*1.48)/1.55*Math.PI),end*1.04);}
   // Tufted headboard and quilt relief sit on the existing furniture.
   for(let row=0;row<3;row++)for(let col=0;col<7;col++)add(g,new T.SphereGeometry(.09,10,6),cloth,(col-3)*.20,.65+row*.14,-.91).scale.set(1,1,.32);
+  for(const side of [-1,1]){const c=curtain(g,side*.78,0,2,.30);c.rotation.y=Math.PI/2;add(g,new T.SphereGeometry(.30,24,16),wax,side*.37,.67,-.68).scale.set(1,.24,.53);}
   const quilt=new T.PlaneGeometry(1.44,1.36,24,30),p=quilt.attributes.position;for(let i=0;i<p.count;i++)p.setZ(i,.012*Math.sin(p.getX(i)*45)+.009*Math.cos(p.getY(i)*38));quilt.computeVertexNormals();const q=add(g,quilt,cloth,0,.584,.28);q.rotation.x=-Math.PI/2;
  }
  // Per-room suspended fixtures use no additional dynamic light or collision solid.
  for(const room of house.rooms.filter(r=>r.floor===floor&&!r.forgeStair&&!r.id.startsWith('signature-')).slice(0,16)){
   const b=room.boundsFeet,h=+b.h*.3048;if(h<2.6||+b.l*.3048<2.5||+b.w*.3048<2.5)continue;
-  const y=house.manifest.floors[floor]?.elevationMeters||0,g=new T.Group();g.position.set((+b.x+ +b.l/2)*.3048,y+h-.72,(+b.y+ +b.w/2)*.3048);root.add(g);
+  const y=house.manifest.floors[floor]?.elevationMeters||0,g=new T.Group();g.position.set((+b.x+ +b.l/2)*.3048,y+h-.40,(+b.y+ +b.w/2)*.3048);root.add(g);
   add(g,new T.CylinderGeometry(.015,.015,.7,6),gold,0,.36,0);add(g,new T.TorusGeometry(.32,.022,6,32),gold,0,0,0).rotation.x=Math.PI/2;
-  for(let k=0;k<6;k++){const a=k/6*Math.PI*2,x=Math.cos(a)*.32,z=Math.sin(a)*.32;add(g,new T.CylinderGeometry(.023,.026,.16,8),wax,x,.10,z);add(g,new T.SphereGeometry(.025,8,6),flame,x,.20,z).scale.y=2.2;add(g,new T.OctahedronGeometry(.045),gold,x,-.15,z).scale.y=2;}
+  for(let k=0;k<6;k++){const a=k/6*Math.PI*2,x=Math.cos(a)*.32,z=Math.sin(a)*.32;add(g,new T.CylinderGeometry(.023,.026,.16,8),wax,x,.10,z);add(g,new T.SphereGeometry(.025,8,6),flame,x,.20,z).scale.y=2.2;add(g,new T.OctahedronGeometry(.025),gold,x,-.09,z).scale.y=1.5;}
  }
  finishSurfaces(T,root);return root;
 }
