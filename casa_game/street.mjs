@@ -16,7 +16,7 @@ function createLane(THREE,houses,{halloween=false,reducedMotion=false,laneName='
 
 
  const trees=[],rng=random(717),branches=[],treeMaterial=new THREE.MeshStandardMaterial({color:0x343031,roughness:1});
- for(const side of [-1,1])for(let z=14;z> -length+19;z-=13){const x=side*(10+rng()*2),height=7+rng()*5;
+ for(const side of [-1,1])for(let z=-25;z> -length+19;z-=13){const x=side*(10+rng()*2),height=7+rng()*5;
   trees.push({x,z:z+5,height});branches.push({from:[x,0,z+5],to:[x+side*.5,height,z+5],radius:.20});
   for(let k=0;k<8;k++){const y=height*(.45+k*.065),spread=(height-y)*.7+.5,tip=[x+Math.sin(k*2.4)*spread,y+1.6,z+5+Math.cos(k*2.4)*spread];branches.push({from:[x+side*.3,y,z+5],to:tip,radius:.07});branches.push({from:tip,to:[tip[0]+side*.5,tip[1]+1,tip[2]-.6],radius:.025});}
   blockers.push({minX:x-.27,maxX:x+.27,minZ:z+4.73,maxZ:z+5.27});
