@@ -1,3 +1,4 @@
+import {referenceRoomDetails} from './room_reference_details.mjs';
 import {wallMount} from './wall_mount.mjs';
 const FT=.3048;
 const hash=s=>[...String(s)].reduce((n,c)=>(Math.imul(n,31)+c.charCodeAt(0))>>>0,17);
@@ -48,5 +49,6 @@ export function dressRoom(room,{identity,y=0,furniture=[],occupied=[],add:emit})
   for(let k=1;k<=4;k++){const len=.10+k*.07;add([px-side*len*.35,cy-k*.065,pz+.025],[len,.008,.008],3,side*Math.PI/4);}
   group('high-corner-web',[px,cy,pz],.4,.4);
  }
- return {ornaments,lights,edition:'mansion-room-1',variant:seed%7};
+ ornaments.push(...referenceRoomDetails(room,{identity,y,add}));
+ return {ornaments,lights,edition:'mansion-room-2',variant:seed%7};
 }

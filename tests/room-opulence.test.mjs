@@ -10,7 +10,7 @@ const source=r=>({name:'Mansion Detail',floors:[{name:'Main',rooms:[r]}]});
 test('every room identity has portable detail, high fixtures and clear furnishing routes',()=>{
  for(const [i,theme]of Object.keys(ROOM_PROFILES).entries()){
   const r=room(theme,i),s=source(r),before=JSON.stringify(s),plan=planDecoration(s),c=plan.roomContents[0];
-  assert.equal(c.edition,'mansion-room-1');assert.ok(c.ornaments.some(o=>/chandelier|lantern|crown/.test(o.type)),theme);
+  assert.equal(c.edition,'mansion-room-2');assert.ok(c.ornaments.some(o=>/chandelier|lantern|crown/.test(o.type)),theme);
   assert.ok(c.primitives.length>50,theme);assert.ok(c.primitives.length<=420);assert.equal(JSON.stringify(s),before);
   for(const f of plan.furniture){const b=plan.colliders.find(c=>c.objectId===f.id).bounds;for(const a of plan.reserved.map(r=>r.bounds))assert.ok(!(a.minX<b.maxX&&a.maxX>b.minX&&a.minZ<b.maxZ&&a.maxZ>b.minZ),theme);}
   for(const p of decorationBoxes(plan)){assert.ok(p.c.every(Number.isFinite));assert.ok(p.s.every(n=>Number.isFinite(n)&&n>0));}
@@ -31,5 +31,5 @@ test('CASA rebuild preserves published identity, chosen finishes and embedded so
  const {bytes,house}=await compileFixture(source(room('library')),{identity:{id:'house-published',name:'The Original',creator:'Ryan',desc:'A waiting room',exteriorStyle:'siding-plum',exteriorTrim:'gold',exteriorRoof:'moss'}});
  const row={source:new File([bytes],'published.casa'),edits:{name:'The Renamed'}},input=await forgeInput(row);
  assert.equal(input.edits.houseId,'house-published');assert.equal(input.edits.name,'The Renamed');assert.equal(input.edits.architect,'Ryan');assert.equal(input.edits.style,'siding-plum');assert.equal(input.edits.trim,'gold');assert.equal(input.edits.roof,'moss');assert.equal(JSON.parse(await input.source.text()).name,'Mansion Detail');
- assert.equal(house.manifest.forgeRevision,'mansion-room-1');assert.ok(house.playability.staticRoutesVerified);assert.ok(house.decoration.lights.some(l=>l.id.endsWith(':chandelier')));
+ assert.equal(house.manifest.forgeRevision,'mansion-room-2');assert.ok(house.playability.staticRoutesVerified);assert.ok(house.decoration.lights.some(l=>l.id.endsWith(':chandelier')));
 });

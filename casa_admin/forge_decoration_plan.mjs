@@ -33,7 +33,7 @@ export function planDecoration(source){
   (r.furniture||[]).forEach((obj,i)=>{const t=String(obj.type||obj.kind||'');if(Number(obj.rotation||obj.rotationY||0)!==0){issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_ROTATION_REQUIRES_REVIEW',roomId:id,authored:structuredClone(obj)});return;}place(aliases[t]||t,x+w*Number(obj.x??obj.posX??.5),z+d*Number(obj.y??obj.z??obj.posY??.5),obj,`authored-${i}`);});
   const identity=roomIdentity(r),types=ROOM_PROFILES[identity].furniture,limit=furnishingTarget(r);let count=furniture.filter(f=>f.roomId===id).length;
   // Fill around authored pieces; the same reserved routes/colliders protect every candidate.
-  for(let pass=0;pass<limit&&count<limit;pass++)for(const t of types){if(count>=limit)break;if(['bed','wardrobe','dining_table'].includes(t)&&w*d<70&&furniture.some(f=>f.roomId===id&&f.type===t))continue;const [fw,fd]=(FURNITURE_CATALOG[t]||ROOM_FURNITURE[t]).footprint;let placed=false;
+  for(let pass=0;pass<limit&&count<limit;pass++)for(const t of types){if(count>=limit)break;if(t==='dining_table'&&furniture.some(f=>f.roomId===id&&f.type==='banquet_ensemble'))continue;if(['bed','wardrobe','dining_table','banquet_ensemble','coffin_cabinet'].includes(t)&&w*d<70&&furniture.some(f=>f.roomId===id&&f.type===t))continue;const [fw,fd]=(FURNITURE_CATALOG[t]||ROOM_FURNITURE[t]).footprint;let placed=false;
    const candidates=[];for(const q of [.18,.82,.35,.65,.5]){candidates.push([Math.max(x+fw/2+.24,Math.min(x+w-fw/2-.24,x+w*q)),z+fd/2+.24,0],[Math.max(x+fw/2+.24,Math.min(x+w-fw/2-.24,x+w*q)),z+d-fd/2-.24,Math.PI],[x+fd/2+.24,Math.max(z+fw/2+.24,Math.min(z+d-fw/2-.24,z+d*q)),Math.PI/2],[x+w-fd/2-.24,Math.max(z+fw/2+.24,Math.min(z+d-fw/2-.24,z+d*q)),-Math.PI/2]);}
    for(const [px,pz,rotation]of candidates)if(place(t,px,pz,null,'generated-'+count,rotation)){count++;placed=true;break;}if(!placed&&pass===limit-1)continue;
   }
@@ -63,3 +63,6 @@ export function decorationBoxes(plan){const out=[],box=(c,s,mat,rot=0,rotAxis='z
  for(const l of plan.lights){const [x,y,z]=l.positionMeters;box([x,y+.08,z],[.12,.22,.12],8);box([x,y-.07,z],[.38,.12,.38],8);box([x,y-.15,z],[.22,.10,.22],3);}
  for(const a of plan.artwork){const [x,y,z]=a.positionMeters,[w,h]=a.sizeMeters,side=Math.abs(a.normal[0])>0;for(const sign of [-1,1]){box([x+(side?0:sign*(w/2+.025)),y,z+(side?sign*(w/2+.025):0)],[side?.065:.055,h+.13,side?.055:.065],8);box([x,y+sign*(h/2+.025),z],[side?.065:w+.13,.055,side?w+.13:.065],8);}}
  return out;}
+
+/** Geometry already lives in the GLB; retain stories and anchors without duplicating vertex arrays in JSON. */
+export function portableDecorationPlan(plan){return {...plan,roomContents:(plan.roomContents||[]).map(({primitives,...content})=>({...content,primitiveCount:primitives?.length||0,primitives:[]}))};}

@@ -2,7 +2,7 @@ import {finishMap,finishSurfaces} from './surface_finish.mjs';
 /** Drapery follows the compiled bed footprint. Nothing here adds a walkable solid. */
 export function createVelvetDetails(T,house,floor){
  const root=new T.Group();root.name='Velvet, gilt and candlelight';
- const cloth=new T.MeshStandardMaterial({color:0x64142a,roughness:.92,side:T.DoubleSide}),gold=new T.MeshStandardMaterial({color:0xa87a38,metalness:.65,roughness:.34}),wood=new T.MeshStandardMaterial({color:0x311b14,roughness:.45}),wax=new T.MeshStandardMaterial({color:0xd4ba87,roughness:.8}),flame=new T.MeshBasicMaterial({color:0xffdda0});wood.map=finishMap(T,'wood');
+ const cloth=new T.MeshStandardMaterial({color:0x64142a,roughness:.92,side:T.DoubleSide}),gold=new T.MeshStandardMaterial({color:0xa87a38,metalness:.65,roughness:.34}),wood=new T.MeshStandardMaterial({color:0x311b14,roughness:.45}),wax=new T.MeshStandardMaterial({color:0xd4ba87,roughness:.8}),flame=new T.MeshBasicMaterial({color:0xffdda0});wood.map=finishMap(T,'wood');cloth.map=finishMap(T,'damask');
  function add(g,geo,mat,x,y,z){const m=new T.Mesh(geo,mat);m.position.set(x,y,z);g.add(m);return m;}
  function curtain(g,x,z,w,h){const geo=new T.PlaneGeometry(w,h,24,24),p=geo.attributes.position;for(let i=0;i<p.count;i++){const yy=p.getY(i),xx=p.getX(i);p.setZ(i,Math.sin(xx*43)*.045+.035*Math.sin(yy*4));p.setX(i,xx*(.8+.18*Math.cos(yy/h*Math.PI)));}geo.computeVertexNormals();return add(g,geo,cloth,x,2.2-h/2,z);}
  for(const item of (house.decoration.furniture||[]).filter(i=>i.floor===floor&&i.type==='bed').slice(0,8)){
@@ -17,12 +17,18 @@ export function createVelvetDetails(T,house,floor){
   for(const side of [-1,1]){const c=curtain(g,side*.78,0,2,.30);c.rotation.y=Math.PI/2;add(g,new T.SphereGeometry(.30,24,16),wax,side*.37,.67,-.68).scale.set(1,.24,.53);}
   const quilt=new T.PlaneGeometry(1.44,1.36,24,30),p=quilt.attributes.position;for(let i=0;i<p.count;i++)p.setZ(i,.012*Math.sin(p.getX(i)*45)+.009*Math.cos(p.getY(i)*38));quilt.computeVertexNormals();const q=add(g,quilt,cloth,0,.584,.28);q.rotation.x=-Math.PI/2;
  }
+ // Plump layered cushions and a bolster share the bed's collision footprint.
+ for(const item of (house.decoration.furniture||[]).filter(i=>i.floor===floor&&i.type==='bed').slice(0,8)){const g=new T.Group();g.position.fromArray(item.positionMeters);g.rotation.y=item.rotationY||0;root.add(g);for(const side of [-1,1]){const p=add(g,new T.SphereGeometry(1,14,10),cloth,side*.35,.77,-.57);p.scale.set(.32,.20,.12);p.rotation.x=-.2;const q=add(g,new T.SphereGeometry(1,14,10),wax,side*.35,.72,-.32);q.scale.set(.27,.13,.10);}const bolster=add(g,new T.CylinderGeometry(.075,.075,1.15,14),cloth,0,.69,-.08);bolster.rotation.z=Math.PI/2;}
  // Per-room suspended fixtures use no additional dynamic light or collision solid.
  for(const room of house.rooms.filter(r=>r.floor===floor&&!r.forgeStair&&!r.id.startsWith('signature-')).slice(0,16)){
+  if(house.decoration.roomContents?.some(c=>c.roomId===room.id&&c.edition?.startsWith('mansion-room-')))continue;
   const b=room.boundsFeet,h=+b.h*.3048;if(h<2.6||+b.l*.3048<2.5||+b.w*.3048<2.5)continue;
   const y=house.manifest.floors[floor]?.elevationMeters||0,g=new T.Group();g.position.set((+b.x+ +b.l/2)*.3048,y+h-.40,(+b.y+ +b.w/2)*.3048);root.add(g);
   add(g,new T.CylinderGeometry(.015,.015,.7,6),gold,0,.36,0);add(g,new T.TorusGeometry(.32,.022,6,32),gold,0,0,0).rotation.x=Math.PI/2;
   for(let k=0;k<6;k++){const a=k/6*Math.PI*2,x=Math.cos(a)*.32,z=Math.sin(a)*.32;add(g,new T.CylinderGeometry(.023,.026,.16,8),wax,x,.10,z);add(g,new T.SphereGeometry(.025,8,6),flame,x,.20,z).scale.y=2.2;add(g,new T.OctahedronGeometry(.025),gold,x,-.09,z).scale.y=1.5;}
  }
+ // Batch repeated finials, tufting and turned posts; folded cloth stays unique.
+ root.updateMatrixWorld(true);const batches=new Map();root.traverse(o=>{if(!o.isMesh||!['SphereGeometry','CylinderGeometry','TorusGeometry'].includes(o.geometry.type))return;const key=o.geometry.type+JSON.stringify(o.geometry.parameters)+o.material.uuid;if(!batches.has(key))batches.set(key,[]);batches.get(key).push(o);});
+ for(const meshes of batches.values()){if(meshes.length<2)continue;const geo=meshes[0].geometry,material=meshes[0].material,batch=new T.InstancedMesh(geo,material,meshes.length);for(const [i,m]of meshes.entries()){batch.setMatrixAt(i,m.matrixWorld);m.removeFromParent();if(i)m.geometry.dispose();}batch.name='Batched carved and upholstered details';root.add(batch);}
  finishSurfaces(T,root);return root;
 }

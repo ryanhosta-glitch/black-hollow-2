@@ -1,3 +1,4 @@
+import {REFERENCE_FURNITURE,referenceFurnitureParts} from './forge_reference_furniture.mjs';
 // Small built-in ensembles share the compiler's material palette and collision plan.
 export const ROOM_FURNITURE={bed:{footprint:[1.65,2.1],height:2.35},laboratory_bench:{footprint:[1.5,.72],height:1.25},plant_stand:{footprint:[.64,.64],height:1.25},sarcophagus:{footprint:[.85,1.85],height:.98},console:{footprint:[.86,.38],height:.92}};
 export function roomFurnitureParts(item){const out=[],[x,y,z]=item.positionMeters,angle=item.rotationY||0,cs=Math.cos(angle),sn=Math.sin(angle),box=(a,b,c,w,h,d,mat=5)=>out.push({c:[x+a*cs+c*sn,y+b,z-a*sn+c*cs],s:[w,h,d],mat,rot:angle,rotAxis:'y'});
@@ -6,9 +7,9 @@ export function roomFurnitureParts(item){const out=[],[x,y,z]=item.positionMeter
  if(item.type==='plant_stand'){box(0,.42,0,.12,.84,.12);box(0,.035,0,.55,.07,.55,7);box(0,.83,0,.57,.06,.57);box(0,.94,0,.30,.18,.30,7);for(let k=0;k<5;k++)box((k-2)*.055,1.12+Math.abs(k-2)*.015,0,.03,.21,.14,16);}
  if(item.type==='sarcophagus'){box(0,.12,0,.84,.24,1.84,7);box(0,.48,0,.70,.48,1.68,15);box(0,.80,0,.84,.16,1.84,7);box(0,.89,0,.12,.025,.68,8);box(0,.89,-.10,.40,.025,.12,8);}
  if(item.type==='console'){box(0,.83,0,.84,.08,.36);box(0,.70,0,.74,.18,.27);for(const side of [-1,1]){box(side*.34,.37,0,.06,.74,.26);box(side*.20,.72,.15,.045,.035,.025,8);}box(0,.06,0,.75,.07,.28);}
- return out.concat(heirloomParts(item));}
+ return out.concat(heirloomParts(item),referenceFurnitureParts(item),...(item.type==='bed'?[referenceFurnitureParts({...item,type:'gothic_headboard',positionMeters:[x-.90*sn,y,z-.90*cs]})]:[]));}
 
-Object.assign(ROOM_FURNITURE,{
+Object.assign(ROOM_FURNITURE,REFERENCE_FURNITURE,{
  grandfather_clock:{footprint:[.70,.54],height:2.15},curio_cabinet:{footprint:[.95,.50],height:1.9},
  marble_fireplace:{footprint:[1.55,.48],height:1.45},fern_urn:{footprint:[.72,.72],height:1.38}
 });

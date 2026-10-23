@@ -3,14 +3,15 @@
   "houses": [
     {
       "id": "demo-moonveil",
-      "fingerprint": "df43e6d0deb417e1ab42718ae79fce496cdd08f08738c38b73c57832d39db411",
+      "fingerprint": "8accad5d1aaf125e63867af879097f95aefc51efb3f797de839a7aca6d7310bf",
       "previousFingerprints": [
+        "df43e6d0deb417e1ab42718ae79fce496cdd08f08738c38b73c57832d39db411",
         "c2fcb9f84a17bf45ed00b0a4c04f5365e115aa7a962eb9d66fc832c826f17dca",
         "e6bfad78d459e5abc750b6fa16eb8e6e1fd329532fd1a1e8188af23a49249d6f",
         "c0a0977e0e12144801b6b2ad48e6053743e22ff694c7946b8081b6776bf28c59"
       ],
       "geometryLevel": "victorian-textured-architecture-4.3",
-      "forgeRevision": "mansion-room-1",
+      "forgeRevision": "mansion-room-2",
       "name": "Moonveil Manor — Three-Level Staircase Test Estate",
       "package": "./samples/moonveil.casa",
       "architect": "Black Hollow Forge",
@@ -18,14 +19,15 @@
     },
     {
       "id": "demo-lonely-candle",
-      "fingerprint": "de56b6de2c99c5afaac8d6b7f64e937217d41c2afe635fd6b76506bd046888ef",
+      "fingerprint": "d68d231d02ddf0930c9d069c3da1a17ebc198d57a80229a2a3a88d54946bd5fd",
       "previousFingerprints": [
+        "de56b6de2c99c5afaac8d6b7f64e937217d41c2afe635fd6b76506bd046888ef",
         "cf0482d473c79c6df3e9423d80dc6153f107043a152f3aa416821591bf167e12",
         "a277e3e89d20b615d508da68ece927cfd0f05535a9496089fe47035f1b81bd94",
         "7a5a231871a275daa73aab8d5d379909342be8c26c10160caec1ec810de8e255"
       ],
       "geometryLevel": "victorian-textured-architecture-4.3",
-      "forgeRevision": "mansion-room-1",
+      "forgeRevision": "mansion-room-2",
       "name": "The Lonely Candle",
       "package": "./samples/one-room.casa",
       "architect": "Black Hollow Forge",
@@ -33,14 +35,15 @@
     },
     {
       "id": "demo-split-lantern",
-      "fingerprint": "37eaf6857226a9043848bbcf73f434e942db1425fc6ca8f27df14489da28c667",
+      "fingerprint": "ca072701941e38fe51488427cf3a351b29624534e7a54da2126353cac2e4ea2e",
       "previousFingerprints": [
+        "37eaf6857226a9043848bbcf73f434e942db1425fc6ca8f27df14489da28c667",
         "0ea6739743e881fbb456cc1c300452ea6af0910fed65fec2be9d6248864e763d",
         "7200f5ef19c7de54d6783be4c716437ae7cda42d166ff77fbaf7649c9142eb22",
         "9603464358fdf7939c2b7fcd4120df32c21d45f41e1ed1c5608e36d2068e0f57"
       ],
       "geometryLevel": "victorian-textured-architecture-4.3",
-      "forgeRevision": "mansion-room-1",
+      "forgeRevision": "mansion-room-2",
       "name": "The Split Lantern",
       "package": "./samples/split-lantern.casa",
       "architect": "Black Hollow Forge",
