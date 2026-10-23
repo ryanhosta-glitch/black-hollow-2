@@ -1,3 +1,4 @@
+import {createNocturneAtmosphere} from './nocturne_atmosphere.mjs';
 /** Architectural finish for legacy CASA halls. All additions clear the existing stair routes. */
 export function dressGrandHall(T,root){
  if(root.userData.grandHall)return root.userData.grandHall;
@@ -44,5 +45,6 @@ export function dressGrandHall(T,root){
  part('drop',crystal,[0,8.9,-1],[.24,.45,.24]);
  for(const [position,intensity,distance,color]of [[[0,10,-1],80,24,0xffd6a0],[[0,3,-9],12,17,0xc2cce5],[[0,7,10],24,16,0xffcb85]]){const light=new T.PointLight(color,intensity,distance,2);light.position.fromArray(position);g.add(light);}
  for(const {kind,mat,items}of batches.values()){const geometry=kind==='box'?new T.BoxGeometry(1,1,1):kind==='rod'?new T.CylinderGeometry(1,1,1,8):kind==='drop'?new T.OctahedronGeometry(1):new T.SphereGeometry(1,8,6),mesh=new T.InstancedMesh(geometry,mat,items.length);items.forEach((v,i)=>{if(v.matrix)mesh.setMatrixAt(i,v.matrix);else{matrix.position.fromArray(v.p);matrix.scale.fromArray(v.s);matrix.rotation.set(0,0,v.rz);matrix.updateMatrix();mesh.setMatrixAt(i,matrix.matrix);}});mesh.name='Nocturne '+kind;mesh.receiveShadow=true;g.add(mesh);}
+ const atmosphere=createNocturneAtmosphere(T,{reducedMotion:globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches??false});g.add(atmosphere);g.userData.tick=atmosphere.userData.tick;
  return g;
 }
