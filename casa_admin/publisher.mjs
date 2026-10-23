@@ -9,5 +9,31 @@ export function createPublisher({token,fetcher=fetch}){
  const current=await api('git/ref/heads/main');if(current.object.sha!==review.head)throw Error('The repository changed. Refresh and review again.');
  const catalogSha=await blob(new TextEncoder().encode(JSON.stringify({version:1,houses:rows},null,2)+'\n'));edits.push({path:'casa_game/street.json',sha:catalogSha,mode:'100644',type:'blob'});const tree=await api('git/trees',{base_tree:review.tree,tree:edits}),commit=await api('git/commits',{message:name,tree:tree.sha,parents:[review.head]});await api('git/refs/heads/main',{sha:commit.sha,force:false},'PATCH');return commit.sha;
  }
- return {snapshot,change};
+ async function changeBatch({review,items,onProgress=()=>{}}){
+  if(!review?.head||!items?.length)throw Error('Connect and prepare houses before publishing.');
+  const ids=new Set();
+  for(const {house,bytes,file} of items){
+   if(!/^[a-zA-Z0-9][a-zA-Z0-9_-]{2,109}$/.test(house?.id))throw Error('Invalid permanent house ID');
+   if(ids.has(house.id))throw Error('Duplicate house ID: '+house.id);
+   ids.add(house.id);
+   if(!(bytes?.length||file?.size)||(bytes?.length||file?.size)>MAX_PUBLISH_BYTES)throw Error('Each CASA must be between 1 byte and 95 MiB.');
+  }
+  const check=async()=>{if((await api('git/ref/heads/main')).object.sha!==review.head)throw Error('The repository changed. Refresh and publish again; prepared houses are retained.');};
+  await check();
+  const rows=review.catalog.houses.filter(h=>!ids.has(h.id)),edits=[];
+  let completed=0;
+  for(const item of items){
+   const {house}=item,bytes=item.bytes||new Uint8Array(await item.file.arrayBuffer());
+   const target='casa_game/houses/'+house.id+'.casa',existing=review.catalog.houses.find(h=>h.id===house.id);
+   if(existing){const old='casa_game/'+existing.package.replace(/^\.\//,'');if(!casaPath(old))throw Error('Unsafe existing package path');if(old!==target)edits.push({path:old,sha:null,mode:'100644',type:'blob'});}
+   edits.push({path:target,sha:await blob(bytes),mode:'100644',type:'blob'});
+   rows.push({...house,package:'./houses/'+house.id+'.casa'});
+   onProgress(++completed,items.length,house.name);
+  }
+  await check();
+  edits.push({path:'casa_game/street.json',sha:await blob(new TextEncoder().encode(JSON.stringify({version:1,houses:rows},null,2)+'\n')),mode:'100644',type:'blob'});
+  const tree=await api('git/trees',{base_tree:review.tree,tree:edits}),commit=await api('git/commits',{message:'Publish '+items.length+' Forged mansions',tree:tree.sha,parents:[review.head]});
+  await api('git/refs/heads/main',{sha:commit.sha,force:false},'PATCH');return commit.sha;
+ }
+ return {snapshot,change,changeBatch};
 }
