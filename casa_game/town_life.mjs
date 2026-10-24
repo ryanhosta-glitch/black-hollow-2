@@ -5,9 +5,10 @@ export function createTownClock(){
 /** A bounded, reversible route along the road centres. The visitor never scores
  * against the player's round. Only Madame Wick steps out toward the porch. */
 export function createNeighbourRoute(lots=[]){
+ const lanes=[0,1,2,3].map(i=>lots.filter(l=>l.lane?.index===i)),ordered=Array.from({length:Math.max(0,...lanes.map(a=>a.length))},(_,i)=>lanes.map(a=>a[i]).filter(Boolean)).flat();
  const home=[0,0,17],state={position:[...home],yaw:Math.PI,walking:false,visiting:false,returning:false,visits:0,target:null,visitAge:0};let index=0,hold=20,queue=[],history=[[...home]],serial=0;
  const distance=(a,b)=>Math.hypot(a[0]-b[0],a[2]-b[2]);
- function plan(){const lot=lots[index++%Math.max(1,lots.length)];if(!lot)return;const lane=lot.lane;if(!lane)return;const z=lot.localLot?.z??lane.toLocal([lot.x,0,lot.z])[2];state.target=lot;const junctions=[[[0,0,6],[4,0,4],[4,0,-4],[0,0,-8]],[[0,0,6],[-4,0,4],[-6,0,0]],[[0,0,6]],[[0,0,6],[4,0,4],[6,0,0]]];queue=junctions[lane.index].map(p=>({p}));const gate=lane.toWorld([0,0,-18]);queue.push({p:gate},{p:lane.toWorld([0,0,z]),visit:true});history=[[...state.position]];
+ function plan(){const lot=ordered[index++%Math.max(1,ordered.length)];if(!lot)return;const lane=lot.lane;if(!lane)return;const z=lot.localLot?.z??lane.toLocal([lot.x,0,lot.z])[2];state.target=lot;const junctions=[[[0,0,6],[4,0,4],[4,0,-4],[0,0,-8]],[[0,0,6],[-4,0,4],[-6,0,0]],[[0,0,6]],[[0,0,6],[4,0,4],[6,0,0]]];queue=junctions[lane.index].map(p=>({p}));const gate=lane.toWorld([0,0,-18]);queue.push({p:gate},{p:lane.toWorld([0,0,z]),visit:true});history=[[...state.position]];
  }
  function recall(){if(state.returning)return false;state.returning=true;state.visiting=false;state.target=null;hold=0;queue=history.slice().reverse().map(p=>({p:[...p]}));if(!queue.length||distance(queue.at(-1).p,home)>.1)queue.push({p:home});return true;}
  return {state,recall,tick(dt,player,paused=false){if(!Number.isFinite(dt)||dt<=0)return;dt=Math.min(dt,1);state.walking=false;if(paused||player&&distance(player,state.position)<2)return;
