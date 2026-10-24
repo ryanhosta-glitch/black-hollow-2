@@ -1,5 +1,5 @@
 import {ROOM_FURNITURE,roomFurnitureParts} from './forge_room_furniture.mjs';
-import {roomIdentity,ROOM_PROFILES,furnishingTarget,planRoomContents} from '../casa_game/room_content.mjs';
+import {roomIdentity,ROOM_PROFILES,furnishingTarget,planRoomContents} from '../casa_game/room_content.mjs?v=victorian-playpack-20261024';
 import {exteriorDetails} from './forge_exterior_details.mjs';
 import {wallMount} from '../casa_game/wall_mount.mjs';
 import {AVAILABLE_HOUSE_PHOTOS} from './unique_house_photo_pool.js';
