@@ -1,3 +1,4 @@
+import {houseNumber} from './addresses.mjs';
 import {inspectCasaFile} from './import_package.mjs';
 import {openCasa} from './archive.mjs';
 export function createCatalog(){
@@ -57,9 +58,9 @@ export function createCatalog(){
    temporary.delete(id);invalidate(id);
    if(published.has(id))descriptors.set(id,published.get(id));else descriptors.delete(id);
   },
-  async import(file,{onProgress=()=>{}}={}){
+  async import(file,{onProgress=()=>{},houseNumber:assignedNumber}={}){
    const house=await inspectCasaFile(file,{onProgress});
-   const h={id:house.manifest.id||house.fingerprint,name:String(house.manifest.name||file.name).slice(0,110),houseNumber:String(house.manifest.casa?.houseNumber||''),description:'A newly arrived house. Its story is waiting.',local:true,fingerprint:house.fingerprint,geometryLevel:house.manifest.casa?.geometryLevel||'Legacy CASA',architect:String(house.manifest.casa?.creator||'Unknown architect').slice(0,110)};
+   const h={id:house.manifest.id||house.fingerprint,name:String(house.manifest.name||file.name).slice(0,110),houseNumber:houseNumber(assignedNumber??house.manifest.casa?.houseNumber),description:'A newly arrived house. Its story is waiting.',local:true,fingerprint:house.fingerprint,geometryLevel:house.manifest.casa?.geometryLevel||'Legacy CASA',architect:String(house.manifest.casa?.creator||'Unknown architect').slice(0,110)};
    temporary.set(h.id,file);onProgress({phase:'Saving on this device',bytes:file.size,total:file.size});
    try{await storeLocal(h.id,h,file);temporary.delete(h.id);}catch{h.sessionOnly=true;}
    invalidate(h.id);descriptors.set(h.id,h);return h;
