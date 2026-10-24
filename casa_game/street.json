@@ -21,6 +21,248 @@
       "package": "./samples/moonveil.casa",
       "architect": "Black Hollow Forge",
       "description": "A prepared house with a different mystery whenever you begin a new haunting."
+    },
+    {
+      "id": "house-03f984fb4d9ae0",
+      "name": "4 U R Done",
+      "houseNumber": "213",
+      "fingerprint": "b92fcb9b284d20a6016ece119a202dc9908e238db1e0abdf69ea2a4559ada1bf",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "welcome  to your demise. were you will  not be alive by the time you leave well not leave because YOU WON'T.",
+      "package": "./houses/house-03f984fb4d9ae0.casa"
+    },
+    {
+      "id": "house-1af2d7b6042573",
+      "name": "Bat Manor",
+      "houseNumber": "7315",
+      "fingerprint": "5dc0dd85b359d02f486d7b82433429baefe321eaedbc399bf010a70d3e57898f",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "\"Welcome to Bat Manor. A mystical house brimming with secrets and mysteries. Feel free to enter.\"",
+      "package": "./houses/house-1af2d7b6042573.casa"
+    },
+    {
+      "id": "house-389efcfb9f5ac4",
+      "name": "Brian's Estate",
+      "houseNumber": "66",
+      "fingerprint": "0dda859b88da386994f8bed92f114c22f5bde969c54ac2e5652a0b311f2e97d5",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Hello there, come into my walls and see what lies beyond.... the last one who came here haulted at the door and fainted. When the little  guy woke up his eyes were white... his name was Mr. Brian and everyone called him a hero for what he did. Now enter the Estate and meet your fate.",
+      "package": "./houses/house-389efcfb9f5ac4.casa"
+    },
+    {
+      "id": "house-8758b94897b0ba",
+      "name": "Fr@nk3:nst3in'S",
+      "houseNumber": "33",
+      "fingerprint": "b2cb7b6d3433c0bd49430048fe66cd1a4979ae1ee4f3a45ff1cb8698119e7cc7",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to Frankensteins hold this mansion will have shivers and creeps secret doors and much more.",
+      "package": "./houses/house-8758b94897b0ba.casa"
+    },
+    {
+      "id": "house-2e2423085d130b",
+      "name": "Garden Gates",
+      "houseNumber": "269",
+      "fingerprint": "74b9ba68eb2a47d4e4b5c57746a4635c9ca7406227707d592472d4507795ead9",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to Garden Gates. Have a fun time exploring, you might come upon some surprises be aware of your surroundings",
+      "package": "./houses/house-2e2423085d130b.casa"
+    },
+    {
+      "id": "house-97408b549b8b23",
+      "name": "Hallows 1: Wandering Ghosts",
+      "houseNumber": "1111",
+      "fingerprint": "41cc245cac895d7aa992913cf6c4013b3b5deb9b9697a8f33ed2b06fcbd43f60",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to the Mansion of Ghosts. Please be careful.",
+      "package": "./houses/house-97408b549b8b23.casa"
+    },
+    {
+      "id": "house-0c1593269393e1",
+      "name": "Hallows 2: The Spirit of Darkness",
+      "houseNumber": "2222",
+      "fingerprint": "59ab0cd9f9c9bf1d1a26829bd35afbdf6fda9f41fdd76c0a18e625e72ea03763",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to the Mansion of Darkness. Please treat the house with caution and inspect anything that looks suspicious. By the way, please try to avoid being injured. It's impossible to survive.",
+      "package": "./houses/house-0c1593269393e1.casa"
+    },
+    {
+      "id": "house-5efc01faa87b76",
+      "name": "Haunted Hideaway",
+      "houseNumber": "13711",
+      "fingerprint": "63383315ceda471af090c5b981bbbca1bc44adc37bee2a7a6085da99d9b4fbbf",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Do you dare enter Haunted Hideaway? If so a mighty peril awaits you. Turn back now.",
+      "package": "./houses/house-5efc01faa87b76.casa"
+    },
+    {
+      "id": "house-1a442c2a1b0d74",
+      "name": "Nightfall",
+      "houseNumber": "313",
+      "fingerprint": "b8cf883b7696de9ede4bffab4fb99ac5ee53866860c550a469484f1064e6bbac",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to Nightfall. Once someone lived here now a ghost that still lives there died trying to protect a secret. Any one who goes in to nightfall most don't come out those who do are too scared to speak again some people believe it is cursed and the curse cant be broken unless the secret is safe.",
+      "package": "./houses/house-1a442c2a1b0d74.casa"
+    },
+    {
+      "id": "house-62f82b6454d42d",
+      "name": "Puffins House",
+      "houseNumber": "101",
+      "fingerprint": "88f6ec5d63089291e7d6d4525673af8b121a60baf20a19ce7501b979723f17eb",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "What's up! Im a puffin.  Don't scare the ghost please.",
+      "package": "./houses/house-62f82b6454d42d.casa"
+    },
+    {
+      "id": "house-82fed66d1530d5",
+      "name": "The Devil's Gate",
+      "houseNumber": "666",
+      "fingerprint": "be2a6ee1b5c7c5227ee730bfc0ebf76203b29b09e0f4529a4345c79afb58f603",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to The Devil's Gate. Visitors welcome but be aware. Enter at your own risk.",
+      "package": "./houses/house-82fed66d1530d5.casa"
+    },
+    {
+      "id": "house-4729d1cf7ac06a",
+      "name": "Haunted The G.B.G. Deluxe",
+      "houseNumber": "711",
+      "fingerprint": "d1c093ffd3b2f9bf756f854ab1025a96f44c5f2472941186cd2017af32115667",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to the G.B.G. deluxe. Here you will find many things to make you feel at home. And you might also find your Dooom!!! Ha Ha Ha (The soap is in the shower)",
+      "package": "./houses/house-4729d1cf7ac06a.casa"
+    },
+    {
+      "id": "house-1aa4a4075a9c05",
+      "name": "The Haunted Estate",
+      "houseNumber": "5282",
+      "fingerprint": "99406099c97c58476c2d92b621bb20097e52f61ab5815534b6d7d66ceebb7885",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Hello, and welcome to the haunted estate! Come in... if you dare.",
+      "package": "./houses/house-1aa4a4075a9c05.casa"
+    },
+    {
+      "id": "house-eb8f563c3fed01",
+      "name": "The Lost Mansion",
+      "houseNumber": "295",
+      "fingerprint": "b96f6bcb207f4b07fcc7221f861674959faad3140faf9ebc3140a18523af5bdb",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "The Lost Mansion was once a normal house but has since become haunted. Please come in but only enter if you dare.",
+      "package": "./houses/house-eb8f563c3fed01.casa"
+    },
+    {
+      "id": "house-8102ef435f6dcc",
+      "name": "The Mansion of Mystery",
+      "houseNumber": "2",
+      "fingerprint": "ef02105c081de3357dc638803205da0e12ec631deda7d04272f9d952440bc01f",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "A new mystery on Haunted Hollow Street.",
+      "package": "./houses/house-8102ef435f6dcc.casa"
+    },
+    {
+      "id": "house-56d23561d1dad8",
+      "name": "Turret Castle",
+      "houseNumber": "23",
+      "fingerprint": "8dd5e777f74c7fc1efd77ca85a2dafe71fa8a7a92d5c219c294c901c0b1b8b4c",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to Turret Castle, a popular tourist destination for screams, ghosts, and terror!",
+      "package": "./houses/house-56d23561d1dad8.casa"
+    },
+    {
+      "id": "house-0e940e170c5d1b",
+      "name": "Haunted Free Puff",
+      "houseNumber": "67",
+      "fingerprint": "bfa990df36c5a72f66f27944e5d027ae7738c196fbd84432d108a67882e7ae62",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "YO so if your trying to come into my mansion, your cooked. cuz its pretty scary, yeah. enter if you dare. >:D",
+      "package": "./houses/house-0e940e170c5d1b.casa"
+    },
+    {
+      "id": "house-adc95034eb7871",
+      "name": "Haunted House Full of Stuff",
+      "houseNumber": "13",
+      "fingerprint": "321742373fdbf974298222604dd1d562c50b0c7bf8d183552691274975aa0806",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to the house. I like it messy do not clean it !!!!!!",
+      "package": "./houses/house-adc95034eb7871.casa"
+    },
+    {
+      "id": "house-c253d341258532",
+      "name": "Mr. Spookem's Mansion",
+      "houseNumber": "69265",
+      "fingerprint": "da00c3ba0169e335a85e667243c486eab6c7d5e7877ce9a411bd8d484999b3b9",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Mr.Spokem has invited you to his manion. But there is no one there at least it seems so....",
+      "package": "./houses/house-c253d341258532.casa"
+    },
+    {
+      "id": "house-41483e0f829339",
+      "name": "Spooky Mansion",
+      "houseNumber": "113",
+      "fingerprint": "ea21ef1423d84610c1ff4353bbd71ff609de2beb616d6809a80ec912322ff9b0",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome to my spooky mansion. Prepare to be spooked, by the creepy things in my spooktacular mansion. Scream for your mother if you dare.",
+      "package": "./houses/house-41483e0f829339.casa"
+    },
+    {
+      "id": "house-c3891fccdad9b0",
+      "name": "The GLitchIN MANsoiN",
+      "houseNumber": "103",
+      "fingerprint": "b89bccd587012c3f4a4fdf19e47b720412674678c693e21592bfca1675294b75",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "WarNINg NEvr ENtR. Beazts InSid!!",
+      "package": "./houses/house-c3891fccdad9b0.casa"
+    },
+    {
+      "id": "house-956f3c329fefe5",
+      "name": "The Living House",
+      "houseNumber": "31914",
+      "fingerprint": "9f14ddd265e088b4adb9fd6a2a116cd733a4712bed30aa7f2e4d9cf1038244c2",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Welcome if you dare. Come and see the last of of the living houses. Don't be scared.",
+      "package": "./houses/house-956f3c329fefe5.casa"
     }
   ]
 }
