@@ -5,13 +5,13 @@ export const FAIR_SITES=[
 ];
 export function createVillagePassport({storage=globalThis.localStorage}={}){
  const key='bh-village-passport:v1';let raw;try{raw=JSON.parse(storage?.getItem(key)||'null');}catch{}
- const badges=raw?.version===1&&Array.isArray(raw.badges)?FAIR_SITES.map(s=>s.id).filter(id=>raw.badges.includes(id)):[];let persisted=true;
+ const badges=raw?.version===1&&Array.isArray(raw.badges)?FAIR_SITES.map(s=>s.id).filter(id=>raw.badges.includes(id)):[];let persisted=!!storage;
  return {badges,get persisted(){return persisted;},stamp(id){if(!FAIR_SITES.some(s=>s.id===id)||badges.includes(id))return false;badges.push(id);try{storage?.setItem(key,JSON.stringify({version:1,badges}));persisted=!!storage;}catch{persisted=false;}return true;}};
 }
 export function createFairGame(){
  const state={ingredients:[],parked:false,notes:[],completed:[],event:null,serial:0};const tune=['rose','moss','plum'];
  const choices=id=>id==='potions'?[{id:'mint',label:'Add moonmint'},{id:'dew',label:'Add bottled dew'},{id:'stir',label:'Stir the cauldron'}]:id==='brooms'?[{id:'violet',label:'Park Violet'},{id:'bramble',label:'Park Bramble'},{id:'bell',label:'Ring the recall bell'}]:id==='choir'?[{id:'rose',label:'Tap Rose'},{id:'moss',label:'Tap Moss'},{id:'plum',label:'Tap Plum'}]:[];
- const clue=id=>id==='potions'?'NETTLE’S RECIPE: moonmint → bottled dew → stir. In the pot: '+(state.ingredients.join(' + ')||'nothing, yet')+'.':id==='brooms'?'BROOM SCHOOL: Park Violet, then ring the bell. Bramble has other plans.':id==='choir'?'THE CHOIR’S TUNE: Rose → Moss → Plum. Played: '+(state.notes.join(' → ')||'your turn')+'.':'';
+ const clue=id=>id==='potions'?'POTION · Moonmint → dew → stir. In the pot: '+(state.ingredients.map(id=>id==='mint'?'moonmint':'bottled dew').join(' + ')||'nothing, yet')+'.':id==='brooms'?'BROOMS · '+(state.parked?'Violet is parked. Ring the recall bell.':'Park Violet, then ring the bell. Bramble is trouble.')+'':id==='choir'?'CHOIR · Rose → Moss → Plum. Played: '+(state.notes.join(' → ')||'your turn')+'.':'';
  function act(id,choice){if(!choices(id).some(c=>c.id===choice))return {ok:false,text:'That stall has no such trick.'};let success=false,text='',kind='',note;
   if(id==='potions'){
    if(choice==='stir'){success=state.ingredients.length===2&&state.ingredients[0]==='mint'&&state.ingredients[1]==='dew';text=success?'A moonflower rises from the pot. Nettle applauds. “Excellent. It only sneezed once.”':'The brew sneezes a violet cloud. Nettle hands you a clean spoon. Try the recipe again.';kind=success?'bloom':'sneeze';state.ingredients=[];}

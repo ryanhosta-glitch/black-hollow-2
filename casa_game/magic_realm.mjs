@@ -24,7 +24,7 @@ function createThread(T,start,end){
 export function createMagicRealm(T,{grimoire,reducedMotion=false}={}){
  const root=new T.Group();root.name='The living grimoire';let roomKey='',roomSite=null,mark=null,revealed=0,cooldown=0,clock=0,mode='street',effects=[],thread=null,castRoom=null,castHouse=null,enchantment=0,footprints=[],lastFoot=null;
  const foot=new T.InstancedMesh(new T.OctahedronGeometry(.045,0),new T.MeshBasicMaterial({color:0xd5c49d,transparent:true,opacity:.42,depthWrite:false}),24),dummy=new T.Object3D();foot.name='The stars you leave behind';foot.count=0;root.add(foot);
- function clear(){roomKey='';for(const e of effects)e.dispose();effects=[];if(thread)disposeGroup(thread.root);thread=null;if(mark)disposeGroup(mark.root);mark=null;roomSite=null;revealed=0;enchantment=0;footprints=[];lastFoot=null;foot.count=0;}
+ function clear(){roomKey='';for(const e of effects)e.dispose();effects=[];if(thread)disposeGroup(thread.root);thread=null;if(mark)disposeGroup(mark.root);mark=null;roomSite=null;revealed=0;cooldown=0;enchantment=0;footprints=[];lastFoot=null;foot.count=0;}
  function configure(kind,house,room,session){
   const key=kind+':'+(house?.manifest.id||'street')+':'+(room?.id||'');if(key===roomKey)return;clear();roomKey=key;mode=kind;castRoom=room;castHouse=house;
   if(kind==='house')roomSite=planWitchMarks(house,session?.slots||[]).find(s=>s.roomId===room.id)||null;
