@@ -135,7 +135,7 @@ const descriptor={id:'phoenix-ui',package:'./samples/one-room.casa'};
 await game.awakenHouse(descriptor,{fresh:true});if(game.dialog)close();assert.equal(game.mode,'hall');assert.equal(game.session.phoenix,true);
 const phoenixPack=game.house,phoenixKey='bh-phoenix:v2:'+phoenixPack.fingerprint;
 for(const type of Object.keys(phoenixEndings)){
- const prepared=createHauntingSession(phoenixPack,{type,seed:472,runId:'ui:'+type});prepared.state.encounters['phoenix:intro']=true;await game.streetScene();local.set(phoenixKey,JSON.stringify(prepared.snapshot()));await game.awakenHouse(descriptor);if(game.dialog)close();assert.equal(game.session.type,type);assert.equal(game.walker.cameraMode,'first');await standAtHaunt(game.session.stations[0]);assert.equal(game.walker.cameraMode,'first','scene transitions retain the player’s camera choice');
+ const prepared=createHauntingSession(phoenixPack,{type,seed:472,runId:'ui:'+type});prepared.state.encounters['phoenix:intro']=true;await game.streetScene();local.set(phoenixKey,JSON.stringify(prepared.snapshot()));await game.awakenHouse(descriptor);if(game.dialog)close();assert.equal(game.session.type,type);assert.equal(game.walker.cameraMode,'cinematic');game.walker.setCameraMode('first');await standAtHaunt(game.session.stations[0]);assert.equal(game.walker.cameraMode,'first','scene transitions retain the player’s camera choice');
  const run=game.session;
  if(type==='vigil'){for(let i=0;i<3;i++){while(run.watch().watching)await pulsePhoenix(.1);await chooseHaunt(i,'hold');await pulsePhoenix(2.8);assert.ok(run.state.solved.includes(i));}}
  if(type==='choir'){await chooseHaunt(3,'read');for(const i of run.order)await chooseHaunt(i,'sound');for(const i of [...run.order].reverse())await chooseHaunt(i,'sound');}

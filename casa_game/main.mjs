@@ -178,7 +178,7 @@ function tick(time){requestAnimationFrame(tick);const trickElapsed=trickClock?Ma
 
 function showHauntingIntro(){
  session.state.encounters['phoenix:intro']=true;checkpoint();
- showModal(session.definition.title,HOUSE_VOICES[session.type].opening+'\n\nYou arrive in the Grand Main Hall. Meet the household, or use the door beneath the stairs to enter the main house.\n\nYOUR FIRST MOVE\n'+FIRST_MOVES[session.type]+'\n\n'+lanternGuide(session,pose()).location+'\n\nNo timer or dread builds until your first interaction. Full rules stay in the field journal.',{choices:[{label:'Explore the main hall',action:()=>resume()}]});$('modalTitle').tabIndex=-1;$('modalTitle').focus({preventScroll:true});$('modal').querySelector('.card')?.scrollTo?.({top:0});
+ showModal(session.definition.title,HOUSE_VOICES[session.type].opening+'\n\nGrand Main Hall: visit the household, or enter the main house beneath the stairs.\n\nYOUR FIRST MOVE\n'+FIRST_MOVES[session.type]+'\n\n'+lanternGuide(session,pose()).location+'\n\nNo timer or dread builds until your first interaction. Full rules stay in the field journal.',{choices:[{label:'Explore the main hall',action:()=>resume()}]});$('modalTitle').tabIndex=-1;$('modalTitle').focus({preventScroll:true});$('modal').querySelector('.card')?.scrollTo?.({top:0});
 }
 function showHauntingAction(slot){
  const result=session.inspect(slot,pose());if(!result.ok)return toast(result.text);
