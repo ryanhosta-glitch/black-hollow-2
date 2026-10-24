@@ -18,7 +18,7 @@ try{
  const first=page.locator('#batchRows details').filter({hasText:'Batch Mansion 0 — queued'});await first.locator('summary').click();await first.locator('select[name=updateTarget]').selectOption(replacementId);await first.locator('input[name=name]').fill('Batch Mansion Rebuilt');await first.locator('input[name=houseNumber]').fill('42424');
  const second=page.locator('#batchRows details').filter({hasText:'Batch Mansion 1 — queued'});await second.locator('summary').click();await second.locator('input[name=name]').fill('Batch Mansion Edited');await second.locator('input[name=houseNumber]').fill('42425');assert.equal(await page.locator('#batchPublish').isEnabled(),false,'unsaved edits cannot publish stale geometry');
  await page.locator('#batchBuild').click();await page.waitForFunction(()=>document.querySelector('#batchSummary').textContent.includes('34 prepared · 1 need attention'),{},{timeout:180000});
- assert.match(await page.locator('#batchRows').textContent(),/broken.haunt — failed/);
+ await page.locator('#batchBuild:not([disabled])').waitFor();assert.match(await page.locator('#batchRows').textContent(),/broken.haunt — failed/);
  assert.equal(await page.locator('#batchPublish').isEnabled(),true);
  await page.reload();await page.waitForFunction(()=>document.querySelector('#batchSummary').textContent.includes('34 prepared · 1 need attention'));
  await page.locator('#batchTest').click();await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('34 houses added'),{},{timeout:90000});
