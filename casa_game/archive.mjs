@@ -1,3 +1,4 @@
+import {validateHauntingSites} from './haunting_sites.mjs';
 // CASA is a prepared ZIP package. No blueprint conversion or remote asset execution.
 const decoder=new TextDecoder('utf-8',{fatal:true});
 export function packagePath(path){if(typeof path!=='string'||!path||path.length>500||path.includes('\\')||path.startsWith('/')||/[:\x00-\x1f]/.test(path)||path.split('/').some(p=>!p||p==='.'||p==='..'))throw Error('Invalid package path');return path;}
@@ -25,11 +26,12 @@ export async function openCasa(input,{inflateRaw=inflate}={}){
 
  if(manifest.architecturalAccessReady===false)throw Error('Forge found unreachable rooms. Repair and recompile this house first');
  for(const path of [manifest.specialRooms?.mainHall,manifest.specialRooms?.floor13Conservatory])if(!path||!entries.has(path))throw Error('Recompile in the current Forge: Grand Hall and Floor 13 models required');
- const navigation=await json(manifest.navigation),access=await json(manifest.accessPlan),decoration=manifest.decorationPlan?await json(manifest.decorationPlan):{furniture:[],artwork:[],colliders:[],lights:[],grounds:[]},playability=manifest.playabilityAudit?await json(manifest.playabilityAudit):null,gameplay=manifest.gameplaySlots?await json(manifest.gameplaySlots):null;
+ const navigation=await json(manifest.navigation),access=await json(manifest.accessPlan),decoration=manifest.decorationPlan?await json(manifest.decorationPlan):{furniture:[],artwork:[],colliders:[],lights:[],grounds:[]},playability=manifest.playabilityAudit?await json(manifest.playabilityAudit):null,gameplay=manifest.gameplaySlots?await json(manifest.gameplaySlots):null,hauntingSites=manifest.hauntingSites?await json(manifest.hauntingSites):null;
  if(!Array.isArray(navigation.rooms)||!navigation.rooms.length||navigation.rooms.length>512)throw Error('Invalid room inventory');const ids=new Set();const rooms=navigation.rooms.map(r=>{const b=r.boundsFeet||r.bounds;if(!r.id||ids.has(r.id)||!b||!['x','y','l','w','h'].every(k=>Number.isFinite(+b[k]))||['l','w','h'].some(k=>+b[k]<=0)||!Number.isInteger(r.floor)||r.floor<0||r.floor>=manifest.floors.length)throw Error('Invalid room contract');ids.add(r.id);return {...r,boundsFeet:b};});
  if(!Array.isArray(access.stops)||!access.hub||!access.cabin||!access.hiddenDestination||!entries.has(access.cabin.model))throw Error('Elevator contract incomplete');for(const s of access.stops)if(!ids.has(s.roomId)||!Array.isArray(s.approachMeters)||s.approachMeters.length!==3||!s.approachMeters.every(Number.isFinite))throw Error('Invalid elevator arrival');
  if(playability&&playability.staticRoutesVerified!==true)throw Error('Forge found blocked routes. Repair and recompile this house first');
  const roomCompleteness=manifest.roomCompleteness?await json(manifest.roomCompleteness):null;
+ if(hauntingSites&&validateHauntingSites({rooms,manifest,access,decoration},hauntingSites).length)throw Error('Forge encounter sites are unsafe. Recompile this mansion.');
  const fingerprint=await sha256(new TextEncoder().encode(JSON.stringify(inventory||manifest)));
- return {manifest,navigation:{...navigation,rooms},rooms,access,decoration,playability,gameplay,roomCompleteness,entries,read,json,fingerprint,qa:manifest.casa?.gameplayCertified!==true,clearCache(){cache.clear();},stats(){return {files:entries.size,expandedBytes:total,cachedBytes:[...cache.values()].reduce((n,b)=>n+b.length,0)};}};
+ return {manifest,navigation:{...navigation,rooms},rooms,access,decoration,playability,gameplay,hauntingSites,roomCompleteness,entries,read,json,fingerprint,qa:manifest.casa?.gameplayCertified!==true,clearCache(){cache.clear();},stats(){return {files:entries.size,expandedBytes:total,cachedBytes:[...cache.values()].reduce((n,b)=>n+b.length,0)};}};
 }

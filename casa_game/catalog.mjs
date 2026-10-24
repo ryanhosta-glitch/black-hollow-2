@@ -1,6 +1,6 @@
 import {houseNumber} from './addresses.mjs';
 import {inspectCasaFile} from './import_package.mjs';
-import {openCasa} from './archive.mjs';
+import {openCasa} from './archive.mjs?v=victorian-playpack-20261024';
 export function createCatalog(){
  let dbPromise;
  const temporary=new Map(),descriptors=new Map(),published=new Map(),opened=new Map(),generations=new Map();

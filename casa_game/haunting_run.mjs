@@ -1,3 +1,4 @@
+import {validateHauntingSites} from './haunting_sites.mjs';
 import {seedNumber,random,roomContains,floorY,blockedByFurniture} from './session.mjs';
 import {HAUNTINGS,MUTATIONS,ENDINGS} from './haunting_catalog.mjs';
 const clone=x=>structuredClone(x),clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),finite=(x,fallback=0)=>Number.isFinite(x)?x:fallback;
@@ -6,6 +7,7 @@ function shuffle(a,rng){for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(
 const endingIds={vigil:['release','claim'],choir:['sing','silence'],escort:['home','road'],loop:['tomorrow','preserve'],masquerade:['invite','banish'],bargain:['free','deal'],heist:['escape','name'],garden:['sky','seed']};
 /** Uses the compiler's verified standing points and public stops, never arbitrary room centers. */
 export function hauntingAnchors(house,seed){
+ if(house.hauntingSites){const issues=validateHauntingSites(house,house.hauntingSites);if(issues.length)throw Error('Unsafe compiled haunting sites. Recompile this mansion in Forge.');const sites=structuredClone(house.hauntingSites.sites),interior=shuffle(sites.filter(s=>s.scene==='house'),random(seed));return [...interior,...sites.filter(s=>s.scene==='hall')];}
  const rng=random(seed),locked=new Set(house.access.stops.filter(s=>s.requiresUnlock).map(s=>s.floor)),rooms=house.rooms.filter(r=>!r.forgeStair&&!locked.has(r.floor));
  const valid=(r,p)=>r&&Array.isArray(p)&&p.length===3&&p.every(Number.isFinite)&&roomContains(r,p,.21)&&Math.abs(p[1]-floorY(house,r.floor))<.1&&!blockedByFurniture(house,r.floor,p[0],p[2],p[1],.25);
  const stairRooms=new Set((house.access.stairRoutes||[]).flatMap(s=>[s.roomId,s.upperRoomId]).filter(Boolean));

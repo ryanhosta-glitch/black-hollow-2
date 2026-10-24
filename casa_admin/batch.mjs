@@ -1,6 +1,6 @@
-import {openCasa} from '../casa_game/archive.mjs';
+import {openCasa} from '../casa_game/archive.mjs?v=victorian-playpack-20261024';
 import {inspectCasaFile} from '../casa_game/import_package.mjs';
-import {publicationFindings} from './forge_build_report.mjs?v=upload-ready-20261024';
+import {publicationFindings} from './forge_build_report.mjs?v=victorian-playpack-20261024';
 export async function prepareCasa(file){
  await inspectCasaFile(file);
  const casa=await openCasa(new Uint8Array(await file.arrayBuffer()));
@@ -9,7 +9,7 @@ export async function prepareCasa(file){
  const validation=casa.entries.has('casa_validation.json')?await casa.json('casa_validation.json'):null;
  const findings=publicationFindings(report,validation);
  if(findings.blocked)throw Error(findings.message);
- return {file,house:{id:casa.manifest.id,name:String(casa.manifest.name),houseNumber:String(identity.houseNumber||casa.manifest.casa?.houseNumber||''),fingerprint:casa.fingerprint,geometryLevel:casa.manifest.casa?.geometryLevel,forgeRevision:casa.manifest.forgeRevision||null,architect:String(identity.architect||'Unknown architect'),description:String(identity.description||'A new mystery on Haunted Hollow Street.')},report:findings.message};
+ return {file,house:{id:casa.manifest.id,name:String(casa.manifest.name),houseNumber:String(identity.houseNumber||casa.manifest.casa?.houseNumber||''),fingerprint:casa.fingerprint,geometryLevel:casa.manifest.casa?.geometryLevel,forgeRevision:casa.manifest.forgeRevision||null,architect:String(identity.architect||'Unknown architect'),description:String(identity.description||'A new mystery on Haunted Hollow Street.')},report:(casa.manifest.playPack?'Victorian Play Pack · '+(await casa.json(casa.manifest.playPack)).encounterSites+' prepared encounter sites · eight haunting families · Hall and Floor 13 included.\n\n':'')+findings.message};
 }
 export function batchStorage(){
  const db=new Promise((resolve,reject)=>{const r=indexedDB.open('black-hollow-forge-batches',1);r.onupgradeneeded=()=>r.result.createObjectStore('queue',{keyPath:'key'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
