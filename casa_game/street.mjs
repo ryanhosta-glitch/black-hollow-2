@@ -1,4 +1,4 @@
-import {createYardDisplays} from './yard_displays.mjs?v=yard-festival-20261024';
+import {createYardDisplays} from './yard_displays.mjs?v=growing-halloween-20261024';
 import {numberHouses} from './addresses.mjs';
 import {createWitchVillage} from './witch_village.mjs?v=yard-festival-20261024';
 import {townLayout,TOWN_NAME} from './town_layout.mjs';

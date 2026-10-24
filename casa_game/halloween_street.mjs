@@ -2,6 +2,7 @@ import {disposeGroup} from './resources.mjs';
 import {streetWind} from './autumn_street.mjs';
 import {createFabricGhost} from './fabric_ghost.mjs';
 import {twoSidedSign} from './surfaces.mjs';
+export function halloweenCrowdBudget(houseCount,{reducedMotion=false}={}){return houseCount>0?Math.min(reducedMotion?16:48,Math.max(8,Math.ceil(houseCount*1.2))):0;}
 export const HALLOWEEN_COLORS=[0xff8b24,0xa25be0,0x81d94b,0xf05ab7,0xffd65a,0x56ced5,0xece2cc];
 // Carving silhouettes follow the curved shell instead of floating in front of it.
 export function createCarvedPumpkin(THREE,index=0){
@@ -50,7 +51,8 @@ function createLocalHalloweenStreet(THREE,lots,{reducedMotion=false,crowdLimit=1
 }
 
 export function createHalloweenStreet(THREE,lots,options={}){
- if(!lots.some(l=>l.lane))return createLocalHalloweenStreet(THREE,lots,options);
- const root=new THREE.Group();root.name='Halloween across Black Hallow';const lanes=[...new Set(lots.map(l=>l.lane))],parts=lanes.map(lane=>{const view=createLocalHalloweenStreet(THREE,lots.filter(l=>l.lane===lane).map(l=>l.localLot),{...options,crowdLimit:Math.max(4,Math.floor(18/lanes.length))});view.root.rotation.y=lane.angle;root.add(view.root);return {lane,view};}),byId=new Map();for(const p of parts)for(const id of p.view.hosts.keys())byId.set(id,p);let active=parts[0],selected=null;
+ const crowdBudget=options.crowdLimit??halloweenCrowdBudget(lots.length,options);
+ if(!lots.some(l=>l.lane))return createLocalHalloweenStreet(THREE,lots,{...options,crowdLimit:crowdBudget});
+ let assigned=0,seenLots=0;const root=new THREE.Group();root.name='Halloween across Black Hallow';const lanes=[...new Set(lots.map(l=>l.lane))],parts=lanes.map(lane=>{const laneLots=lots.filter(l=>l.lane===lane);seenLots+=laneLots.length;const cumulative=Math.round(crowdBudget*seenLots/lots.length),limit=cumulative-assigned;assigned=cumulative;const view=createLocalHalloweenStreet(THREE,laneLots.map(l=>l.localLot),{...options,crowdLimit:limit});view.root.rotation.y=lane.angle;root.add(view.root);return {lane,view};}),byId=new Map();for(const p of parts)for(const id of p.view.hosts.keys())byId.set(id,p);let active=parts[0],selected=null;
  return {root,hosts:new Map(parts.flatMap(p=>[...p.view.hosts])),pumpkins:parts.flatMap(p=>p.view.pumpkins),visitors:parts.flatMap(p=>p.view.visitors),get flying(){return (selected||active).view.flying},get bucket(){return active.view.bucket},bindEntrance(id,entry){byId.get(id)?.view.bindEntrance(id,entry.localEntrance||entry)},unbindEntrance(id){byId.get(id)?.view.unbindEntrance(id)},begin(id,trick){selected=byId.get(id);selected?.view.begin(id,trick)},settle(){for(const p of parts)p.view.settle();selected=null},tick(time,dt,position,yaw,state){active=selected||parts.reduce((a,p)=>Math.abs(p.lane.toLocal(position)[0])<Math.abs(a.lane.toLocal(position)[0])?p:a,parts[0]);for(const p of parts){p.view.tick(time,dt,p.lane.toLocal(position),yaw-p.lane.angle,state);p.view.bucket.visible=p===active;}},dispose(){for(const p of parts)p.view.dispose();}};
 }

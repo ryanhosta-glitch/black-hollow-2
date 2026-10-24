@@ -19,7 +19,7 @@ import {createNightChronicle,RELICS} from './night_chronicle.mjs';
 import {createHauntingProp} from './haunting_props.mjs';
 import {streetEntrance} from './street_entrance.mjs?v=estate-frontage-20261024';
 import {createTrickOrTreat,halloweenTime} from './trick_or_treat.mjs';
-import {createHalloweenStreet} from './halloween_street.mjs?v=halloween-night-20261024';
+import {createHalloweenStreet} from './halloween_street.mjs?v=growing-halloween-20261024';
 import {createHallOrgan} from './hall_organ.mjs';
 import {wallMount} from './wall_mount.mjs';
 import {createEncounterGate} from './automatic_encounters.mjs';
@@ -39,7 +39,7 @@ import {SIGNATURE_ROOMS,signatureSurface,signatureBlocked} from './signature_nav
 import {createCatalog} from './catalog.mjs?v=victorian-playpack-20261024';
 import {createPackageAssets,createFloorStreamer,createExterior,createGroundsDecoration,disposeGroup} from './resources.mjs?v=estate-frontage-20261024';
 import {createSession,createElevator,blockedByFurniture,roomContains,floorY,random,seedNumber} from './session.mjs';
-import {createStreet} from './street.mjs?v=yard-festival-20261024';
+import {createStreet} from './street.mjs?v=growing-halloween-20261024';
 import {createAudio} from './audio.mjs?v=duet-20261024';
 const night=createNightChronicle();
 const $=id=>document.getElementById(id),catalog=createCatalog(),audio=createAudio(),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;

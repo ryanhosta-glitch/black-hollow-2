@@ -254,3 +254,7 @@ Local browser verification was unavailable because Chromium download failed.
 - Project one animated laser pattern onto the selected house's actual exterior materials. Restore original materials when previews unload; no duplicated house geometry or extra dynamic light sources. Reduced-motion settings hold the show and moving decorations steady.
 - Resolve resident personal space in world coordinates. Nearby NPCs yield independently; scripted interaction participants remain pinned. Only accept separation steps on walkable ground.
 - Regression coverage includes stable allocation, unique classroom-sized display selections, finite geometry, lawn clearance, material restoration, reduced motion, and converged resident separation. Browser harness captures inflatable and laser-show evidence when WebGL is available.
+
+### Growing Halloween town
+
+Laser shows now cover about 20% of the catalog (five of 23 houses, seven of 34), with house-specific palettes and phase offsets. The 25% inflatable allocation and all flags/garlands are rebuilt from the current catalog whenever the street loads; no per-house manual opt-in is required after publication. Subsequent inflatable editions gain new nylon colourways. Crowd density scales at 1.2 visitors per house, bounded to 48 actors (16 with reduced motion), distributed across populated streets. Each loaded laser preview restores only its own original materials on eviction.
