@@ -1,4 +1,4 @@
-import {createWitchVillage} from './witch_village.mjs';
+import {createWitchVillage} from './witch_village.mjs?v=living-town-20261024';
 import {townLayout,TOWN_NAME} from './town_layout.mjs';
 import {createAutumnStreet} from './autumn_street.mjs';
 import {surfaceTexture,twoSidedSign} from './surfaces.mjs';

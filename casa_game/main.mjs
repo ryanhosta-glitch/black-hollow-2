@@ -1,4 +1,4 @@
-import {createVillagePassport,FAIR_SITES} from './village_fair.mjs';
+import {createVillagePassport,FAIR_SITES} from './village_fair.mjs?v=living-town-20261024';
 import {createMagicRealm} from './magic_realm.mjs';
 import {SPELLS} from './magic_spells.mjs';
 import {createGrimoire,WITCH_MARKS} from './grimoire.mjs';
@@ -36,7 +36,7 @@ import {SIGNATURE_ROOMS,signatureSurface,signatureBlocked} from './signature_nav
 import {createCatalog} from './catalog.mjs';
 import {createPackageAssets,createFloorStreamer,createExterior,createGroundsDecoration,disposeGroup} from './resources.mjs';
 import {createSession,createElevator,blockedByFurniture,roomContains,floorY,random,seedNumber} from './session.mjs';
-import {createStreet} from './street.mjs';
+import {createStreet} from './street.mjs?v=living-town-20261024';
 import {createAudio} from './audio.mjs?v=duet-20261024';
 const night=createNightChronicle();
 const $=id=>document.getElementById(id),catalog=createCatalog(),audio=createAudio(),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
