@@ -1,11 +1,12 @@
 // Tests use stable example mansions even when the owner removes those examples
 // from the public street. Generated copies/catalog edits exist only in the test
 // workspace; this helper is never part of the Pages deployment workflow.
-import {readFile,writeFile,access} from 'node:fs/promises';
+import {readFile,writeFile,access,mkdir} from 'node:fs/promises';
 import {compileFixture} from '../tests/helpers/compile-forge.mjs';
 import {openCasa} from '../casa_game/archive.mjs';
 import {numberHouses} from '../casa_game/addresses.mjs';
 const root=new URL('../',import.meta.url),catalogPath=new URL('casa_game/street.json',root),catalog=JSON.parse(await readFile(catalogPath,'utf8'));let changed=false;
+await mkdir(new URL('casa_game/samples/',root),{recursive:true});
 for(const name of ['one-room','moonveil','split-lantern']){
  const fixture=JSON.parse(await readFile(new URL('tests/fixtures/test-houses/'+name+'.json',root),'utf8')),path=new URL('casa_game/samples/'+name+'.casa',root);
  let missing=false;try{await access(path);}catch{missing=true;}
