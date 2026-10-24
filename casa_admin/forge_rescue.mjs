@@ -1,4 +1,4 @@
-// Repair a derived blueprint. The original stays byte-for-byte in source.haunt.
+// Repair a derived blueprint. The original blueprint stays intact in source.haunt.
 const FT=.3048,opposite={top:'bottom',bottom:'top',left:'right',right:'left'};
 const intersects=(a,b)=>Math.min(a.x+a.l,b.x+b.l)-Math.max(a.x,b.x)>.025&&Math.min(a.y+a.w,b.y+b.w)-Math.max(a.y,b.y)>.025;
 function edge(a,b,wall){const vertical=['left','right'].includes(wall),line=wall==='left'?a.x:wall==='right'?a.x+a.l:wall==='top'?a.y:a.y+a.w,other=wall==='left'?b.x+b.l:wall==='right'?b.x:wall==='top'?b.y+b.w:b.y,lo=Math.max(vertical?a.y:a.x,vertical?b.y:b.x),hi=Math.min(vertical?a.y+a.w:a.x+a.l,vertical?b.y+b.w:b.x+b.l);return Math.abs(line-other)<.08&&hi-lo>.86/FT?{lo,hi,vertical}:null;}
