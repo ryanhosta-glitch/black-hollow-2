@@ -1,0 +1,49 @@
+{
+  "source": {
+    "name": "One Room",
+    "floors": [
+      {
+        "kind": "main",
+        "name": "Main",
+        "rooms": [
+          {
+            "id": "solo",
+            "name": "solo",
+            "x": 0,
+            "y": 0,
+            "l": 12,
+            "w": 10,
+            "h": 9,
+            "openings": []
+          }
+        ]
+      }
+    ]
+  },
+  "identity": {
+    "id": "demo-lonely-candle",
+    "name": "The Lonely Candle",
+    "creator": "",
+    "desc": ""
+  },
+  "catalog": {
+    "id": "demo-lonely-candle",
+    "houseNumber": "1022",
+    "fingerprint": "3e6aa8e9b7eaa7929ab24481c6dc596016f2f49b776e6a7ca84e3ae5da94b704",
+    "previousFingerprints": [
+      "8e04ea953c317d1d2caf5ef7b9981ab16892ee4a3cf204cadb1f09429966cfc9",
+      "8790ce732c35cd5b62743e3de160f529cfda94a4c700be95ac6e2eb051317ad3",
+      "d68d231d02ddf0930c9d069c3da1a17ebc198d57a80229a2a3a88d54946bd5fd",
+      "de56b6de2c99c5afaac8d6b7f64e937217d41c2afe635fd6b76506bd046888ef",
+      "cf0482d473c79c6df3e9423d80dc6153f107043a152f3aa416821591bf167e12",
+      "a277e3e89d20b615d508da68ece927cfd0f05535a9496089fe47035f1b81bd94",
+      "7a5a231871a275daa73aab8d5d379909342be8c26c10160caec1ec810de8e255"
+    ],
+    "geometryLevel": "victorian-textured-architecture-4.3",
+    "forgeRevision": "whole-house-1",
+    "name": "The Lonely Candle",
+    "package": "./samples/one-room.casa",
+    "architect": "Black Hollow Forge",
+    "description": "A prepared house with a different mystery whenever you begin a new haunting."
+  }
+}

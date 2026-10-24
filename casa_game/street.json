@@ -1,4 +1,26 @@
 {
   "version": 1,
-  "houses": []
+  "houses": [
+    {
+      "id": "demo-moonveil",
+      "houseNumber": "6426",
+      "fingerprint": "6572ef239b3d0441a48183d39e293f608ee8a9f7cdb1242f31a293f5f2fdbf86",
+      "previousFingerprints": [
+        "3b10e863f472dc3998ff0008cd9b5ac1d59057eaad6a3f53051b3997dbd48e70",
+        "ee75c05e034c738bd00e6109fbf83d41dd6590b82c524f3a6e17be0af3094469",
+        "f00051cba46c44d2431bb85d9a09810a5f31f29ff9066e3fe67b45f65b833b30",
+        "d0f17a9f9e29289dacde52396ae5556a32c7bdc2fd86ce16c5b3deaaab0ace1d",
+        "e741badf7fafaaa921cfb72e70b110092fb6099a9767cf9b60ac9df6f19ca38e",
+        "8accad5d1aaf125e63867af879097f95aefc51efb3f797de839a7aca6d7310bf",
+        "df43e6d0deb417e1ab42718ae79fce496cdd08f08738c38b73c57832d39db411",
+        "c2fcb9f84a17bf45ed00b0a4c04f5365e115aa7a962eb9d66fc832c826f17dca"
+      ],
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "name": "Moonveil Manor — Three-Level Staircase Test Estate",
+      "package": "./samples/moonveil.casa",
+      "architect": "Black Hollow Forge",
+      "description": "A prepared house with a different mystery whenever you begin a new haunting."
+    }
+  ]
 }
