@@ -1,9 +1,10 @@
+import {hallStairCenter} from './hall_stairs.mjs';
 /** Explicit pocket-space routes. Not a claim of free-form estate stair certification. */
 export const SIGNATURE_ROOMS={hall:{id:'signature-main-hall',name:'Grand Main Hall',floor:-1,boundsFeet:{x:-12/.3048,y:-15.5/.3048,l:24/.3048,w:31/.3048,h:15/.3048},openings:[]},floor13:{id:'signature-conservatory',name:'Nocturne Conservatory',floor:-2,boundsFeet:{x:-14/.3048,y:-17/.3048,l:28/.3048,w:34/.3048,h:16/.3048},openings:[]}};
 export function signatureSurface(kind,x,z,previousY=0){
  if(kind!=='hall')return 0;
  // No sudden floor snapping: a player may only step onto a nearby surface.
- const flights=Math.abs(Math.abs(x)-4.5)<=1.82&&z>=3.8&&z<=11.1;
+ const flights=Math.abs(Math.abs(x)-Math.abs(hallStairCenter(1,z)))<=1.82&&z>=3.8&&z<=11.1;
  const landing=Math.abs(x)<=7.8&&z>=10.9&&z<=14.15;
  const cabin=Math.abs(x)<1.65&&z>=12.4&&z<=15.1;
  if(flights){const ramp=Math.max(0,Math.min(5.25,(z-4)/7*5.25));return Math.abs(ramp-previousY)<.29?ramp:null;}

@@ -17,7 +17,7 @@ try{
  await context.route('https://cdn.jsdelivr.net/npm/three@0.170.0/**',r=>r.fulfill({path:path.join(root,'node_modules/three',r.request().url().split('three@0.170.0/')[1]),contentType:'text/javascript'}));
  page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:'+server.address().port+'/casa_game.html');await page.waitForFunction(()=>!document.getElementById('startStreet').disabled);
  await page.screenshot({path:path.join(out,'phoenix-landing.png')});await page.locator('#startStreet').click();await page.waitForFunction(()=>window.__phoenix?.walker?.active&&!window.__phoenix.busy);
- await page.evaluate(()=>window.__phoenix.loadHouse({id:'phoenix-test',package:'/casa_game/samples/one-room.casa'},{fresh:true}));assert.equal(await page.evaluate(()=>window.__phoenix.mode),'house');assert.equal(await page.evaluate(()=>window.__phoenix.session.phoenix),true);await page.locator('#closeModal').click();
+ await page.evaluate(()=>window.__phoenix.loadHouse({id:'phoenix-test',package:'/casa_game/samples/one-room.casa'},{fresh:true}));assert.equal(await page.evaluate(()=>window.__phoenix.mode),'hall');assert.equal(await page.evaluate(()=>window.__phoenix.session.phoenix),true);await page.locator('#closeModal').click();
  const endings={vigil:'release',choir:'sing',escort:'home',loop:'tomorrow',masquerade:'invite',bargain:'free',heist:'name',garden:'sky'};
  for(const [type,ending]of Object.entries(endings)){
   await page.evaluate(type=>window.__phoenix.seed(type),type);await page.waitForFunction(()=>!window.__phoenix.busy&&window.__phoenix.walker.active);await page.waitForSelector('#nightPanel:not([hidden])');
