@@ -1,6 +1,6 @@
 import {curveCompiledHallStairs} from './hall_stairs.mjs';
 import {batchHallBoxes} from './hall_performance.mjs';
-import {dressGrandHall} from './grand_hall.mjs';
+import {dressGrandHall} from './grand_hall.mjs?v=household-20261024';
 // Runtime dressing leaves the compiled navigation apertures and stairs intact.
 export function createLiftEntrance(THREE,stop){
  const g=new THREE.Group();g.name='Automatic elevator entrance';g.userData.stopId=stop.id;g.position.fromArray(stop.wallCenterMeters||stop.approachMeters);g.rotation.y=({top:0,bottom:Math.PI,left:Math.PI/2,right:-Math.PI/2})[stop.wall]||0;
