@@ -20,26 +20,6 @@
       "package": "./samples/one-room.casa",
       "architect": "Black Hollow Forge",
       "description": "A prepared house with a different mystery whenever you begin a new haunting."
-    },
-    {
-      "id": "demo-split-lantern",
-      "houseNumber": "2918",
-      "fingerprint": "310ab63d6ffe4264bee1ddb4f484861c05f33c52858036d8eab7e5c952764bf4",
-      "previousFingerprints": [
-        "07f9580fe0d328ea855a877ca38e1325bc36a61d1c205d9762cda8ac0ec5f9cb",
-        "e9252219904a4d294c3b69c6b994d2fa9b9aa48d26842d5e663df2d15bc3196f",
-        "ca072701941e38fe51488427cf3a351b29624534e7a54da2126353cac2e4ea2e",
-        "37eaf6857226a9043848bbcf73f434e942db1425fc6ca8f27df14489da28c667",
-        "0ea6739743e881fbb456cc1c300452ea6af0910fed65fec2be9d6248864e763d",
-        "7200f5ef19c7de54d6783be4c716437ae7cda42d166ff77fbaf7649c9142eb22",
-        "9603464358fdf7939c2b7fcd4120df32c21d45f41e1ed1c5608e36d2068e0f57"
-      ],
-      "geometryLevel": "victorian-textured-architecture-4.3",
-      "forgeRevision": "whole-house-1",
-      "name": "The Split Lantern",
-      "package": "./samples/split-lantern.casa",
-      "architect": "Black Hollow Forge",
-      "description": "A prepared house with a different mystery whenever you begin a new haunting."
     }
   ]
 }
