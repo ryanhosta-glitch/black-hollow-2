@@ -1,3 +1,4 @@
+import {hallStairCenter} from './hall_stairs.mjs';
 import {finishMap,finishSurfaces,assetMap} from './surface_finish.mjs';
 import {createNocturneAtmosphere} from './nocturne_atmosphere.mjs';
 /** Architectural finish for legacy CASA halls. All additions clear the existing stair routes. */
@@ -35,7 +36,8 @@ export function dressGrandHall(T,root){
  for(const x of [-8,-4,0,4,8])box(wood,x,14.77,0,.13,.17,30);
  // Carved stair-side volutes stay outside the two certified walking flights.
  for(const side of [-1,1]){
-  for(let k=0;k<34;k++){const t=k/33,z=4+t*7,y=t*5.25+.5,x=side*6.28;part('sphere',wood,[x,y,z],[.075,.24,.075]);part('sphere',gold,[x,y+.29,z],[.055,.045,.055]);}
+  for(let k=0;k<34;k++){const t=k/33,z=4+t*7,y=t*5.25+.5,x=hallStairCenter(side,z)+side*1.78;part('sphere',wood,[x,y,z],[.075,.24,.075]);part('sphere',gold,[x,y+.29,z],[.055,.045,.055]);}
+  for(const edge of [-1,1])for(let k=0;k<48;k++){const a=k/48,b=(k+1)/48,z=4+a*7,zz=4+b*7;rod(wood,[hallStairCenter(side,z)+edge*1.92,a*5.25+1.1,z],[hallStairCenter(side,zz)+edge*1.92,b*5.25+1.1,zz],.065);}
   for(const z of [-11,-4,3]){const x=side*11.25;box(wood,x,1.1,z,.48,2.2,.48);for(const yy of [.12,1.9,2.15])box(gold,x,yy,z,.56,.08,.56);}
  }
  // Transverse rib vaults draw the eye toward the stair landing.
