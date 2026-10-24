@@ -1,7 +1,7 @@
 // Repair a derived blueprint. The original stays byte-for-byte in source.haunt.
 const FT=.3048,opposite={top:'bottom',bottom:'top',left:'right',right:'left'};
 const intersects=(a,b)=>Math.min(a.x+a.l,b.x+b.l)-Math.max(a.x,b.x)>.025&&Math.min(a.y+a.w,b.y+b.w)-Math.max(a.y,b.y)>.025;
-function edge(a,b,wall){const vertical=['left','right'].includes(wall),line=wall==='left'?a.x:wall==='right'?a.x+a.l:wall==='top'?a.y:a.y+a.w,other=wall==='left'?b.x+b.l:wall==='right'?b.x:wall==='top'?b.y+b.w:b.y,lo=Math.max(vertical?a.y:a.x,vertical?b.y:b.x),hi=Math.min(vertical?a.y+a.w:a.x+a.l,vertical?b.y+b.w:b.x+b.l);return Math.abs(line-other)<.08&&hi-lo>2?{lo,hi,vertical}:null;}
+function edge(a,b,wall){const vertical=['left','right'].includes(wall),line=wall==='left'?a.x:wall==='right'?a.x+a.l:wall==='top'?a.y:a.y+a.w,other=wall==='left'?b.x+b.l:wall==='right'?b.x:wall==='top'?b.y+b.w:b.y,lo=Math.max(vertical?a.y:a.x,vertical?b.y:b.x),hi=Math.min(vertical?a.y+a.w:a.x+a.l,vertical?b.y+b.w:b.x+b.l);return Math.abs(line-other)<.08&&hi-lo>.86/FT?{lo,hi,vertical}:null;}
 export function rescueBlueprint(source){
  if(!source||!Array.isArray(source.floors)||!source.floors.length)throw Error('This file has no floor plans to repair.');
  const blueprint=structuredClone(source),changes=[],unresolved=[],ids=new Set(),rooms=[];
@@ -28,6 +28,7 @@ export function rescueBlueprint(source){
     if(o.type!=='open'){const width=Math.max(.7,Math.min(Number(o.clearWidthMeters)||Number(o.width||3.54)*FT,span-.16,o.type==='door'?( ['left','right'].includes(o.wall)?r.l:r.w)*FT-.2:Infinity));o.clearWidthMeters=width;o.width=width/FT;o.pos=Math.max((width/2+.08)/span,Math.min(1-(width/2+.08)/span,o.pos));}
     if(JSON.stringify(o)!==old)changes.push({code:'REPAIR_OPENING_CLEARANCE',roomId:r.id,openingId:o.id});return o;
    });
+   if(r.furniture!==undefined){const authored=r.furniture;r.furniture=(Array.isArray(authored)?authored:[]).filter(o=>o&&typeof o==='object');if(!Array.isArray(authored)||r.furniture.length!==authored.length)changes.push({code:'REPLACE_UNSAFE_FURNITURE',roomId:r.id,reason:'unrecognized furniture records'});}
    // Invalid structural shafts become the supported pocket-elevator system.
    if(r.elevatorShaftId){changes.push({code:'REPLACE_AUTHORED_SHAFT',roomId:r.id,shaftId:r.elevatorShaftId});delete r.elevatorShaftId;}
   }
