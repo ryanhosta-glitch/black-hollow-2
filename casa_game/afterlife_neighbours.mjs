@@ -1,4 +1,5 @@
 import {createNeighbourRoute} from './town_life.mjs';
+import {separateResidents} from './resident_spacing.mjs';
 import {createFetchPerformance} from './neighbour_performances.mjs';
 import {createFabricGhost} from './fabric_ghost.mjs';
 import {disposeGroup} from './resources.mjs';
@@ -19,7 +20,7 @@ export function createAfterlifeEncounter(){
 }
 // The references become volumetric characters: continuous folded cloth, animal
 // silhouettes, an articulated skeleton, and independently animated accessories.
-export function createAfterlifeNeighbours(T,{reducedMotion=false,lots=[]}={}){
+export function createAfterlifeNeighbours(T,{reducedMotion=false,lots=[],canStand=()=>true}={}){
  const root=new T.Group();root.name='The Midnight Promenade';root.position.set(0,0,17);root.rotation.y=Math.PI;const encounter=createAfterlifeEncounter();
  const pearl=new T.MeshStandardMaterial({color:0xf2eafa,roughness:.93,emissive:0xc3a7e3,emissiveIntensity:.08,side:T.DoubleSide}),ink=new T.MeshBasicMaterial({color:0x181323}),boneMat=new T.MeshStandardMaterial({color:0xece3cf,roughness:.75,emissive:0xbba5d4,emissiveIntensity:.15}),velvet=new T.MeshStandardMaterial({color:0x412546,roughness:.8}),pink=new T.MeshStandardMaterial({color:0xd86fac,emissive:0x9c3a71,emissiveIntensity:.3}),gold=new T.MeshStandardMaterial({color:0xc4a36b,metalness:.45,roughness:.5}),flameMat=new T.MeshBasicMaterial({color:0xffd695}),glimmer=new T.MeshBasicMaterial({color:0xbbe9e4,transparent:true,opacity:.8,depthWrite:false});
  const sphere=new T.SphereGeometry(1,20,14),cylinder=new T.CylinderGeometry(1,1,1,8),box=new T.BoxGeometry(1,1,1),up=new T.Vector3(0,1,0),dummy=new T.Object3D();
@@ -73,7 +74,9 @@ export function createAfterlifeNeighbours(T,{reducedMotion=false,lots=[]}={}){
    if(s.kind==='dog'){dropStart=null;const yaw=routes.dog.state.yaw-Math.PI;performance=createFetchPerformance({dog:dog.g.position.toArray(),player:local.toArray(),direction:[Math.sin(yaw),Math.cos(yaw)]});}
   }
   encounter.tick(dt);const active=s.kind!=='idle';
-  for(const r of residents){const participating=active&&participants.includes(r.id);r.route.tick(dt,worldPlayer,participating||reducedMotion);const q=toLocal(r.route.state.position);r.object.position.copy(q);const desired=r.route.state.yaw-Math.PI,turn=Math.atan2(Math.sin(desired-r.heading),Math.cos(desired-r.heading));r.heading+=reducedMotion?turn:Math.max(-dt*2.6,Math.min(dt*2.6,turn));r.object.rotation.y=r.heading;if(!r.route.state.walking&&Math.hypot(local.x-q.x,local.z-q.z)<4)r.object.rotation.y=Math.atan2(local.x-q.x,local.z-q.z);}
+  for(const r of residents)r.route.tick(dt,worldPlayer,active&&participants.includes(r.id)||reducedMotion);
+  if(!reducedMotion)separateResidents(residents,{dt,pinned:new Set(active?participants:[]),canStand});
+  for(const r of residents){const q=toLocal(r.route.state.position);r.object.position.copy(q);const desired=r.route.state.yaw-Math.PI,turn=Math.atan2(Math.sin(desired-r.heading),Math.cos(desired-r.heading));r.heading+=reducedMotion?turn:Math.max(-dt*2.6,Math.min(dt*2.6,turn));r.object.rotation.y=r.heading;if(!r.route.state.walking&&Math.hypot(local.x-q.x,local.z-q.z)<4)r.object.rotation.y=Math.atan2(local.x-q.x,local.z-q.z);}
   witch.userData.animateFabric?.(reducedMotion?0:time);witch.position.y+=reducedMotion?0:Math.sin(t*1.4)*.045;bag.rotation.z=reducedMotion?0:Math.sin(t*1.5)*.06;flame.scale.y=.14*(reducedMotion?1:1+Math.sin(t*9)*.12);
   const wickDance=s.kind==='parade'&&participants.includes('wick'),rattleDance=s.kind==='parade'&&participants.includes('rattle');
   if(wickDance&&!reducedMotion)witch.rotation.y+=Math.sin(s.age*1.3)*.45;candleArm.rotation.z=wickDance&&!reducedMotion?Math.sin(s.age)*.20:routes.wick.state.visiting?-.24:0;

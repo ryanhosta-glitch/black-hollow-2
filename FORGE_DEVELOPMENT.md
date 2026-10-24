@@ -245,3 +245,12 @@ mailbox numbers, and previous-fingerprint aliases. `tools/migrate-estate-frontag
 repeats this migration explicitly; normal deployment does not rebuild student geometry.
 Validation: 227 core tests plus navigation, scene and existing/fresh-package flow suites.
 Local browser verification was unavailable because Chromium download failed.
+
+## Halloween yard festival — 2026-10-24
+
+- Plan displays town-wide by stable house ID: `round(houses / 4)` yards receive inflatables. The current 23-house catalog receives six distinct designs; 34 houses receive nine. Twelve authored silhouettes include a monster-mouth gateway, disco spider, cauldron witch, ghost hound, pumpkin UFO and haunted carousel.
+- Keep inflatable depth within the lawn strip between the sidewalk and the guaranteed exterior frontage; place displays beside the entrance corridor and register collision footprints. Nylon forms share instanced geometry, with visible blower boxes, seams, stakes and guy ropes.
+- Add Halloween flags, instanced colored lantern garlands, ghost kites, a lantern constellation, watching hedges and gently dancing tombstones. Story mode retains a quieter subset of flags and warm amber garlands.
+- Project one animated laser pattern onto the selected house's actual exterior materials. Restore original materials when previews unload; no duplicated house geometry or extra dynamic light sources. Reduced-motion settings hold the show and moving decorations steady.
+- Resolve resident personal space in world coordinates. Nearby NPCs yield independently; scripted interaction participants remain pinned. Only accept separation steps on walkable ground.
+- Regression coverage includes stable allocation, unique classroom-sized display selections, finite geometry, lawn clearance, material restoration, reduced motion, and converged resident separation. Browser harness captures inflatable and laser-show evidence when WebGL is available.

@@ -1,5 +1,5 @@
 import {createTownClock,CLOCK_SITE} from './town_life.mjs';
-import {createAfterlifeNeighbours} from './afterlife_neighbours.mjs?v=independent-neighbours-20261024';
+import {createAfterlifeNeighbours} from './afterlife_neighbours.mjs?v=yard-festival-20261024';
 import {FAIR_SITES,createFairGame} from './village_fair.mjs?v=living-town-20261024';
 import {twoSidedSign,surfaceTexture} from './surfaces.mjs';
 import {disposeGroup} from './resources.mjs';
@@ -13,9 +13,9 @@ function crookedHatGeometry(T){
 function sign(T,lines,w=2.7,h=.65){
  const canvas=document.createElement('canvas');canvas.width=768;canvas.height=192;const c=canvas.getContext('2d');c.fillStyle='#1c1927';c.fillRect(0,0,768,192);c.strokeStyle='#bf9e60';c.lineWidth=5;c.strokeRect(5,5,758,182);c.fillStyle='#f2dec0';c.textAlign='center';c.font=(lines.length>1?'31':'38')+'px Georgia';lines.forEach((l,i)=>c.fillText(l,384,lines.length>1?72+i*60:113));const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;return twoSidedSign(T,new T.MeshBasicMaterial({map}),w,h);
 }
-export function createWitchVillage(T,lots,{reducedMotion=false,passportBadges=[]}={}){
+export function createWitchVillage(T,lots,{reducedMotion=false,passportBadges=[],canStand}={}){
  const root=new T.Group();root.name='The Crooked Hat Village';const game=createFairGame(),batches=new Map(),proxies=[],actors={},up=new T.Vector3(0,1,0);let lastEvent=0,eventAt=-Infinity;
- const neighbours=createAfterlifeNeighbours(T,{reducedMotion,lots});root.add(neighbours.root);const townClock=createTownClock();const fairChoices=game.choices,fairClue=game.clue,fairAct=game.act;game.choices=id=>id==='clock'?townClock.choices():id==='afterlife'?neighbours.encounter.choices():fairChoices(id);game.clue=id=>id==='clock'?townClock.clue():id==='afterlife'?neighbours.encounter.clue():fairClue(id);game.act=(id,choice)=>id==='clock'?townClock.act(choice,game.state.completed):id==='afterlife'?neighbours.encounter.act(choice):fairAct(id,choice);
+ const neighbours=createAfterlifeNeighbours(T,{reducedMotion,lots,canStand});root.add(neighbours.root);const townClock=createTownClock();const fairChoices=game.choices,fairClue=game.clue,fairAct=game.act;game.choices=id=>id==='clock'?townClock.choices():id==='afterlife'?neighbours.encounter.choices():fairChoices(id);game.clue=id=>id==='clock'?townClock.clue():id==='afterlife'?neighbours.encounter.clue():fairClue(id);game.act=(id,choice)=>id==='clock'?townClock.act(choice,game.state.completed):id==='afterlife'?neighbours.encounter.act(choice):fairAct(id,choice);
  game.state.completed.push(...FAIR_SITES.map(s=>s.id).filter(id=>passportBadges.includes(id)));
  const wood=new T.MeshStandardMaterial({color:0x846346,roughness:.8,map:globalThis.document?surfaceTexture(T,'wood',109):null}),velvet=new T.MeshStandardMaterial({color:0x58395f,roughness:.8}),gold=new T.MeshStandardMaterial({color:0xc39b59,metalness:.5,roughness:.5}),straw=new T.MeshStandardMaterial({color:0xb5a05b,roughness:1}),orange=new T.MeshStandardMaterial({color:0xd96d1e,roughness:.7}),green=new T.MeshStandardMaterial({color:0x74ad65,roughness:.8}),pink=new T.MeshStandardMaterial({color:0xc674ab,roughness:.8}),blue=new T.MeshStandardMaterial({color:0x668aba,roughness:.8}),ivory=new T.MeshBasicMaterial({color:0xf2d49a}),dark=new T.MeshStandardMaterial({color:0x13121d,roughness:.7});
  const box=new T.BoxGeometry(1,1,1),sphere=new T.SphereGeometry(1,12,8),cylinder=new T.CylinderGeometry(1,1,1,9),dummy=new T.Object3D();
