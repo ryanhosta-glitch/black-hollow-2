@@ -8,7 +8,7 @@ export async function prepareCasa(file){
  const report=casa.manifest.studentReport?await casa.json(casa.manifest.studentReport):null;
  const findings=publicationFindings(report);
  if(findings.blocked)throw Error(findings.message);
- return {file,house:{id:casa.manifest.id,name:String(casa.manifest.name),fingerprint:casa.fingerprint,geometryLevel:casa.manifest.casa?.geometryLevel,forgeRevision:casa.manifest.forgeRevision||null,architect:String(identity.architect||'Unknown architect'),description:String(identity.description||'A new mystery on Haunted Hollow Street.')},report:findings.message};
+ return {file,house:{id:casa.manifest.id,name:String(casa.manifest.name),houseNumber:String(identity.houseNumber||casa.manifest.casa?.houseNumber||''),fingerprint:casa.fingerprint,geometryLevel:casa.manifest.casa?.geometryLevel,forgeRevision:casa.manifest.forgeRevision||null,architect:String(identity.architect||'Unknown architect'),description:String(identity.description||'A new mystery on Haunted Hollow Street.')},report:findings.message};
 }
 export function batchStorage(){
  const db=new Promise((resolve,reject)=>{const r=indexedDB.open('black-hollow-forge-batches',1);r.onupgradeneeded=()=>r.result.createObjectStore('queue',{keyPath:'key'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});
@@ -24,7 +24,7 @@ export async function forgeInput(row){
   if(!archive.entries.has('source.haunt'))throw Error('This CASA has no embedded blueprint. Upload its original .haunt to rebuild.');
   const identity=archive.entries.has('casa_identity.json')?await archive.json('casa_identity.json'):{},finish=archive.entries.has('exterior/finishes.json')?await archive.json('exterior/finishes.json'):{};
   source=new File([await archive.read('source.haunt')],'source.haunt',{type:'application/json'});
-  edits={name:archive.manifest.name,architect:identity.architect||'',description:identity.description||'',style:finish.style||'auto',trim:finish.trim||'auto',roof:finish.roof||'auto',...edits,houseId:archive.manifest.id};
+  edits={name:archive.manifest.name,architect:identity.architect||'',houseNumber:identity.houseNumber||'',description:identity.description||'',style:finish.style||'auto',trim:finish.trim||'auto',roof:finish.roof||'auto',...edits,houseId:archive.manifest.id};
  }
  if(row.house?.id)edits.houseId=row.house.id;
  return {source,edits};
