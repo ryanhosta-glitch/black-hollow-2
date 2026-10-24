@@ -1,3 +1,4 @@
+import {repairDoorSwings} from './forge_door_clearance.mjs?v=door-clearance-20261024';
 // Repair a derived blueprint. The original blueprint stays intact in source.haunt.
 const FT=.3048,opposite={top:'bottom',bottom:'top',left:'right',right:'left'};
 const intersects=(a,b)=>Math.min(a.x+a.l,b.x+b.l)-Math.max(a.x,b.x)>.025&&Math.min(a.y+a.w,b.y+b.w)-Math.max(a.y,b.y)>.025;
@@ -42,15 +43,7 @@ export function rescueBlueprint(source){
   for(const item of ends){const span=e.vertical?item.r.w:item.r.l;item.o.pos=(center-(e.vertical?item.r.y:item.r.x))/span;item.o.clearWidthMeters=width;item.o.width=width/FT;item.o.type=a.o.type==='open'||b.o.type==='open'?'open':a.o.type==='arch'&&b.o.type==='arch'?'arch':'door';}
   changes.push({code:'ALIGN_PAIRED_DOOR',shared,rooms:ends.map(x=>x.r.id)});
  }
- // Close hinged doors can overlap even when the aperture graph is connected.
- for(const {r}of rooms)for(const wall of Object.keys(opposite)){
-  const span=(['left','right'].includes(wall)?r.w:r.l)*FT,doors=r.openings.filter(o=>o.wall===wall&&o.type==='door').sort((a,b)=>a.pos-b.pos);
-  for(let i=1;i<doors.length;i++){const a=doors[i-1],b=doors[i];if(a.type!=='door'||b.type!=='door'||(b.pos-a.pos)*span>=1.25)continue;
-   const sharedDoor=[a,b].find(o=>o.shared);
-   if(sharedDoor){for(const item of pairs.get(sharedDoor.shared)||[])if(item.o.type==='door')item.o.type='arch';changes.push({code:'REPLACE_COLLIDING_DOOR_SWING',roomId:r.id,shared:sharedDoor.shared});}
-   else {const remove=blueprint.gameEntry?.openingId===b.id?a:b;r.openings=r.openings.filter(o=>o!==remove);changes.push({code:'REMOVE_REDUNDANT_DOOR',roomId:r.id,openingId:remove.id});}
-  }
- }
+ repairDoorSwings(rooms.map(({r})=>r),{entry:blueprint.gameEntry,changes});
  // Legacy anchors are re-selected from checked routes after decoration. Keep originals in source.haunt.
  if(blueprint.gameplay?.anchors){delete blueprint.gameplay.anchors;changes.push({code:'REBUILD_GAMEPLAY_ANCHORS'});}
  return {blueprint,changes,unresolved,status:'AUTO_REPAIRED'};

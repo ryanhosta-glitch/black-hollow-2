@@ -1,3 +1,4 @@
+import {repairDoorSwings} from './forge_door_clearance.mjs?v=door-clearance-20261024';
 import {assignElevatorButtons} from '../casa_game/elevator_buttons.mjs';
 /** Deterministic architectural access repairs. Student source is never mutated.
  * A magical pocket elevator needs no aligned shaft and gets ONE stop per connected
@@ -66,6 +67,8 @@ export function planHouseAccess(source,{autoDoors=true}={}){
   opening.forgeElevator=stopId;opening.motion='sliding';update(host);const wall=location(host,opening),normal={top:[0,1],bottom:[0,-1],left:[1,0],right:[-1,0]}[opening.wall],roomDepth=(opening.wall==='left'||opening.wall==='right'?+host.l:+host.w)*FT,inset=Math.min(.42,roomDepth/2),approach=[wall.x+normal[0]*inset,elevations[floor],wall.z+normal[1]*inset];
   const f=floors[floor],secret=f.number===13||f.level===13||/floor\s*13|13th|thirteenth/i.test(f.name||'');stops.push({id:stopId,kind:'house',floor,roomId:host.id,openingId:opening.id,wall:opening.wall,wallCenterMeters:[wall.x,elevations[floor],wall.z],approachMeters:approach,clearWidthMeters:opening.clearWidthMeters??STANDARD,heightMeters:Math.min(2.45,+host.h*FT-.12),doorMotion:'sliding',arrivalInsideRoom:true,componentRoomIds:group,role:index===0?'floor-entrance':'disconnected-area',label:f.name||'Floor '+(floor+1),roomName:host.name||host.id,secret,requiresUnlock:secret?'floor13':null,requiresCabinEntry:true});changes.push({code:'ADD_ELEVATOR_ENTRANCE',stopId,floor,roomId:host.id,componentRoomIds:group,reason:index===0?'one primary entrance on floor':'disconnected walkable area'});
  }}
+ repairDoorSwings(blueprint.floors.flatMap(f=>f.rooms),{entry,changes});
+ for(const r of rooms)r.openings=r.source.openings;
  const stairRoutes=planStraightStairs(rooms,elevations,stops);
  const unreachable=rooms.filter(r=>!stops.some(s=>s.componentRoomIds.includes(r.id))).map(r=>r.id);
  const elevator={version:2,type:'impossible-pocket-elevator',cabin:{model:'geometry/elevator_cabin.glb',widthMeters:2.4,depthMeters:2.4,heightMeters:2.8},start:{scene:'hall',positionMeters:[0,0,-13.5]},hub:{id:'grand-hall',kind:'hall',label:'Grand Main Hall',approachMeters:[0,5.25,14],requiresCabinEntry:true},stops,hiddenDestination:{id:'floor13',kind:'floor13',requiresUnlock:'floor13',secret:true,approachMeters:[0,0,-15.6]},normalStopPolicy:'one-per-floor-component',stairRoutes,requiresCabinEntry:true,gameplayCertified:false};
