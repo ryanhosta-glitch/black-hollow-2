@@ -229,3 +229,19 @@ The Game installs a bounded visual theatre over each loaded floor: mirror figure
 Gentle/Spooky/Intense and an independent scare-sound toggle are available in the journal, including before entering the street, and persist on device. Gentle and OS reduced motion disable sudden figures. No flashes, camera takeover, collision, damage, or input locks are introduced. Procedural filtered sound has a bounded envelope and remains under the existing master mute and hidden-page lifecycle.
 
 Tests cover deterministic exported plans, immutable geometry, safe exclusions, movement/facing/grace gates, quiet intervals, saved nonrepetition, false alarms, pause cancellation, and all four visual lifecycles. A dedicated browser suite verifies saved settings, the actual Game layer, four WebGL screenshots, bounded draws, and disposal; Forge browser evidence includes the location overlay.
+
+### Estate frontage and unobstructed arrivals (2026-10-24)
+
+The Forge now exports a separate entrance-building frontage and an estate report.
+Disconnected main-floor buildings remain intact in the full exterior and interior;
+one boarded pocket-elevator stop per walkable component preserves access. The street
+loads the frontage while cemetery/grounds inspection loads the complete estate.
+This prevents large campus blueprints from shrinking their entrance into a dollhouse.
+Entry selection checks the entire outward doorway corridor, including distant wings.
+Street alignment measures rotated bounds relative to the door, keeps the entire model
+behind the sidewalk, and fits asymmetric wings between neighbouring lots.
+All 22 published student houses and Moonveil were recompiled with stable identities,
+mailbox numbers, and previous-fingerprint aliases. `tools/migrate-estate-frontages.mjs`
+repeats this migration explicitly; normal deployment does not rebuild student geometry.
+Validation: 227 core tests plus navigation, scene and existing/fresh-package flow suites.
+Local browser verification was unavailable because Chromium download failed.

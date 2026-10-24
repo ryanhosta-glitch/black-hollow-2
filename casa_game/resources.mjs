@@ -27,7 +27,8 @@ export function createFloorStreamer(house,assets,THREE){const cache=new Resident
 // Older Forge exports accidentally use only floor 0 as their street preview.
 // Compose already compiled geometry when that preview lacks the upper floors.
 // This never reads or converts a haunt file, or adds interior furnishings.
-export async function createExterior(house,assets,THREE){
+export async function createExterior(house,assets,THREE,{street=false}={}){
+ if(street&&house.manifest.casa?.streetFrontage)return assets.glb(house.manifest.casa.streetFrontage);
  const path=house.manifest.casa?.streetPreview||'exterior/street_preview.glb',preview=await assets.glb(path),box=new THREE.Box3().setFromObject(preview),top=Math.max(...house.manifest.floors.map((_,i)=>floorY(house,i)));
  const previewEntry=house.entries.get(path),firstEntry=house.entries.get(house.manifest.floors[0].model),copiedFloor=previewEntry&&firstEntry&&previewEntry.size===firstEntry.size&&previewEntry.crc===firstEntry.crc;
  if(!copiedFloor&&box.max.y>top+1.5)return preview;

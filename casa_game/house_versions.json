@@ -2,6 +2,7 @@
   "version": 1,
   "previousFingerprints": {
     "demo-moonveil": [
+      "6572ef239b3d0441a48183d39e293f608ee8a9f7cdb1242f31a293f5f2fdbf86",
       "3b10e863f472dc3998ff0008cd9b5ac1d59057eaad6a3f53051b3997dbd48e70",
       "ee75c05e034c738bd00e6109fbf83d41dd6590b82c524f3a6e17be0af3094469",
       "f00051cba46c44d2431bb85d9a09810a5f31f29ff9066e3fe67b45f65b833b30",
@@ -9,7 +10,7 @@
       "e741badf7fafaaa921cfb72e70b110092fb6099a9767cf9b60ac9df6f19ca38e",
       "8accad5d1aaf125e63867af879097f95aefc51efb3f797de839a7aca6d7310bf",
       "df43e6d0deb417e1ab42718ae79fce496cdd08f08738c38b73c57832d39db411",
-      "c2fcb9f84a17bf45ed00b0a4c04f5365e115aa7a962eb9d66fc832c826f17dca"
+      "791d7059aaf7325c5938f6564c0b8bb835fab258cbd1115ac143cdacad5db292"
     ],
     "demo-lonely-candle": [
       "8e04ea953c317d1d2caf5ef7b9981ab16892ee4a3cf204cadb1f09429966cfc9",
@@ -28,6 +29,72 @@
       "0ea6739743e881fbb456cc1c300452ea6af0910fed65fec2be9d6248864e763d",
       "7200f5ef19c7de54d6783be4c716437ae7cda42d166ff77fbaf7649c9142eb22",
       "9603464358fdf7939c2b7fcd4120df32c21d45f41e1ed1c5608e36d2068e0f57"
+    ],
+    "house-03f984fb4d9ae0": [
+      "b92fcb9b284d20a6016ece119a202dc9908e238db1e0abdf69ea2a4559ada1bf"
+    ],
+    "house-1af2d7b6042573": [
+      "5dc0dd85b359d02f486d7b82433429baefe321eaedbc399bf010a70d3e57898f"
+    ],
+    "house-389efcfb9f5ac4": [
+      "0dda859b88da386994f8bed92f114c22f5bde969c54ac2e5652a0b311f2e97d5"
+    ],
+    "house-8758b94897b0ba": [
+      "b2cb7b6d3433c0bd49430048fe66cd1a4979ae1ee4f3a45ff1cb8698119e7cc7"
+    ],
+    "house-2e2423085d130b": [
+      "74b9ba68eb2a47d4e4b5c57746a4635c9ca7406227707d592472d4507795ead9"
+    ],
+    "house-97408b549b8b23": [
+      "41cc245cac895d7aa992913cf6c4013b3b5deb9b9697a8f33ed2b06fcbd43f60"
+    ],
+    "house-0c1593269393e1": [
+      "59ab0cd9f9c9bf1d1a26829bd35afbdf6fda9f41fdd76c0a18e625e72ea03763"
+    ],
+    "house-5efc01faa87b76": [
+      "63383315ceda471af090c5b981bbbca1bc44adc37bee2a7a6085da99d9b4fbbf"
+    ],
+    "house-1a442c2a1b0d74": [
+      "b8cf883b7696de9ede4bffab4fb99ac5ee53866860c550a469484f1064e6bbac"
+    ],
+    "house-62f82b6454d42d": [
+      "88f6ec5d63089291e7d6d4525673af8b121a60baf20a19ce7501b979723f17eb"
+    ],
+    "house-82fed66d1530d5": [
+      "be2a6ee1b5c7c5227ee730bfc0ebf76203b29b09e0f4529a4345c79afb58f603"
+    ],
+    "house-4729d1cf7ac06a": [
+      "d1c093ffd3b2f9bf756f854ab1025a96f44c5f2472941186cd2017af32115667"
+    ],
+    "house-1aa4a4075a9c05": [
+      "99406099c97c58476c2d92b621bb20097e52f61ab5815534b6d7d66ceebb7885"
+    ],
+    "house-eb8f563c3fed01": [
+      "b96f6bcb207f4b07fcc7221f861674959faad3140faf9ebc3140a18523af5bdb"
+    ],
+    "house-8102ef435f6dcc": [
+      "ef02105c081de3357dc638803205da0e12ec631deda7d04272f9d952440bc01f"
+    ],
+    "house-56d23561d1dad8": [
+      "8dd5e777f74c7fc1efd77ca85a2dafe71fa8a7a92d5c219c294c901c0b1b8b4c"
+    ],
+    "house-0e940e170c5d1b": [
+      "bfa990df36c5a72f66f27944e5d027ae7738c196fbd84432d108a67882e7ae62"
+    ],
+    "house-adc95034eb7871": [
+      "321742373fdbf974298222604dd1d562c50b0c7bf8d183552691274975aa0806"
+    ],
+    "house-c253d341258532": [
+      "da00c3ba0169e335a85e667243c486eab6c7d5e7877ce9a411bd8d484999b3b9"
+    ],
+    "house-41483e0f829339": [
+      "ea21ef1423d84610c1ff4353bbd71ff609de2beb616d6809a80ec912322ff9b0"
+    ],
+    "house-c3891fccdad9b0": [
+      "b89bccd587012c3f4a4fdf19e47b720412674678c693e21592bfca1675294b75"
+    ],
+    "house-956f3c329fefe5": [
+      "9f14ddd265e088b4adb9fd6a2a116cd733a4712bed30aa7f2e4d9cf1038244c2"
     ]
   }
 }
