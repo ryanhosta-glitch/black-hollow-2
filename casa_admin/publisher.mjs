@@ -1,3 +1,4 @@
+import {numberHouses} from '../casa_game/addresses.mjs';
 export const REPOSITORY='ryanhosta-glitch/black-hollow-2';
 export const MAX_PUBLISH_BYTES=95*1024*1024;
 export function casaPath(path){return /^casa_game\/(samples|houses)\/[a-zA-Z0-9_-]+\.casa$/.test(path);}
@@ -7,7 +8,7 @@ export function createPublisher({token,fetcher=fetch}){
  async function blob(bytes){let text='';for(let i=0;i<bytes.length;i+=16384)text+=String.fromCharCode(...bytes.subarray(i,i+16384));return (await api('git/blobs',{encoding:'base64',content:btoa(text)})).sha;}
  async function change({review,house,bytes,removePath}){if(!review?.head)throw Error('Refresh the street before reviewing a change.');if(removePath&&!casaPath(removePath))throw Error('Unsafe removal path');const rows=review.catalog.houses.map(x=>({...x})),edits=[];let name='';if(bytes){if(bytes.length>MAX_PUBLISH_BYTES)throw Error('Permanent GitHub publishing supports CASA files up to 95 MiB.');if(!/^[a-zA-Z0-9][a-zA-Z0-9_-]{2,109}$/.test(house.id))throw Error('Invalid permanent house ID');const target='casa_game/houses/'+house.id+'.casa';const existing=rows.find(x=>x.id===house.id);if(existing){const old='casa_game/'+existing.package.replace(/^\.\//,'');if(!casaPath(old))throw Error('Unsafe existing package path');if(old!==target)edits.push({path:old,sha:null,mode:'100644',type:'blob'});rows.splice(rows.indexOf(existing),1);}edits.push({path:target,sha:await blob(bytes),mode:'100644',type:'blob'});rows.push({...house,package:'./houses/'+house.id+'.casa'});name='Publish '+house.name;}else{if(!review.files.some(x=>x.path===removePath))throw Error('House no longer exists');edits.push({path:removePath,sha:null,mode:'100644',type:'blob'});for(let i=rows.length-1;i>=0;i--)if('casa_game/'+rows[i].package.replace(/^\.\//,'')===removePath)rows.splice(i,1);name='Remove '+removePath.split('/').pop();}
  const current=await api('git/ref/heads/main');if(current.object.sha!==review.head)throw Error('The repository changed. Refresh and review again.');
- const catalogSha=await blob(new TextEncoder().encode(JSON.stringify({version:1,houses:rows},null,2)+'\n'));edits.push({path:'casa_game/street.json',sha:catalogSha,mode:'100644',type:'blob'});const tree=await api('git/trees',{base_tree:review.tree,tree:edits}),commit=await api('git/commits',{message:name,tree:tree.sha,parents:[review.head]});await api('git/refs/heads/main',{sha:commit.sha,force:false},'PATCH');return commit.sha;
+ const catalogSha=await blob(new TextEncoder().encode(JSON.stringify({version:1,houses:numberHouses(rows)},null,2)+'\n'));edits.push({path:'casa_game/street.json',sha:catalogSha,mode:'100644',type:'blob'});const tree=await api('git/trees',{base_tree:review.tree,tree:edits}),commit=await api('git/commits',{message:name,tree:tree.sha,parents:[review.head]});await api('git/refs/heads/main',{sha:commit.sha,force:false},'PATCH');return commit.sha;
  }
  async function changeBatch({review,items,onProgress=()=>{}}){
   if(!review?.head||!items?.length)throw Error('Connect and prepare houses before publishing.');
@@ -31,7 +32,7 @@ export function createPublisher({token,fetcher=fetch}){
    onProgress(++completed,items.length,house.name);
   }
   await check();
-  edits.push({path:'casa_game/street.json',sha:await blob(new TextEncoder().encode(JSON.stringify({version:1,houses:rows},null,2)+'\n')),mode:'100644',type:'blob'});
+  edits.push({path:'casa_game/street.json',sha:await blob(new TextEncoder().encode(JSON.stringify({version:1,houses:numberHouses(rows)},null,2)+'\n')),mode:'100644',type:'blob'});
   const tree=await api('git/trees',{base_tree:review.tree,tree:edits}),commit=await api('git/commits',{message:'Publish '+items.length+' Forged mansions',tree:tree.sha,parents:[review.head]});
   await api('git/refs/heads/main',{sha:commit.sha,force:false},'PATCH');return commit.sha;
  }
