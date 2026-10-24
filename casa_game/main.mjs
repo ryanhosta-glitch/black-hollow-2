@@ -198,7 +198,7 @@ function performVillageAction(site,choice){
  if(playMode==='halloween'&&(trickRound.state.status!=='playing'||trickRound.state.pending))return;
  const result=street.village.game.act(site.id,choice);if(!result.ok)return;let extra='';
  if(result.note!==undefined)audio.note(result.note);else audio.cue(result.success?'complete':'find');
- if(result.social){magicRealm?.answer(choice==='parade'?'choir':'escort',site.approach);if(choice==='parade')audio.phrase?.([0,1,2,1]);}
+ if(result.social&&choice==='parade')audio.phrase?.([0,1,2,1]);
  if(result.success){villagePassport.stamp(site.id);magicRealm?.answer(site.id==='choir'?'choir':'garden',site.approach);if(playMode==='halloween'&&trickRound.festivalTreat(site.id))extra=' +1 festival sweet!';if(villagePassport.badges.length===3)extra+=' Passport complete: Neighbour of the Crooked Hat.';}
  resume();toast(result.text+extra,6500);needsRender=true;updateHUD();
 }
