@@ -1,0 +1,2 @@
+/** Stable CASA GLB palette indices; do not reorder existing entries. */
+export const ROOM_MATERIALS=Object.freeze({floor:0,wall:1,ceiling:2,trim:3,roof:4,wood:5,upholstery:6,stone:7,metal:8,glass:9,siding:10,library:11,laboratory:12,bedroom:13,parquet:14,crypt:15,conservatory:16,ivory:17,silver:18,ebony:19,linen:20,plaster:21,leadedGlass:22,rubyGlass:23,amberGlass:24,leather:25,checker:26,navyDamask:27,plumDamask:28,sageDamask:29});

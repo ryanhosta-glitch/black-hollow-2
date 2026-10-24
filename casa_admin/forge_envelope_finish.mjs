@@ -1,10 +1,13 @@
+import {createRoomComponentSession} from '../casa_game/room_components.mjs';
 import {MAT} from './forge_glb.mjs';
 import {openingShape,exposedRuns} from './forge_architecture.mjs';
 import {roomFinish} from './forge_finishes.mjs';
 /** Fine architectural layers use feet, like the floor compiler. No new floor obstacles. */
-export function mansionEnvelope(floor,fi,levels){
- const parts=[],base=levels[fi]||0,add=(c,s,mat)=>{if(c.every(Number.isFinite)&&s.every(v=>Number.isFinite(v)&&v>.006))parts.push({c,s,mat});};
- for(const r of floor.rooms){const x=+r.x,z=+r.y,l=+r.l,w=+r.w,h=+r.h,finish=roomFinish(r);
+export function mansionEnvelope(floor,fi,levels,{onReport=()=>{},...limits}={}){
+ const parts=[],base=levels[fi]||0,usage={primitives:0,triangles:0,geometryBytes:0};
+ for(const r of floor.rooms){const x=+r.x,z=+r.y,l=+r.l,w=+r.w,h=+r.h,finish=roomFinish(r),components=createRoomComponentSession(r,{limits,roomCount:floor.rooms.length,usage});
+  const add=(c,s,mat)=>{if(s.every(v=>v>.006))components.emit(c,s,mat);};
+  components.run('mansion-envelope',()=>{
   for(const side of ['top','bottom','left','right']){
    const vertical=side==='left'||side==='right',span=vertical?w:l,wall=vertical?(side==='left'?x:x+l):(side==='top'?z:z+w),inside=side==='left'||side==='top'?1:-1;
    const put=(at,yy,width,height,depth,offset,mat)=>add(vertical?[wall+inside*offset,base+yy,z+at]:[x+at,base+yy,wall+inside*offset],vertical?[depth,height,width]:[width,height,depth],mat);
@@ -25,6 +28,7 @@ export function mansionEnvelope(floor,fi,levels){
   }
   // Flush floor inlay borders are under 3 mm high and leave all walking space intact.
   if(!r.forgeStair&&l>7&&w>7)for(const inset of [.30,.42]){add([x+l/2,base+.006,z+inset],[l-inset*2,.008,.025],MAT.metal);add([x+l/2,base+.006,z+w-inset],[l-inset*2,.008,.025],MAT.metal);add([x+inset,base+.006,z+w/2],[.025,.008,w-inset*2],MAT.metal);add([x+l-inset,base+.006,z+w/2],[.025,.008,w-inset*2],MAT.metal);}
+  });parts.push(...components.primitives);onReport({roomId:r.id,floor:fi,...components.report()});
  }
  return parts;
 }

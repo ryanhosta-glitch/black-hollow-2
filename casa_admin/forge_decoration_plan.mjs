@@ -1,4 +1,7 @@
-import {ROOM_FURNITURE,roomFurnitureParts} from './forge_room_furniture.mjs';
+import {authoredFinishIssues} from './forge_finishes.mjs';
+import {furnitureComponents,furnitureGeometry} from './forge_components.mjs';
+import {resolveRoomProfile} from '../casa_game/room_profiles.mjs';
+import {ROOM_FURNITURE} from './forge_room_furniture.mjs';
 import {roomIdentity,ROOM_PROFILES,furnishingTarget,planRoomContents} from '../casa_game/room_content.mjs?v=victorian-playpack-20261024';
 import {exteriorDetails} from './forge_exterior_details.mjs';
 import {wallMount} from '../casa_game/wall_mount.mjs';
@@ -12,11 +15,11 @@ const rect=(x,z,w,d)=>({minX:x-w/2,maxX:x+w/2,minZ:z-d/2,maxZ:z+d/2});
 function kind(r){const s=[r.roomType,r.type,r.name].filter(Boolean).join(' ').toLowerCase();if(/stair|corridor|elevator|crypt/.test(s))return 'circulation';if(/bedchamber/.test(s))return 'bedroom';if(/conservatory|observatory|laboratory/.test(s))return 'study';return ['library','study','bedroom','parlor','gallery','dining','ballroom','nursery'].find(k=>s.includes(k))||(/hall|foyer|entry/.test(s)?'gallery':'parlor');}
 function portal(r,o,y){const x=+r.x*FT,z=+r.y*FT,w=+r.l*FT,d=+r.w*FT,p=Math.max(0,Math.min(1,Number(o.pos??.5)));return [o.wall==='left'?x:o.wall==='right'?x+w:x+w*p,y,o.wall==='top'?z:o.wall==='bottom'?z+d:z+d*p];}
 /** Pure deterministic preparation. Generated items never modify authored source. */
-export function planDecoration(source,{repair=false}={}){
+export function planDecoration(source,{repair=false,detail,...contentLimits}={}){
  const furniture=[],artwork=[],lights=[],reserved=[],colliders=[],issues=[],changes=[],levels=floorElevationsFeet(source.floors),rooms=[];let artIndex=0;
  for(const [floor,f] of source.floors.entries())for(const r of f.rooms){
   const x=+r.x*FT,z=+r.y*FT,w=+r.l*FT,d=+r.w*FT,h=+r.h*FT,y=levels[floor]*FT,id=String(r.id),center=[x+w/2,y,z+d/2],roomBounds=rect(center[0],center[2],w,d),blocked=[];
-  rooms.push({id,floor,bounds:roomBounds,y});
+  rooms.push({id,floor,bounds:roomBounds,y});issues.push(...authoredFinishIssues(r));
   if(r.forgeStair){reserved.push({roomId:id,floor,kind:'stair-clearance',bounds:roomBounds});continue;}
   // Protect conservative rectangles containing every portal-to-room-center segment, plus leaf sweeps.
   for(const o of r.openings||[]){if(o.type==='window')continue;const p=portal(r,o,y),margin=Math.max(.48,(o.clearWidthMeters||1.08)/2+.16),a={minX:Math.min(p[0],center[0])-.48,maxX:Math.max(p[0],center[0])+.48,minZ:Math.min(p[2],center[2])-.48,maxZ:Math.max(p[2],center[2])+.48};blocked.push(a);reserved.push({roomId:id,floor,kind:'portal-route',openingId:o.id||null,bounds:a});if(o.type==='open')continue;const leaf=rect(p[0],p[2],margin*4,margin*4);blocked.push(leaf);reserved.push({roomId:id,floor,kind:o.forgeElevator?'elevator-approach':'door-sweep',openingId:o.id||null,bounds:leaf});}
@@ -39,7 +42,7 @@ export function planDecoration(source,{repair=false}={}){
    if(FURNITURE_CATALOG[type]||ROOM_FURNITURE[type])for(const qx of [.15,.85,.3,.7,.5])for(const qz of [.15,.85,.3,.7,.5])for(const a of [rotation,rotation+Math.PI/2])if(place(type,x+w*qx,z+d*qz,obj,`authored-${i}`,a)){changes.push({code:'RELOCATE_AUTHORED_FURNITURE',roomId:id,objectId:obj.id||null,fromMeters:[px,y,pz],toMeters:[x+w*qx,y,z+d*qz]});return;}
    changes.push({code:'REPLACE_UNSAFE_FURNITURE',roomId:id,objectId:obj.id||null,type});issues.push({severity:'ADVISORY',code:'AUTHORED_FURNITURE_REPLACED',roomId:id,objectId:obj.id||null});
   });
-  const identity=roomIdentity(r),types=ROOM_PROFILES[identity].furniture,limit=furnishingTarget(r);let count=furniture.filter(f=>f.roomId===id).length;
+  const identity=roomIdentity(r),types=furnitureComponents(resolveRoomProfile(r,{detail})).map(component=>component.type),limit=furnishingTarget(r);let count=furniture.filter(f=>f.roomId===id).length;
   // Fill around authored pieces; the same reserved routes/colliders protect every candidate.
   for(let pass=0;pass<limit&&count<limit;pass++)for(const t of types){if(count>=limit)break;if(['supper_table','dining_table'].includes(t)&&furniture.some(f=>f.roomId===id&&['banquet_ensemble','supper_table'].includes(f.type)))continue;if(['bed','wardrobe','dining_table','banquet_ensemble','supper_table','coffin_cabinet'].includes(t)&&w*d<70&&furniture.some(f=>f.roomId===id&&f.type===t))continue;const [fw,fd]=(FURNITURE_CATALOG[t]||ROOM_FURNITURE[t]).footprint;let placed=false;
    const candidates=[];for(const q of [.18,.82,.35,.65,.5]){candidates.push([Math.max(x+fw/2+.24,Math.min(x+w-fw/2-.24,x+w*q)),z+fd/2+.24,0],[Math.max(x+fw/2+.24,Math.min(x+w-fw/2-.24,x+w*q)),z+d-fd/2-.24,Math.PI],[x+fd/2+.24,Math.max(z+fw/2+.24,Math.min(z+d-fw/2-.24,z+d*q)),Math.PI/2],[x+w-fd/2-.24,Math.max(z+fw/2+.24,Math.min(z+d-fw/2-.24,z+d*q)),-Math.PI/2]);}
@@ -57,7 +60,9 @@ export function planDecoration(source,{repair=false}={}){
  for(const [fi,f]of source.floors.entries())if(levels[fi]*FT===groundY)for(const r of f.rooms)for(const o of r.openings||[])if(o.type!=='window'&&!o.shared){const p=portal(r,o,groundY),vertical=o.wall==='left'||o.wall==='right',end=vertical?[o.wall==='left'?bounds.minX-9:bounds.maxX+9,groundY,p[2]]:[p[0],groundY,o.wall==='top'?bounds.minZ-9:bounds.maxZ+9];paths.push({id:`path:${r.id}:${o.id||o.wall}`,fromMeters:p,toMeters:end,widthMeters:1.8});}
  const treeStyles=['lightning-split','crooked-willow','skeletal-oak'],graveStyles=['arched','cross','obelisk','shouldered'];
  let i=0,attempts=0;outer:for(let x=bounds.minX-8;x<=bounds.maxX+8;x+=2.6)for(let z=bounds.minZ-8;z<=bounds.maxZ+8;z+=2.8){if(++attempts>20000){issues.push({severity:'ADVISORY',code:'GROUNDS_DENSITY_CAPPED'});break outer;}if(x>bounds.minX-3&&x<bounds.maxX+3&&z>bounds.minZ-3&&z<bounds.maxZ+3)continue;if(grounds.length>=160)break outer;const tree=i%5===0,size=tree?1.6:.9,b=rect(x,z,size,size);if(paths.some(p=>overlap(b,{minX:Math.min(p.fromMeters[0],p.toMeters[0])-.9,maxX:Math.max(p.fromMeters[0],p.toMeters[0])+.9,minZ:Math.min(p.fromMeters[2],p.toMeters[2])-.9,maxZ:Math.max(p.fromMeters[2],p.toMeters[2])+.9})))continue;const obj={id:`forge:grounds:${i}`,type:tree?'tree':'headstone',style:tree?treeStyles[i%3]:graveStyles[i%4],positionMeters:[x,groundY,z],rotationY:(i%7-.5)*.13};grounds.push(obj);colliders.push({objectId:obj.id,roomId:null,floor:null,bounds:b,minY:groundY,maxY:groundY+(tree?4.5:1.2)});i++;}
- const contentRooms=source.floors.flatMap((f,floor)=>f.rooms.map(r=>({...r,floor}))),roomContents=planRoomContents(contentRooms,{furniture,artwork},{elevation:floor=>levels[floor]*FT});
+ const contentRooms=source.floors.flatMap((f,floor)=>f.rooms.map(r=>({...r,floor}))),roomContents=planRoomContents(contentRooms,{furniture,artwork},{elevation:floor=>levels[floor]*FT,detail,...contentLimits});
+ // A sculpted ceiling fixture owns its housing; retain the legacy light anchor, not a second model.
+ for(const content of roomContents)if(content.componentReport.emitted.some(c=>c.component==='ceiling-chandelier')){const key=lights.find(l=>l.roomId===String(content.roomId)&&l.id.endsWith(':ceiling-light'));if(key)key.fixtureGeometryCompiled=true;}
  lights.push(...roomContents.flatMap(c=>c.lighting||[]));
  const fireplaces=furniture.filter(f=>f.type==='marble_fireplace').map(f=>{const a=f.rotationY||0,p=f.positionMeters;return {id:'hearth:'+f.id,roomId:f.roomId,floor:f.floor,positionMeters:[p[0]+Math.sin(a)*.12,p[1]+.10,p[2]+Math.cos(a)*.12]};});
  lights.push(...fireplaces.map(f=>({id:f.id,roomId:f.roomId,floor:f.floor,role:'hearth',positionMeters:[f.positionMeters[0],f.positionMeters[1]+.35,f.positionMeters[2]],color:'#ffab64',intensity:1.8,rangeMeters:5,static:true,castShadow:false,fixtureGeometryCompiled:true,gameEffects:[]})));
@@ -66,7 +71,7 @@ export function planDecoration(source,{repair=false}={}){
 }
 /** Box parts reuse the compiler's grouped material palette. Furniture uses the existing detailed catalog models. */
 export function decorationBoxes(plan){const out=[],box=(c,s,mat,rot=0,rotAxis='z')=>out.push({c,s,mat,rot,rotAxis});
- for(const f of plan.furniture||[])if(f.builtIn)out.push(...roomFurnitureParts(f));
+ for(const f of plan.furniture||[])if(f.builtIn)out.push(...furnitureGeometry(f));
  for(const c of plan.roomContents||[])out.push(...c.primitives);
  if(plan.grounds.length){const b=plan.bounds,outer={minX:b.minX-10,maxX:b.maxX+10,minZ:b.minZ-10,maxZ:b.maxZ+10};for(const r of [{minX:outer.minX,maxX:outer.maxX,minZ:outer.minZ,maxZ:b.minZ-.25},{minX:outer.minX,maxX:outer.maxX,minZ:b.maxZ+.25,maxZ:outer.maxZ},{minX:outer.minX,maxX:b.minX-.25,minZ:b.minZ-.25,maxZ:b.maxZ+.25},{minX:b.maxX+.25,maxX:outer.maxX,minZ:b.minZ-.25,maxZ:b.maxZ+.25}])box([(r.minX+r.maxX)/2,plan.groundY-.12,(r.minZ+r.maxZ)/2],[r.maxX-r.minX,.12,r.maxZ-r.minZ],7);}
  for(const p of plan.paths){const a=p.fromMeters,b=p.toMeters;box([(a[0]+b[0])/2,plan.groundY-.035,(a[2]+b[2])/2],[Math.max(p.widthMeters,Math.abs(a[0]-b[0])),.06,Math.max(p.widthMeters,Math.abs(a[2]-b[2]))],7);}

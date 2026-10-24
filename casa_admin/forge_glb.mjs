@@ -1,6 +1,7 @@
 import {TEXTURES} from './forge_textures.mjs';
 const enc=new TextEncoder();
-export const MAT={floor:0,wall:1,ceiling:2,trim:3,roof:4,wood:5,upholstery:6,stone:7,metal:8,glass:9,siding:10,library:11,laboratory:12,bedroom:13,parquet:14,crypt:15,conservatory:16,ivory:17,silver:18,ebony:19,linen:20,plaster:21,leadedGlass:22,rubyGlass:23,amberGlass:24,leather:25,checker:26,navyDamask:27,plumDamask:28,sageDamask:29};
+import {ROOM_MATERIALS} from '../casa_game/room_materials.mjs';
+export const MAT=ROOM_MATERIALS;
 export const PALETTE=[
 {n:'aged oak floor',c:[1,1,1,1],rough:.82},{n:'weathered Victorian plaster',c:[.72,.50,.31,1],rough:.92},
 {n:'soot-dark ceiling',c:[1,1,1,1],rough:.95},{n:'painted ogee trim',c:[.65,.58,.49,1],rough:.75},
