@@ -1,6 +1,6 @@
-import {openCasa} from '../casa_game/archive.mjs?v=victorian-playpack-20261024';
+import {openCasa} from '../casa_game/archive.mjs?v=forge-rescue-20261024';
 import {inspectCasaFile} from '../casa_game/import_package.mjs';
-import {publicationFindings} from './forge_build_report.mjs?v=victorian-playpack-20261024';
+import {publicationFindings} from './forge_build_report.mjs?v=forge-rescue-20261024';
 export async function prepareCasa(file){
  await inspectCasaFile(file);
  const casa=await openCasa(new Uint8Array(await file.arrayBuffer()));

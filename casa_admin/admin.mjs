@@ -1,11 +1,11 @@
 import {planPublication,publicationSummary} from './publication_plan.mjs';
 import {houseNumber} from '../casa_game/addresses.mjs';
 import {EXTERIOR_STYLES,TRIM_STYLES,ROOF_STYLES} from './forge_exterior_style.mjs';
-import {publicationFindings} from './forge_build_report.mjs?v=victorian-playpack-20261024';
-import {openCasa} from '../casa_game/archive.mjs?v=victorian-playpack-20261024';
+import {publicationFindings} from './forge_build_report.mjs?v=forge-rescue-20261024';
+import {openCasa} from '../casa_game/archive.mjs?v=forge-rescue-20261024';
 import {inspectCasaFile} from '../casa_game/import_package.mjs';
 import {createCatalog} from '../casa_game/catalog.mjs';
-import {createPublisher,MAX_PUBLISH_BYTES,REPOSITORY} from './publisher.mjs?v=victorian-playpack-20261024';
+import {createPublisher,MAX_PUBLISH_BYTES,REPOSITORY} from './publisher.mjs?v=forge-rescue-20261024';
 const $=id=>document.getElementById(id),status=s=>$('status').textContent=s;let selected=null,review=null,pending=null,busy=false,batchBusy=false,queue=[],batchReview=null,adminReady=false;const publisher=createPublisher({token:()=>$('token').value.trim()});
 function enable(){ $('publish').disabled=!adminReady||busy||batchBusy||!selected||selected.publicationBlocked||!review||!$('reviewed').checked||selected.file.size>MAX_PUBLISH_BYTES;for(const id of ['connect','disconnect','token','file','test','download','confirm','reviewed','publishNumber'])$(id).disabled=!adminReady||busy||batchBusy||(['test','download'].includes(id)&&!selected);}
 async function run(fn){if(!adminReady)return status('House Office is loading. Please wait.');if(busy||batchBusy)return;busy=true;enable();try{await fn();}catch(e){status(e.message);}finally{busy=false;drawBatch();}}
@@ -23,7 +23,7 @@ $('cancel').onclick=()=>{pending=null;$('confirmation').hidden=true;};
 $('confirm').onclick=()=>run(async()=>{const action=pending;if(!action)throw Error('Review a change first.');pending=null;$('confirmation').hidden=true;status('Committing the reviewed change to GitHub…');const sha=await publisher.change(action.selected?{review:action.review,house:action.selected.house,bytes:new Uint8Array(await action.selected.file.arrayBuffer())}:action);let refreshWarning='';try{await refresh();}catch(e){refreshWarning=' Street refresh failed; reconnect to view the committed change.';}status('Committed '+sha.slice(0,7)+'. Wait for Pages deployment, then refresh the game.'+refreshWarning);const link=document.createElement('a');link.href='https://github.com/'+REPOSITORY+'/commit/'+sha;link.textContent=' View change';link.target='_blank';link.rel='noopener';$('status').append(link);});enable();
 
 // The queue stores source files and completed archives in IndexedDB, never tokens.
-const {prepareCasa,batchStorage,forgeInput,sourceIdentity}=await import('./batch.mjs?v=victorian-playpack-20261024');
+const {prepareCasa,batchStorage,forgeInput,sourceIdentity}=await import('./batch.mjs?v=forge-rescue-20261024');
 const queueStore=batchStorage();
 const dirty=()=>queue.some(r=>r.draft);
 async function saveDrafts(){for(const row of queue.filter(r=>r.draft)){const edits=row.draft;if(!edits.name?.trim())throw Error('Every mansion needs a name.');houseNumber(edits.houseNumber);if(edits.houseId&&!/^[a-zA-Z0-9][a-zA-Z0-9_-]{2,109}$/.test(edits.houseId))throw Error('House ID must contain 3–110 letters, digits, hyphens or underscores.');}for(const row of queue.filter(r=>r.draft)){const updated={...row,edits:{...row.draft},name:row.draft.name,state:'queued',file:null,report:'Edits saved. Forge this house before testing or publishing.'};delete updated.draft;await persist(updated);Object.assign(row,updated);delete row.draft;}batchReview=null;$('batchConfirmation').hidden=true;}

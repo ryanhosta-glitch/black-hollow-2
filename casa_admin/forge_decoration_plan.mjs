@@ -12,7 +12,7 @@ const rect=(x,z,w,d)=>({minX:x-w/2,maxX:x+w/2,minZ:z-d/2,maxZ:z+d/2});
 function kind(r){const s=[r.roomType,r.type,r.name].filter(Boolean).join(' ').toLowerCase();if(/stair|corridor|elevator|crypt/.test(s))return 'circulation';if(/bedchamber/.test(s))return 'bedroom';if(/conservatory|observatory|laboratory/.test(s))return 'study';return ['library','study','bedroom','parlor','gallery','dining','ballroom','nursery'].find(k=>s.includes(k))||(/hall|foyer|entry/.test(s)?'gallery':'parlor');}
 function portal(r,o,y){const x=+r.x*FT,z=+r.y*FT,w=+r.l*FT,d=+r.w*FT,p=Math.max(0,Math.min(1,Number(o.pos??.5)));return [o.wall==='left'?x:o.wall==='right'?x+w:x+w*p,y,o.wall==='top'?z:o.wall==='bottom'?z+d:z+d*p];}
 /** Pure deterministic preparation. Generated items never modify authored source. */
-export function planDecoration(source){
+export function planDecoration(source,{repair=false}={}){
  const furniture=[],artwork=[],lights=[],reserved=[],colliders=[],issues=[],changes=[],levels=floorElevationsFeet(source.floors),rooms=[];let artIndex=0;
  for(const [floor,f] of source.floors.entries())for(const r of f.rooms){
   const x=+r.x*FT,z=+r.y*FT,w=+r.l*FT,d=+r.w*FT,h=+r.h*FT,y=levels[floor]*FT,id=String(r.id),center=[x+w/2,y,z+d/2],roomBounds=rect(center[0],center[2],w,d),blocked=[];
@@ -25,12 +25,20 @@ export function planDecoration(source){
    const spec=FURNITURE_CATALOG[type]||ROOM_FURNITURE[type];if(!spec){issues.push({severity:'ADVISORY',code:'UNSUPPORTED_AUTHORED_FURNITURE',roomId:id,object:structuredClone(authored)});return false;}
    const quarter=Math.abs(Math.sin(rotation))>.5,b=rect(px,pz,spec.footprint[quarter?1:0]+.18,spec.footprint[quarter?0:1]+.18),fits=b.minX>x+.12&&b.maxX<x+w-.12&&b.minZ>z+.12&&b.maxZ<z+d-.12&&spec.height<h-.15,clear=!blocked.some(a=>overlap(a,b))&&!(spec.height>1&&(r.openings||[]).filter(o=>o.type==='window').some(o=>{const p=portal(r,o,y),vertical=o.wall==='left'||o.wall==='right',span=Number(o.clearWidthMeters||1.65),zone=rect(p[0],p[2],vertical?1.1:span+.18,vertical?span+.18:1.1);return overlap(b,zone);}));
    const oid=String(authored?.id||`forge:${id}:furniture:${index}`);
-   if(!fits||!clear){if(authored)issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_FURNITURE_CLEARANCE',objectId:oid,roomId:id,authored:structuredClone(authored)});return false;}
+   if(!fits||!clear){if(authored&&!repair)issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_FURNITURE_CLEARANCE',objectId:oid,roomId:id,authored:structuredClone(authored)});return false;}
    const obj={id:oid,roomId:id,floor,type,model:ROOM_FURNITURE[type]?null:`geometry/furniture/${type}.glb`,builtIn:!!ROOM_FURNITURE[type],positionMeters:[px,y,pz],rotationY:rotation,authored:!!authored,source:authored?structuredClone(authored):null};
    furniture.push(obj);blocked.push(b);colliders.push({objectId:oid,roomId:id,floor,bounds:b,minY:y,maxY:y+spec.height});changes.push({code:authored?'COMPILE_AUTHORED_FURNITURE':'ADD_ROOM_FURNITURE',objectId:oid,roomId:id});return true;
   };
   const aliases={desk:'writing_desk',chair:'armchair',sofa:'settee',table:'dining_table',bookshelf:'bookcase',cabinet:'wardrobe'};
-  (r.furniture||[]).forEach((obj,i)=>{const t=String(obj.type||obj.kind||'');if(Number(obj.rotation||obj.rotationY||0)!==0){issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_ROTATION_REQUIRES_REVIEW',roomId:id,authored:structuredClone(obj)});return;}place(aliases[t]||t,x+w*Number(obj.x??obj.posX??.5),z+d*Number(obj.y??obj.z??obj.posY??.5),obj,`authored-${i}`);});
+  (r.furniture||[]).forEach((obj,i)=>{
+   const t=String(obj.type||obj.kind||''),type=aliases[t]||t,raw=Number(obj.rotation||obj.rotationY||0),angle=Number.isFinite(raw)?(Math.abs(raw)>Math.PI*2?raw*Math.PI/180:raw):0,rotation=repair?Math.round(angle/(Math.PI/2))*Math.PI/2:0;
+   if(!repair&&raw!==0){issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_ROTATION_REQUIRES_REVIEW',roomId:id,authored:structuredClone(obj)});return;}
+   const px=x+w*Number(obj.x??obj.posX??.5),pz=z+d*Number(obj.y??obj.z??obj.posY??.5);
+   if(place(type,px,pz,obj,`authored-${i}`,rotation))return;
+   if(!repair)return;
+   if(FURNITURE_CATALOG[type]||ROOM_FURNITURE[type])for(const qx of [.15,.85,.3,.7,.5])for(const qz of [.15,.85,.3,.7,.5])for(const a of [rotation,rotation+Math.PI/2])if(place(type,x+w*qx,z+d*qz,obj,`authored-${i}`,a)){changes.push({code:'RELOCATE_AUTHORED_FURNITURE',roomId:id,objectId:obj.id||null,fromMeters:[px,y,pz],toMeters:[x+w*qx,y,z+d*qz]});return;}
+   changes.push({code:'REPLACE_UNSAFE_FURNITURE',roomId:id,objectId:obj.id||null,type});issues.push({severity:'ADVISORY',code:'AUTHORED_FURNITURE_REPLACED',roomId:id,objectId:obj.id||null});
+  });
   const identity=roomIdentity(r),types=ROOM_PROFILES[identity].furniture,limit=furnishingTarget(r);let count=furniture.filter(f=>f.roomId===id).length;
   // Fill around authored pieces; the same reserved routes/colliders protect every candidate.
   for(let pass=0;pass<limit&&count<limit;pass++)for(const t of types){if(count>=limit)break;if(['supper_table','dining_table'].includes(t)&&furniture.some(f=>f.roomId===id&&['banquet_ensemble','supper_table'].includes(f.type)))continue;if(['bed','wardrobe','dining_table','banquet_ensemble','supper_table','coffin_cabinet'].includes(t)&&w*d<70&&furniture.some(f=>f.roomId===id&&f.type===t))continue;const [fw,fd]=(FURNITURE_CATALOG[t]||ROOM_FURNITURE[t]).footprint;let placed=false;
@@ -40,7 +48,7 @@ export function planDecoration(source){
   // Never place generated pictures over windows, doors, or removed partitions.
   const pic=AVAILABLE_PORTRAITS[artIndex],size=[.87*(AVAILABLE_HOUSE_PHOTOS.find(photo=>photo.id===pic)?.aspectRatio||2/3),.87],mount=pic&&['top','bottom','left','right'].map(side=>wallMount(r,{width:size[0],height:size[1],preferred:[side]})).find(m=>{if(!m)return false;const ax=m.position[0]+m.normal[0]*.75,az=m.position[2]+m.normal[2]*.75,standing=rect(ax,az,.60,.60);return standing.minX>x+.05&&standing.maxX<x+w-.05&&standing.minZ>z+.05&&standing.maxZ<z+d-.05&&!colliders.some(c=>c.roomId===id&&overlap(c.bounds,standing));});
   if(mount&&Math.min(w,d)>=1.35){artIndex++;const p=[mount.position[0],y+mount.position[1],mount.position[2]],normal=mount.normal;artwork.push({id:`forge:${id}:portrait`,roomId:id,floor,artworkId:pic,asset:`assets/portraits/${pic}.webp`,positionMeters:p,normal,sizeMeters:size,interaction:{action:'inspect',anchorMeters:[p[0]+normal[0]*.75,y,p[2]+normal[2]*.75],gameplayBinding:null}});}
-  for(const field of ['decor','artwork','photos'])if(r[field]?.length)issues.push({severity:'BLOCK_GAME_READY',code:'AUTHORED_DECOR_REQUIRES_BINDING',roomId:id,field,records:structuredClone(r[field])});
+  for(const field of ['decor','artwork','photos'])if(r[field]?.length){issues.push({severity:repair?'ADVISORY':'BLOCK_GAME_READY',code:repair?'AUTHORED_DECOR_REPLACED':'AUTHORED_DECOR_REQUIRES_BINDING',roomId:id,field,records:structuredClone(r[field])});if(repair)changes.push({code:'REPLACE_UNSUPPORTED_DECOR',roomId:id,field,count:r[field].length});}
   lights.push({id:`forge:${id}:ceiling-light`,roomId:id,floor,positionMeters:[center[0],y+h-.22,center[2]],color:'#ffd6a0',intensity:1.2,rangeMeters:Math.max(w,d),static:true,castShadow:false,gameEffects:[]});
   const window=(r.openings||[]).find(o=>o.type==='window');if(window){const p=portal(r,window,y+Math.min(h-.35,1.85)),normal=window.wall==='left'?[1,0,0]:window.wall==='right'?[-1,0,0]:window.wall==='top'?[0,0,1]:[0,0,-1];lights.push({id:`forge:${id}:moon-window`,roomId:id,floor,role:'moon',positionMeters:p.map((v,k)=>v+normal[k]*.38),color:'#9dbde4',intensity:.8,rangeMeters:Math.min(10,Math.max(w,d)),static:true,castShadow:false,fixtureGeometryCompiled:true,gameEffects:[]});}
  }
