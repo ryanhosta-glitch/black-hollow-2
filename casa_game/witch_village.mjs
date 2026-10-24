@@ -1,5 +1,5 @@
 import {createTownClock,CLOCK_SITE} from './town_life.mjs';
-import {createAfterlifeNeighbours} from './afterlife_neighbours.mjs?v=living-town-20261024';
+import {createAfterlifeNeighbours} from './afterlife_neighbours.mjs?v=independent-neighbours-20261024';
 import {FAIR_SITES,createFairGame} from './village_fair.mjs?v=living-town-20261024';
 import {twoSidedSign,surfaceTexture} from './surfaces.mjs';
 import {disposeGroup} from './resources.mjs';
