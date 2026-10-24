@@ -23,5 +23,5 @@ export function createFairGame(){
   }else{note=['rose','moss','plum'].indexOf(choice);state.notes.push(choice);if(choice!==tune[state.notes.length-1]){state.notes=[];kind='wrong-note';text='“Delightfully wrong,” says Plum. Rose starts the tune again.';}else if(state.notes.length===3){success=true;kind='song';text='The pumpkins finish your tune in three-part harmony. Even the clock tower sways.';state.notes=[];}else{kind='note';text=choice[0].toUpperCase()+choice.slice(1)+' answers. Keep the tune going.';}}
   if(success&&!state.completed.includes(id))state.completed.push(id);state.event={site:id,kind,serial:++state.serial};return {ok:true,success,text,kind,note};
  }
- return {state,choices,clue,act,near(p){return FAIR_SITES.find(s=>Array.isArray(p)&&Math.abs(p[1])<.4&&Math.hypot(p[0]-s.approach[0],p[2]-s.approach[2])<1.6)||null;}};
+ return {state,choices,clue,act,near(p){return FAIR_SITES.find(s=>Array.isArray(p)&&Math.abs(p[1])<.4&&Math.min(Math.hypot(p[0]-s.approach[0],p[2]-s.approach[2]),Math.hypot(p[0]-s.approach[0],p[2]-(2*s.position[2]-s.approach[2])))<1.6)||null;}};
 }
