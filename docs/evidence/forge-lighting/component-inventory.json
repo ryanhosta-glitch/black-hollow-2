@@ -1,0 +1,712 @@
+{
+  "edition": "house-light-2",
+  "profiles": {
+    "ballroom": {
+      "identity": "ballroom",
+      "fixture": "crystal-chandelier",
+      "color": "#ffdbac",
+      "intensity": 28,
+      "task": false,
+      "ambient": 0.64,
+      "sky": "#c2cada",
+      "ground": "#8d7463",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    },
+    "library": {
+      "identity": "library",
+      "fixture": "gaslight-chandelier",
+      "color": "#ffd19a",
+      "intensity": 12,
+      "task": true,
+      "ambient": 0.58,
+      "sky": "#bbc7d6",
+      "ground": "#685548",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    },
+    "parlor": {
+      "identity": "parlor",
+      "fixture": "brass-chandelier",
+      "color": "#ffd0a0",
+      "intensity": 18,
+      "task": false,
+      "ambient": 0.64,
+      "sky": "#c6bed0",
+      "ground": "#786357",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    },
+    "bedroom": {
+      "identity": "bedroom",
+      "fixture": "gaslight-chandelier",
+      "color": "#ffceab",
+      "intensity": 11,
+      "task": false,
+      "ambient": 0.61,
+      "sky": "#bcc9dc",
+      "ground": "#69594f",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    },
+    "dining": {
+      "identity": "dining",
+      "fixture": "brass-chandelier",
+      "color": "#ffdaad",
+      "intensity": 25,
+      "task": false,
+      "ambient": 0.62,
+      "sky": "#c6c8d4",
+      "ground": "#84705c",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    },
+    "nursery": {
+      "identity": "nursery",
+      "fixture": "brass-chandelier",
+      "color": "#ffe0b8",
+      "intensity": 9,
+      "task": false,
+      "ambient": 0.61,
+      "sky": "#c8bdd1",
+      "ground": "#786354",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    },
+    "laboratory": {
+      "identity": "laboratory",
+      "fixture": "iron-chandelier",
+      "color": "#c0ddf3",
+      "intensity": 16,
+      "task": true,
+      "ambient": 0.64,
+      "sky": "#bad0df",
+      "ground": "#64717b",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    },
+    "conservatory": {
+      "identity": "conservatory",
+      "fixture": "botanical-lantern",
+      "color": "#d1e1bf",
+      "intensity": 12,
+      "task": false,
+      "ambient": 0.62,
+      "sky": "#b9d2df",
+      "ground": "#5b6d63",
+      "moon": 9,
+      "photometricEdition": "house-light-2"
+    },
+    "crypt": {
+      "identity": "crypt",
+      "fixture": "votive-crown",
+      "color": "#a7cadd",
+      "intensity": 8,
+      "task": false,
+      "ambient": 0.58,
+      "sky": "#b9c8dc",
+      "ground": "#4b535e",
+      "moon": 4,
+      "photometricEdition": "house-light-2"
+    },
+    "gallery": {
+      "identity": "gallery",
+      "fixture": "bronze-chandelier",
+      "color": "#ffe0b5",
+      "intensity": 19,
+      "task": false,
+      "ambient": 0.62,
+      "sky": "#c5c5d8",
+      "ground": "#756963",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    },
+    "circulation": {
+      "identity": "circulation",
+      "fixture": "gaslight-lantern",
+      "color": "#ffd5aa",
+      "intensity": 10,
+      "task": false,
+      "ambient": 0.63,
+      "sky": "#bcc8d6",
+      "ground": "#65584f",
+      "moon": 6,
+      "photometricEdition": "house-light-2"
+    }
+  },
+  "quality": {
+    "performance": {
+      "lights": 2,
+      "shadowMaps": 0,
+      "ambientGain": 1.12
+    },
+    "cinematic": {
+      "lights": 3,
+      "shadowMaps": 1,
+      "ambientGain": 1
+    }
+  },
+  "sourceRecordsByRole": {
+    "key": 11,
+    "practical": 21,
+    "task": 2,
+    "moon": 6,
+    "stained": 3,
+    "portrait": 1,
+    "hearth": 5
+  },
+  "fixtures": [
+    {
+      "roomId": "ballroom",
+      "id": "lighting:ballroom:ceiling-chandelier:chandelier",
+      "type": "crystal-chandelier",
+      "positionMeters": [
+        4.2672,
+        3.0376000000000003,
+        3.9624
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "ballroom",
+      "id": "lighting:ballroom:artisan-fixtures:sconce-0",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        8.3094,
+        2.52,
+        1.7112
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "ballroom",
+      "id": "lighting:ballroom:artisan-fixtures:sconce-1",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        0.225,
+        2.52,
+        5.101750000000001
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "parlor",
+      "id": "lighting:parlor:ceiling-chandelier:chandelier",
+      "type": "brass-chandelier",
+      "positionMeters": [
+        12.8016,
+        3.0376000000000003,
+        3.9624
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "parlor",
+      "id": "lighting:parlor:artisan-fixtures:sconce-0",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        16.8438,
+        2.52,
+        1.7112
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "parlor",
+      "id": "lighting:parlor:artisan-fixtures:sconce-1",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        8.7594,
+        2.52,
+        2.7468000000000004
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "library",
+      "id": "lighting:library:ceiling-chandelier:chandelier",
+      "type": "gaslight-chandelier",
+      "positionMeters": [
+        21.336,
+        3.0376000000000003,
+        3.9624
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "library",
+      "id": "lighting:library:artisan-fixtures:sconce-0",
+      "type": "pierced-bronze-lantern",
+      "positionMeters": [
+        25.378200000000003,
+        2.52,
+        1.7187000000000003
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "library",
+      "id": "lighting:library:artisan-fixtures:sconce-1",
+      "type": "pierced-bronze-lantern",
+      "positionMeters": [
+        17.293799999999997,
+        2.52,
+        2.7468000000000004
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "library",
+      "id": "lighting:library:task-lamp:forge:library:furniture:generated-2",
+      "type": "laboratory-task-lamp",
+      "positionMeters": [
+        25.133200000000002,
+        1.075,
+        1.866464
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "dining",
+      "id": "lighting:dining:ceiling-chandelier:chandelier",
+      "type": "brass-chandelier",
+      "positionMeters": [
+        1.59,
+        3.0376000000000003,
+        13.8846
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "dining",
+      "id": "lighting:dining:artisan-fixtures:sconce-0",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        8.3094,
+        2.52,
+        9.726
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "dining",
+      "id": "lighting:dining:artisan-fixtures:sconce-1",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        0.225,
+        2.52,
+        9.6435
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "gallery",
+      "id": "lighting:gallery:ceiling-chandelier:chandelier",
+      "type": "bronze-chandelier",
+      "positionMeters": [
+        12.8016,
+        3.0376000000000003,
+        11.8872
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "gallery",
+      "id": "lighting:gallery:artisan-fixtures:sconce-0",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        16.8438,
+        2.52,
+        8.5629
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "gallery",
+      "id": "lighting:gallery:artisan-fixtures:sconce-1",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        8.7594,
+        2.52,
+        9.6435
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "conservatory",
+      "id": "lighting:conservatory:ceiling-chandelier:chandelier",
+      "type": "botanical-lantern",
+      "positionMeters": [
+        21.336,
+        3.0376000000000003,
+        11.8872
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "conservatory",
+      "id": "lighting:conservatory:artisan-fixtures:sconce-0",
+      "type": "pierced-bronze-lantern",
+      "positionMeters": [
+        25.378200000000003,
+        2.52,
+        14.1309
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "conservatory",
+      "id": "lighting:conservatory:artisan-fixtures:sconce-1",
+      "type": "pierced-bronze-lantern",
+      "positionMeters": [
+        17.293799999999997,
+        2.52,
+        14.1309
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "bedroom",
+      "id": "lighting:bedroom:ceiling-chandelier:chandelier",
+      "type": "gaslight-chandelier",
+      "positionMeters": [
+        4.2672,
+        6.3904000000000005,
+        3.9624
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "bedroom",
+      "id": "lighting:bedroom:artisan-fixtures:sconce-0",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        8.3094,
+        6.1776,
+        1.7112
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "bedroom",
+      "id": "lighting:bedroom:artisan-fixtures:sconce-1",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        0.225,
+        6.1776,
+        0.6381000000000001
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "nursery",
+      "id": "lighting:nursery:ceiling-chandelier:chandelier",
+      "type": "brass-chandelier",
+      "positionMeters": [
+        12.8016,
+        6.3904000000000005,
+        3.9624
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "nursery",
+      "id": "lighting:nursery:artisan-fixtures:sconce-0",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        16.8438,
+        6.1776,
+        1.7112
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "nursery",
+      "id": "lighting:nursery:artisan-fixtures:sconce-1",
+      "type": "candle-wall-sconce",
+      "positionMeters": [
+        8.7594,
+        6.1776,
+        5.0954999999999995
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "crypt",
+      "id": "lighting:crypt:ceiling-chandelier:chandelier",
+      "type": "votive-crown",
+      "positionMeters": [
+        21.336,
+        6.3904000000000005,
+        3.9624
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "crypt",
+      "id": "lighting:crypt:artisan-fixtures:sconce-0",
+      "type": "chained-iron-votive",
+      "positionMeters": [
+        25.378200000000003,
+        6.1776,
+        0.6267648425000001
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "crypt",
+      "id": "lighting:crypt:artisan-fixtures:sconce-1",
+      "type": "chained-iron-votive",
+      "positionMeters": [
+        17.293799999999997,
+        6.1776,
+        0.6106
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "laboratory",
+      "id": "lighting:laboratory:ceiling-chandelier:chandelier",
+      "type": "iron-chandelier",
+      "positionMeters": [
+        4.2672,
+        6.3904000000000005,
+        11.8872
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "laboratory",
+      "id": "lighting:laboratory:artisan-fixtures:sconce-0",
+      "type": "pierced-bronze-lantern",
+      "positionMeters": [
+        8.3094,
+        6.1776,
+        14.1309
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "laboratory",
+      "id": "lighting:laboratory:artisan-fixtures:sconce-1",
+      "type": "pierced-bronze-lantern",
+      "positionMeters": [
+        0.225,
+        6.1776,
+        9.7508571325
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "left",
+      "normal": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "roomId": "laboratory",
+      "id": "lighting:laboratory:task-lamp:forge:laboratory:furniture:generated-0",
+      "type": "laboratory-task-lamp",
+      "positionMeters": [
+        1.976192,
+        4.847600000000001,
+        8.3848
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "circulation",
+      "id": "lighting:circulation:ceiling-chandelier:chandelier",
+      "type": "gaslight-lantern",
+      "positionMeters": [
+        12.8016,
+        6.3904000000000005,
+        11.8872
+      ],
+      "width": 0.5,
+      "height": 0.5
+    },
+    {
+      "roomId": "circulation",
+      "id": "lighting:circulation:artisan-fixtures:sconce-0",
+      "type": "pierced-bronze-lantern",
+      "positionMeters": [
+        16.8438,
+        6.1776,
+        11.8872
+      ],
+      "width": 0.34,
+      "height": 0.46,
+      "wall": "right",
+      "normal": [
+        -1,
+        0,
+        0
+      ]
+    }
+  ],
+  "componentCosts": {
+    "ceiling-chandelier": {
+      "instances": 11,
+      "primitives": 25,
+      "triangles": 9196
+    },
+    "artisan-fixtures": {
+      "instances": 21,
+      "primitives": 51,
+      "triangles": 2568
+    },
+    "task-lamp": {
+      "instances": 2,
+      "primitives": 6,
+      "triangles": 304
+    }
+  },
+  "budgetOmissions": []
+}

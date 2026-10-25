@@ -1,0 +1,1959 @@
+{
+  "edition": "after",
+  "browser": "154.0.8037.57",
+  "baseline": "47d32987e5662b9eefd87402c39207aba796b625",
+  "webgl": true,
+  "compiledBytes": 5366708,
+  "views": [
+    {
+      "identity": "ballroom",
+      "detail": "room",
+      "draws": 54,
+      "triangles": 98314,
+      "undecoded": 0
+    },
+    {
+      "identity": "parlor",
+      "detail": "room",
+      "draws": 55,
+      "triangles": 99416,
+      "undecoded": 0
+    },
+    {
+      "identity": "library",
+      "detail": "room",
+      "draws": 51,
+      "triangles": 98456,
+      "undecoded": 0
+    },
+    {
+      "identity": "dining",
+      "detail": "room",
+      "draws": 77,
+      "triangles": 107978,
+      "undecoded": 0
+    },
+    {
+      "identity": "gallery",
+      "detail": "room",
+      "draws": 73,
+      "triangles": 107964,
+      "undecoded": 0
+    },
+    {
+      "identity": "conservatory",
+      "detail": "room",
+      "draws": 64,
+      "triangles": 103932,
+      "undecoded": 0
+    },
+    {
+      "identity": "bedroom",
+      "detail": "room",
+      "draws": 46,
+      "triangles": 56630,
+      "undecoded": 0
+    },
+    {
+      "identity": "nursery",
+      "detail": "room",
+      "draws": 40,
+      "triangles": 53808,
+      "undecoded": 0
+    },
+    {
+      "identity": "crypt",
+      "detail": "room",
+      "draws": 32,
+      "triangles": 46704,
+      "undecoded": 0
+    },
+    {
+      "identity": "laboratory",
+      "detail": "room",
+      "draws": 70,
+      "triangles": 62534,
+      "undecoded": 0
+    },
+    {
+      "identity": "circulation",
+      "detail": "room",
+      "draws": 51,
+      "triangles": 58478,
+      "undecoded": 0
+    },
+    {
+      "identity": "parlor",
+      "detail": "panels",
+      "draws": 64,
+      "triangles": 103932,
+      "undecoded": 0
+    },
+    {
+      "identity": "ballroom",
+      "detail": "ceiling",
+      "draws": 35,
+      "triangles": 92412,
+      "undecoded": 0
+    },
+    {
+      "identity": "parlor",
+      "detail": "fireplace",
+      "draws": 34,
+      "triangles": 89924,
+      "undecoded": 0
+    },
+    {
+      "identity": "library",
+      "detail": "fireplace",
+      "draws": 34,
+      "triangles": 91824,
+      "undecoded": 0
+    },
+    {
+      "identity": "dining",
+      "detail": "door",
+      "draws": 38,
+      "triangles": 92486,
+      "undecoded": 0
+    }
+  ],
+  "budget": {
+    "components": {
+      "version": 1,
+      "rooms": 11,
+      "scopes": 22,
+      "totals": {
+        "primitives": 2954,
+        "triangles": 64554,
+        "geometryBytes": 6971832
+      },
+      "withinLimits": true,
+      "byComponent": {
+        "mansion-envelope": {
+          "instances": 11,
+          "primitives": 604,
+          "triangles": 7248
+        },
+        "profiled-cornices": {
+          "instances": 44,
+          "primitives": 84,
+          "triangles": 1584
+        },
+        "raised-wainscoting": {
+          "instances": 44,
+          "primitives": 80,
+          "triangles": 12652
+        },
+        "pediment-surrounds": {
+          "instances": 26,
+          "primitives": 47,
+          "triangles": 1534
+        },
+        "coffered-ceilings": {
+          "instances": 8,
+          "primitives": 14,
+          "triangles": 1408
+        },
+        "carved-medallions": {
+          "instances": 8,
+          "primitives": 15,
+          "triangles": 1456
+        },
+        "period-floor-inlays": {
+          "instances": 11,
+          "primitives": 17,
+          "triangles": 1896
+        },
+        "wall-display": {
+          "instances": 52,
+          "primitives": 388,
+          "triangles": 4656
+        },
+        "woven-rug": {
+          "instances": 5,
+          "primitives": 25,
+          "triangles": 300
+        },
+        "story-vignette": {
+          "instances": 10,
+          "primitives": 131,
+          "triangles": 3776
+        },
+        "artisan-fixtures": {
+          "instances": 21,
+          "primitives": 279,
+          "triangles": 5260
+        },
+        "wall-mirror": {
+          "instances": 8,
+          "primitives": 107,
+          "triangles": 3148
+        },
+        "floor-rosette": {
+          "instances": 10,
+          "primitives": 10,
+          "triangles": 6400
+        },
+        "ceiling-chandelier": {
+          "instances": 11,
+          "primitives": 395,
+          "triangles": 4740
+        },
+        "wall-panel": {
+          "instances": 32,
+          "primitives": 456,
+          "triangles": 5472
+        },
+        "surface-tableau": {
+          "instances": 14,
+          "primitives": 108,
+          "triangles": 1296
+        },
+        "corner-web": {
+          "instances": 20,
+          "primitives": 80,
+          "triangles": 960
+        },
+        "window-valance": {
+          "instances": 6,
+          "primitives": 6,
+          "triangles": 72
+        },
+        "leaded-window": {
+          "instances": 3,
+          "primitives": 93,
+          "triangles": 516
+        },
+        "support-objects": {
+          "instances": 3,
+          "primitives": 15,
+          "triangles": 180
+        }
+      },
+      "omissions": [
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:ballroom:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:ballroom:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:parlor:furniture:generated-4",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "2",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:parlor:furniture:generated-4",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:library:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "2",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:library:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:dining:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:dining:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:gallery:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:gallery:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:conservatory:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:conservatory:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:bedroom:furniture:generated-3",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "2",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:crypt:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:crypt:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "support-objects",
+          "key": "forge:laboratory:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:laboratory:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "story-vignette",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        }
+      ],
+      "geometryBytesEstimated": true,
+      "sharedTexturesCountedByPackageInventory": true
+    },
+    "version": 1,
+    "method": "static-export-inventory",
+    "bytes": 21086663,
+    "models": [
+      {
+        "path": "geometry/elevator_cabin.glb",
+        "bytes": 24708,
+        "triangles": 60,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_00.glb",
+        "bytes": 1599256,
+        "triangles": 19346,
+        "draws": 14,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_01.glb",
+        "bytes": 1242864,
+        "triangles": 14552,
+        "draws": 14,
+        "instances": 1
+      },
+      {
+        "path": "exterior/street_preview.glb",
+        "bytes": 3021656,
+        "triangles": 38632,
+        "draws": 19,
+        "instances": 1
+      },
+      {
+        "path": "geometry/roof.glb",
+        "bytes": 390644,
+        "triangles": 4734,
+        "draws": 6,
+        "instances": 1
+      },
+      {
+        "path": "exterior/frontage.glb",
+        "bytes": 3021656,
+        "triangles": 38632,
+        "draws": 19,
+        "instances": 1
+      },
+      {
+        "path": "geometry/decoration.glb",
+        "bytes": 8894916,
+        "triangles": 122974,
+        "draws": 23,
+        "instances": 1
+      },
+      {
+        "path": "geometry/artwork.glb",
+        "bytes": 10072,
+        "triangles": 20,
+        "draws": 10,
+        "instances": 10
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-claret-preserved-luxury-0.glb",
+        "bytes": 105888,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 259688,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 105888,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-ebony-blue-preserved-luxury-0.glb",
+        "bytes": 247136,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-painted-emerald-aged-luxury-1.glb",
+        "bytes": 105888,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-oak-blue-preserved-luxury-2.glb",
+        "bytes": 92316,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-blue-preserved-luxury-2.glb",
+        "bytes": 106116,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-painted-ivory-preserved-luxury-2.glb",
+        "bytes": 92088,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-leather-aged-luxury-0.glb",
+        "bytes": 106116,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-oak-leather-aged-luxury-0.glb",
+        "bytes": 259916,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/special_main_hall.glb",
+        "bytes": 180968,
+        "triangles": 63492,
+        "draws": 17,
+        "instances": 1670
+      },
+      {
+        "path": "geometry/special_floor13_conservatory.glb",
+        "bytes": 323192,
+        "triangles": 157812,
+        "draws": 25,
+        "instances": 2900
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/portraits/hooded_wraith_bw.webp",
+        "bytes": 28676
+      },
+      {
+        "path": "assets/portraits/gothic_family_wolf_bw.webp",
+        "bytes": 26578
+      },
+      {
+        "path": "assets/portraits/vampire_countess_pair_bw.webp",
+        "bytes": 35484
+      },
+      {
+        "path": "assets/portraits/vampire_lord_chair_bw.webp",
+        "bytes": 36466
+      },
+      {
+        "path": "assets/portraits/occult_noble_pair_bw.webp",
+        "bytes": 46870
+      },
+      {
+        "path": "assets/portraits/victorian_ancestor_portrait_bw.webp",
+        "bytes": 28298
+      },
+      {
+        "path": "assets/portraits/electrified_madman_bw.webp",
+        "bytes": 64656
+      },
+      {
+        "path": "assets/portraits/carnivorous_plant_collection_bw.webp",
+        "bytes": 26972
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_botanical_bw.webp",
+        "bytes": 14796
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_study_bw.webp",
+        "bytes": 9532
+      }
+    ],
+    "budget": {
+      "maxPackageBytes": 33554432,
+      "maxModelTriangles": 450000,
+      "maxModelDraws": 160
+    },
+    "issues": [],
+    "withinPlanningBudget": true,
+    "fpsMeasured": false,
+    "limitations": [
+      "Model primitive counts are estimates; materials, shadows, repeated template placements and visibility affect real runtime cost",
+      "Per-device GPU performance must be measured in the game"
+    ]
+  },
+  "errors": [],
+  "specimens": [
+    {
+      "type": "tufted_settee",
+      "angle": 0,
+      "draws": 4,
+      "triangles": 2466,
+      "view": "front"
+    },
+    {
+      "type": "tufted_settee",
+      "angle": 0.78,
+      "draws": 4,
+      "triangles": 2466,
+      "view": "angle"
+    },
+    {
+      "type": "tufted_settee",
+      "angle": 2.55,
+      "draws": 4,
+      "triangles": 2466,
+      "view": "rear"
+    },
+    {
+      "type": "gothic_armchair",
+      "angle": 0,
+      "draws": 4,
+      "triangles": 2342,
+      "view": "front"
+    },
+    {
+      "type": "gothic_armchair",
+      "angle": 0.78,
+      "draws": 4,
+      "triangles": 2342,
+      "view": "angle"
+    },
+    {
+      "type": "gothic_armchair",
+      "angle": 2.55,
+      "draws": 4,
+      "triangles": 2342,
+      "view": "rear"
+    },
+    {
+      "type": "writing_desk",
+      "angle": 0,
+      "draws": 4,
+      "triangles": 1104,
+      "view": "front"
+    },
+    {
+      "type": "writing_desk",
+      "angle": 0.78,
+      "draws": 4,
+      "triangles": 1104,
+      "view": "angle"
+    },
+    {
+      "type": "writing_desk",
+      "angle": 2.55,
+      "draws": 4,
+      "triangles": 1104,
+      "view": "rear"
+    },
+    {
+      "type": "bookcase",
+      "angle": 0,
+      "draws": 6,
+      "triangles": 1850,
+      "view": "front"
+    },
+    {
+      "type": "bookcase",
+      "angle": 0.78,
+      "draws": 6,
+      "triangles": 1850,
+      "view": "angle"
+    },
+    {
+      "type": "bookcase",
+      "angle": 2.55,
+      "draws": 6,
+      "triangles": 1850,
+      "view": "rear"
+    },
+    {
+      "type": "wardrobe",
+      "angle": 0,
+      "draws": 3,
+      "triangles": 918,
+      "view": "front"
+    },
+    {
+      "type": "wardrobe",
+      "angle": 0.78,
+      "draws": 3,
+      "triangles": 918,
+      "view": "angle"
+    },
+    {
+      "type": "wardrobe",
+      "angle": 2.55,
+      "draws": 3,
+      "triangles": 918,
+      "view": "rear"
+    },
+    {
+      "type": "bed",
+      "angle": 0,
+      "draws": 5,
+      "triangles": 2608,
+      "view": "front"
+    },
+    {
+      "type": "bed",
+      "angle": 0.78,
+      "draws": 5,
+      "triangles": 2608,
+      "view": "angle"
+    },
+    {
+      "type": "bed",
+      "angle": 2.55,
+      "draws": 5,
+      "triangles": 2608,
+      "view": "rear"
+    },
+    {
+      "type": "curio_cabinet",
+      "angle": 0,
+      "draws": 7,
+      "triangles": 1862,
+      "view": "front"
+    },
+    {
+      "type": "curio_cabinet",
+      "angle": 0.78,
+      "draws": 7,
+      "triangles": 1862,
+      "view": "angle"
+    },
+    {
+      "type": "curio_cabinet",
+      "angle": 2.55,
+      "draws": 7,
+      "triangles": 1862,
+      "view": "rear"
+    },
+    {
+      "type": "grandfather_clock",
+      "angle": 0,
+      "draws": 6,
+      "triangles": 1066,
+      "view": "front"
+    },
+    {
+      "type": "grandfather_clock",
+      "angle": 0.78,
+      "draws": 6,
+      "triangles": 1066,
+      "view": "angle"
+    },
+    {
+      "type": "grandfather_clock",
+      "angle": 2.55,
+      "draws": 6,
+      "triangles": 1066,
+      "view": "rear"
+    },
+    {
+      "type": "banquet_ensemble",
+      "angle": 0,
+      "draws": 6,
+      "triangles": 5130,
+      "view": "front"
+    },
+    {
+      "type": "banquet_ensemble",
+      "angle": 0.78,
+      "draws": 6,
+      "triangles": 5130,
+      "view": "angle"
+    },
+    {
+      "type": "banquet_ensemble",
+      "angle": 2.55,
+      "draws": 6,
+      "triangles": 5130,
+      "view": "rear"
+    },
+    {
+      "type": "side_table",
+      "angle": 0,
+      "draws": 3,
+      "triangles": 982,
+      "view": "front"
+    },
+    {
+      "type": "side_table",
+      "angle": 0.78,
+      "draws": 3,
+      "triangles": 982,
+      "view": "angle"
+    },
+    {
+      "type": "side_table",
+      "angle": 2.55,
+      "draws": 3,
+      "triangles": 982,
+      "view": "rear"
+    }
+  ],
+  "heirloom": {
+    "version": 1,
+    "limits": {
+      "triangles": 6000,
+      "materials": 8,
+      "cacheEntries": 32
+    },
+    "assets": [
+      {
+        "key": "tufted_settee:ebony-claret-preserved-luxury-2:marble",
+        "type": "tufted_settee",
+        "style": {
+          "wood": "ebony",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 2688,
+        "materialGroups": 5
+      },
+      {
+        "key": "grandfather_clock:ebony-claret-preserved-luxury-2:marble",
+        "type": "grandfather_clock",
+        "style": {
+          "wood": "ebony",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 1292,
+        "materialGroups": 4
+      },
+      {
+        "key": "console:ebony-claret-preserved-luxury-2:marble",
+        "type": "console",
+        "style": {
+          "wood": "ebony",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 1108,
+        "materialGroups": 2
+      },
+      {
+        "key": "marble_fireplace:ebony-claret-preserved-luxury-2:marble",
+        "type": "marble_fireplace",
+        "style": {
+          "wood": "ebony",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 690,
+        "materialGroups": 5
+      },
+      {
+        "key": "marble_fireplace:mahogany-claret-preserved-luxury-0:marble",
+        "type": "marble_fireplace",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 690,
+        "materialGroups": 5
+      },
+      {
+        "key": "tufted_settee:mahogany-claret-preserved-luxury-0:marble",
+        "type": "tufted_settee",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 2688,
+        "materialGroups": 5
+      },
+      {
+        "key": "marble_fireplace:mahogany-claret-preserved-luxury-0:mahogany",
+        "type": "marble_fireplace",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 690,
+        "materialGroups": 5
+      },
+      {
+        "key": "gothic_armchair:mahogany-claret-preserved-luxury-0:marble",
+        "type": "gothic_armchair",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 2564,
+        "materialGroups": 3
+      },
+      {
+        "key": "writing_desk:mahogany-claret-preserved-luxury-0:marble",
+        "type": "writing_desk",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": "geometry/furniture/writing_desk-mahogany-claret-preserved-luxury-0.glb",
+        "builtIn": false,
+        "instances": 1,
+        "triangles": 1262,
+        "materialGroups": 3
+      },
+      {
+        "key": "marble_fireplace:mahogany-leather-aged-luxury-1:mahogany",
+        "type": "marble_fireplace",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 690,
+        "materialGroups": 5
+      },
+      {
+        "key": "bookcase:mahogany-leather-aged-luxury-1:marble",
+        "type": "bookcase",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": "geometry/furniture/bookcase-mahogany-leather-aged-luxury-1.glb",
+        "builtIn": false,
+        "instances": 2,
+        "triangles": 1912,
+        "materialGroups": 5
+      },
+      {
+        "key": "writing_desk:mahogany-leather-aged-luxury-1:marble",
+        "type": "writing_desk",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": "geometry/furniture/writing_desk-mahogany-leather-aged-luxury-1.glb",
+        "builtIn": false,
+        "instances": 2,
+        "triangles": 1262,
+        "materialGroups": 3
+      },
+      {
+        "key": "grandfather_clock:mahogany-leather-aged-luxury-1:marble",
+        "type": "grandfather_clock",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 1292,
+        "materialGroups": 4
+      },
+      {
+        "key": "gothic_armchair:mahogany-leather-aged-luxury-1:marble",
+        "type": "gothic_armchair",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 2564,
+        "materialGroups": 3
+      },
+      {
+        "key": "curio_cabinet:mahogany-leather-aged-luxury-1:marble",
+        "type": "curio_cabinet",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 2104,
+        "materialGroups": 5
+      },
+      {
+        "key": "banquet_ensemble:mahogany-emerald-preserved-luxury-1:marble",
+        "type": "banquet_ensemble",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "emerald",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 5664,
+        "materialGroups": 5
+      },
+      {
+        "key": "curio_cabinet:mahogany-emerald-preserved-luxury-1:marble",
+        "type": "curio_cabinet",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "emerald",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 3,
+        "triangles": 2104,
+        "materialGroups": 5
+      },
+      {
+        "key": "console:mahogany-emerald-preserved-luxury-1:marble",
+        "type": "console",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "emerald",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 1108,
+        "materialGroups": 2
+      },
+      {
+        "key": "grandfather_clock:mahogany-emerald-preserved-luxury-1:marble",
+        "type": "grandfather_clock",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "emerald",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 1292,
+        "materialGroups": 4
+      },
+      {
+        "key": "tufted_settee:ebony-blue-preserved-luxury-0:marble",
+        "type": "tufted_settee",
+        "style": {
+          "wood": "ebony",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 2688,
+        "materialGroups": 5
+      },
+      {
+        "key": "console:ebony-blue-preserved-luxury-0:marble",
+        "type": "console",
+        "style": {
+          "wood": "ebony",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 1108,
+        "materialGroups": 2
+      },
+      {
+        "key": "bookcase:ebony-blue-preserved-luxury-0:marble",
+        "type": "bookcase",
+        "style": {
+          "wood": "ebony",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": "geometry/furniture/bookcase-ebony-blue-preserved-luxury-0.glb",
+        "builtIn": false,
+        "instances": 1,
+        "triangles": 1912,
+        "materialGroups": 5
+      },
+      {
+        "key": "writing_desk:painted-emerald-aged-luxury-1:marble",
+        "type": "writing_desk",
+        "style": {
+          "wood": "painted",
+          "upholstery": "emerald",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": "geometry/furniture/writing_desk-painted-emerald-aged-luxury-1.glb",
+        "builtIn": false,
+        "instances": 2,
+        "triangles": 1262,
+        "materialGroups": 3
+      },
+      {
+        "key": "gothic_armchair:painted-emerald-aged-luxury-1:marble",
+        "type": "gothic_armchair",
+        "style": {
+          "wood": "painted",
+          "upholstery": "emerald",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 2564,
+        "materialGroups": 3
+      },
+      {
+        "key": "bed:oak-blue-preserved-luxury-2:marble",
+        "type": "bed",
+        "style": {
+          "wood": "oak",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 2894,
+        "materialGroups": 4
+      },
+      {
+        "key": "wardrobe:oak-blue-preserved-luxury-2:marble",
+        "type": "wardrobe",
+        "style": {
+          "wood": "oak",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": "geometry/furniture/wardrobe-oak-blue-preserved-luxury-2.glb",
+        "builtIn": false,
+        "instances": 1,
+        "triangles": 1012,
+        "materialGroups": 2
+      },
+      {
+        "key": "marble_fireplace:oak-blue-preserved-luxury-2:marble",
+        "type": "marble_fireplace",
+        "style": {
+          "wood": "oak",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 690,
+        "materialGroups": 5
+      },
+      {
+        "key": "writing_desk:oak-blue-preserved-luxury-2:marble",
+        "type": "writing_desk",
+        "style": {
+          "wood": "oak",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": "geometry/furniture/writing_desk-oak-blue-preserved-luxury-2.glb",
+        "builtIn": false,
+        "instances": 1,
+        "triangles": 1262,
+        "materialGroups": 3
+      },
+      {
+        "key": "gothic_armchair:oak-blue-preserved-luxury-2:marble",
+        "type": "gothic_armchair",
+        "style": {
+          "wood": "oak",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 2564,
+        "materialGroups": 3
+      },
+      {
+        "key": "console:oak-blue-preserved-luxury-2:marble",
+        "type": "console",
+        "style": {
+          "wood": "oak",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 1108,
+        "materialGroups": 2
+      },
+      {
+        "key": "bed:painted-ivory-preserved-luxury-2:marble",
+        "type": "bed",
+        "style": {
+          "wood": "painted",
+          "upholstery": "ivory",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 1,
+        "triangles": 2894,
+        "materialGroups": 3
+      },
+      {
+        "key": "wardrobe:painted-ivory-preserved-luxury-2:marble",
+        "type": "wardrobe",
+        "style": {
+          "wood": "painted",
+          "upholstery": "ivory",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": "geometry/furniture/wardrobe-painted-ivory-preserved-luxury-2.glb",
+        "builtIn": false,
+        "instances": 1,
+        "triangles": 1012,
+        "materialGroups": 2
+      },
+      {
+        "key": "gothic_armchair:painted-ivory-preserved-luxury-2:marble",
+        "type": "gothic_armchair",
+        "style": {
+          "wood": "painted",
+          "upholstery": "ivory",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 2564,
+        "materialGroups": 3
+      },
+      {
+        "key": "console:aged-ivory-aged-luxury-0:marble",
+        "type": "console",
+        "style": {
+          "wood": "aged",
+          "upholstery": "ivory",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 3,
+        "triangles": 1108,
+        "materialGroups": 2
+      },
+      {
+        "key": "curio_cabinet:oak-leather-aged-luxury-0:marble",
+        "type": "curio_cabinet",
+        "style": {
+          "wood": "oak",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": null,
+        "builtIn": true,
+        "instances": 2,
+        "triangles": 2104,
+        "materialGroups": 5
+      },
+      {
+        "key": "writing_desk:oak-leather-aged-luxury-0:marble",
+        "type": "writing_desk",
+        "style": {
+          "wood": "oak",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": "geometry/furniture/writing_desk-oak-leather-aged-luxury-0.glb",
+        "builtIn": false,
+        "instances": 2,
+        "triangles": 1262,
+        "materialGroups": 3
+      },
+      {
+        "key": "bookcase:oak-leather-aged-luxury-0:marble",
+        "type": "bookcase",
+        "style": {
+          "wood": "oak",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "model": "geometry/furniture/bookcase-oak-leather-aged-luxury-0.glb",
+        "builtIn": false,
+        "instances": 2,
+        "triangles": 1912,
+        "materialGroups": 5
+      }
+    ],
+    "templateReuse": true,
+    "existingPlacementAndCollision": true,
+    "omissions": [],
+    "sharedModels": [
+      {
+        "model": "geometry/furniture/writing_desk-mahogany-claret-preserved-luxury-0.glb",
+        "type": "writing_desk",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "claret",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "bytes": 105888,
+        "triangles": 1262,
+        "draws": 3
+      },
+      {
+        "model": "geometry/furniture/bookcase-mahogany-leather-aged-luxury-1.glb",
+        "type": "bookcase",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "bytes": 259688,
+        "triangles": 1912,
+        "draws": 5
+      },
+      {
+        "model": "geometry/furniture/writing_desk-mahogany-leather-aged-luxury-1.glb",
+        "type": "writing_desk",
+        "style": {
+          "wood": "mahogany",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "bytes": 105888,
+        "triangles": 1262,
+        "draws": 3
+      },
+      {
+        "model": "geometry/furniture/bookcase-ebony-blue-preserved-luxury-0.glb",
+        "type": "bookcase",
+        "style": {
+          "wood": "ebony",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "bytes": 247136,
+        "triangles": 1912,
+        "draws": 5
+      },
+      {
+        "model": "geometry/furniture/writing_desk-painted-emerald-aged-luxury-1.glb",
+        "type": "writing_desk",
+        "style": {
+          "wood": "painted",
+          "upholstery": "emerald",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 1
+        },
+        "bytes": 105888,
+        "triangles": 1262,
+        "draws": 3
+      },
+      {
+        "model": "geometry/furniture/wardrobe-oak-blue-preserved-luxury-2.glb",
+        "type": "wardrobe",
+        "style": {
+          "wood": "oak",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "bytes": 92316,
+        "triangles": 1012,
+        "draws": 2
+      },
+      {
+        "model": "geometry/furniture/writing_desk-oak-blue-preserved-luxury-2.glb",
+        "type": "writing_desk",
+        "style": {
+          "wood": "oak",
+          "upholstery": "blue",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "bytes": 106116,
+        "triangles": 1262,
+        "draws": 3
+      },
+      {
+        "model": "geometry/furniture/wardrobe-painted-ivory-preserved-luxury-2.glb",
+        "type": "wardrobe",
+        "style": {
+          "wood": "painted",
+          "upholstery": "ivory",
+          "condition": "preserved",
+          "ornament": "luxury",
+          "pattern": 2
+        },
+        "bytes": 92088,
+        "triangles": 1012,
+        "draws": 2
+      },
+      {
+        "model": "geometry/furniture/writing_desk-oak-leather-aged-luxury-0.glb",
+        "type": "writing_desk",
+        "style": {
+          "wood": "oak",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "bytes": 106116,
+        "triangles": 1262,
+        "draws": 3
+      },
+      {
+        "model": "geometry/furniture/bookcase-oak-leather-aged-luxury-0.glb",
+        "type": "bookcase",
+        "style": {
+          "wood": "oak",
+          "upholstery": "leather",
+          "condition": "aged",
+          "ornament": "luxury",
+          "pattern": 0
+        },
+        "bytes": 259916,
+        "triangles": 1912,
+        "draws": 5
+      }
+    ]
+  }
+}

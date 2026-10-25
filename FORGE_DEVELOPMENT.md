@@ -268,3 +268,35 @@ The active round controls early, busy and late phases. Some porch lights turn of
 Twelve extra attractions are implemented: ghost-faced bubbles, animated candy chutes, playable pumpkin bowling, a transforming costume mirror, yard pumpkin cannons, a ghost bicycle courier, gradual marshmallow roasting, interactive porch radios, crossing black cats, reactive glowing hopscotch, collectible bat stamps, and wind chimes. Interactions use the same E/button/number-key actions as existing village activities. Bowl rewards are bounded to one per bowl per round; stamps are tracked in the HUD and end-of-round summary. Props, families and household assignments derive from current lots, so newly published houses participate without editing a house whitelist. Story mode remains independent.
 
 Validation: 251 core tests, navigation, scenes and actual app-flow checks pass, including physical stamp collection through the real interaction path, bowl scoring, large treats, late-night availability, progressive roasting, reduced motion, material/geometry cleanup and spatial sound lifecycle. Browser rendering and audible quality still require a WebGL-capable browser; local Chromium is unavailable and the cloud browser cannot create a WebGL context.
+
+## Shared component foundation — Pass 1
+
+The development branch `dev/forge-shared-components-pass1` introduces a shared component registry, six inherited room families, deterministic detail selection and atomic geometry-budget enforcement over the existing generators. It preserves all eleven room identities, the CASA/Game loading contract, authored geometry and existing placement/clearance systems. New component diagnostics are optional fields in existing JSON entries; no student archive migration or publication is performed.
+
+See [the foundation report](docs/FORGE_SHARED_COMPONENTS_PASS1.md) for the registry/adapters, configuration examples, budget accounting, duplicate-prevention policy, compatibility details and full test evidence. Run `npm run test:forge-components` for the focused suite. The full test command prepares example-house fixtures; run it in a disposable copy when existing archives must remain untouched.
+
+## Shared architectural luxury — Pass 2
+
+See [the Pass 2 implementation and regression assessment](docs/FORGE_ARCHITECTURAL_LUXURY_PASS2.md) and [rendered before/after study](docs/evidence/forge-luxury/index.html). This work continues on `dev/forge-shared-components-pass1`; it changes export-time shared architecture without deploying or replacing existing CASA archives.
+
+## Heirloom furniture — Pass 3
+
+See [the Pass 3 component inventory, cost assessment and regression evidence](docs/FORGE_HEIRLOOM_FURNITURE_PASS3.md) and [room/furniture comparisons](docs/evidence/forge-heirloom/index.html). Shared styled furniture templates preserve existing placements and collision specifications; no student archives are replaced or published.
+
+## Cinematic Victorian lighting — Pass 4
+
+See [the shared lighting policy, fixture inventory, compatibility assessment and measured costs](docs/FORGE_CINEMATIC_LIGHTING_PASS4.md) and [the two-quality before/after study](docs/evidence/forge-lighting/index.html). The existing practical rig now uses a soft primary spotlight with bounded point accents; no student archives are rewritten or published.
+
+## Environmental storytelling — Pass 5
+
+See [the shared object inventory, surface rules, compatibility and regression assessment](docs/FORGE_ENVIRONMENTAL_STORYTELLING_PASS5.md) and [the matched room/story comparisons](docs/evidence/forge-storytelling/index.html). Curated deterministic arrangements replace overlapping tabletop clutter, preserving existing optional memories and quest bindings. No student archives are replaced or published.
+
+## Gothic atmosphere and material detail — Pass 6
+
+See [the shared textile/glass/botanical inventory, authored policies, quality budgets and regression assessment](docs/FORGE_GOTHIC_ATMOSPHERE_PASS6.md) and [the condition and quality comparison viewer](docs/evidence/forge-atmosphere/index.html). Per-room treatments replace overlapping runtime dressing in new exports; no student archives are rewritten or published.
+
+## Final integration review
+
+See [the integration assessment](docs/FORGE_INTEGRATION_REVIEW.md) and [matched pre-six-pass visual/performance evidence](docs/evidence/forge-integration/index.html). Automated regressions pass; ceiling-art acceptance and representative device performance remain open. Recommendation: **NOT READY TO MERGE**. No deployment or student archive replacement was performed.
+
+See the [visual follow-up](docs/FORGE_VISUAL_FOLLOWUP.md) for deeper ceiling relief, bounded chandelier fill and folded botanical foliage, and the [Chrome/Mac acceptance procedure](docs/FORGE_MAC_ACCEPTANCE.md) for the remaining device certification.

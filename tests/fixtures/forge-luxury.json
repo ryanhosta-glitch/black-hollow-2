@@ -1,0 +1,323 @@
+{
+  "name": "The Victorian Architectural Study",
+  "gameEntry": {
+    "roomId": "ballroom",
+    "openingId": "entry"
+  },
+  "floors": [
+    {
+      "name": "Main floor",
+      "kind": "main",
+      "rooms": [
+        {
+          "id": "ballroom",
+          "name": "Ballroom",
+          "roomTheme": "ballroom",
+          "type": "room",
+          "x": 0,
+          "y": 0,
+          "l": 28,
+          "w": 26,
+          "h": 12,
+          "openings": [
+            {
+              "id": "entry",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "ballroom-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        },
+        {
+          "id": "parlor",
+          "name": "Parlor",
+          "roomTheme": "parlor",
+          "type": "room",
+          "x": 28,
+          "y": 0,
+          "l": 28,
+          "w": 26,
+          "h": 12,
+          "openings": [
+            {
+              "id": "parlor-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "parlor-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": [
+            {
+              "id": "parlor-hearth",
+              "type": "marble_fireplace",
+              "finishTreatment": "marble",
+              "x": 0.18,
+              "y": 0.12
+            }
+          ]
+        },
+        {
+          "id": "library",
+          "name": "Library",
+          "roomTheme": "library",
+          "type": "room",
+          "x": 56,
+          "y": 0,
+          "l": 28,
+          "w": 26,
+          "h": 12,
+          "openings": [
+            {
+              "id": "library-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "library-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": [
+            {
+              "id": "library-hearth",
+              "type": "marble_fireplace",
+              "finishTreatment": "mahogany",
+              "x": 0.18,
+              "y": 0.12
+            }
+          ]
+        },
+        {
+          "id": "dining",
+          "name": "Dining",
+          "roomTheme": "dining",
+          "type": "room",
+          "x": 0,
+          "y": 26,
+          "l": 28,
+          "w": 26,
+          "h": 12,
+          "openings": [
+            {
+              "id": "dining-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "dining-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        },
+        {
+          "id": "gallery",
+          "name": "Gallery",
+          "roomTheme": "gallery",
+          "type": "room",
+          "x": 28,
+          "y": 26,
+          "l": 28,
+          "w": 26,
+          "h": 12,
+          "openings": [
+            {
+              "id": "gallery-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "gallery-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        },
+        {
+          "id": "conservatory",
+          "name": "Conservatory",
+          "roomTheme": "conservatory",
+          "type": "room",
+          "x": 56,
+          "y": 26,
+          "l": 28,
+          "w": 26,
+          "h": 12,
+          "openings": [
+            {
+              "id": "conservatory-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "conservatory-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        }
+      ]
+    },
+    {
+      "name": "Private floor",
+      "kind": "upper",
+      "rooms": [
+        {
+          "id": "bedroom",
+          "name": "Bedroom",
+          "roomTheme": "bedroom",
+          "type": "room",
+          "x": 0,
+          "y": 0,
+          "l": 28,
+          "w": 26,
+          "h": 11,
+          "openings": [
+            {
+              "id": "bedroom-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "bedroom-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        },
+        {
+          "id": "nursery",
+          "name": "Nursery",
+          "roomTheme": "nursery",
+          "type": "room",
+          "x": 28,
+          "y": 0,
+          "l": 28,
+          "w": 26,
+          "h": 11,
+          "openings": [
+            {
+              "id": "nursery-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "nursery-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        },
+        {
+          "id": "crypt",
+          "name": "Crypt",
+          "roomTheme": "crypt",
+          "type": "room",
+          "x": 56,
+          "y": 0,
+          "l": 28,
+          "w": 26,
+          "h": 11,
+          "openings": [
+            {
+              "id": "crypt-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "crypt-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        },
+        {
+          "id": "laboratory",
+          "name": "Laboratory",
+          "roomTheme": "laboratory",
+          "type": "room",
+          "x": 0,
+          "y": 26,
+          "l": 28,
+          "w": 26,
+          "h": 11,
+          "openings": [
+            {
+              "id": "laboratory-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "laboratory-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        },
+        {
+          "id": "circulation",
+          "name": "Circulation",
+          "roomTheme": "circulation",
+          "type": "room",
+          "x": 28,
+          "y": 26,
+          "l": 28,
+          "w": 26,
+          "h": 11,
+          "openings": [
+            {
+              "id": "circulation-door",
+              "type": "door",
+              "wall": "top",
+              "pos": 0.5
+            },
+            {
+              "id": "circulation-window",
+              "type": "window",
+              "wall": "bottom",
+              "pos": 0.5
+            }
+          ],
+          "furniture": []
+        }
+      ]
+    }
+  ]
+}

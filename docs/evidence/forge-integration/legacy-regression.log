@@ -1,0 +1,15 @@
+
+> test:legacy
+> node --test tests/performance.test.cjs
+
+✔ render pixel budget scales with viewport size and respects device pixel ratio (1.951285ms)
+✔ paused scene renders once, then stays idle; invalidation redraws once (2.399428ms)
+✔ Performance material settings disable costly effects and restore Cinematic values (2.388011ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.642462

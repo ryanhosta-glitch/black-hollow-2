@@ -1,0 +1,18 @@
+{
+  "after-profile": {
+    "CURATED_PANEL_DENSITY": 14,
+    "AUTHORED_OR_DISABLED_GLASS": 2
+  },
+  "after-preserved": {
+    "CURATED_PANEL_DENSITY": 14,
+    "AUTHORED_OR_DISABLED_GLASS": 2
+  },
+  "after-abandoned": {
+    "CURATED_PANEL_DENSITY": 14,
+    "AUTHORED_OR_DISABLED_GLASS": 2
+  },
+  "after-decaying": {
+    "CURATED_PANEL_DENSITY": 14,
+    "AUTHORED_OR_DISABLED_GLASS": 2
+  }
+}

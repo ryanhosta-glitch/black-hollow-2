@@ -1,0 +1,130 @@
+{
+  "beforeBytes": 5379740,
+  "afterBytes": 5507821,
+  "rows": [
+    {
+      "identity": "ballroom",
+      "title": "The Last Record",
+      "arrangements": 2,
+      "objects": 5,
+      "density": 0.07392795615872062,
+      "beforeDraws": 31,
+      "afterDraws": 32,
+      "beforeTriangles": 84324,
+      "afterTriangles": 85294
+    },
+    {
+      "identity": "parlor",
+      "title": "The Calling Card",
+      "arrangements": 1,
+      "objects": 3,
+      "density": 0.044356773695232374,
+      "beforeDraws": 58,
+      "afterDraws": 59,
+      "beforeTriangles": 101158,
+      "afterTriangles": 101659
+    },
+    {
+      "identity": "library",
+      "title": "The Brass Atlas",
+      "arrangements": 2,
+      "objects": 5,
+      "density": 0.07392795615872062,
+      "beforeDraws": 37,
+      "afterDraws": 36,
+      "beforeTriangles": 84952,
+      "afterTriangles": 85441
+    },
+    {
+      "identity": "dining",
+      "title": "The Supper Kept Warm",
+      "arrangements": 2,
+      "objects": 5,
+      "density": 0.07392795615872062,
+      "beforeDraws": 76,
+      "afterDraws": 76,
+      "beforeTriangles": 108140,
+      "afterTriangles": 108629
+    },
+    {
+      "identity": "gallery",
+      "title": "The Absent Sitter",
+      "arrangements": 2,
+      "objects": 5,
+      "density": 0.07392795615872062,
+      "beforeDraws": 62,
+      "afterDraws": 63,
+      "beforeTriangles": 102992,
+      "afterTriangles": 103493
+    },
+    {
+      "identity": "conservatory",
+      "title": "The Glass Garden",
+      "arrangements": 2,
+      "objects": 5,
+      "density": 0.07392795615872062,
+      "beforeDraws": 59,
+      "afterDraws": 59,
+      "beforeTriangles": 102250,
+      "afterTriangles": 102739
+    },
+    {
+      "identity": "bedroom",
+      "title": "The Unsent Letter",
+      "arrangements": 2,
+      "objects": 4,
+      "density": 0.0591423649269765,
+      "beforeDraws": 33,
+      "afterDraws": 34,
+      "beforeTriangles": 46332,
+      "afterTriangles": 48270
+    },
+    {
+      "identity": "nursery",
+      "title": "The Little Theatre",
+      "arrangements": 1,
+      "objects": 2,
+      "density": 0.02957118246348825,
+      "beforeDraws": 34,
+      "afterDraws": 34,
+      "beforeTriangles": 50584,
+      "afterTriangles": 51138
+    },
+    {
+      "identity": "crypt",
+      "title": "The Patient Memorial",
+      "arrangements": 2,
+      "objects": 5,
+      "density": 0.07392795615872062,
+      "beforeDraws": 31,
+      "afterDraws": 30,
+      "beforeTriangles": 46966,
+      "afterTriangles": 42652
+    },
+    {
+      "identity": "laboratory",
+      "title": "The Green Experiment",
+      "arrangements": 2,
+      "objects": 5,
+      "density": 0.07392795615872062,
+      "beforeDraws": 43,
+      "afterDraws": 42,
+      "beforeTriangles": 48660,
+      "afterTriangles": 50070
+    },
+    {
+      "identity": "circulation",
+      "title": "Marks along the passage",
+      "arrangements": 1,
+      "objects": 1,
+      "density": 0.014785591231744125,
+      "beforeDraws": 37,
+      "afterDraws": 37,
+      "beforeTriangles": 52374,
+      "afterTriangles": 52928
+    }
+  ],
+  "imageCount": 44,
+  "capture": "Chromium SwiftShader WebGL; cinematic; 1200x800; same camera/lighting; 1.62m eye height; quality-88 WebP encoding only",
+  "newRequiredObjectives": 0
+}

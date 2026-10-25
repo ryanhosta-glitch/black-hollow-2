@@ -1,0 +1,1269 @@
+{
+  "limits": {
+    "maxTriangles": 1600,
+    "maxMaterials": 9,
+    "cacheEntries": 32
+  },
+  "components": [
+    {
+      "id": "open-atlas",
+      "family": "writing",
+      "label": "A half-open atlas",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 100,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.15,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.15,
+              0.033,
+              0.11
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 28,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.15,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.15,
+              0.033,
+              0.11
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "letter-quill",
+      "family": "writing",
+      "label": "An unfinished letter and quill",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 109,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.0975,
+              0,
+              -0.07250000000000001
+            ],
+            "max": [
+              0.0975,
+              0.048,
+              0.07250000000000001
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 73,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.0975,
+              0,
+              -0.07250000000000001
+            ],
+            "max": [
+              0.0975,
+              0.048,
+              0.07250000000000001
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "brass-globe",
+      "family": "scholarly",
+      "label": "A brass celestial globe",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 636,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.125,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.125,
+              0.37,
+              0.11
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 396,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.125,
+              0,
+              -0.1046162167924669
+            ],
+            "max": [
+              0.125,
+              0.37,
+              0.1046162167924669
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "specimen-bottles",
+      "family": "scientific",
+      "label": "Stoppered, labeled specimens",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 408,
+          "materialGroups": 6,
+          "bounds": {
+            "min": [
+              -0.10700000000000001,
+              0,
+              -0.04922218684219823
+            ],
+            "max": [
+              0.10700000000000001,
+              0.2705,
+              0.04922218684219823
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 264,
+          "materialGroups": 5,
+          "bounds": {
+            "min": [
+              -0.10700000000000001,
+              0,
+              -0.046936533479473214
+            ],
+            "max": [
+              0.10700000000000001,
+              0.2705,
+              0.046936533479473214
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "microscope",
+      "family": "scientific",
+      "label": "A brass observation instrument",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 104,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.085,
+              0,
+              -0.07
+            ],
+            "max": [
+              0.085,
+              0.3,
+              0.07
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 104,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.085,
+              0,
+              -0.07
+            ],
+            "max": [
+              0.085,
+              0.3,
+              0.07
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "observation-book",
+      "family": "writing",
+      "label": "Handwritten observations",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 100,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.15,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.15,
+              0.033,
+              0.11
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 28,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.15,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.15,
+              0.033,
+              0.11
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tea-service",
+      "family": "porcelain",
+      "label": "An interrupted silver tea service",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 972,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.15250000000000002,
+              0,
+              -0.115
+            ],
+            "max": [
+              0.15250000000000002,
+              0.134,
+              0.115
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 660,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.15250000000000002,
+              0,
+              -0.115
+            ],
+            "max": [
+              0.15250000000000002,
+              0.134,
+              0.115
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "place-card",
+      "family": "porcelain",
+      "label": "An untouched final place card",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 62,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.095,
+              0,
+              -0.065
+            ],
+            "max": [
+              0.095,
+              0.065,
+              0.065
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 14,
+          "materialGroups": 1,
+          "bounds": {
+            "min": [
+              -0.095,
+              0,
+              -0.065
+            ],
+            "max": [
+              0.095,
+              0.065,
+              0.065
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "serving-dish",
+      "family": "porcelain",
+      "label": "A covered silver dish",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 248,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.1,
+              0,
+              -0.09510565162951537
+            ],
+            "max": [
+              0.1,
+              0.137,
+              0.09510565162951537
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 152,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.1,
+              0,
+              -0.08660254037844387
+            ],
+            "max": [
+              0.1,
+              0.13592324335849337,
+              0.08660254037844387
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "miniature-portrait",
+      "family": "pictures",
+      "label": "An oval painted miniature",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 240,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.09899999999999999,
+              0,
+              -0.0655
+            ],
+            "max": [
+              0.09899999999999999,
+              0.329,
+              0.0655
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 192,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.09899999999999999,
+              0,
+              -0.0655
+            ],
+            "max": [
+              0.09899999999999999,
+              0.3226862906020748,
+              0.0655
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "empty-frame",
+      "family": "pictures",
+      "label": "A frame without its painting",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 188,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.09899999999999999,
+              0,
+              -0.06
+            ],
+            "max": [
+              0.09899999999999999,
+              0.329,
+              0.06
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 140,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.09899999999999999,
+              0,
+              -0.06
+            ],
+            "max": [
+              0.09899999999999999,
+              0.3226862906020748,
+              0.06
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "miniature-chair",
+      "family": "pictures",
+      "label": "A carefully polished brass chair",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 212,
+          "materialGroups": 1,
+          "bounds": {
+            "min": [
+              -0.045,
+              0,
+              -0.04
+            ],
+            "max": [
+              0.045,
+              0.19,
+              0.04
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 164,
+          "materialGroups": 1,
+          "bounds": {
+            "min": [
+              -0.045,
+              0,
+              -0.04
+            ],
+            "max": [
+              0.045,
+              0.19,
+              0.04
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "pocket-watch",
+      "family": "heirlooms",
+      "label": "A stopped pocket watch",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 272,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.066,
+              0,
+              -0.044699656265872224
+            ],
+            "max": [
+              0.066,
+              0.02,
+              0.044699656265872224
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 176,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.066,
+              0,
+              -0.04070319397786862
+            ],
+            "max": [
+              0.066,
+              0.02,
+              0.04070319397786862
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "memorial-urn",
+      "family": "memorial",
+      "label": "An urn with a fresh green sprig",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 154,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.065,
+              0,
+              -0.06181867355918499
+            ],
+            "max": [
+              0.065,
+              0.34044164380182335,
+              0.06181867355918499
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 98,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.065,
+              0,
+              -0.05629165124598852
+            ],
+            "max": [
+              0.065,
+              0.34044164380182335,
+              0.05629165124598852
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "offering",
+      "family": "memorial",
+      "label": "Flowers and unlit mourning candles",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 224,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.09775000000000002,
+              0,
+              -0.06792799422170792
+            ],
+            "max": [
+              0.09775000000000002,
+              0.31,
+              0.06792799422170792
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 192,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.09775000000000002,
+              0,
+              -0.06792799422170792
+            ],
+            "max": [
+              0.09775000000000002,
+              0.31,
+              0.06792799422170792
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "unfinished-plaque",
+      "family": "memorial",
+      "label": "An incomplete inscription",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 48,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.105,
+              0,
+              -0.07
+            ],
+            "max": [
+              0.105,
+              0.0195,
+              0.07
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 48,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.105,
+              0,
+              -0.07
+            ],
+            "max": [
+              0.105,
+              0.0195,
+              0.07
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "toy-theatre",
+      "family": "nursery",
+      "label": "A theatre waiting for its missing player",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 192,
+          "materialGroups": 5,
+          "bounds": {
+            "min": [
+              -0.2,
+              0,
+              -0.10250000000000001
+            ],
+            "max": [
+              0.2,
+              0.35750000000000004,
+              0.10250000000000001
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 192,
+          "materialGroups": 5,
+          "bounds": {
+            "min": [
+              -0.2,
+              0,
+              -0.10250000000000001
+            ],
+            "max": [
+              0.2,
+              0.35750000000000004,
+              0.10250000000000001
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "picture-book",
+      "family": "nursery",
+      "label": "An abandoned picture book",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 120,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.15,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.15,
+              0.045000000000000005,
+              0.11
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 48,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.15,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.15,
+              0.045000000000000005,
+              0.11
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "wooden-toys",
+      "family": "nursery",
+      "label": "Wooden toys and one empty place",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 68,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.10500000000000001,
+              0,
+              -0.0625
+            ],
+            "max": [
+              0.10500000000000001,
+              0.077,
+              0.0625
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 68,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.10500000000000001,
+              0,
+              -0.0625
+            ],
+            "max": [
+              0.10500000000000001,
+              0.077,
+              0.0625
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "botanical-bell",
+      "family": "botanical",
+      "label": "A fern under a specimen bell",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 205,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.105,
+              0,
+              -0.09986093421099113
+            ],
+            "max": [
+              0.105,
+              0.35500000000000004,
+              0.09986093421099113
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 149,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.105,
+              0,
+              -0.09093266739736605
+            ],
+            "max": [
+              0.105,
+              0.35500000000000004,
+              0.09093266739736605
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "seed-packets",
+      "family": "botanical",
+      "label": "Numbered seed packets",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 76,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.0975,
+              0,
+              -0.07
+            ],
+            "max": [
+              0.0975,
+              0.011,
+              0.07
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 40,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.0975,
+              0,
+              -0.07
+            ],
+            "max": [
+              0.0975,
+              0.011,
+              0.07
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden-snips",
+      "family": "botanical",
+      "label": "Gardening shears",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 294,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.064,
+              0,
+              -0.07850000000000001
+            ],
+            "max": [
+              0.064,
+              0.015,
+              0.07850000000000001
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 198,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.064,
+              0,
+              -0.07759454555146035
+            ],
+            "max": [
+              0.064,
+              0.015,
+              0.07759454555146035
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "specimen-book",
+      "family": "botanical",
+      "label": "A book of pressed specimens",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 114,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.15,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.15,
+              0.04,
+              0.11
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 42,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.15,
+              0,
+              -0.11
+            ],
+            "max": [
+              0.15,
+              0.04,
+              0.11
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "gramophone",
+      "family": "music",
+      "label": "A record waiting for one last dance",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 300,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.15262132034355966,
+              0,
+              -0.105
+            ],
+            "max": [
+              0.15262132034355966,
+              0.48600000000000004,
+              0.105
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 246,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.15262132034355966,
+              0,
+              -0.105
+            ],
+            "max": [
+              0.15262132034355966,
+              0.47885425137909243,
+              0.105
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dance-card",
+      "family": "music",
+      "label": "An unfinished dance card and ribbon",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 188,
+          "materialGroups": 3,
+          "bounds": {
+            "min": [
+              -0.095,
+              0,
+              -0.0675
+            ],
+            "max": [
+              0.095,
+              0.013000000000000001,
+              0.0675
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 104,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.095,
+              0,
+              -0.0675
+            ],
+            "max": [
+              0.095,
+              0.013000000000000001,
+              0.0675
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "abandoned-glove",
+      "family": "personal",
+      "label": "A glove without its partner",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 60,
+          "materialGroups": 1,
+          "bounds": {
+            "min": [
+              -0.105,
+              0,
+              -0.10250000000000001
+            ],
+            "max": [
+              0.105,
+              0.028,
+              0.10250000000000001
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 60,
+          "materialGroups": 1,
+          "bounds": {
+            "min": [
+              -0.105,
+              0,
+              -0.10250000000000001
+            ],
+            "max": [
+              0.105,
+              0.028,
+              0.10250000000000001
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "jewel-letter",
+      "family": "personal",
+      "label": "An open jewel box and unsent letter",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 212,
+          "materialGroups": 5,
+          "bounds": {
+            "min": [
+              -0.13625,
+              0,
+              -0.082
+            ],
+            "max": [
+              0.13625,
+              0.1525,
+              0.082
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 128,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.13625,
+              0,
+              -0.082
+            ],
+            "max": [
+              0.13625,
+              0.1525,
+              0.082
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "folded-garment",
+      "family": "personal",
+      "label": "Folded clothing left behind",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 48,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.125,
+              0,
+              -0.075
+            ],
+            "max": [
+              0.125,
+              0.035,
+              0.075
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 48,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.125,
+              0,
+              -0.075
+            ],
+            "max": [
+              0.125,
+              0.035,
+              0.075
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "open-luggage",
+      "family": "personal",
+      "label": "Unattended luggage",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 248,
+          "materialGroups": 5,
+          "bounds": {
+            "min": [
+              -0.205,
+              0,
+              -0.13875
+            ],
+            "max": [
+              0.205,
+              0.315,
+              0.13875
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 164,
+          "materialGroups": 4,
+          "bounds": {
+            "min": [
+              -0.205,
+              0,
+              -0.13875
+            ],
+            "max": [
+              0.205,
+              0.315,
+              0.13875
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "calling-card",
+      "family": "writing",
+      "label": "A faded visiting card",
+      "generator": "storyObjectParts",
+      "variants": [
+        {
+          "compact": false,
+          "triangles": 48,
+          "materialGroups": 2,
+          "bounds": {
+            "min": [
+              -0.07,
+              0,
+              -0.065
+            ],
+            "max": [
+              0.07,
+              0.004,
+              0.065
+            ]
+          }
+        },
+        {
+          "compact": true,
+          "triangles": 12,
+          "materialGroups": 1,
+          "bounds": {
+            "min": [
+              -0.07,
+              0,
+              -0.065
+            ],
+            "max": [
+              0.07,
+              0.003,
+              0.065
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

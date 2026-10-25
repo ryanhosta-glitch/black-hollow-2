@@ -1,0 +1,7 @@
+{
+  "byteIdenticalFinalSourceExport": true,
+  "fixture": "tests/fixtures/forge-atmosphere.json",
+  "fixtureSHA256": "9f917060c717b1982445d297f5821c2276c80367bfedba4f4b536ac2ed16eff2",
+  "capturedArchiveSHA256": "c307f4e4ef324cc12b63c7538b6c0503188ab48c2d45f87dee79e327a38b54d4",
+  "checkedBy": "compileFixture final source / Buffer deep equality against captured profile archive"
+}

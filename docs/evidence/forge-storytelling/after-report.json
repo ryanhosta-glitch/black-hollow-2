@@ -1,0 +1,3688 @@
+{
+  "edition": "after",
+  "browser": "154.0.8037.57",
+  "webgl": true,
+  "compiledBytes": 5507821,
+  "views": [
+    {
+      "identity": "ballroom",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 56,
+      "triangles": 98967,
+      "undecoded": 0,
+      "compileMs": 93.90000000596046,
+      "firstFrameMs": 785.6999999880791,
+      "gpuGeometries": 70,
+      "gpuTextures": 24,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:ballroom:chandelier",
+          "role": "key",
+          "color": "#ffdbac"
+        },
+        {
+          "id": "artisan:ballroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:forge:ballroom:furniture:generated-4",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 60.871026815642225,
+      "darkFraction": 0.06998333333333333,
+      "brightFraction": 0.00046666666666666666
+    },
+    {
+      "identity": "ballroom",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 32,
+      "triangles": 85294,
+      "undecoded": 0,
+      "compileMs": 16.799999997019768,
+      "firstFrameMs": 24,
+      "gpuGeometries": 70,
+      "gpuTextures": 24,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:ballroom:chandelier",
+          "role": "key",
+          "color": "#ffdbac"
+        },
+        {
+          "id": "artisan:ballroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:forge:ballroom:furniture:generated-4",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 34.50428256983104,
+      "darkFraction": 0.26758333333333334,
+      "brightFraction": 0
+    },
+    {
+      "identity": "parlor",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 72,
+      "triangles": 100621,
+      "undecoded": 0,
+      "compileMs": 14.599999994039536,
+      "firstFrameMs": 24.700000002980232,
+      "gpuGeometries": 88,
+      "gpuTextures": 25,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:parlor:chandelier",
+          "role": "key",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:parlor:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:parlor-hearth",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 59.269921675978,
+      "darkFraction": 0.06976666666666667,
+      "brightFraction": 0.0013
+    },
+    {
+      "identity": "parlor",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 59,
+      "triangles": 101659,
+      "undecoded": 0,
+      "compileMs": 15.700000002980232,
+      "firstFrameMs": 7.299999997019768,
+      "gpuGeometries": 72,
+      "gpuTextures": 28,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:parlor:chandelier",
+          "role": "key",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:parlor:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:forge:parlor:furniture:generated-2",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 30.620382653630337,
+      "darkFraction": 0.23266666666666666,
+      "brightFraction": 0
+    },
+    {
+      "identity": "library",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 60,
+      "triangles": 99385,
+      "undecoded": 0,
+      "compileMs": 18.5,
+      "firstFrameMs": 6.700000002980232,
+      "gpuGeometries": 81,
+      "gpuTextures": 28,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:library:chandelier",
+          "role": "key",
+          "color": "#ffd19a"
+        },
+        {
+          "id": "artisan:library:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:library-hearth",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 43.93392491620186,
+      "darkFraction": 0.3618,
+      "brightFraction": 0.00038333333333333334
+    },
+    {
+      "identity": "library",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 36,
+      "triangles": 85441,
+      "undecoded": 0,
+      "compileMs": 17.200000002980232,
+      "firstFrameMs": 2.2999999970197678,
+      "gpuGeometries": 73,
+      "gpuTextures": 28,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:library:chandelier",
+          "role": "key",
+          "color": "#ffd19a"
+        },
+        {
+          "id": "lighting:library:task:forge:library:furniture:generated-2",
+          "role": "task",
+          "color": "#ffd2a0"
+        },
+        {
+          "id": "artisan:library:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 88.85714533519702,
+      "darkFraction": 0.07503333333333333,
+      "brightFraction": 0.007633333333333333
+    },
+    {
+      "identity": "dining",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 80,
+      "triangles": 108631,
+      "undecoded": 0,
+      "compileMs": 23.19999998807907,
+      "firstFrameMs": 52.70000000298023,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:dining:chandelier",
+          "role": "key",
+          "color": "#ffdaad"
+        },
+        {
+          "id": "artisan:dining:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:dining:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 108.91225796089303,
+      "darkFraction": 0.13931666666666667,
+      "brightFraction": 0.0004166666666666667
+    },
+    {
+      "identity": "dining",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 76,
+      "triangles": 108629,
+      "undecoded": 0,
+      "compileMs": 14.100000008940697,
+      "firstFrameMs": 2.0999999940395355,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:dining:chandelier",
+          "role": "key",
+          "color": "#ffdaad"
+        },
+        {
+          "id": "artisan:dining:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:dining:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 88.17673125698292,
+      "darkFraction": 0.14156666666666667,
+      "brightFraction": 0.00045
+    },
+    {
+      "identity": "gallery",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 76,
+      "triangles": 108629,
+      "undecoded": 0,
+      "compileMs": 15.400000005960464,
+      "firstFrameMs": 12.899999991059303,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:gallery:chandelier",
+          "role": "key",
+          "color": "#ffe0b5"
+        },
+        {
+          "id": "lighting:gallery:portrait",
+          "role": "portrait",
+          "color": "#ffe0b9"
+        },
+        {
+          "id": "lighting:gallery:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 59.32502365921785,
+      "darkFraction": 0.09691666666666666,
+      "brightFraction": 0.00016666666666666666
+    },
+    {
+      "identity": "gallery",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 63,
+      "triangles": 103493,
+      "undecoded": 0,
+      "compileMs": 14.799999997019768,
+      "firstFrameMs": 27.899999991059303,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:gallery:chandelier",
+          "role": "key",
+          "color": "#ffe0b5"
+        },
+        {
+          "id": "lighting:gallery:portrait",
+          "role": "portrait",
+          "color": "#ffe0b9"
+        },
+        {
+          "id": "lighting:gallery:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 21.1853322346361,
+      "darkFraction": 0.44198333333333334,
+      "brightFraction": 0
+    },
+    {
+      "identity": "conservatory",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 67,
+      "triangles": 104597,
+      "undecoded": 0,
+      "compileMs": 14.200000002980232,
+      "firstFrameMs": 1.6000000089406967,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:conservatory:chandelier",
+          "role": "key",
+          "color": "#d1e1bf"
+        },
+        {
+          "id": "lighting:conservatory:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        },
+        {
+          "id": "lighting:conservatory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 112.4200988826812,
+      "darkFraction": 0.09121666666666667,
+      "brightFraction": 0
+    },
+    {
+      "identity": "conservatory",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 59,
+      "triangles": 102739,
+      "undecoded": 0,
+      "compileMs": 30.700000002980232,
+      "firstFrameMs": 2,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:conservatory:chandelier",
+          "role": "key",
+          "color": "#d1e1bf"
+        },
+        {
+          "id": "lighting:conservatory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        },
+        {
+          "id": "lighting:conservatory:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 60.485290446928076,
+      "darkFraction": 0.29905,
+      "brightFraction": 0
+    },
+    {
+      "identity": "bedroom",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 46,
+      "triangles": 56668,
+      "undecoded": 0,
+      "compileMs": 60.900000005960464,
+      "firstFrameMs": 1549.5999999940395,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:bedroom:chandelier",
+          "role": "key",
+          "color": "#ffceab"
+        },
+        {
+          "id": "artisan:bedroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:forge:bedroom:furniture:generated-2",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 38.529287960893264,
+      "darkFraction": 0.14668333333333333,
+      "brightFraction": 0.0003333333333333333
+    },
+    {
+      "identity": "bedroom",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 34,
+      "triangles": 48270,
+      "undecoded": 0,
+      "compileMs": 13.400000005960464,
+      "firstFrameMs": 6.5999999940395355,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:bedroom:chandelier",
+          "role": "key",
+          "color": "#ffceab"
+        },
+        {
+          "id": "artisan:bedroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:forge:bedroom:furniture:generated-2",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 33.8939401955306,
+      "darkFraction": 0.1706,
+      "brightFraction": 0
+    },
+    {
+      "identity": "nursery",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 40,
+      "triangles": 53846,
+      "undecoded": 0,
+      "compileMs": 19.69999998807907,
+      "firstFrameMs": 4.9000000059604645,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:nursery:chandelier",
+          "role": "key",
+          "color": "#ffe0b8"
+        },
+        {
+          "id": "artisan:nursery:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:nursery:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 37.24130494413414,
+      "darkFraction": 0.08268333333333333,
+      "brightFraction": 0.0006
+    },
+    {
+      "identity": "nursery",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 34,
+      "triangles": 51138,
+      "undecoded": 0,
+      "compileMs": 19.299999997019768,
+      "firstFrameMs": 1.1000000089406967,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:nursery:chandelier",
+          "role": "key",
+          "color": "#ffe0b8"
+        },
+        {
+          "id": "artisan:nursery:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:nursery:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 115.49737081005412,
+      "darkFraction": 0.16155,
+      "brightFraction": 0
+    },
+    {
+      "identity": "crypt",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 32,
+      "triangles": 47976,
+      "undecoded": 0,
+      "compileMs": 11.599999994039536,
+      "firstFrameMs": 1.2999999970197678,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:crypt:chandelier",
+          "role": "key",
+          "color": "#a7cadd"
+        },
+        {
+          "id": "artisan:crypt:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:crypt:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 44.39896416201061,
+      "darkFraction": 0.023233333333333335,
+      "brightFraction": 0.00018333333333333334
+    },
+    {
+      "identity": "crypt",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 30,
+      "triangles": 42652,
+      "undecoded": 0,
+      "compileMs": 12.199999988079071,
+      "firstFrameMs": 1.1000000089406967,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:crypt:chandelier",
+          "role": "key",
+          "color": "#a7cadd"
+        },
+        {
+          "id": "artisan:crypt:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:crypt:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 38.93277692737314,
+      "darkFraction": 0.04535,
+      "brightFraction": 0
+    },
+    {
+      "identity": "laboratory",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 73,
+      "triangles": 62838,
+      "undecoded": 0,
+      "compileMs": 15.799999997019768,
+      "firstFrameMs": 3.2999999970197678,
+      "gpuGeometries": 69,
+      "gpuTextures": 31,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:laboratory:chandelier",
+          "role": "key",
+          "color": "#c0ddf3"
+        },
+        {
+          "id": "artisan:laboratory:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:laboratory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 120.81490159217958,
+      "darkFraction": 0.07758333333333334,
+      "brightFraction": 0.000016666666666666667
+    },
+    {
+      "identity": "laboratory",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 42,
+      "triangles": 50070,
+      "undecoded": 0,
+      "compileMs": 11.599999994039536,
+      "firstFrameMs": 2,
+      "gpuGeometries": 69,
+      "gpuTextures": 31,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:laboratory:chandelier",
+          "role": "key",
+          "color": "#c0ddf3"
+        },
+        {
+          "id": "lighting:laboratory:task:forge:laboratory:furniture:generated-0",
+          "role": "task",
+          "color": "#ffd2a0"
+        },
+        {
+          "id": "lighting:laboratory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 85.69548229050537,
+      "darkFraction": 0.06881666666666666,
+      "brightFraction": 0.07223333333333333
+    },
+    {
+      "identity": "circulation",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 51,
+      "triangles": 58516,
+      "undecoded": 0,
+      "compileMs": 12.5,
+      "firstFrameMs": 1.1000000089406967,
+      "gpuGeometries": 69,
+      "gpuTextures": 31,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:circulation:chandelier",
+          "role": "key",
+          "color": "#ffd5aa"
+        },
+        {
+          "id": "artisan:circulation:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:circulation:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 46.5150298603355,
+      "darkFraction": 0.16383333333333333,
+      "brightFraction": 0.0001
+    },
+    {
+      "identity": "circulation",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 37,
+      "triangles": 52928,
+      "undecoded": 0,
+      "compileMs": 18,
+      "firstFrameMs": 9,
+      "gpuGeometries": 69,
+      "gpuTextures": 31,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:circulation:chandelier",
+          "role": "key",
+          "color": "#ffd5aa"
+        },
+        {
+          "id": "artisan:circulation:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:circulation:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 8.35862092178769,
+      "darkFraction": 0.5851,
+      "brightFraction": 0
+    }
+  ],
+  "budget": {
+    "components": {
+      "version": 1,
+      "rooms": 11,
+      "scopes": 22,
+      "totals": {
+        "primitives": 1964,
+        "triangles": 68739,
+        "geometryBytes": 7423812
+      },
+      "withinLimits": true,
+      "byComponent": {
+        "mansion-envelope": {
+          "instances": 11,
+          "primitives": 604,
+          "triangles": 7248
+        },
+        "profiled-cornices": {
+          "instances": 44,
+          "primitives": 84,
+          "triangles": 1584
+        },
+        "raised-wainscoting": {
+          "instances": 44,
+          "primitives": 80,
+          "triangles": 12652
+        },
+        "pediment-surrounds": {
+          "instances": 26,
+          "primitives": 47,
+          "triangles": 1534
+        },
+        "carved-pilasters": {
+          "instances": 11,
+          "primitives": 20,
+          "triangles": 1980
+        },
+        "coffered-ceilings": {
+          "instances": 8,
+          "primitives": 14,
+          "triangles": 1408
+        },
+        "carved-medallions": {
+          "instances": 8,
+          "primitives": 15,
+          "triangles": 1456
+        },
+        "period-floor-inlays": {
+          "instances": 11,
+          "primitives": 17,
+          "triangles": 1896
+        },
+        "woven-rug": {
+          "instances": 5,
+          "primitives": 25,
+          "triangles": 300
+        },
+        "story-vignette": {
+          "instances": 10,
+          "primitives": 52,
+          "triangles": 6673
+        },
+        "story-accessories": {
+          "instances": 8,
+          "primitives": 33,
+          "triangles": 1668
+        },
+        "wall-mirror": {
+          "instances": 8,
+          "primitives": 107,
+          "triangles": 3148
+        },
+        "floor-rosette": {
+          "instances": 10,
+          "primitives": 10,
+          "triangles": 6400
+        },
+        "ceiling-chandelier": {
+          "instances": 11,
+          "primitives": 25,
+          "triangles": 9196
+        },
+        "artisan-fixtures": {
+          "instances": 21,
+          "primitives": 51,
+          "triangles": 2568
+        },
+        "wall-panel": {
+          "instances": 41,
+          "primitives": 591,
+          "triangles": 7092
+        },
+        "corner-web": {
+          "instances": 20,
+          "primitives": 80,
+          "triangles": 960
+        },
+        "task-lamp": {
+          "instances": 2,
+          "primitives": 6,
+          "triangles": 304
+        },
+        "window-valance": {
+          "instances": 6,
+          "primitives": 6,
+          "triangles": 72
+        },
+        "leaded-window": {
+          "instances": 3,
+          "primitives": 93,
+          "triangles": 516
+        },
+        "story-wall-trace": {
+          "instances": 1,
+          "primitives": 4,
+          "triangles": 84
+        }
+      },
+      "omissions": [
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        }
+      ],
+      "geometryBytesEstimated": true,
+      "sharedTexturesCountedByPackageInventory": true
+    },
+    "version": 1,
+    "method": "static-export-inventory",
+    "bytes": 21740279,
+    "models": [
+      {
+        "path": "geometry/elevator_cabin.glb",
+        "bytes": 25316,
+        "triangles": 60,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_00.glb",
+        "bytes": 1717492,
+        "triangles": 20786,
+        "draws": 14,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_01.glb",
+        "bytes": 1287580,
+        "triangles": 15092,
+        "draws": 14,
+        "instances": 1
+      },
+      {
+        "path": "exterior/street_preview.glb",
+        "bytes": 3184004,
+        "triangles": 40612,
+        "draws": 19,
+        "instances": 1
+      },
+      {
+        "path": "geometry/roof.glb",
+        "bytes": 391248,
+        "triangles": 4734,
+        "draws": 6,
+        "instances": 1
+      },
+      {
+        "path": "exterior/frontage.glb",
+        "bytes": 3184004,
+        "triangles": 40612,
+        "draws": 19,
+        "instances": 1
+      },
+      {
+        "path": "geometry/decoration.glb",
+        "bytes": 8886788,
+        "triangles": 122553,
+        "draws": 26,
+        "instances": 1
+      },
+      {
+        "path": "geometry/artwork.glb",
+        "bytes": 10072,
+        "triangles": 20,
+        "draws": 10,
+        "instances": 10
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-claret-preserved-luxury-0.glb",
+        "bytes": 106492,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 260292,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 106492,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-ebony-blue-preserved-luxury-0.glb",
+        "bytes": 247740,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-painted-emerald-aged-luxury-1.glb",
+        "bytes": 106492,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-oak-blue-preserved-luxury-2.glb",
+        "bytes": 92920,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-blue-preserved-luxury-2.glb",
+        "bytes": 106720,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-painted-ivory-preserved-luxury-2.glb",
+        "bytes": 92692,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-leather-aged-luxury-0.glb",
+        "bytes": 106720,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-oak-leather-aged-luxury-0.glb",
+        "bytes": 260520,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/special_main_hall.glb",
+        "bytes": 180968,
+        "triangles": 63492,
+        "draws": 17,
+        "instances": 1670
+      },
+      {
+        "path": "geometry/special_floor13_conservatory.glb",
+        "bytes": 323192,
+        "triangles": 157812,
+        "draws": 25,
+        "instances": 2900
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/portraits/hooded_wraith_bw.webp",
+        "bytes": 28676
+      },
+      {
+        "path": "assets/portraits/gothic_family_wolf_bw.webp",
+        "bytes": 26578
+      },
+      {
+        "path": "assets/portraits/vampire_countess_pair_bw.webp",
+        "bytes": 35484
+      },
+      {
+        "path": "assets/portraits/vampire_lord_chair_bw.webp",
+        "bytes": 36466
+      },
+      {
+        "path": "assets/portraits/occult_noble_pair_bw.webp",
+        "bytes": 46870
+      },
+      {
+        "path": "assets/portraits/victorian_ancestor_portrait_bw.webp",
+        "bytes": 28298
+      },
+      {
+        "path": "assets/portraits/electrified_madman_bw.webp",
+        "bytes": 64656
+      },
+      {
+        "path": "assets/portraits/carnivorous_plant_collection_bw.webp",
+        "bytes": 26972
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_botanical_bw.webp",
+        "bytes": 14796
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_study_bw.webp",
+        "bytes": 9532
+      }
+    ],
+    "budget": {
+      "maxPackageBytes": 33554432,
+      "maxModelTriangles": 450000,
+      "maxModelDraws": 160
+    },
+    "issues": [],
+    "withinPlanningBudget": true,
+    "fpsMeasured": false,
+    "limitations": [
+      "Model primitive counts are estimates; materials, shadows, repeated template placements and visibility affect real runtime cost",
+      "Per-device GPU performance must be measured in the game"
+    ]
+  },
+  "errors": [],
+  "storytelling": {
+    "version": 1,
+    "edition": "environmental-story-1",
+    "optional": true,
+    "newRequiredObjectives": 0,
+    "rooms": [
+      {
+        "roomId": "ballroom",
+        "identity": "ballroom",
+        "story": {
+          "title": "The Last Record",
+          "text": "The brass horn of a music machine points toward the empty floor. Its record is labelled: One more dance before the carriage comes. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 2,
+          "objects": 5,
+          "objectsPerSquareMeter": 0.07392795615872062,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:ballroom:primary",
+            "identity": "ballroom",
+            "supportId": "forge:ballroom:furniture:generated-2",
+            "supportKind": "console",
+            "surface": {
+              "id": "forge:ballroom:furniture:generated-2",
+              "kind": "console",
+              "positionMeters": [
+                0.43,
+                0,
+                1.426464
+              ],
+              "rotationY": 1.5707963267948966,
+              "top": 0.89,
+              "width": 0.62,
+              "depth": 0.25,
+              "u": 0,
+              "v": 0
+            },
+            "positionMeters": [
+              0.43,
+              0.89,
+              1.426464
+            ],
+            "rotationY": 1.5707963267948966,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.2975000000000001,
+                  "maxX": -0.05765696759491101,
+                  "minZ": -0.08250327787049921,
+                  "maxZ": 0.08250327787049923
+                },
+                "id": "story:ballroom:primary:0",
+                "component": "gramophone",
+                "family": "music",
+                "label": "A record waiting for one last dance",
+                "bounds": {
+                  "min": [
+                    0.3474967221295008,
+                    0.89,
+                    1.484120967594911
+                  ],
+                  "max": [
+                    0.5125032778704992,
+                    1.271872314714882,
+                    1.723964
+                  ]
+                },
+                "positionMeters": [
+                  0.43,
+                  0.89,
+                  1.6040424837974554
+                ],
+                "scale": 0.7857455035285639,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.03722758450316821,
+                  "maxX": 0.11206406116725898,
+                  "minZ": -0.0530378214881781,
+                  "maxZ": 0.05303782148817809
+                },
+                "id": "story:ballroom:primary:1",
+                "component": "dance-card",
+                "family": "music",
+                "label": "An unfinished dance card and ribbon",
+                "bounds": {
+                  "min": [
+                    0.3769621785118219,
+                    0.89,
+                    1.314399938832741
+                  ],
+                  "max": [
+                    0.4830378214881781,
+                    0.9002146915458713,
+                    1.4636915845031682
+                  ]
+                },
+                "positionMeters": [
+                  0.43,
+                  0.89,
+                  1.3890457616679546
+                ],
+                "scale": 0.7857455035285639,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.13249344425900156,
+                  "maxX": 0.2975000000000001,
+                  "minZ": -0.08053891411167781,
+                  "maxZ": 0.08053891411167784
+                },
+                "id": "story:ballroom:primary:2",
+                "component": "abandoned-glove",
+                "family": "personal",
+                "label": "A glove without its partner",
+                "bounds": {
+                  "min": [
+                    0.3494610858883222,
+                    0.89,
+                    1.1289639999999999
+                  ],
+                  "max": [
+                    0.5105389141116778,
+                    0.9120008740987998,
+                    1.2939705557409984
+                  ]
+                },
+                "positionMeters": [
+                  0.43,
+                  0.89,
+                  1.2114672778704991
+                ],
+                "scale": 0.7857455035285639,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          },
+          {
+            "id": "story:ballroom:secondary",
+            "identity": "ballroom",
+            "supportId": "forge:ballroom:furniture:generated-7",
+            "supportKind": "console",
+            "surface": {
+              "id": "forge:ballroom:furniture:generated-7",
+              "kind": "console",
+              "positionMeters": [
+                0.43,
+                0,
+                2.77368
+              ],
+              "rotationY": 1.5707963267948966,
+              "top": 0.89,
+              "width": 0.62,
+              "depth": 0.25,
+              "u": 0,
+              "v": 0
+            },
+            "positionMeters": [
+              0.43,
+              0.89,
+              2.77368
+            ],
+            "rotationY": 1.5707963267948966,
+            "compact": true,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.17399999999999993,
+                  "maxX": 0.016000000000000018,
+                  "minZ": -0.0675,
+                  "maxZ": 0.0675
+                },
+                "id": "story:ballroom:secondary:0",
+                "component": "dance-card",
+                "family": "music",
+                "label": "An unfinished dance card and ribbon",
+                "bounds": {
+                  "min": [
+                    0.3625,
+                    0.89,
+                    2.75768
+                  ],
+                  "max": [
+                    0.4975,
+                    0.903,
+                    2.94768
+                  ]
+                },
+                "positionMeters": [
+                  0.43,
+                  0.89,
+                  2.8526800000000003
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.041999999999999815,
+                  "maxX": 0.17399999999999993,
+                  "minZ": -0.04070319397786865,
+                  "maxZ": 0.04070319397786864
+                },
+                "id": "story:ballroom:secondary:1",
+                "component": "pocket-watch",
+                "family": "heirlooms",
+                "label": "A stopped pocket watch",
+                "bounds": {
+                  "min": [
+                    0.38929680602213135,
+                    0.89,
+                    2.59968
+                  ],
+                  "max": [
+                    0.47070319397786864,
+                    0.91,
+                    2.7316800000000003
+                  ]
+                },
+                "positionMeters": [
+                  0.43,
+                  0.89,
+                  2.66568
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "parlor",
+        "identity": "parlor",
+        "story": {
+          "title": "The Calling Card",
+          "text": "An engraved tray holds a cup and a calling card. The visitor’s name has faded; the words You are welcome have not. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 1,
+          "objects": 3,
+          "objectsPerSquareMeter": 0.044356773695232374,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:parlor:primary",
+            "identity": "parlor",
+            "supportId": "forge:parlor:furniture:generated-4",
+            "supportKind": "writing_desk",
+            "surface": {
+              "id": "forge:parlor:furniture:generated-4",
+              "kind": "writing_desk",
+              "positionMeters": [
+                15.532608,
+                0,
+                7.3148
+              ],
+              "rotationY": 3.141592653589793,
+              "top": 0.785,
+              "width": 0.73,
+              "depth": 0.38,
+              "u": -0.115,
+              "v": 0
+            },
+            "positionMeters": [
+              15.647608,
+              0.785,
+              7.3148
+            ],
+            "rotationY": 3.141592653589793,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.4610000000000003,
+                  "maxX": -0.15600000000000058,
+                  "minZ": -0.11500000000000017,
+                  "maxZ": 0.11500000000000025
+                },
+                "id": "story:parlor:primary:0",
+                "component": "tea-service",
+                "family": "porcelain",
+                "label": "An interrupted silver tea service",
+                "bounds": {
+                  "min": [
+                    15.688608,
+                    0.785,
+                    7.1998
+                  ],
+                  "max": [
+                    15.993608,
+                    0.919,
+                    7.4298
+                  ]
+                },
+                "positionMeters": [
+                  15.841108,
+                  0.785,
+                  7.3148
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.13000000000000078,
+                  "maxX": 0.009999999999999796,
+                  "minZ": -0.06500000000000039,
+                  "maxZ": 0.0650000000000004
+                },
+                "id": "story:parlor:primary:1",
+                "component": "calling-card",
+                "family": "writing",
+                "label": "A faded visiting card",
+                "bounds": {
+                  "min": [
+                    15.522608,
+                    0.785,
+                    7.2498
+                  ],
+                  "max": [
+                    15.662608,
+                    0.789,
+                    7.3798
+                  ]
+                },
+                "positionMeters": [
+                  15.592608,
+                  0.785,
+                  7.3148
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.03599999999999958,
+                  "maxX": 0.23099999999999987,
+                  "minZ": -0.07249999999999981,
+                  "maxZ": 0.07249999999999976
+                },
+                "id": "story:parlor:primary:2",
+                "component": "letter-quill",
+                "family": "writing",
+                "label": "An unfinished letter and quill",
+                "bounds": {
+                  "min": [
+                    15.301608,
+                    0.785,
+                    7.2423
+                  ],
+                  "max": [
+                    15.496608,
+                    0.8330000000000001,
+                    7.3873
+                  ]
+                },
+                "positionMeters": [
+                  15.399108,
+                  0.785,
+                  7.3148
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "library",
+        "identity": "library",
+        "story": {
+          "title": "The Brass Atlas",
+          "text": "A brass globe stands over a half-open atlas. Someone circled a place that appears on no map, then wrote: Leave a light in the window. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 2,
+          "objects": 5,
+          "objectsPerSquareMeter": 0.07392795615872062,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:library:primary",
+            "identity": "library",
+            "supportId": "forge:library:furniture:generated-2",
+            "supportKind": "writing_desk",
+            "surface": {
+              "id": "forge:library:furniture:generated-2",
+              "kind": "writing_desk",
+              "positionMeters": [
+                24.9932,
+                0,
+                1.426464
+              ],
+              "rotationY": -1.5707963267948966,
+              "top": 0.785,
+              "width": 0.73,
+              "depth": 0.38,
+              "u": -0.115,
+              "v": 0
+            },
+            "positionMeters": [
+              24.9932,
+              0.785,
+              1.311464
+            ],
+            "rotationY": -1.5707963267948966,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.4675,
+                  "maxX": -0.2463582183186952,
+                  "minZ": -0.09730238393977333,
+                  "maxZ": 0.09730238393977328
+                },
+                "id": "story:library:primary:0",
+                "component": "brass-globe",
+                "family": "scholarly",
+                "label": "A brass celestial globe",
+                "bounds": {
+                  "min": [
+                    24.89589761606023,
+                    0.785,
+                    0.9589639999999999
+                  ],
+                  "max": [
+                    25.090502383939775,
+                    1.1122898368883312,
+                    1.1801057816813048
+                  ]
+                },
+                "positionMeters": [
+                  24.9932,
+                  0.785,
+                  1.0695348908406523
+                ],
+                "scale": 0.8845671267252193,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.2233594730238393,
+                  "maxX": 0.04201066499372642,
+                  "minZ": -0.09730238393977332,
+                  "maxZ": 0.09730238393977331
+                },
+                "id": "story:library:primary:1",
+                "component": "open-atlas",
+                "family": "writing",
+                "label": "A half-open atlas",
+                "bounds": {
+                  "min": [
+                    24.89589761606023,
+                    0.785,
+                    1.2031045269761607
+                  ],
+                  "max": [
+                    25.090502383939775,
+                    0.8141907151819323,
+                    1.4684746649937264
+                  ]
+                },
+                "positionMeters": [
+                  24.9932,
+                  0.785,
+                  1.3357895959849435
+                ],
+                "scale": 0.8845671267252193,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.06500941028858209,
+                  "maxX": 0.23749999999999982,
+                  "minZ": -0.06413111668757665,
+                  "maxZ": 0.06413111668757666
+                },
+                "id": "story:library:primary:2",
+                "component": "letter-quill",
+                "family": "writing",
+                "label": "An unfinished letter and quill",
+                "bounds": {
+                  "min": [
+                    24.929068883312425,
+                    0.785,
+                    1.491473410288582
+                  ],
+                  "max": [
+                    25.05733111668758,
+                    0.8274592220828105,
+                    1.6639639999999998
+                  ]
+                },
+                "positionMeters": [
+                  24.9932,
+                  0.785,
+                  1.577718705144291
+                ],
+                "scale": 0.8845671267252193,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          },
+          {
+            "id": "story:library:secondary",
+            "identity": "library",
+            "supportId": "forge:library:furniture:generated-7",
+            "supportKind": "writing_desk",
+            "surface": {
+              "id": "forge:library:furniture:generated-7",
+              "kind": "writing_desk",
+              "positionMeters": [
+                24.9932,
+                0,
+                3.9624
+              ],
+              "rotationY": -1.5707963267948966,
+              "top": 0.785,
+              "width": 0.73,
+              "depth": 0.38,
+              "u": -0.115,
+              "v": 0
+            },
+            "positionMeters": [
+              24.9932,
+              0.785,
+              3.8474
+            ],
+            "rotationY": -1.5707963267948966,
+            "compact": true,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.3440000000000003,
+                  "maxX": -0.04400000000000003,
+                  "minZ": -0.10999999999999946,
+                  "maxZ": 0.10999999999999943
+                },
+                "id": "story:library:secondary:0",
+                "component": "observation-book",
+                "family": "writing",
+                "label": "Handwritten observations",
+                "bounds": {
+                  "min": [
+                    24.883200000000002,
+                    0.785,
+                    3.6184
+                  ],
+                  "max": [
+                    25.1032,
+                    0.8180000000000001,
+                    3.9184
+                  ]
+                },
+                "positionMeters": [
+                  24.9932,
+                  0.785,
+                  3.7683999999999997
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.018000000000000238,
+                  "maxX": 0.11399999999999944,
+                  "minZ": -0.040703193977869034,
+                  "maxZ": 0.040703193977869034
+                },
+                "id": "story:library:secondary:1",
+                "component": "pocket-watch",
+                "family": "heirlooms",
+                "label": "A stopped pocket watch",
+                "bounds": {
+                  "min": [
+                    24.952496806022133,
+                    0.785,
+                    3.9444
+                  ],
+                  "max": [
+                    25.03390319397787,
+                    0.805,
+                    4.0764
+                  ]
+                },
+                "positionMeters": [
+                  24.9932,
+                  0.785,
+                  4.0104
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "dining",
+        "identity": "dining",
+        "story": {
+          "title": "The Supper Kept Warm",
+          "text": "A silver service waits beside an untouched cup. Every place has a name. The final card reads: Whoever needs a place. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 2,
+          "objects": 5,
+          "objectsPerSquareMeter": 0.07392795615872062,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:dining:primary",
+            "identity": "dining",
+            "supportId": "forge:dining:furniture:generated-0",
+            "supportKind": "banquet_ensemble",
+            "surface": {
+              "id": "forge:dining:furniture:generated-0",
+              "kind": "banquet_ensemble",
+              "positionMeters": [
+                1.59,
+                0,
+                13.8846
+              ],
+              "rotationY": 3.141592653589793,
+              "top": 0.818,
+              "width": 0.27,
+              "depth": 2.36,
+              "u": 0,
+              "v": 0
+            },
+            "positionMeters": [
+              1.59,
+              0.818,
+              13.8846
+            ],
+            "rotationY": 4.71238898038469,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.09510565162951543,
+                  "maxX": 0.0951056516295155,
+                  "minZ": 0.17350000000000065,
+                  "maxZ": 0.37349999999999994
+                },
+                "id": "story:dining:primary:0",
+                "component": "serving-dish",
+                "family": "porcelain",
+                "label": "A covered silver dish",
+                "bounds": {
+                  "min": [
+                    1.4948943483704846,
+                    0.818,
+                    13.5111
+                  ],
+                  "max": [
+                    1.6851056516295155,
+                    0.955,
+                    13.7111
+                  ]
+                },
+                "positionMeters": [
+                  1.59,
+                  0.818,
+                  13.6111
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.11499999999999999,
+                  "maxX": 0.11499999999999999,
+                  "minZ": -0.15750000000000064,
+                  "maxZ": 0.14750000000000085
+                },
+                "id": "story:dining:primary:1",
+                "component": "tea-service",
+                "family": "porcelain",
+                "label": "An interrupted silver tea service",
+                "bounds": {
+                  "min": [
+                    1.475,
+                    0.818,
+                    13.7371
+                  ],
+                  "max": [
+                    1.705,
+                    0.952,
+                    14.042100000000001
+                  ]
+                },
+                "positionMeters": [
+                  1.59,
+                  0.818,
+                  13.889600000000002
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.06499999999999999,
+                  "maxX": 0.06499999999999992,
+                  "minZ": -0.37349999999999994,
+                  "maxZ": -0.18350000000000044
+                },
+                "id": "story:dining:primary:2",
+                "component": "place-card",
+                "family": "porcelain",
+                "label": "An untouched final place card",
+                "bounds": {
+                  "min": [
+                    1.5250000000000001,
+                    0.818,
+                    14.068100000000001
+                  ],
+                  "max": [
+                    1.655,
+                    0.883,
+                    14.2581
+                  ]
+                },
+                "positionMeters": [
+                  1.59,
+                  0.818,
+                  14.1631
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          },
+          {
+            "id": "story:dining:secondary",
+            "identity": "dining",
+            "supportId": "forge:dining:furniture:generated-2",
+            "supportKind": "console",
+            "surface": {
+              "id": "forge:dining:furniture:generated-2",
+              "kind": "console",
+              "positionMeters": [
+                0.43,
+                0,
+                9.351264
+              ],
+              "rotationY": 1.5707963267948966,
+              "top": 0.89,
+              "width": 0.62,
+              "depth": 0.25,
+              "u": 0,
+              "v": 0
+            },
+            "positionMeters": [
+              0.43,
+              0.89,
+              9.351264
+            ],
+            "rotationY": 1.5707963267948966,
+            "compact": true,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.1880000000000006,
+                  "maxX": -0.048000000000000036,
+                  "minZ": -0.065,
+                  "maxZ": 0.06500000000000002
+                },
+                "id": "story:dining:secondary:0",
+                "component": "calling-card",
+                "family": "writing",
+                "label": "A faded visiting card",
+                "bounds": {
+                  "min": [
+                    0.365,
+                    0.89,
+                    9.399264
+                  ],
+                  "max": [
+                    0.495,
+                    0.893,
+                    9.539264000000001
+                  ]
+                },
+                "positionMeters": [
+                  0.43,
+                  0.89,
+                  9.469264
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.02200000000000025,
+                  "maxX": 0.1880000000000006,
+                  "minZ": -0.1025,
+                  "maxZ": 0.10249999999999998
+                },
+                "id": "story:dining:secondary:1",
+                "component": "abandoned-glove",
+                "family": "personal",
+                "label": "A glove without its partner",
+                "bounds": {
+                  "min": [
+                    0.3275,
+                    0.89,
+                    9.163264
+                  ],
+                  "max": [
+                    0.5325,
+                    0.918,
+                    9.373264
+                  ]
+                },
+                "positionMeters": [
+                  0.43,
+                  0.89,
+                  9.268264
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "gallery",
+        "identity": "gallery",
+        "story": {
+          "title": "The Absent Sitter",
+          "text": "An oval miniature rests beneath a larger frame. Its sitter is gone, but the small brass chair beside it has been carefully polished. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 2,
+          "objects": 5,
+          "objectsPerSquareMeter": 0.07392795615872062,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:gallery:primary",
+            "identity": "gallery",
+            "supportId": "forge:gallery:furniture:generated-2",
+            "supportKind": "console",
+            "surface": {
+              "id": "forge:gallery:furniture:generated-2",
+              "kind": "console",
+              "positionMeters": [
+                16.6388,
+                0,
+                9.351264
+              ],
+              "rotationY": -1.5707963267948966,
+              "top": 0.89,
+              "width": 0.62,
+              "depth": 0.25,
+              "u": 0,
+              "v": 0
+            },
+            "positionMeters": [
+              16.6388,
+              0.89,
+              9.351264
+            ],
+            "rotationY": -1.5707963267948966,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.26900000000000013,
+                  "maxX": -0.07099999999999973,
+                  "minZ": -0.06550000000000013,
+                  "maxZ": 0.0655000000000001
+                },
+                "id": "story:gallery:primary:0",
+                "component": "miniature-portrait",
+                "family": "pictures",
+                "label": "An oval painted miniature",
+                "bounds": {
+                  "min": [
+                    16.5733,
+                    0.89,
+                    9.082264
+                  ],
+                  "max": [
+                    16.7043,
+                    1.219,
+                    9.280264
+                  ]
+                },
+                "positionMeters": [
+                  16.6388,
+                  0.89,
+                  9.181264
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.04499999999999993,
+                  "maxX": 0.15300000000000047,
+                  "minZ": -0.05999999999999872,
+                  "maxZ": 0.05999999999999873
+                },
+                "id": "story:gallery:primary:1",
+                "component": "empty-frame",
+                "family": "pictures",
+                "label": "A frame without its painting",
+                "bounds": {
+                  "min": [
+                    16.5788,
+                    0.89,
+                    9.306264
+                  ],
+                  "max": [
+                    16.6988,
+                    1.219,
+                    9.504264000000001
+                  ]
+                },
+                "positionMeters": [
+                  16.6388,
+                  0.89,
+                  9.405264
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.17900000000000027,
+                  "maxX": 0.26900000000000013,
+                  "minZ": -0.039999999999999133,
+                  "maxZ": 0.03999999999999916
+                },
+                "id": "story:gallery:primary:2",
+                "component": "miniature-chair",
+                "family": "pictures",
+                "label": "A carefully polished brass chair",
+                "bounds": {
+                  "min": [
+                    16.5988,
+                    0.89,
+                    9.530264
+                  ],
+                  "max": [
+                    16.6788,
+                    1.08,
+                    9.620264
+                  ]
+                },
+                "positionMeters": [
+                  16.6388,
+                  0.89,
+                  9.575264
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          },
+          {
+            "id": "story:gallery:secondary",
+            "identity": "gallery",
+            "supportId": "forge:gallery:furniture:generated-6",
+            "supportKind": "console",
+            "surface": {
+              "id": "forge:gallery:furniture:generated-6",
+              "kind": "console",
+              "positionMeters": [
+                8.9644,
+                0,
+                14.423136
+              ],
+              "rotationY": 1.5707963267948966,
+              "top": 0.89,
+              "width": 0.62,
+              "depth": 0.25,
+              "u": 0,
+              "v": 0
+            },
+            "positionMeters": [
+              8.9644,
+              0.89,
+              14.423136
+            ],
+            "rotationY": 1.5707963267948966,
+            "compact": true,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.2289999999999992,
+                  "maxX": 0.07099999999999973,
+                  "minZ": -0.10999999999999943,
+                  "maxZ": 0.10999999999999945
+                },
+                "id": "story:gallery:secondary:0",
+                "component": "observation-book",
+                "family": "writing",
+                "label": "Handwritten observations",
+                "bounds": {
+                  "min": [
+                    8.8544,
+                    0.89,
+                    14.352136
+                  ],
+                  "max": [
+                    9.074399999999999,
+                    0.923,
+                    14.652135999999999
+                  ]
+                },
+                "positionMeters": [
+                  8.9644,
+                  0.89,
+                  14.502136
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.09699999999999953,
+                  "maxX": 0.2289999999999992,
+                  "minZ": -0.04070319397786904,
+                  "maxZ": 0.04070319397786903
+                },
+                "id": "story:gallery:secondary:1",
+                "component": "pocket-watch",
+                "family": "heirlooms",
+                "label": "A stopped pocket watch",
+                "bounds": {
+                  "min": [
+                    8.92369680602213,
+                    0.89,
+                    14.194136
+                  ],
+                  "max": [
+                    9.005103193977869,
+                    0.91,
+                    14.326136
+                  ]
+                },
+                "positionMeters": [
+                  8.9644,
+                  0.89,
+                  14.260136
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "conservatory",
+        "identity": "conservatory",
+        "story": {
+          "title": "The Glass Garden",
+          "text": "A tiny fern has outgrown its specimen bell. A pressed flower beside it carries a date from next spring. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 2,
+          "objects": 5,
+          "objectsPerSquareMeter": 0.07392795615872062,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:conservatory:primary",
+            "identity": "conservatory",
+            "supportId": "forge:conservatory:furniture:generated-2",
+            "supportKind": "writing_desk",
+            "surface": {
+              "id": "forge:conservatory:furniture:generated-2",
+              "kind": "writing_desk",
+              "positionMeters": [
+                17.6788,
+                0,
+                9.351264
+              ],
+              "rotationY": 1.5707963267948966,
+              "top": 0.785,
+              "width": 0.73,
+              "depth": 0.38,
+              "u": -0.115,
+              "v": 0
+            },
+            "positionMeters": [
+              17.6788,
+              0.785,
+              9.466264
+            ],
+            "rotationY": 1.5707963267948966,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.46749999999999936,
+                  "maxX": -0.2719253632760896,
+                  "minZ": -0.09300126633916504,
+                  "maxZ": 0.09300126633916508
+                },
+                "id": "story:conservatory:primary:0",
+                "component": "botanical-bell",
+                "family": "botanical",
+                "label": "A fern under a specimen bell",
+                "bounds": {
+                  "min": [
+                    17.585798733660834,
+                    0.785,
+                    9.62318936327609
+                  ],
+                  "max": [
+                    17.771801266339164,
+                    1.1156142668428006,
+                    9.818764
+                  ]
+                },
+                "positionMeters": [
+                  17.6788,
+                  0.785,
+                  9.720976681638046
+                ],
+                "scale": 0.9313077939233816,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.2477113606340815,
+                  "maxX": 0.03168097754293165,
+                  "minZ": -0.10244385733157202,
+                  "maxZ": 0.10244385733157203
+                },
+                "id": "story:conservatory:primary:1",
+                "component": "specimen-book",
+                "family": "botanical",
+                "label": "A book of pressed specimens",
+                "bounds": {
+                  "min": [
+                    17.576356142668427,
+                    0.785,
+                    9.319583022457069
+                  ],
+                  "max": [
+                    17.78124385733157,
+                    0.8222523117569353,
+                    9.598975360634082
+                  ]
+                },
+                "positionMeters": [
+                  17.6788,
+                  0.785,
+                  9.459279191545575
+                ],
+                "scale": 0.9313077939233816,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.05589498018493976,
+                  "maxX": 0.23749999999999893,
+                  "minZ": -0.06519154557463837,
+                  "maxZ": 0.06519154557463834
+                },
+                "id": "story:conservatory:primary:2",
+                "component": "seed-packets",
+                "family": "botanical",
+                "label": "Numbered seed packets",
+                "bounds": {
+                  "min": [
+                    17.61360845442536,
+                    0.785,
+                    9.113764000000002
+                  ],
+                  "max": [
+                    17.743991545574637,
+                    0.7952443857331573,
+                    9.29536901981506
+                  ]
+                },
+                "positionMeters": [
+                  17.6788,
+                  0.785,
+                  9.204566509907531
+                ],
+                "scale": 0.9313077939233816,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          },
+          {
+            "id": "story:conservatory:secondary",
+            "identity": "conservatory",
+            "supportId": "forge:conservatory:furniture:generated-6",
+            "supportKind": "writing_desk",
+            "surface": {
+              "id": "forge:conservatory:furniture:generated-6",
+              "kind": "writing_desk",
+              "positionMeters": [
+                24.9932,
+                0,
+                14.423136
+              ],
+              "rotationY": -1.5707963267948966,
+              "top": 0.785,
+              "width": 0.73,
+              "depth": 0.38,
+              "u": -0.115,
+              "v": 0
+            },
+            "positionMeters": [
+              24.9932,
+              0.785,
+              14.308136
+            ],
+            "rotationY": -1.5707963267948966,
+            "compact": true,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.2895000000000003,
+                  "maxX": -0.1615000000000002,
+                  "minZ": -0.07759454555145952,
+                  "maxZ": 0.07759454555145949
+                },
+                "id": "story:conservatory:secondary:0",
+                "component": "garden-snips",
+                "family": "botanical",
+                "label": "Gardening shears",
+                "bounds": {
+                  "min": [
+                    24.915605454448542,
+                    0.785,
+                    14.133636
+                  ],
+                  "max": [
+                    25.07079454555146,
+                    0.8,
+                    14.261636
+                  ]
+                },
+                "positionMeters": [
+                  24.9932,
+                  0.785,
+                  14.197636
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.1355000000000004,
+                  "maxX": 0.059499999999999886,
+                  "minZ": -0.0700000000000003,
+                  "maxZ": 0.07000000000000028
+                },
+                "id": "story:conservatory:secondary:1",
+                "component": "seed-packets",
+                "family": "botanical",
+                "label": "Numbered seed packets",
+                "bounds": {
+                  "min": [
+                    24.9232,
+                    0.785,
+                    14.287636
+                  ],
+                  "max": [
+                    25.063200000000002,
+                    0.796,
+                    14.482636
+                  ]
+                },
+                "positionMeters": [
+                  24.9932,
+                  0.785,
+                  14.385136
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "bedroom",
+        "identity": "bedroom",
+        "story": {
+          "title": "The Unsent Letter",
+          "text": "A jewel box stands open beside a folded letter. The ribbon has been untied and retied so often that its edges have become soft. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 2,
+          "objects": 4,
+          "objectsPerSquareMeter": 0.0591423649269765,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:bedroom:primary",
+            "identity": "bedroom",
+            "supportId": "forge:bedroom:furniture:generated-3",
+            "supportKind": "writing_desk",
+            "surface": {
+              "id": "forge:bedroom:furniture:generated-3",
+              "kind": "writing_desk",
+              "positionMeters": [
+                0.61,
+                3.6576000000000004,
+                2.77368
+              ],
+              "rotationY": 1.5707963267948966,
+              "top": 0.785,
+              "width": 0.73,
+              "depth": 0.38,
+              "u": -0.115,
+              "v": 0
+            },
+            "positionMeters": [
+              0.61,
+              4.4426000000000005,
+              2.8886800000000004
+            ],
+            "rotationY": 1.5707963267948966,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.3302500000000004,
+                  "maxX": -0.05775000000000042,
+                  "minZ": -0.08199999999999996,
+                  "maxZ": 0.08199999999999998
+                },
+                "id": "story:bedroom:primary:0",
+                "component": "jewel-letter",
+                "family": "personal",
+                "label": "An open jewel box and unsent letter",
+                "bounds": {
+                  "min": [
+                    0.528,
+                    4.4426000000000005,
+                    2.8314300000000006
+                  ],
+                  "max": [
+                    0.692,
+                    4.5951,
+                    3.1039300000000005
+                  ]
+                },
+                "positionMeters": [
+                  0.61,
+                  4.4426000000000005,
+                  2.9676800000000005
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.03175000000000017,
+                  "maxX": 0.10024999999999995,
+                  "minZ": -0.044699656265872245,
+                  "maxZ": 0.044699656265872245
+                },
+                "id": "story:bedroom:primary:1",
+                "component": "pocket-watch",
+                "family": "heirlooms",
+                "label": "A stopped pocket watch",
+                "bounds": {
+                  "min": [
+                    0.5653003437341277,
+                    4.4426000000000005,
+                    2.67343
+                  ],
+                  "max": [
+                    0.6546996562658722,
+                    4.4626,
+                    2.8054300000000003
+                  ]
+                },
+                "positionMeters": [
+                  0.61,
+                  4.4426000000000005,
+                  2.7394300000000005
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          },
+          {
+            "id": "story:bedroom:secondary",
+            "identity": "bedroom",
+            "supportId": "forge:bedroom:furniture:generated-0",
+            "supportKind": "bed",
+            "surface": {
+              "id": "forge:bedroom:furniture:generated-0",
+              "kind": "bed",
+              "positionMeters": [
+                1.536192,
+                3.6576000000000004,
+                6.6348
+              ],
+              "rotationY": 3.141592653589793,
+              "top": 0.6325,
+              "width": 1.06,
+              "depth": 0.85,
+              "u": 0,
+              "v": 0.3
+            },
+            "positionMeters": [
+              1.536192,
+              4.290100000000001,
+              6.3348
+            ],
+            "rotationY": 3.141592653589793,
+            "compact": true,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.34299999999999997,
+                  "maxX": 0.067,
+                  "minZ": 0.1612499999999999,
+                  "maxZ": 0.43874999999999975
+                },
+                "id": "story:bedroom:secondary:0",
+                "component": "open-luggage",
+                "family": "personal",
+                "label": "Unattended luggage",
+                "bounds": {
+                  "min": [
+                    1.469192,
+                    4.290100000000001,
+                    6.1960500000000005
+                  ],
+                  "max": [
+                    1.879192,
+                    4.605100000000001,
+                    6.47355
+                  ]
+                },
+                "positionMeters": [
+                  1.674192,
+                  4.290100000000001,
+                  6.3348
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.093,
+                  "maxX": 0.343,
+                  "minZ": 0.22499999999999962,
+                  "maxZ": 0.375
+                },
+                "id": "story:bedroom:secondary:1",
+                "component": "folded-garment",
+                "family": "personal",
+                "label": "Folded clothing left behind",
+                "bounds": {
+                  "min": [
+                    1.193192,
+                    4.290100000000001,
+                    6.2598
+                  ],
+                  "max": [
+                    1.443192,
+                    4.325100000000001,
+                    6.409800000000001
+                  ]
+                },
+                "positionMeters": [
+                  1.318192,
+                  4.290100000000001,
+                  6.3348
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "nursery",
+        "identity": "nursery",
+        "story": {
+          "title": "The Little Theatre",
+          "text": "A toy theatre waits with its curtains open. On the little stage, a painted figure is still waiting for its cue. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 1,
+          "objects": 2,
+          "objectsPerSquareMeter": 0.02957118246348825,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:nursery:primary",
+            "identity": "nursery",
+            "supportId": "forge:nursery:furniture:generated-0",
+            "supportKind": "bed",
+            "surface": {
+              "id": "forge:nursery:furniture:generated-0",
+              "kind": "bed",
+              "positionMeters": [
+                10.070592,
+                3.6576000000000004,
+                1.29
+              ],
+              "rotationY": 0,
+              "top": 0.6325,
+              "width": 1.06,
+              "depth": 0.85,
+              "u": 0,
+              "v": 0.3
+            },
+            "positionMeters": [
+              10.070592,
+              4.290100000000001,
+              1.59
+            ],
+            "rotationY": 0,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.36299999999999955,
+                  "maxX": 0.03700000000000081,
+                  "minZ": 0.1975,
+                  "maxZ": 0.4025000000000001
+                },
+                "id": "story:nursery:primary:0",
+                "component": "toy-theatre",
+                "family": "nursery",
+                "label": "A theatre waiting for its missing player",
+                "bounds": {
+                  "min": [
+                    9.707592,
+                    4.290100000000001,
+                    1.4875
+                  ],
+                  "max": [
+                    10.107592,
+                    4.647600000000001,
+                    1.6925000000000001
+                  ]
+                },
+                "positionMeters": [
+                  9.907592,
+                  4.290100000000001,
+                  1.59
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.06300000000000061,
+                  "maxX": 0.36299999999999955,
+                  "minZ": 0.18999999999999995,
+                  "maxZ": 0.41000000000000014
+                },
+                "id": "story:nursery:primary:1",
+                "component": "picture-book",
+                "family": "nursery",
+                "label": "An abandoned picture book",
+                "bounds": {
+                  "min": [
+                    10.133592,
+                    4.290100000000001,
+                    1.48
+                  ],
+                  "max": [
+                    10.433591999999999,
+                    4.335100000000001,
+                    1.7000000000000002
+                  ]
+                },
+                "positionMeters": [
+                  10.283591999999999,
+                  4.290100000000001,
+                  1.59
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "crypt",
+        "identity": "crypt",
+        "story": {
+          "title": "The Patient Memorial",
+          "text": "Black candles surround a small urn. Someone has replaced the dried flowers with a fresh green sprig. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 2,
+          "objects": 5,
+          "objectsPerSquareMeter": 0.07392795615872062,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:crypt:primary",
+            "identity": "crypt",
+            "supportId": "forge:crypt:furniture:generated-0",
+            "supportKind": "sarcophagus",
+            "surface": {
+              "id": "forge:crypt:furniture:generated-0",
+              "kind": "sarcophagus",
+              "positionMeters": [
+                18.604992,
+                3.6576000000000004,
+                1.165
+              ],
+              "rotationY": 0,
+              "top": 0.88,
+              "width": 0.55,
+              "depth": 0.42,
+              "u": 0,
+              "v": 0.64
+            },
+            "positionMeters": [
+              18.604992,
+              4.5376,
+              1.8050000000000002
+            ],
+            "rotationY": 0,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.2624999999999993,
+                  "maxX": -0.14632978723404122,
+                  "minZ": 0.584757781074771,
+                  "maxZ": 0.6952422189252292
+                },
+                "id": "story:crypt:primary:0",
+                "component": "memorial-urn",
+                "family": "memorial",
+                "label": "An urn with a fresh green sprig",
+                "bounds": {
+                  "min": [
+                    18.342492,
+                    4.5376,
+                    1.749757781074771
+                  ],
+                  "max": [
+                    18.458662212765958,
+                    4.8418244476526935,
+                    1.8602422189252292
+                  ]
+                },
+                "positionMeters": [
+                  18.40057710638298,
+                  4.5376,
+                  1.8050000000000002
+                ],
+                "scale": 0.8936170212765957,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.1230957446808496,
+                  "maxX": 0.05160638297872211,
+                  "minZ": 0.5792983881423037,
+                  "maxZ": 0.7007016118576965
+                },
+                "id": "story:crypt:primary:1",
+                "component": "offering",
+                "family": "memorial",
+                "label": "Flowers and unlit mourning candles",
+                "bounds": {
+                  "min": [
+                    18.48189625531915,
+                    4.5376,
+                    1.7442983881423038
+                  ],
+                  "max": [
+                    18.65659838297872,
+                    4.814621276595745,
+                    1.8657016118576966
+                  ]
+                },
+                "positionMeters": [
+                  18.569247319148936,
+                  4.5376,
+                  1.8050000000000002
+                ],
+                "scale": 0.8936170212765957,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.07484042553191372,
+                  "maxX": 0.2624999999999993,
+                  "minZ": 0.5774468085106383,
+                  "maxZ": 0.7025531914893619
+                },
+                "id": "story:crypt:primary:2",
+                "component": "unfinished-plaque",
+                "family": "memorial",
+                "label": "An incomplete inscription",
+                "bounds": {
+                  "min": [
+                    18.679832425531913,
+                    4.5376,
+                    1.7424468085106384
+                  ],
+                  "max": [
+                    18.867492,
+                    4.555025531914894,
+                    1.867553191489362
+                  ]
+                },
+                "positionMeters": [
+                  18.773662212765956,
+                  4.5376,
+                  1.8050000000000002
+                ],
+                "scale": 0.8936170212765957,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          },
+          {
+            "id": "story:crypt:secondary",
+            "identity": "crypt",
+            "supportId": "forge:crypt:furniture:generated-3",
+            "supportKind": "sarcophagus",
+            "surface": {
+              "id": "forge:crypt:furniture:generated-3",
+              "kind": "sarcophagus",
+              "positionMeters": [
+                24.438200000000002,
+                3.6576000000000004,
+                1.426464
+              ],
+              "rotationY": -1.5707963267948966,
+              "top": 0.88,
+              "width": 0.55,
+              "depth": 0.42,
+              "u": 0,
+              "v": 0.64
+            },
+            "positionMeters": [
+              23.7982,
+              4.5376,
+              1.426464
+            ],
+            "rotationY": -1.5707963267948966,
+            "compact": true,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.21550000000000008,
+                  "maxX": -0.005500000000000095,
+                  "minZ": 0.5700000000000003,
+                  "maxZ": 0.7100000000000009
+                },
+                "id": "story:crypt:secondary:0",
+                "component": "unfinished-plaque",
+                "family": "memorial",
+                "label": "An incomplete inscription",
+                "bounds": {
+                  "min": [
+                    23.7282,
+                    4.5376,
+                    1.210964
+                  ],
+                  "max": [
+                    23.8682,
+                    4.5571,
+                    1.420964
+                  ]
+                },
+                "positionMeters": [
+                  23.7982,
+                  4.5376,
+                  1.315964
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": 0.02049999999999992,
+                  "maxX": 0.2155,
+                  "minZ": 0.567499999999999,
+                  "maxZ": 0.7125000000000021
+                },
+                "id": "story:crypt:secondary:1",
+                "component": "letter-quill",
+                "family": "writing",
+                "label": "An unfinished letter and quill",
+                "bounds": {
+                  "min": [
+                    23.7257,
+                    4.5376,
+                    1.446964
+                  ],
+                  "max": [
+                    23.870700000000003,
+                    4.5856,
+                    1.641964
+                  ]
+                },
+                "positionMeters": [
+                  23.7982,
+                  4.5376,
+                  1.5444639999999998
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "laboratory",
+        "identity": "laboratory",
+        "story": {
+          "title": "The Green Experiment",
+          "text": "Three stoppered vessels surround a green specimen. The last notebook entry reads: It responds to kindness before it responds to light. This is an optional house memory; follow your field journal for the haunting."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 2,
+          "objects": 5,
+          "objectsPerSquareMeter": 0.07392795615872062,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:laboratory:primary",
+            "identity": "laboratory",
+            "supportId": "forge:laboratory:furniture:generated-0",
+            "supportKind": "laboratory_bench",
+            "surface": {
+              "id": "forge:laboratory:furniture:generated-0",
+              "kind": "laboratory_bench",
+              "positionMeters": [
+                1.536192,
+                3.6576000000000004,
+                8.5248
+              ],
+              "rotationY": 0,
+              "top": 0.9,
+              "width": 0.86,
+              "depth": 0.43,
+              "u": -0.14,
+              "v": 0.035
+            },
+            "positionMeters": [
+              1.396192,
+              4.557600000000001,
+              8.559800000000001
+            ],
+            "rotationY": 0,
+            "compact": false,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.508,
+                  "maxX": -0.33799999999999986,
+                  "minZ": -0.03500000000000014,
+                  "maxZ": 0.10500000000000043
+                },
+                "id": "story:laboratory:primary:0",
+                "component": "microscope",
+                "family": "scientific",
+                "label": "A brass observation instrument",
+                "bounds": {
+                  "min": [
+                    1.028192,
+                    4.557600000000001,
+                    8.4898
+                  ],
+                  "max": [
+                    1.1981920000000001,
+                    4.857600000000001,
+                    8.629800000000001
+                  ]
+                },
+                "positionMeters": [
+                  1.1131920000000002,
+                  4.557600000000001,
+                  8.559800000000001
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.31200000000000006,
+                  "maxX": -0.09799999999999986,
+                  "minZ": -0.01422218684219878,
+                  "maxZ": 0.08422218684219906
+                },
+                "id": "story:laboratory:primary:1",
+                "component": "specimen-bottles",
+                "family": "scientific",
+                "label": "Stoppered, labeled specimens",
+                "bounds": {
+                  "min": [
+                    1.224192,
+                    4.557600000000001,
+                    8.510577813157802
+                  ],
+                  "max": [
+                    1.4381920000000001,
+                    4.828100000000001,
+                    8.6090221868422
+                  ]
+                },
+                "positionMeters": [
+                  1.3311920000000002,
+                  4.557600000000001,
+                  8.559800000000001
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.07199999999999984,
+                  "maxX": 0.22799999999999998,
+                  "minZ": -0.07499999999999929,
+                  "maxZ": 0.14499999999999957
+                },
+                "id": "story:laboratory:primary:2",
+                "component": "observation-book",
+                "family": "writing",
+                "label": "Handwritten observations",
+                "bounds": {
+                  "min": [
+                    1.4641920000000002,
+                    4.557600000000001,
+                    8.449800000000002
+                  ],
+                  "max": [
+                    1.764192,
+                    4.590600000000001,
+                    8.6698
+                  ]
+                },
+                "positionMeters": [
+                  1.614192,
+                  4.557600000000001,
+                  8.559800000000001
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          },
+          {
+            "id": "story:laboratory:secondary",
+            "identity": "laboratory",
+            "supportId": "forge:laboratory:furniture:generated-4",
+            "supportKind": "laboratory_bench",
+            "surface": {
+              "id": "forge:laboratory:furniture:generated-4",
+              "kind": "laboratory_bench",
+              "positionMeters": [
+                0.6,
+                3.6576000000000004,
+                10.69848
+              ],
+              "rotationY": 1.5707963267948966,
+              "top": 0.9,
+              "width": 0.86,
+              "depth": 0.43,
+              "u": -0.14,
+              "v": 0.035
+            },
+            "positionMeters": [
+              0.635,
+              4.557600000000001,
+              10.83848
+            ],
+            "rotationY": 1.5707963267948966,
+            "compact": true,
+            "objects": [
+              {
+                "supportBounds": {
+                  "minX": -0.35749999999999993,
+                  "maxX": -0.1435000000000013,
+                  "minZ": -0.011936533479473193,
+                  "maxZ": 0.08193653347947329
+                },
+                "id": "story:laboratory:secondary:0",
+                "component": "specimen-bottles",
+                "family": "scientific",
+                "label": "Stoppered, labeled specimens",
+                "bounds": {
+                  "min": [
+                    0.5880634665205268,
+                    4.557600000000001,
+                    10.841980000000001
+                  ],
+                  "max": [
+                    0.6819365334794733,
+                    4.828100000000001,
+                    11.05598
+                  ]
+                },
+                "positionMeters": [
+                  0.635,
+                  4.557600000000001,
+                  10.94898
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              },
+              {
+                "supportBounds": {
+                  "minX": -0.11749999999999972,
+                  "maxX": 0.07749999999999879,
+                  "minZ": -0.037499999999999985,
+                  "maxZ": 0.10750000000000004
+                },
+                "id": "story:laboratory:secondary:1",
+                "component": "letter-quill",
+                "family": "writing",
+                "label": "An unfinished letter and quill",
+                "bounds": {
+                  "min": [
+                    0.5625,
+                    4.557600000000001,
+                    10.620980000000001
+                  ],
+                  "max": [
+                    0.7075,
+                    4.605600000000001,
+                    10.81598
+                  ]
+                },
+                "positionMeters": [
+                  0.635,
+                  4.557600000000001,
+                  10.718480000000001
+                ],
+                "scale": 1,
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "roomId": "circulation",
+        "identity": "circulation",
+        "story": {
+          "title": "Marks along the passage",
+          "text": "Small marks in the paneling continue toward the next doorway. They look deliberate rather than accidental."
+        },
+        "density": {
+          "edition": "environmental-story-1",
+          "area": 67.63341312,
+          "arrangements": 1,
+          "objects": 1,
+          "objectsPerSquareMeter": 0.014785591231744125,
+          "omissions": []
+        },
+        "arrangements": [
+          {
+            "id": "story:circulation:trace",
+            "identity": "circulation",
+            "supportId": "wall:top",
+            "supportKind": "flush-wall",
+            "positionMeters": [
+              15.2052,
+              5.3276,
+              7.9698
+            ],
+            "rotationY": 0,
+            "objects": [
+              {
+                "id": "story:circulation:marks",
+                "component": "wall-trace",
+                "family": "writing",
+                "label": "A deliberately incomplete framed record",
+                "positionMeters": [
+                  15.2052,
+                  5.3276,
+                  7.9698
+                ],
+                "interactive": false,
+                "questBinding": null,
+                "requiredForQuest": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

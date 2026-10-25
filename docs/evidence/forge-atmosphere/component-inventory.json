@@ -1,0 +1,519 @@
+{
+  "limits": {
+    "maxTemplateTriangles": 1200,
+    "maxTemplateMaterials": 8,
+    "maxRoomTriangles": 2200,
+    "maxRoomGroups": 40,
+    "dust": {
+      "cinematic": 64,
+      "performance": 0
+    },
+    "pulseAmplitude": 0.025,
+    "minPulseSeconds": 10
+  },
+  "families": {
+    "formal": {
+      "textiles": true,
+      "glass": true,
+      "botanicals": true,
+      "condition": "preserved"
+    },
+    "private": {
+      "textiles": true,
+      "glass": true,
+      "botanicals": false,
+      "condition": "abandoned"
+    },
+    "scholarly": {
+      "textiles": false,
+      "glass": true,
+      "botanicals": true,
+      "condition": "abandoned"
+    },
+    "botanical": {
+      "textiles": false,
+      "glass": true,
+      "botanicals": true,
+      "condition": "decaying"
+    },
+    "funerary": {
+      "textiles": false,
+      "glass": false,
+      "botanicals": true,
+      "condition": "decaying"
+    },
+    "circulation": {
+      "textiles": false,
+      "glass": false,
+      "botanicals": false,
+      "condition": "abandoned"
+    }
+  },
+  "identityOverrides": {
+    "library": {
+      "textiles": true
+    },
+    "laboratory": {
+      "waterStaining": true
+    },
+    "nursery": {
+      "effects": false
+    },
+    "ballroom": {
+      "condition": "abandoned"
+    },
+    "crypt": {
+      "waterStaining": true
+    },
+    "conservatory": {
+      "waterStaining": true
+    }
+  },
+  "newMaterials": [
+    {
+      "index": 40,
+      "n": "clear display glass",
+      "c": [
+        0.48,
+        0.63,
+        0.62,
+        0.16
+      ],
+      "rough": 0.28,
+      "metal": 0.02
+    },
+    {
+      "index": 41,
+      "n": "antique mirror silver",
+      "c": [
+        0.15,
+        0.19,
+        0.22,
+        1
+      ],
+      "rough": 0.35,
+      "metal": 0.78
+    },
+    {
+      "index": 42,
+      "n": "faded velvet",
+      "c": [
+        0.29,
+        0.12,
+        0.18,
+        1
+      ],
+      "rough": 1,
+      "textureMaterial": 1
+    },
+    {
+      "index": 43,
+      "n": "weathered velvet",
+      "c": [
+        0.21,
+        0.19,
+        0.16,
+        1
+      ],
+      "rough": 1,
+      "textureMaterial": 1
+    },
+    {
+      "index": 44,
+      "n": "verdigris tarnished brass",
+      "c": [
+        0.22,
+        0.28,
+        0.17,
+        1
+      ],
+      "rough": 0.87,
+      "metal": 0.36
+    },
+    {
+      "index": 45,
+      "n": "living fern green",
+      "c": [
+        0.1,
+        0.26,
+        0.13,
+        1
+      ],
+      "rough": 0.94
+    },
+    {
+      "index": 46,
+      "n": "dried botanical ochre",
+      "c": [
+        0.32,
+        0.25,
+        0.12,
+        1
+      ],
+      "rough": 1
+    },
+    {
+      "index": 47,
+      "n": "overgrown ivy green",
+      "c": [
+        0.08,
+        0.18,
+        0.1,
+        1
+      ],
+      "rough": 0.96
+    },
+    {
+      "index": 48,
+      "n": "settled surface dust",
+      "c": [
+        0.43,
+        0.39,
+        0.32,
+        1
+      ],
+      "rough": 1
+    },
+    {
+      "index": 49,
+      "n": "mineral water trace",
+      "c": [
+        0.25,
+        0.27,
+        0.21,
+        1
+      ],
+      "rough": 1
+    },
+    {
+      "index": 50,
+      "n": "weathered funerary stone",
+      "c": [
+        0.53,
+        0.59,
+        0.48,
+        1
+      ],
+      "rough": 1,
+      "textureMaterial": 15
+    },
+    {
+      "index": 51,
+      "n": "faded blue velvet",
+      "c": [
+        0.18,
+        0.23,
+        0.29,
+        1
+      ],
+      "rough": 1,
+      "textureMaterial": 1
+    },
+    {
+      "index": 52,
+      "n": "faded heirloom linen",
+      "c": [
+        0.55,
+        0.51,
+        0.43,
+        1
+      ],
+      "rough": 1
+    }
+  ],
+  "components": [
+    {
+      "id": "velvet-curtain",
+      "family": "textile",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 416,
+          "materialGroups": 2
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 416,
+          "materialGroups": 2
+        },
+        {
+          "condition": "decaying",
+          "triangles": 416,
+          "materialGroups": 2
+        }
+      ]
+    },
+    {
+      "id": "layered-valance",
+      "family": "textile",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 276,
+          "materialGroups": 3
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 276,
+          "materialGroups": 3
+        },
+        {
+          "condition": "decaying",
+          "triangles": 276,
+          "materialGroups": 3
+        }
+      ]
+    },
+    {
+      "id": "bed-canopy",
+      "family": "textile",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 276,
+          "materialGroups": 3
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 276,
+          "materialGroups": 3
+        },
+        {
+          "condition": "decaying",
+          "triangles": 276,
+          "materialGroups": 3
+        }
+      ]
+    },
+    {
+      "id": "upholstered-panel",
+      "family": "textile",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 260,
+          "materialGroups": 2
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 260,
+          "materialGroups": 2
+        },
+        {
+          "condition": "decaying",
+          "triangles": 260,
+          "materialGroups": 2
+        }
+      ]
+    },
+    {
+      "id": "table-cover",
+      "family": "textile",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 48,
+          "materialGroups": 2
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 48,
+          "materialGroups": 2
+        },
+        {
+          "condition": "decaying",
+          "triangles": 48,
+          "materialGroups": 2
+        }
+      ]
+    },
+    {
+      "id": "leaded-rosette",
+      "family": "glass",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 176,
+          "materialGroups": 5
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 176,
+          "materialGroups": 5
+        },
+        {
+          "condition": "decaying",
+          "triangles": 176,
+          "materialGroups": 5
+        }
+      ]
+    },
+    {
+      "id": "fern-fronds",
+      "family": "botanical",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 240,
+          "materialGroups": 1
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 240,
+          "materialGroups": 1
+        },
+        {
+          "condition": "decaying",
+          "triangles": 240,
+          "materialGroups": 1
+        }
+      ]
+    },
+    {
+      "id": "trailing-ivy",
+      "family": "botanical",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 324,
+          "materialGroups": 1
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 324,
+          "materialGroups": 1
+        },
+        {
+          "condition": "decaying",
+          "triangles": 324,
+          "materialGroups": 1
+        }
+      ]
+    },
+    {
+      "id": "specimen-case",
+      "family": "botanical",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 276,
+          "materialGroups": 4
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 276,
+          "materialGroups": 4
+        },
+        {
+          "condition": "decaying",
+          "triangles": 276,
+          "materialGroups": 4
+        }
+      ]
+    },
+    {
+      "id": "funeral-spray",
+      "family": "botanical",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 216,
+          "materialGroups": 2
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 216,
+          "materialGroups": 2
+        },
+        {
+          "condition": "decaying",
+          "triangles": 216,
+          "materialGroups": 2
+        }
+      ]
+    },
+    {
+      "id": "water-trace",
+      "family": "aging",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 10,
+          "materialGroups": 1
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 10,
+          "materialGroups": 1
+        },
+        {
+          "condition": "decaying",
+          "triangles": 10,
+          "materialGroups": 1
+        }
+      ]
+    },
+    {
+      "id": "settled-dust",
+      "family": "aging",
+      "generator": "gothicComponentParts",
+      "variants": [
+        {
+          "condition": "preserved",
+          "triangles": 1,
+          "materialGroups": 1
+        },
+        {
+          "condition": "abandoned",
+          "triangles": 1,
+          "materialGroups": 1
+        },
+        {
+          "condition": "decaying",
+          "triangles": 1,
+          "materialGroups": 1
+        }
+      ]
+    }
+  ],
+  "upgradedExistingModels": [
+    {
+      "type": "fern_urn",
+      "before": {
+        "triangles": 432,
+        "primitiveGroups": 36
+      },
+      "after": {
+        "triangles": 288,
+        "primitiveGroups": 5
+      }
+    },
+    {
+      "type": "plant_stand",
+      "before": {
+        "triangles": 108,
+        "primitiveGroups": 9
+      },
+      "after": {
+        "triangles": 288,
+        "primitiveGroups": 5
+      }
+    }
+  ],
+  "upgradedExistingStory": {
+    "type": "botanical-bell",
+    "beforeTriangles": 205,
+    "afterTriangles": 290
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "version": 1,
+  "representativeStyle": {
+    "wood": "mahogany",
+    "upholstery": "claret",
+    "condition": "preserved",
+    "ornament": "luxury",
+    "pattern": 0
+  },
+  "limits": {
+    "triangles": 6000,
+    "materials": 8,
+    "cacheEntries": 32
+  },
+  "components": [
+    {
+      "type": "tufted_settee",
+      "specification": {
+        "footprint": [
+          1.9,
+          0.88
+        ],
+        "height": 1.3
+      },
+      "builtIn": true,
+      "generatedTriangles": 2688,
+      "exportedTriangles": 2464,
+      "materialDraws": 3,
+      "glbBytes": 272608
+    },
+    {
+      "type": "settee",
+      "specification": {
+        "label": "Tufted Velvet Settee",
+        "footprint": [
+          1.84,
+          0.85
+        ],
+        "height": 1.19,
+        "rooms": [
+          "parlor",
+          "ballroom",
+          "gallery"
+        ],
+        "repeatable": true
+      },
+      "builtIn": false,
+      "generatedTriangles": 2688,
+      "exportedTriangles": 2464,
+      "materialDraws": 3,
+      "glbBytes": 272668
+    },
+    {
+      "type": "gothic_armchair",
+      "specification": {
+        "footprint": [
+          0.94,
+          0.94
+        ],
+        "height": 1.72
+      },
+      "builtIn": true,
+      "generatedTriangles": 2564,
+      "exportedTriangles": 2340,
+      "materialDraws": 3,
+      "glbBytes": 266140
+    },
+    {
+      "type": "armchair",
+      "specification": {
+        "label": "Tufted Armchair",
+        "footprint": [
+          0.86,
+          0.87
+        ],
+        "height": 1.19,
+        "rooms": [
+          "library",
+          "parlor",
+          "study",
+          "bedroom"
+        ],
+        "repeatable": true
+      },
+      "builtIn": false,
+      "generatedTriangles": 2116,
+      "exportedTriangles": 1956,
+      "materialDraws": 3,
+      "glbBytes": 243756
+    },
+    {
+      "type": "writing_desk",
+      "specification": {
+        "label": "Victorian Writing Desk",
+        "footprint": [
+          1.52,
+          0.74
+        ],
+        "height": 0.79,
+        "rooms": [
+          "study",
+          "library",
+          "bedroom"
+        ],
+        "repeatable": true
+      },
+      "builtIn": false,
+      "generatedTriangles": 1262,
+      "exportedTriangles": 1102,
+      "materialDraws": 3,
+      "glbBytes": 105888
+    },
+    {
+      "type": "bookcase",
+      "specification": {
+        "label": "Carved Bookcase",
+        "footprint": [
+          1.52,
+          0.45
+        ],
+        "height": 2.34,
+        "rooms": [
+          "library",
+          "study",
+          "gallery"
+        ],
+        "repeatable": true
+      },
+      "builtIn": false,
+      "generatedTriangles": 1912,
+      "exportedTriangles": 1848,
+      "materialDraws": 5,
+      "glbBytes": 259688
+    },
+    {
+      "type": "wardrobe",
+      "specification": {
+        "label": "Tall Carved Wardrobe",
+        "footprint": [
+          1.49,
+          0.67
+        ],
+        "height": 2.17,
+        "rooms": [
+          "bedroom",
+          "nursery",
+          "dressing"
+        ],
+        "repeatable": true
+      },
+      "builtIn": false,
+      "generatedTriangles": 1012,
+      "exportedTriangles": 916,
+      "materialDraws": 2,
+      "glbBytes": 92088
+    },
+    {
+      "type": "curio_cabinet",
+      "specification": {
+        "footprint": [
+          0.95,
+          0.5
+        ],
+        "height": 1.9
+      },
+      "builtIn": true,
+      "generatedTriangles": 2104,
+      "exportedTriangles": 1848,
+      "materialDraws": 5,
+      "glbBytes": 200348
+    },
+    {
+      "type": "dining_table",
+      "specification": {
+        "label": "Carved Dining Table",
+        "footprint": [
+          2.14,
+          1.05
+        ],
+        "height": 0.77,
+        "rooms": [
+          "dining",
+          "banquet",
+          "ballroom"
+        ],
+        "repeatable": true
+      },
+      "builtIn": false,
+      "generatedTriangles": 1250,
+      "exportedTriangles": 1090,
+      "materialDraws": 2,
+      "glbBytes": 104812
+    },
+    {
+      "type": "banquet_ensemble",
+      "specification": {
+        "footprint": [
+          2.7,
+          3.45
+        ],
+        "height": 1.65
+      },
+      "builtIn": true,
+      "generatedTriangles": 5664,
+      "exportedTriangles": 5128,
+      "materialDraws": 5,
+      "glbBytes": 480136
+    },
+    {
+      "type": "supper_table",
+      "specification": {
+        "footprint": [
+          2.1,
+          1.2
+        ],
+        "height": 1.42
+      },
+      "builtIn": true,
+      "generatedTriangles": 2032,
+      "exportedTriangles": 1832,
+      "materialDraws": 5,
+      "glbBytes": 258304
+    },
+    {
+      "type": "bed",
+      "specification": {
+        "footprint": [
+          1.65,
+          2.1
+        ],
+        "height": 2.35
+      },
+      "builtIn": true,
+      "generatedTriangles": 2894,
+      "exportedTriangles": 2606,
+      "materialDraws": 4,
+      "glbBytes": 280584
+    },
+    {
+      "type": "gothic_headboard",
+      "specification": {
+        "footprint": [
+          1.65,
+          0.26
+        ],
+        "height": 1.82
+      },
+      "builtIn": true,
+      "generatedTriangles": 1774,
+      "exportedTriangles": 1582,
+      "materialDraws": 3,
+      "glbBytes": 216876
+    },
+    {
+      "type": "side_table",
+      "specification": {
+        "footprint": [
+          0.5,
+          0.5
+        ],
+        "height": 0.65
+      },
+      "builtIn": true,
+      "generatedTriangles": 1108,
+      "exportedTriangles": 980,
+      "materialDraws": 2,
+      "glbBytes": 95428
+    },
+    {
+      "type": "console",
+      "specification": {
+        "footprint": [
+          0.86,
+          0.38
+        ],
+        "height": 0.92
+      },
+      "builtIn": true,
+      "generatedTriangles": 1108,
+      "exportedTriangles": 980,
+      "materialDraws": 2,
+      "glbBytes": 95428
+    },
+    {
+      "type": "grandfather_clock",
+      "specification": {
+        "footprint": [
+          0.7,
+          0.54
+        ],
+        "height": 2.15
+      },
+      "builtIn": true,
+      "generatedTriangles": 1292,
+      "exportedTriangles": 1052,
+      "materialDraws": 4,
+      "glbBytes": 123224
+    },
+    {
+      "type": "marble_fireplace",
+      "specification": {
+        "footprint": [
+          1.55,
+          0.48
+        ],
+        "height": 1.45
+      },
+      "builtIn": true,
+      "generatedTriangles": 690,
+      "exportedTriangles": 690,
+      "materialDraws": 5,
+      "glbBytes": 87944
+    },
+    {
+      "type": "mahogany_fireplace",
+      "specification": {
+        "footprint": [
+          1.55,
+          0.48
+        ],
+        "height": 1.45
+      },
+      "builtIn": true,
+      "generatedTriangles": 690,
+      "exportedTriangles": 690,
+      "materialDraws": 5,
+      "glbBytes": 89712
+    }
+  ]
+}

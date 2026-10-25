@@ -1,0 +1,60 @@
+
+> test:forge-luxury
+> node --test tests/forge-luxury.test.mjs tests/forge-components.test.mjs tests/whole-house.test.mjs tests/forge-stairs.test.mjs
+
+✔ all eleven identities inherit exactly one family and share registered furniture and materials (4.796671ms)
+✔ identity overrides specialize inherited family defaults without changing siblings (2.042349ms)
+✔ furniture registry delegates to existing geometry instead of copying or layering models (370.496692ms)
+✔ stable identities produce identical content, including when room order changes (127.445718ms)
+✔ explicit identities, authored furniture, finishes and blueprint geometry stay authoritative (12.230591ms)
+✔ detail levels and per-room component overrides select existing generators deterministically (15.108686ms)
+✔ budget failures roll back a complete fixture, occupied mount, surface claim and light metadata (0.706335ms)
+✔ custom triangle and geometry-memory budgets cannot be bypassed by large single primitives (0.531035ms)
+✔ invalid material/geometry references are rejected atomically and reported (0.812741ms)
+✔ one component owns each tabletop; repeated component tokens cannot decorate twice (7.917175ms)
+✔ wall details do not reuse portrait or aperture spans; stairs retain clear routes (67.472323ms)
+✔ large houses retain fair bounded content allocations and observable omission reports (326.399284ms)
+✔ envelope details use the registry budgets and preserve source geometry (9.434948ms)
+✔ new CASA exports retain the Game contract, embed geometry once and expose additive QA (989.550271ms)
+✔ shared profiled architecture upgrades all eleven identities with distinct family treatments (122.857966ms)
+✔ profiled moldings and raised panels contain dimensional bevels, not only flat colour changes (0.525897ms)
+✔ all new architectural components are routed through the Pass 1 registry (4.309041ms)
+✔ actual triangles preserve every door, window and full-height removed partition aperture (97.23692ms)
+✔ full-wall removed partitions never receive wall trim and crowded corner doors omit pediments (1.650099ms)
+✔ full-height carving avoids occupied portrait and wall-decoration rectangles (15.785606ms)
+✔ ceiling relief preserves headroom, stair voids and restrained room identities (16.862748ms)
+✔ authored finish choices remain authoritative and carpet never receives parquet inlays (16.139259ms)
+✔ ornament budgets omit complete components and keep strict triangle/memory accounting (22.853896ms)
+✔ marble and mahogany fireplace carving fits the original rotated collision volumes (29.731092ms)
+✔ explicit fireplace finishes and new mahogany records retain authored furniture and hearth bindings (32.316966ms)
+✔ library shelving relief remains inside the existing padded clearance reservation (5.867975ms)
+✔ profiled triangle vertices use the same feet-to-meters conversion as structural boxes (0.416506ms)
+✔ combined two-story mansion exports all identities, bounded models and unchanged loading/navigation contracts (4048.36534ms)
+✔ the marble treatment appends a palette slot and embeds its shared tile only when used (9.197557ms)
+✔ explicit straight pairs compile using actual floor elevations without mutating source (9.027736ms)
+✔ misalignment, headroom, blocked landings, unsupported stairs and locks fail closed (1.942322ms)
+✔ stair surface supports ascent/descent, blocks side climbs and oversized vertical changes (2313.473543ms)
+✔ fresh GLBs have supported treads, an open shaft, upper landing and overhead clearance (1449.67265ms)
+✔ streamer pins a pair only while requested and disposes the evicted floor (3.286339ms)
+✔ malformed or mismatched runtime stair contracts remain disabled (995.065954ms)
+✔ light composition stays inside the active room, preserves a key and window fill, and never exceeds three lights (1.698201ms)
+✔ nearby hearths receive a light slot without inventing extra lights (0.264431ms)
+✔ whole-house architectural trim avoids doorway apertures and adds real layered geometry (19.842634ms)
+✔ authored floor types survive room themes and footsteps match the surface (0.532937ms)
+✔ ordinary fireplaces export fire anchors, window moonlight and no duplicate fixture housings (10.283853ms)
+✔ actual whole-house CASA includes new envelope, shared damask, checker floor and working routes (937.958349ms)
+✔ lossless ZIP compression preserves every CASA entry and the existing archive reader can decode it (1122.92897ms)
+✔ curved upholstery shares smooth unit normals while architectural corners retain hard edges (32.149148ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 43
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4911.268993
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

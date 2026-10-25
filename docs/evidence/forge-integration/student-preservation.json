@@ -1,0 +1,241 @@
+{
+  "baseline": "4c47d7b2b5bd5e99d91b4ed6cc6ac81768a287e7",
+  "protectedFiles": 25,
+  "archives": 23,
+  "rooms": 443,
+  "authoredFurnishings": 0,
+  "results": [
+    {
+      "file": "casa_game/houses/house-03f984fb4d9ae0.casa",
+      "rooms": 36,
+      "explicitIdentities": 36,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 81,
+      "explicitFinishes": 36,
+      "beforeIssues": 32,
+      "afterIssues": 32
+    },
+    {
+      "file": "casa_game/houses/house-0c1593269393e1.casa",
+      "rooms": 49,
+      "explicitIdentities": 49,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 150,
+      "explicitFinishes": 49,
+      "beforeIssues": 35,
+      "afterIssues": 35
+    },
+    {
+      "file": "casa_game/houses/house-0e940e170c5d1b.casa",
+      "rooms": 5,
+      "explicitIdentities": 5,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 5,
+      "explicitFinishes": 5,
+      "beforeIssues": 0,
+      "afterIssues": 0
+    },
+    {
+      "file": "casa_game/houses/house-1a442c2a1b0d74.casa",
+      "rooms": 17,
+      "explicitIdentities": 17,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 13,
+      "explicitFinishes": 17,
+      "beforeIssues": 9,
+      "afterIssues": 9
+    },
+    {
+      "file": "casa_game/houses/house-1aa4a4075a9c05.casa",
+      "rooms": 3,
+      "explicitIdentities": 3,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 7,
+      "explicitFinishes": 3,
+      "beforeIssues": 2,
+      "afterIssues": 2
+    },
+    {
+      "file": "casa_game/houses/house-1af2d7b6042573.casa",
+      "rooms": 15,
+      "explicitIdentities": 15,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 25,
+      "explicitFinishes": 15,
+      "beforeIssues": 28,
+      "afterIssues": 28
+    },
+    {
+      "file": "casa_game/houses/house-2e2423085d130b.casa",
+      "rooms": 7,
+      "explicitIdentities": 7,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 0,
+      "explicitFinishes": 7,
+      "beforeIssues": 0,
+      "afterIssues": 0
+    },
+    {
+      "file": "casa_game/houses/house-389efcfb9f5ac4.casa",
+      "rooms": 23,
+      "explicitIdentities": 23,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 70,
+      "explicitFinishes": 23,
+      "beforeIssues": 149,
+      "afterIssues": 149
+    },
+    {
+      "file": "casa_game/houses/house-41483e0f829339.casa",
+      "rooms": 18,
+      "explicitIdentities": 18,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 18,
+      "explicitFinishes": 18,
+      "beforeIssues": 44,
+      "afterIssues": 44
+    },
+    {
+      "file": "casa_game/houses/house-4729d1cf7ac06a.casa",
+      "rooms": 23,
+      "explicitIdentities": 23,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 62,
+      "explicitFinishes": 23,
+      "beforeIssues": 16,
+      "afterIssues": 16
+    },
+    {
+      "file": "casa_game/houses/house-56d23561d1dad8.casa",
+      "rooms": 26,
+      "explicitIdentities": 26,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 51,
+      "explicitFinishes": 26,
+      "beforeIssues": 24,
+      "afterIssues": 24
+    },
+    {
+      "file": "casa_game/houses/house-5efc01faa87b76.casa",
+      "rooms": 20,
+      "explicitIdentities": 20,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 25,
+      "explicitFinishes": 20,
+      "beforeIssues": 1,
+      "afterIssues": 1
+    },
+    {
+      "file": "casa_game/houses/house-62f82b6454d42d.casa",
+      "rooms": 23,
+      "explicitIdentities": 23,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 43,
+      "explicitFinishes": 23,
+      "beforeIssues": 19,
+      "afterIssues": 19
+    },
+    {
+      "file": "casa_game/houses/house-8102ef435f6dcc.casa",
+      "rooms": 17,
+      "explicitIdentities": 17,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 29,
+      "explicitFinishes": 17,
+      "beforeIssues": 11,
+      "afterIssues": 11
+    },
+    {
+      "file": "casa_game/houses/house-82fed66d1530d5.casa",
+      "rooms": 22,
+      "explicitIdentities": 22,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 45,
+      "explicitFinishes": 22,
+      "beforeIssues": 44,
+      "afterIssues": 44
+    },
+    {
+      "file": "casa_game/houses/house-8758b94897b0ba.casa",
+      "rooms": 31,
+      "explicitIdentities": 31,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 52,
+      "explicitFinishes": 31,
+      "beforeIssues": 73,
+      "afterIssues": 73
+    },
+    {
+      "file": "casa_game/houses/house-956f3c329fefe5.casa",
+      "rooms": 36,
+      "explicitIdentities": 36,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 60,
+      "explicitFinishes": 36,
+      "beforeIssues": 18,
+      "afterIssues": 18
+    },
+    {
+      "file": "casa_game/houses/house-97408b549b8b23.casa",
+      "rooms": 8,
+      "explicitIdentities": 8,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 12,
+      "explicitFinishes": 8,
+      "beforeIssues": 1,
+      "afterIssues": 1
+    },
+    {
+      "file": "casa_game/houses/house-adc95034eb7871.casa",
+      "rooms": 3,
+      "explicitIdentities": 3,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 11,
+      "explicitFinishes": 3,
+      "beforeIssues": 22,
+      "afterIssues": 22
+    },
+    {
+      "file": "casa_game/houses/house-c253d341258532.casa",
+      "rooms": 23,
+      "explicitIdentities": 23,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 37,
+      "explicitFinishes": 23,
+      "beforeIssues": 31,
+      "afterIssues": 31
+    },
+    {
+      "file": "casa_game/houses/house-c3891fccdad9b0.casa",
+      "rooms": 18,
+      "explicitIdentities": 18,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 29,
+      "explicitFinishes": 18,
+      "beforeIssues": 8,
+      "afterIssues": 8
+    },
+    {
+      "file": "casa_game/houses/house-eb8f563c3fed01.casa",
+      "rooms": 8,
+      "explicitIdentities": 8,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 11,
+      "explicitFinishes": 8,
+      "beforeIssues": 12,
+      "afterIssues": 12
+    },
+    {
+      "file": "casa_game/samples/moonveil.casa",
+      "rooms": 12,
+      "explicitIdentities": 12,
+      "authoredFurnishings": 0,
+      "authoredOpenings": 31,
+      "explicitFinishes": 12,
+      "beforeIssues": 0,
+      "afterIssues": 0
+    }
+  ],
+  "catalogUnchangedAgainstPreSixBaseline": true,
+  "authoredFurnitureCoverage": "Published embedded sources contain zero supported authored furniture records; synthetic eleven-profile authored-furnishing integration test covers that path."
+}

@@ -1,0 +1,361 @@
+
+> test
+> node tools/prepare-test-houses.mjs && npm run test:core && npm run test:scenes
+
+Moonveil reference mansion rebuilt with the current Forge.
+Prepared test-only catalog entries; public repository catalog is unchanged.
+
+> test:core
+> node --test tests/forge-luxury.test.mjs tests/forge-components.test.mjs tests/forge-rescue.test.mjs tests/victorian-playpack.test.mjs tests/upload-readiness.test.mjs tests/hall-society.test.mjs tests/nocturne-garden.test.mjs tests/release-entry.test.mjs tests/town-life.test.mjs tests/afterlife-neighbours.test.mjs tests/village-fair.test.mjs tests/magic.test.mjs tests/playtest-pass.test.mjs tests/scares.test.mjs tests/whole-house.test.mjs tests/artisan-detail.test.mjs tests/reference-furniture.test.mjs tests/room-opulence.test.mjs tests/batch-edits.test.mjs tests/directors-pass.test.mjs tests/runtime-cleanup.test.mjs tests/audio-lifecycle.test.mjs tests/street-memory.test.mjs tests/phoenix-gameplay.test.mjs tests/estate-theatre.test.mjs tests/forge-student-readiness.test.mjs tests/casa-admin.test.mjs tests/casa-game.test.mjs tests/casa-gamepad.test.mjs tests/casa-haunting.test.mjs tests/forge-construction.test.mjs tests/forge-pass2.test.mjs tests/forge-stairs.test.mjs tests/casa-catalog.test.mjs tests/casa-reactions.test.mjs tests/room-completeness.test.mjs tests/hall-organ.test.mjs tests/trick-or-treat.test.mjs tests/autumn-street.test.mjs tests/town-audio.test.mjs tests/estate-frontage.test.mjs tests/yard-displays.test.mjs tests/neighborhood-life.test.mjs
+
+✔ neighbours offer repeatable encounters without changing candy or passport games (6.783089ms)
+✔ fetch has a thrown arc, chase, pickup, mouth carry and a delivery near the player (0.557684ms)
+✔ fetch visibly reaches the mouth, returns, and resumes from its actual position (215.110579ms)
+✔ residents depart at different times and one interaction does not pause the others (1573.645667ms)
+✔ only nearby residents offer actions when they are apart (22.068059ms)
+✔ reduced motion preserves cloth and position but shows fetch phase feedback (22.103901ms)
+✔ cloth updates are throttled and the revised cast has finite geometry (29.589218ms)
+✔ the four residents yield rather than stopping in an overlapping stack beside the player (83.414219ms)
+✔ new Gothic seating has actual curved carving inside its rotated collision bounds (77.473825ms)
+✔ coherent rooms receive carved seating, bronze lanterns, a framed mirror and rosette detail (39.442426ms)
+✔ wall fixtures avoid all apertures; low ceilings omit lanterns and tiny passages omit mirrors (2.716977ms)
+✔ exhausted ornament budgets produce no phantom mirror or lantern metadata (0.77746ms)
+✔ the actual CASA exports fixtures and Gothic seating while preserving walking routes (1232.709348ms)
+✔ compiled artisan fixtures do not receive a second generic lamp housing (1.031836ms)
+✔ mute cancels future choir notes, thunder and lift audio; unmuting never restarts cancelled effects (2.686923ms)
+✔ hidden tabs suppress new effects, cancel scheduled sources and resume only the current music (1.117352ms)
+✔ generated thunder disconnects on completion and stale entrance endings cannot replace encounter music (0.934982ms)
+✔ adaptive score uses bounded generated voices and releases them when leaving the house or muting (2.154065ms)
+✔ choir listening windows duck recorded backgrounds too, including fallback Hall scenes (1.607577ms)
+✔ recorded music recovers after a choir quiet interval under the adaptive score (0.876887ms)
+✔ spell arpeggios use the controlled bus and cancel future notes when muted (0.3519ms)
+✔ neighborhood sounds use the controlled spatial bus and obey mute and hidden state (0.990544ms)
+✔ compiled entrances on all four walls face the street and meet its grade, including upstairs entries (4.219048ms)
+✔ all fence styles keep entrance lanes clear; skeletons and corn are seasonal, leaves are shared (63.681574ms)
+✔ wind deforms cloth hems and moves loose leaves; reduced motion remains static (11.650876ms)
+✔ batch overrides reach compiler identity and exterior without changing permanent ID (3.384414ms)
+✔ later batch houses do not inherit prior exterior choices; existing CASA ID is retained (0.866701ms)
+✔ publisher replaces one house and catalog in a single non-forced commit (28.118293ms)
+✔ removal cannot touch source files and updates the catalog (1.711731ms)
+✔ concurrent changes never update the branch and oversize packages fail early (0.314525ms)
+✔ batch publishes 34 prepared houses with one catalog, commit and non-forced update (34.969212ms)
+✔ batch rejects duplicates and oversize files before any upload, retains lease protection (1.161257ms)
+✔ replacing a local CASA invalidates decoded geometry and removing it restores the published house (850.903728ms)
+✔ shipped mansion architecture is textured and catalog fingerprints match its packages (4415.544985ms)
+✔ reads actual compressed CASA; rejects blueprints and unsupported legacy packages (7.184022ms)
+✔ supports stored and raw-deflate ZIP; CRC and manifest hashes fail closed (51.076086ms)
+✔ rejects traversal, duplicate entries, external model URLs and broken directories (12.157185ms)
+✔ complete ghost → Founder → Seer → keepsakes → Floor 13 → map → exit playthrough (1.225462ms)
+✔ interactions enforce location, scene and height; replay seed and saves preserve a mystery (7.883185ms)
+✔ one-room house has a complete staged quest; current Forge exports also work without optional game locations (10.837873ms)
+✔ seeds vary stories and collectible placements without touching house geometry (1.242287ms)
+✔ elevator requires boarding at the correct room/height; Floor 13 remains concealed until quest unlock (0.878599ms)
+✔ stream cache keeps one resident floor, deduplicates requests and releases cancelled loads (0.599978ms)
+✔ new entry point never imports the legacy game or a blueprint compiler (3.013115ms)
+✔ elevator excludes and rejects its origin floor (0.316578ms)
+✔ disconnected wings remain reachable without listing the current landing (0.198013ms)
+✔ standard pad has analog movement, dead zone, D-pad and edge-triggered actions (2.690047ms)
+✔ menus suppress movement and repeat directional selection at a bounded rate (1.878458ms)
+✔ generic controller buttons and axes can be remapped and restored (0.639836ms)
+✔ disconnect, blur and optional disable release movement without keyboard events (0.307435ms)
+✔ missing Gamepad API degrades gracefully (0.330879ms)
+✔ CASA imports accept below 5 MB, above 5 MB and a 20 MB package with progress (382.380264ms)
+✔ oversized, blueprint and corrupt imports produce distinct failures (0.693525ms)
+✔ large local import remains playable when persistent storage is unavailable (100.479ms)
+✔ all puzzle families support failure, progressive hints, stable replay and additive saves (28.939827ms)
+✔ encounter director has quiet intervals, pause safety and persistent event sequence (1.757479ms)
+✔ third Forge fixture supports disconnected rooms without runtime conversion (11.272516ms)
+✔ one-room quest uses three public estate scenes, and enforces each location (3.688273ms)
+✔ automatic encounters require visibility, serialize performances, persist discovery, and honor quiet periods (0.334054ms)
+✔ estate saves preserve solved evidence and seen encounters (1.109099ms)
+✔ eight original motif plans have distinct contours, intentional rests and finite bounded notes (2.694975ms)
+✔ score clock respects pause and unknown modes, never catches up with a queued burst (0.907462ms)
+✔ pressure, revelation and completion change the score; classic, street and cabin have no new score (1.427661ms)
+✔ lantern guidance identifies work without naming the next musical note, clock, or impostor (0.785652ms)
+✔ guide rings can only mark a target in the current room; holds ask for stillness; preference persists (1.279521ms)
+✔ detached estate buildings stay full sized in source and receive boarded elevator stops (3.400357ms)
+✔ entry selection rejects another building farther down the approach (0.607228ms)
+✔ asymmetric and recessed street models stay behind the sidewalk on both sides (3.293229ms)
+✔ room performances stay wall mounted, skip circulation and batch static frames (12.499781ms)
+✔ reduced motion keeps clock hands still during clock haunting (4.20052ms)
+✔ canopy geometry fits its declared collision envelope (3.222765ms)
+✔ Gothic roof ornaments remain bounded on large wings (0.697952ms)
+✔ all eleven identities inherit exactly one family and share registered furniture and materials (2.513526ms)
+✔ identity overrides specialize inherited family defaults without changing siblings (0.149511ms)
+✔ furniture registry delegates to existing geometry instead of copying or layering models (165.490019ms)
+✔ stable identities produce identical content, including when room order changes (77.196577ms)
+✔ explicit identities, authored furniture, finishes and blueprint geometry stay authoritative (9.500066ms)
+✔ detail levels and per-room component overrides select existing generators deterministically (8.23159ms)
+✔ budget failures roll back a complete fixture, occupied mount, surface claim and light metadata (0.598985ms)
+✔ custom triangle and geometry-memory budgets cannot be bypassed by large single primitives (0.620667ms)
+✔ invalid material/geometry references are rejected atomically and reported (0.58885ms)
+✔ one component owns each tabletop; repeated component tokens cannot decorate twice (4.63971ms)
+✔ wall details do not reuse portrait or aperture spans; stairs retain clear routes (29.814301ms)
+✔ large houses retain fair bounded content allocations and observable omission reports (193.332775ms)
+✔ envelope details use the registry budgets and preserve source geometry (8.878732ms)
+✔ new CASA exports retain the Game contract, embed geometry once and expose additive QA (1164.699199ms)
+✔ architectural triangles face outward and match declared normals, including rotated roof panels (4.75492ms)
+✔ partially shared walls receive siding only on exposed runs; window and door apertures stay empty (2.049921ms)
+✔ wall props use solid wall spans or are omitted; invalid authored furniture is not exported (13.533079ms)
+✔ fresh Blueprint → actual Forge → Game archive includes embedded architectural materials and preserved elevator contracts (1143.840789ms)
+✔ all three shipped Blueprint fixtures recompile without overwriting their published CASA archives (4836.329904ms)
+✔ fresh architectural GLB loads through the real Game resource loader with visible floors, walls, ceilings and an open doorway (835.450218ms)
+✔ shared profiled architecture upgrades all eleven identities with distinct family treatments (71.453098ms)
+✔ profiled moldings and raised panels contain dimensional bevels, not only flat colour changes (0.38536ms)
+✔ all new architectural components are routed through the Pass 1 registry (4.214722ms)
+✔ actual triangles preserve every door, window and full-height removed partition aperture (146.563492ms)
+✔ full-wall removed partitions never receive wall trim and crowded corner doors omit pediments (1.596661ms)
+✔ full-height carving avoids occupied portrait and wall-decoration rectangles (11.567983ms)
+✔ ceiling relief preserves headroom, stair voids and restrained room identities (34.374523ms)
+✔ authored finish choices remain authoritative and carpet never receives parquet inlays (4.600913ms)
+✔ ornament budgets omit complete components and keep strict triangle/memory accounting (2.483272ms)
+✔ marble and mahogany fireplace carving fits the original rotated collision volumes (14.193996ms)
+✔ explicit fireplace finishes and new mahogany records retain authored furniture and hearth bindings (16.775493ms)
+✔ library shelving relief remains inside the existing padded clearance reservation (12.567591ms)
+✔ profiled triangle vertices use the same feet-to-meters conversion as structural boxes (0.294685ms)
+✔ combined two-story mansion exports all identities, bounded models and unchanged loading/navigation contracts (6047.75526ms)
+✔ the marble treatment appends a palette slot and embeds its shared tile only when used (12.472038ms)
+✔ room-specific finishes distinguish six authored room types without changing bounds (4.472543ms)
+✔ GLBs weld box vertices and embed only referenced texture tiles (3.474327ms)
+✔ convex roof union removes buried faces and supports intersecting volumes (1.222357ms)
+✔ upper stories leave roof caps on uncovered lower wings (0.749338ms)
+✔ covered entry porch protects the central path and exports column collision bounds (0.991306ms)
+✔ fresh multi-story CASA includes aligned elevator evidence and grounded porch posts (1408.449466ms)
+✔ authored dormers and roof lantern towers generate finite renderable geometry (46.189383ms)
+✔ placement diagnostics flag floating furniture and misaligned elevator arrivals (0.228057ms)
+✔ portrait diagnostics reject aperture overlap, out-of-room and malformed placements (0.256109ms)
+✔ damaged student blueprint 0 is repaired, rechecked, importable and publishable (1265.926879ms)
+✔ damaged student blueprint 1 is repaired, rechecked, importable and publishable (923.872776ms)
+✔ damaged student blueprint 2 is repaired, rechecked, importable and publishable (1077.930002ms)
+✔ damaged student blueprint 3 is repaired, rechecked, importable and publishable (648.517558ms)
+✔ damaged student blueprint 4 is repaired, rechecked, importable and publishable (571.276219ms)
+✔ damaged student blueprint 5 is repaired, rechecked, importable and publishable (1099.17347ms)
+✔ damaged student blueprint 6 is repaired, rechecked, importable and publishable (1081.275349ms)
+✔ damaged student blueprint 7 is repaired, rechecked, importable and publishable (559.340729ms)
+✔ rescue is deterministic and retains a clear distinction for unreadable or over-budget files (1.908661ms)
+✔ new connecting doors receive a final swing repair before publication (653.712793ms)
+✔ consecutive crowded doors are recomputed and protected entry/elevator portals survive (1.182368ms)
+✔ explicit straight pairs compile using actual floor elevations without mutating source (27.279488ms)
+✔ misalignment, headroom, blocked landings, unsupported stairs and locks fail closed (5.259626ms)
+✔ stair surface supports ascent/descent, blocks side climbs and oversized vertical changes (2644.517175ms)
+✔ fresh GLBs have supported treads, an open shaft, upper landing and overhead clearance (2488.62523ms)
+✔ streamer pins a pair only while requested and disposes the evicted floor (7.42734ms)
+✔ malformed or mismatched runtime stair contracts remain disabled (2652.397773ms)
+✔ generic rooms get stable varied themes, authored rooms and narrow passages retain purpose (6.49385ms)
+✔ all 14 exterior options embed the intended surface texture in actual GLBs (39.539664ms)
+✔ real incomplete student house compiles with connected doors, elevator rescues, themes and readable report (2870.342737ms)
+✔ publication report blocks unresolved source problems and clearly identifies old packages (2.562669ms)
+✔ organ key levels come from the music spectrum, not an independent animation timer (17.723955ms)
+✔ organist notices, flies within the Hall and leaves through the elevator once; music keys continue (42.124781ms)
+✔ reduced-motion organist fades rather than circling the room (8.227363ms)
+✔ hall return story follows real seals, saves heard voices, and tolerates unavailable storage (1.628347ms)
+✔ bells require the engraved order, wrong notes recover, and performances end without changing seals (0.35824ms)
+✔ both bowed hall flights ascend and descend continuously and cannot be entered halfway from below (1.781634ms)
+✔ curving a compiled flight moves its treads and removes the old straight handrail exactly once (2.457413ms)
+✔ household furniture leaves all interaction, haunting, stair and elevator routes clear (26.841832ms)
+✔ spiders reserve frames, runtime portraits, apertures and the full upward escape on every wall (4.537138ms)
+✔ spiders also reserve room-owned ornaments without individual room IDs (0.240475ms)
+✔ spellbook saves discoveries independently, rejects duplicate and invalid marks, and survives storage failure (1.673424ms)
+✔ witch marks respect room boundaries, furniture, certified reachable rooms and reserved quest/lift positions (4.040714ms)
+✔ every spell is bounded, illuminated without scene lights, finite and disposed without detaching its owner (18.27802ms)
+✔ Wildbloom grows from four to eight flowers as the atlas fills (2.890823ms)
+✔ room magic gates casting, reveals optional marks, records once and bounds effects even under repeated answers (23.731103ms)
+✔ reduced motion freezes shader movement, orbit transforms and enchanted footsteps (3.717125ms)
+✔ moonflower petals unfurl radially in all four horizontal directions (0.923395ms)
+✔ the eight atlas pages outlast bounded room discovery history (612.755434ms)
+✔ a new scene clears the old spell cooldown as well as its visuals (7.294484ms)
+✔ all eight atmosphere layers and twelve additional attractions are registered (42.415184ms)
+✔ household identities are deterministic, full bars pay two, and late night leaves at least one porch open (0.851889ms)
+✔ take-one bowls offer a real choice and cannot award duplicate sweets (40.136451ms)
+✔ larger treats retain trick penalties and ordinary doorstep behavior (0.227676ms)
+✔ pumpkin bowling rolls and knocks pins down; stamps vanish and roasting changes the marshmallow (27.533825ms)
+✔ audio is range-limited, directional, and on the active simulation clock (14.519705ms)
+✔ reduced motion keeps family, bicycle and courtyard effects steady while interactions work (19.595549ms)
+✔ real facade window overlays are removed without disposing shared family geometry (7.217089ms)
+✔ thirteen specimens connect eight endings with five available curiosities (1.401602ms)
+✔ herbarium saves independently and keeps in-memory progress when writing fails (0.262558ms)
+✔ specimen approaches remain clear in the actual compiled conservatory (9.30068ms)
+✔ living garden is dense, finite, reduced-motion aware and disposes its resources (40.469728ms)
+✔ vigil has two reachable endings in all three compiled house layouts (17.470387ms)
+✔ choir has two reachable endings in all three compiled house layouts (1.30539ms)
+✔ escort has two reachable endings in all three compiled house layouts (0.944436ms)
+✔ loop has two reachable endings in all three compiled house layouts (1.165864ms)
+✔ masquerade has two reachable endings in all three compiled house layouts (1.951244ms)
+✔ bargain has two reachable endings in all three compiled house layouts (1.412839ms)
+✔ heist has two reachable endings in all three compiled house layouts (4.983717ms)
+✔ garden has two reachable endings in all three compiled house layouts (6.44677ms)
+✔ 33-house scheduling avoids recent repeats and uses every family before repeating (1.328624ms)
+✔ compiler standing points stay outside furniture and locked floors; small houses gain public hall encounters (0.575731ms)
+✔ paused, hidden, or cabin time cannot advance pressure, clocks, or pursuit (2.00871ms)
+✔ distance, scene, floor height, unavailable choices and completed choices are enforced (0.7106ms)
+✔ Vigil punishes walking during the watch; moving cancels a ward; a still player seals it (6.963094ms)
+✔ the choir changes from call to reversed reply and wrong notes reset only the current phrase (0.408264ms)
+✔ time folds pin knowledge and eventually permit a solution even on a long house route (6.791941ms)
+✔ escort follows actual breadcrumbs, requires proximity for shelter, and recovers instead of softlocking (1.100858ms)
+✔ collector can confiscate loot, hiding lowers alarm, and both routes remain recoverable (0.599556ms)
+✔ greenhouse shifts the last appetite, never consumes a wrong offering and allows refilling (4.485621ms)
+✔ a bargain must be witnessed; debt cannot be escaped with the fair-payment ending (0.190291ms)
+✔ street awards each ending once, persists relics, and equips a meaningful next-house ability (0.983394ms)
+✔ malformed saves cannot grant completion; restoration preserves choices and sequence without stale input (0.401613ms)
+✔ storage failure preserves a fully usable session without falsely claiming durability (0.1762ms)
+✔ a traveling guest follows door and elevator arrivals, while walking keeps a real breadcrumb distance (0.333983ms)
+✔ a mercy bell is useful once, persists across resume and cannot be used without carrying it (0.470705ms)
+✔ world holds and loop clocks follow active elapsed time even at a low frame rate (0.306734ms)
+✔ hall architecture batches preserve world bounds and decorative lamps share only three light slots (156.55362ms)
+✔ direct interactions respect proximity and keep contracts, endings and accusations deliberate (4.737203ms)
+✔ first action persists learned status; opened cabinets and bloomed plants cannot award twice (0.927822ms)
+✔ all sixteen endings build distinct bounded visual performances and release GPU resources (238.6382ms)
+✔ reduced motion freezes ending positions and Collector threat never adds blockers or lights (6.306844ms)
+✔ scares reject off-screen or obstructed sites, and a blocked buildup cancels before impact (27.321561ms)
+✔ curved reference furnishings stay within their actual collision envelope, including rotated triangles (291.430495ms)
+✔ a dining ensemble includes all chairs and settings inside one protected collider (39.556028ms)
+✔ ceiling plaster and leaded glass are exported as curved surfaces, never placeholder bounding boxes (376.599158ms)
+✔ new CASA contains a complete dining room and still has verified walking routes (1336.762501ms)
+✔ legacy fallback renders curved detail triangles instead of their bounding boxes (60.217892ms)
+✔ removed partitions reserve a walking route without a nonexistent door swing; small dining rooms receive a supper set (3.006334ms)
+✔ mailbox numbers validate assignments, avoid duplicates, and stay stable through reordering (10.736964ms)
+✔ street signs clear the road and mansion labels stay on the mailbox (245.783428ms)
+✔ identities distinguish lab, crypt, nursery, passage and living rooms (1.209437ms)
+✔ large rooms get more coherent furniture, authored objects remain unchanged, and dressing is deterministic (133.229979ms)
+✔ occupied wall mounts are never reused and low/narrow rooms get compact decoration (0.976994ms)
+✔ completeness reports actual gaps and never claim rendered or physics certification (1.940308ms)
+✔ built-in furniture geometry fits its declared footprint and height (169.447986ms)
+✔ real Forge packages room scenes, approach anchors, frames and an honest per-room report (1227.656471ms)
+✔ every room identity has portable detail, high fixtures and clear furnishing routes (451.443019ms)
+✔ all new heirlooms use the same geometry for their clearance footprint (1.430324ms)
+✔ large houses share a bounded dressing budget instead of starving the last rooms (648.317427ms)
+✔ low ceilings and circulation never receive hanging geometry in walking headroom (1.389133ms)
+✔ CASA rebuild preserves published identity, chosen finishes and embedded source (1347.211059ms)
+✔ root URL routes to the current CASA game without loading the retired blueprint engine (33.393883ms)
+✔ 34 direct Game imports run sequentially, retain errors, and continue after an invalid file (3.007847ms)
+✔ the current drawing-buffer budget remains bounded after small-to-large viewport changes (0.199795ms)
+✔ practical lights keep their slots and fade dark before moving to another room (1.438216ms)
+✔ surface finishing preserves packaged claret maps and keeps wallpaper relief finer than wood and stone (3.620903ms)
+✔ Forge scare opportunities use real room fixtures, preserve source and omit dangerous circulation (3.807599ms)
+✔ director requires movement, facing, dwell and quiet; remembers a complete scare and respects cooldown (4.411562ms)
+✔ gentle and reduced motion use false alarms; pauses and room changes cancel without delayed impacts (1.784769ms)
+✔ each actual scare creates one visual performance and disposes it without navigation or light changes (17.751713ms)
+✔ fresh Forge CASA packages deterministic visual-only scare metadata (1500.266803ms)
+✔ compiled scare plans cannot inject off-floor or arbitrary world positions (0.61557ms)
+✔ ceiling opportunities retain clearance across common mansion heights (0.327905ms)
+✔ eight different families awaken the Ninth Door; repeats do not; either ending counts (1.382224ms)
+✔ existing history migrates, seals outlast history pruning, fate and house identities survive reload (7.804618ms)
+✔ door geometry is bounded, aftermath batches share resources, reduced motion opens without animation (6.981932ms)
+✔ failed persistence keeps the finale playable without claiming saved progress (6.564905ms)
+✔ 33 student houses spread 9/8/8/8 across four named arms, with unique lots and reachable roundabouts (239.225011ms)
+✔ each rotated arm keeps the compiled doorway and Halloween coordinate system aligned (1.226263ms)
+✔ recorded greeting and owl mix over looping saw music without pausing, restarting or ducking it (1.914099ms)
+✔ entrance owl hoots on its perch, then flies away with wings when approached; reduced motion avoids the flight (12.478718ms)
+✔ Forge and legacy Game button labels reserve 13 and number disconnected areas after primary floors (0.762167ms)
+✔ every stall accepts front and rear approaches (0.883306ms)
+✔ clock advances all hand cycles and offers purposeful calls without extra stamps (0.340774ms)
+✔ neighbour routes visit and return without jumping or changing player scores (2.293481ms)
+✔ clock hands and an open cauldron render while routes use all four streets (263.242543ms)
+✔ independent residents stay on walkable streets and bell recall reaches their own homes (180.909406ms)
+✔ every repeat doorstep visit rerolls; treats add one and tricks remove two without negative candy (1.134367ms)
+✔ ten minutes uses elapsed active seconds; expiration cancels unresolved candy and locks scoring (0.175289ms)
+✔ trick threshold is 10 percent per independent visit (0.333102ms)
+✔ every lot gets a pumpkin and answering wraith; candy flies toward the carried bucket (97.024791ms)
+✔ answering door swings into the house and street wanderers leave porch routes (54.876125ms)
+✔ organist loading after leaving Halloween disposes its model without attaching (30.59161ms)
+✔ Halloween crowds grow with added houses and retain an upper budget (0.430036ms)
+✔ preflight names every addition/update, preserves replacement address and assigns unique new numbers (12.493692ms)
+✔ duplicate addresses and IDs fail before any GitHub upload (1.256098ms)
+✔ blueprint metadata populates bulk edits; blank IDs retain automatic generation (1.58239ms)
+✔ compiled CASA can explicitly replace another mansion and retain finishes (88.705671ms)
+✔ structural findings reach the publication gate while engine-owned verification remains pending (0.822857ms)
+✔ real Forge export passes full preparation and retains edited identity, exterior and safe routes (1729.224274ms)
+✔ ten Victorian identities get distinct bounded vignettes and optional local stories (165.251344ms)
+✔ real CASA exports a complete visual/game handoff and all eight games use its checked sites (1955.596594ms)
+✔ compiled encounter corruption fails closed, including malformed and overlapping stations (1303.295126ms)
+✔ three fair games recover from mistakes and remain replayable (2.36699ms)
+✔ passport validates saves and keeps stamps when storage is unavailable (0.526539ms)
+✔ festival sweets cap at three and never alter doorstep statistics (0.436255ms)
+✔ village activities have walkable routes, bounded scenery and reduced motion (298.34253ms)
+✔ village clues name the current ingredients and the next broom action (5.544798ms)
+✔ light composition stays inside the active room, preserves a key and window fill, and never exceeds three lights (1.69758ms)
+✔ nearby hearths receive a light slot without inventing extra lights (0.238583ms)
+✔ whole-house architectural trim avoids doorway apertures and adds real layered geometry (30.57133ms)
+✔ authored floor types survive room themes and footsteps match the surface (0.487291ms)
+✔ ordinary fireplaces export fire anchors, window moonlight and no duplicate fixture housings (39.765023ms)
+✔ actual whole-house CASA includes new envelope, shared damask, checker floor and working routes (1908.55428ms)
+✔ lossless ZIP compression preserves every CASA entry and the existing archive reader can decode it (1441.08188ms)
+✔ curved upholstery shares smooth unit normals while architectural corners retain hard edges (70.282979ms)
+✔ about a quarter of 23 or 34 houses get deterministic distinct inflatables, independent of catalog order (3.499004ms)
+✔ all inflatable designs are finite, recognizably three-dimensional and narrow enough for the front lawn (141.685444ms)
+✔ inflatable footprints avoid sidewalks and the entrance path; story mode keeps only flags and warm lights (68.818294ms)
+✔ reduced-motion yard displays remain static and the shader show is steady (9.187933ms)
+✔ laser show alters the actual selected house and restores original materials on preview eviction (1.960879ms)
+✔ personal space separates a converged group, respects pinned participants and refuses blocked nudges (4.236032ms)
+✔ laser allocation grows with the catalog and separate shows unload independently (37.572189ms)
+ℹ tests 280
+ℹ suites 0
+ℹ pass 280
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 24656.369122
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
+
+> test:scenes
+> node tests/casa-navigation.test.mjs node_modules/three/build/three.module.js && node tests/casa-scenes.test.mjs node_modules/three/build/three.module.js node_modules/three/examples/jsm/loaders/GLTFLoader.js && node tests/casa-flow.test.mjs node_modules/three/build/three.module.js node_modules/three/examples/jsm/loaders/GLTFLoader.js && node tests/casa-flow.test.mjs node_modules/three/build/three.module.js node_modules/three/examples/jsm/loaders/GLTFLoader.js --fresh-forge
+
+PASS: continuous forward/reverse doorway traversal, solid walls, mismatched apertures, turning, blur recovery, exit camera state, orbit ownership
+Loaded compiled floor 0 with one-floor residency
+Loaded compiled floor 1 with one-floor residency
+Loaded compiled floor 2 with one-floor residency
+Loaded compiled floor 0 with one-floor residency
+PASS: posed wraith arms, independent head/spine/arms/fingers/legs, actual skin deformation, disposal and reduced motion.
+PASS: real compiled geometry, filtered artwork, signature metadata, recovered ghost, bounded lights, reduced-motion storms, wildlife, street lots and resource eviction.
+PASS: complete compiled exterior, outdoor-only decoration, organic cloth geometry, flowing folds and reduced motion.
+PASS: readable front/rear sign faces, head-attached top hat, grounded organic explorer, reduced-motion sky and bounded haunting layers.
+PASS: automatic elevator doors, creepy gallery and proximity wildlife escape.
+PASS: articulated wall spiders, climbing, owls and infrequent room-contained bats.
+PASS: actual app startup, street, Hall orientation, strict cabin menu, floor streaming, dialogue/escape resume, full quest, 13 spatial echoes, map reward, saved completion and return to street. No WebGL renderer was used.
+PASS: authored main-house doorway and both physical Hall stair routes automatically open cabin destinations.
+PASS: third CASA complete investigation including evidence puzzles, disconnected-room access, memories and return.
+PASS: physical starting-Hall door enters each of the three CASA interiors, independent of elevator boarding.
+PASS: automatic ghost and Hall portrait encounters, scene distribution and persisted discovery keys.
+PASS: Halloween mode, exterior-only visits, bucket, paused timer, round summary and return to Investigation.
+PASS: published sample migration resumes an explicitly mapped previous fingerprint.
+PASS: Phoenix vigil real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix choir real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix escort real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix loop real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix masquerade real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix bargain real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix heist real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix garden real scene objects, modal choices, world holds, ending, journal and save.
+PASS: all eight actual endings awaken the Ninth Door, physical interaction chooses morning, and the street remembers on return.
+Testing the actual Game with three freshly recompiled Forge exports.
+PASS: actual app startup, street, Hall orientation, strict cabin menu, floor streaming, dialogue/escape resume, full quest, 13 spatial echoes, map reward, saved completion and return to street. No WebGL renderer was used.
+PASS: authored main-house doorway and both physical Hall stair routes automatically open cabin destinations.
+PASS: third CASA complete investigation including evidence puzzles, disconnected-room access, memories and return.
+PASS: physical starting-Hall door enters each of the three CASA interiors, independent of elevator boarding.
+PASS: automatic ghost and Hall portrait encounters, scene distribution and persisted discovery keys.
+PASS: Halloween mode, exterior-only visits, bucket, paused timer, round summary and return to Investigation.
+PASS: published sample migration resumes an explicitly mapped previous fingerprint.
+PASS: Phoenix vigil real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix choir real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix escort real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix loop real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix masquerade real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix bargain real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix heist real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix garden real scene objects, modal choices, world holds, ending, journal and save.
+PASS: all eight actual endings awaken the Ninth Door, physical interaction chooses morning, and the street remembers on return.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

@@ -1,0 +1,44 @@
+[
+  {
+    "path": "casa_game/afterlife_neighbours.mjs",
+    "baselineBlob": "f6a8f6703b473cbb8b5c197d8f7206d826682747",
+    "sixPassHeadBlob": "f6a8f6703b473cbb8b5c197d8f7206d826682747",
+    "unchangedAcrossSixPasses": true
+  },
+  {
+    "path": "casa_game/audio.mjs",
+    "baselineBlob": "854eaac7bda90f6740355a56f7999017108f973b",
+    "sixPassHeadBlob": "854eaac7bda90f6740355a56f7999017108f973b",
+    "unchangedAcrossSixPasses": true
+  },
+  {
+    "path": "tests/browser-townlife.mjs",
+    "baselineBlob": "2d762172ba5981cd50b855151d023bd83a7093fd",
+    "sixPassHeadBlob": "2d762172ba5981cd50b855151d023bd83a7093fd",
+    "unchangedAcrossSixPasses": true
+  },
+  {
+    "path": "tests/browser-polish.mjs",
+    "baselineBlob": "bca378d25f5ef1d5ef0e81764ed424059d9795b4",
+    "sixPassHeadBlob": "bca378d25f5ef1d5ef0e81764ed424059d9795b4",
+    "unchangedAcrossSixPasses": true
+  },
+  {
+    "path": "tests/browser-runtime-cleanup.mjs",
+    "baselineBlob": "c8a59a91fb4f098743087d73249426eb77b5e2db",
+    "sixPassHeadBlob": "c8a59a91fb4f098743087d73249426eb77b5e2db",
+    "unchangedAcrossSixPasses": true
+  },
+  {
+    "path": "tests/browser-directors-pass.mjs",
+    "baselineBlob": "9dba5c0e398f7069b94e02cec934cbf24f32ff3c",
+    "sixPassHeadBlob": "9dba5c0e398f7069b94e02cec934cbf24f32ff3c",
+    "unchangedAcrossSixPasses": true
+  },
+  {
+    "path": "tests/browser-batch.mjs",
+    "baselineBlob": "f111d3484e1cb889a89d4fdd7de985a26bf3fa41",
+    "sixPassHeadBlob": "f111d3484e1cb889a89d4fdd7de985a26bf3fa41",
+    "unchangedAcrossSixPasses": true
+  }
+]

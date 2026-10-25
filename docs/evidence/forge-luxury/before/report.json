@@ -1,0 +1,498 @@
+{
+  "edition": "before",
+  "browser": "154.0.8037.57",
+  "webgl": true,
+  "compiledBytes": 5511751,
+  "views": [
+    {
+      "identity": "ballroom",
+      "detail": "room",
+      "draws": 53,
+      "triangles": 134696,
+      "undecoded": 0
+    },
+    {
+      "identity": "parlor",
+      "detail": "room",
+      "draws": 60,
+      "triangles": 136108,
+      "undecoded": 0
+    },
+    {
+      "identity": "library",
+      "detail": "room",
+      "draws": 57,
+      "triangles": 120194,
+      "undecoded": 0
+    },
+    {
+      "identity": "dining",
+      "detail": "room",
+      "draws": 77,
+      "triangles": 138482,
+      "undecoded": 0
+    },
+    {
+      "identity": "gallery",
+      "detail": "room",
+      "draws": 83,
+      "triangles": 139572,
+      "undecoded": 0
+    },
+    {
+      "identity": "conservatory",
+      "detail": "room",
+      "draws": 70,
+      "triangles": 123088,
+      "undecoded": 0
+    },
+    {
+      "identity": "bedroom",
+      "detail": "room",
+      "draws": 45,
+      "triangles": 81518,
+      "undecoded": 0
+    },
+    {
+      "identity": "nursery",
+      "detail": "room",
+      "draws": 39,
+      "triangles": 80212,
+      "undecoded": 0
+    },
+    {
+      "identity": "crypt",
+      "detail": "room",
+      "draws": 29,
+      "triangles": 58242,
+      "undecoded": 0
+    },
+    {
+      "identity": "laboratory",
+      "detail": "room",
+      "draws": 76,
+      "triangles": 85630,
+      "undecoded": 0
+    },
+    {
+      "identity": "circulation",
+      "detail": "room",
+      "draws": 53,
+      "triangles": 82274,
+      "undecoded": 0
+    },
+    {
+      "identity": "parlor",
+      "detail": "panels",
+      "draws": 73,
+      "triangles": 138692,
+      "undecoded": 0
+    },
+    {
+      "identity": "ballroom",
+      "detail": "ceiling",
+      "draws": 34,
+      "triangles": 131546,
+      "undecoded": 0
+    },
+    {
+      "identity": "parlor",
+      "detail": "fireplace",
+      "draws": 34,
+      "triangles": 131546,
+      "undecoded": 0
+    },
+    {
+      "identity": "library",
+      "detail": "fireplace",
+      "draws": 33,
+      "triangles": 116314,
+      "undecoded": 0
+    },
+    {
+      "identity": "dining",
+      "detail": "door",
+      "draws": 39,
+      "triangles": 132312,
+      "undecoded": 0
+    }
+  ],
+  "budget": {
+    "components": {
+      "version": 1,
+      "rooms": 11,
+      "scopes": 22,
+      "totals": {
+        "primitives": 4812,
+        "triangles": 88484,
+        "geometryBytes": 9556272
+      },
+      "withinLimits": true,
+      "omissions": [
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:ballroom:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:ballroom:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:parlor:furniture:generated-4",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "2",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:parlor:furniture:generated-4",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:library:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "2",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:library:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:dining:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:dining:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:gallery:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:gallery:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:conservatory:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:conservatory:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:bedroom:furniture:generated-3",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "2",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:crypt:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:crypt:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "support-objects",
+          "key": "forge:laboratory:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:laboratory:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "story-vignette",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        }
+      ],
+      "geometryBytesEstimated": true,
+      "sharedTexturesCountedByPackageInventory": true
+    },
+    "version": 1,
+    "method": "static-export-inventory",
+    "bytes": 26760069,
+    "models": [
+      {
+        "path": "geometry/elevator_cabin.glb",
+        "bytes": 23396,
+        "triangles": 60,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_00.glb",
+        "bytes": 2361140,
+        "triangles": 29460,
+        "draws": 14,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_01.glb",
+        "bytes": 2035848,
+        "triangles": 24948,
+        "draws": 14,
+        "instances": 1
+      },
+      {
+        "path": "exterior/street_preview.glb",
+        "bytes": 4577864,
+        "triangles": 59142,
+        "draws": 19,
+        "instances": 1
+      },
+      {
+        "path": "geometry/roof.glb",
+        "bytes": 389332,
+        "triangles": 4734,
+        "draws": 6,
+        "instances": 1
+      },
+      {
+        "path": "exterior/frontage.glb",
+        "bytes": 4577864,
+        "triangles": 59142,
+        "draws": 19,
+        "instances": 1
+      },
+      {
+        "path": "geometry/decoration.glb",
+        "bytes": 11147488,
+        "triangles": 146404,
+        "draws": 17,
+        "instances": 1
+      },
+      {
+        "path": "geometry/artwork.glb",
+        "bytes": 10072,
+        "triangles": 20,
+        "draws": 10,
+        "instances": 10
+      },
+      {
+        "path": "geometry/furniture/writing_desk.glb",
+        "bytes": 105612,
+        "triangles": 1064,
+        "draws": 4,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase.glb",
+        "bytes": 90620,
+        "triangles": 876,
+        "draws": 8,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe.glb",
+        "bytes": 67988,
+        "triangles": 672,
+        "draws": 4,
+        "instances": 1
+      },
+      {
+        "path": "geometry/special_main_hall.glb",
+        "bytes": 180968,
+        "triangles": 63492,
+        "draws": 17,
+        "instances": 1670
+      },
+      {
+        "path": "geometry/special_floor13_conservatory.glb",
+        "bytes": 323192,
+        "triangles": 157812,
+        "draws": 25,
+        "instances": 2900
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/portraits/hooded_wraith_bw.webp",
+        "bytes": 28676
+      },
+      {
+        "path": "assets/portraits/gothic_family_wolf_bw.webp",
+        "bytes": 26578
+      },
+      {
+        "path": "assets/portraits/vampire_countess_pair_bw.webp",
+        "bytes": 35484
+      },
+      {
+        "path": "assets/portraits/vampire_lord_chair_bw.webp",
+        "bytes": 36466
+      },
+      {
+        "path": "assets/portraits/occult_noble_pair_bw.webp",
+        "bytes": 46870
+      },
+      {
+        "path": "assets/portraits/victorian_ancestor_portrait_bw.webp",
+        "bytes": 28298
+      },
+      {
+        "path": "assets/portraits/electrified_madman_bw.webp",
+        "bytes": 64656
+      },
+      {
+        "path": "assets/portraits/carnivorous_plant_collection_bw.webp",
+        "bytes": 26972
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_botanical_bw.webp",
+        "bytes": 14796
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_study_bw.webp",
+        "bytes": 9532
+      }
+    ],
+    "budget": {
+      "maxPackageBytes": 33554432,
+      "maxModelTriangles": 450000,
+      "maxModelDraws": 160
+    },
+    "issues": [],
+    "withinPlanningBudget": true,
+    "fpsMeasured": false,
+    "limitations": [
+      "Model primitive counts are estimates; materials, shadows, repeated template placements and visibility affect real runtime cost",
+      "Per-device GPU performance must be measured in the game"
+    ]
+  },
+  "errors": []
+}

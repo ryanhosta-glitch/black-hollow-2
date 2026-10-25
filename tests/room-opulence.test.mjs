@@ -11,21 +11,21 @@ test('every room identity has portable detail, high fixtures and clear furnishin
  for(const [i,theme]of Object.keys(ROOM_PROFILES).entries()){
   const r=room(theme,i),s=source(r),before=JSON.stringify(s),plan=planDecoration(s),c=plan.roomContents[0];
   assert.equal(c.edition,'whole-house-1');assert.ok(c.ornaments.some(o=>/chandelier|lantern|crown/.test(o.type)),theme);
-  assert.ok(c.primitives.length>50,theme);assert.ok(c.primitives.length<=420);assert.equal(JSON.stringify(s),before);
+  assert.ok(c.primitives.reduce((n,p)=>n+(p.triangles?.length||12),0)>500,theme);assert.ok(c.primitives.length<=420);assert.equal(JSON.stringify(s),before);
   for(const f of plan.furniture){const b=plan.colliders.find(c=>c.objectId===f.id).bounds;for(const a of plan.reserved.map(r=>r.bounds))assert.ok(!(a.minX<b.maxX&&a.maxX>b.minX&&a.minZ<b.maxZ&&a.maxZ>b.minZ),theme);}
   for(const p of decorationBoxes(plan)){assert.ok(p.c.every(Number.isFinite));assert.ok(p.s.every(n=>Number.isFinite(n)&&n>0));}
   for(const o of c.ornaments.filter(o=>o.type==='carved-wall-panel'||o.type==='velvet-and-gilt-overdoor'))assert.ok(o.positionMeters[1]-o.height/2>=2);
  }
 });
 test('all new heirlooms use the same geometry for their clearance footprint',()=>{
- for(const type of ['grandfather_clock','curio_cabinet','marble_fireplace','fern_urn']){const spec=ROOM_FURNITURE[type],parts=roomFurnitureParts({type,positionMeters:[0,0,0]});assert.ok(parts.length>=20,type);for(const p of parts){assert.ok(Math.abs(p.c[0])+p.s[0]/2<=spec.footprint[0]/2+.01,type);assert.ok(Math.abs(p.c[2])+p.s[2]/2<=spec.footprint[1]/2+.01,type);assert.ok(p.c[1]+p.s[1]/2<=spec.height+.01,type);}}
+ for(const type of ['grandfather_clock','curio_cabinet','marble_fireplace','fern_urn']){const spec=ROOM_FURNITURE[type],parts=roomFurnitureParts({type,positionMeters:[0,0,0]});assert.ok(parts.reduce((n,p)=>n+(p.triangles?.length||12),0)>=240,type);for(const p of parts){assert.ok(Math.abs(p.c[0])+p.s[0]/2<=spec.footprint[0]/2+.01,type);assert.ok(Math.abs(p.c[2])+p.s[2]/2<=spec.footprint[1]/2+.01,type);assert.ok(p.c[1]+p.s[1]/2<=spec.height+.01,type);}}
 });
 test('large houses share a bounded dressing budget instead of starving the last rooms',()=>{
  const rooms=Array.from({length:100},(_,i)=>({...room('library',i),floor:0})),contents=planRoomContents(rooms,{furniture:[],artwork:[]});
  assert.ok(contents.reduce((n,c)=>n+c.primitives.length,0)<=14000);assert.ok(contents.at(-1).primitives.length>0);assert.deepEqual(contents,planRoomContents(rooms,{furniture:[],artwork:[]}));
 });
 test('low ceilings and circulation never receive hanging geometry in walking headroom',()=>{
- for(const h of [6.5,7.5,8,9]){const plan=planDecoration(source({...room('circulation'),l:5,h}));assert.equal(plan.furniture.length,0);for(const p of plan.roomContents[0].primitives)if(p.c[0]>0.6&&p.c[0]<.9)assert.ok(p.c[1]-p.s[1]/2>=1.85||p.s[1]<.03);}
+ for(const h of [6.5,7.5,8,9]){const r={...room('circulation'),l:5,h},plan=planDecoration(source(r));assert.equal(plan.furniture.length,0);for(const p of plan.roomContents[0].primitives)if(p.c[0]>0.6&&p.c[0]<.9)assert.ok(p.c[1]-p.s[1]/2>=1.85||p.s[1]<.03||p.triangles?.flat().every(v=>Math.min(Math.abs(v[0]),Math.abs(v[0]-r.l*.3048),Math.abs(v[2]),Math.abs(v[2]-r.w*.3048))<=.06),'low details remain flush with walls');}
 });
 test('CASA rebuild preserves published identity, chosen finishes and embedded source',async()=>{
  const {bytes,house}=await compileFixture(source(room('library')),{identity:{id:'house-published',name:'The Original',creator:'Ryan',desc:'A waiting room',exteriorStyle:'siding-plum',exteriorTrim:'gold',exteriorRoof:'moss'}});
