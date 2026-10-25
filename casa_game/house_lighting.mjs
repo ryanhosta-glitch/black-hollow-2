@@ -17,7 +17,13 @@ export function selectHouseLights(house,{roomId,floor,position,quality='cinemati
  const nearbyFire=pool.find(l=>lightRole(l)==='hearth'&&distance(position,l.positionMeters)<3.5);
  const task=pool.find(l=>lightRole(l)==='task'&&distance(position,l.positionMeters)<3),portrait=pool.some(l=>lightRole(l)==='portrait');
  const windowRole=pool.some(l=>lightRole(l)==='stained'&&distance(position,l.positionMeters)<4)?'stained':'moon',botanical=pool.some(l=>l.roomLighting?.identity==='conservatory');
- for(const role of ['key',task?'task':nearbyFire?'hearth':portrait?'portrait':botanical?windowRole:'practical',windowRole,windowRole==='moon'?'stained':'moon']){const light=pool.find(l=>lightRole(l)===role&&!selected.includes(l));if(light)selected.push(light);}
+ // Candle uplight is an indirect approximation in the existing third light slot.
+ // Near tasks, hearths, portraits or windows, retain their original priorities.
+ // Legacy/fallback fixtures and Performance keep their original composition.
+ const key=pool.find(l=>lightRole(l)==='key'),nearWindow=pool.some(l=>['moon','stained'].includes(lightRole(l))&&distance(position,l.positionMeters)<3);
+ const bounce=quality==='cinematic'&&key?.photometricEdition==='house-light-2'&&key.fixtureGeometryCompiled&&!key.sourceOnly&&!task&&!nearbyFire&&!portrait&&!nearWindow&&Math.hypot(position[0]-key.positionMeters[0],position[2]-key.positionMeters[2])<2.4;
+ if(bounce)pool.push({...key,id:key.id+':ceiling-bounce',role:'bounce',lightType:'point',positionMeters:key.positionMeters.map((v,i)=>v+(i===1?.12:0)),intensity:2.5,rangeMeters:4,castShadow:false,shadowQuality:'none',gameEffects:[],indirectApproximation:true});
+ for(const role of ['key',task?'task':nearbyFire?'hearth':portrait?'portrait':botanical?windowRole:'practical',bounce?'bounce':windowRole,windowRole,windowRole==='moon'?'stained':'moon']){const light=pool.find(l=>lightRole(l)===role&&!selected.includes(l));if(light)selected.push(light);}
  for(const light of pool)if(selected.length<3&&!selected.includes(light))selected.push(light);
  const policy=house?.decoration?.roomContents?.find(c=>String(c.roomId)===String(roomId))?.atmosphere;return selected.slice(0,lightingQuality(quality).lights).map(l=>quality==='cinematic'&&policy?.effects&&['key','practical','hearth'].includes(lightRole(l))?{...l,gothicPulse:{amplitude:.025,periodSeconds:12,phase:stableRoomHash(l.id)%23}}:l);
 }

@@ -12,8 +12,16 @@ export function gothicComponentParts(type,{width=1,height=1,condition='preserved
  const parts=[],g=architecturalShapes((c,s,mat,rot,shape)=>{parts.push({c,s,mat,...shape});return true;}),cloth=condition==='preserved'?({claret:M.upholstery,emerald:M.emeraldVelvet,blue:M.blueVelvet,ivory:M.linen}[fabric]||M.emeraldVelvet):condition==='abandoned'?(fabric==='blue'?M.fadedBlue:fabric==='ivory'?M.fadedLinen:M.fadedVelvet):M.wornVelvet,metal=condition==='preserved'?M.gilt:M.patina,wood=condition==='preserved'?M.wood:M.agedMahogany,leaf=state==='maintained'?M.fernLeaf:state==='dried'?M.driedLeaf:M.ivyLeaf;
  const box=(x,y,z,w,h,d,mat)=>g.box([x,y,z],[w,h,d],mat);
  function clothPanel(x,y,z,w,h,folds=8,swag=0){const rows=2,cols=compact?12:20,p=(i,j)=>{const u=i/cols,v=j/rows;return[x+(u-.5)*w,y+(v-.5)*h-swag*Math.sin(u*Math.PI),z+.012*Math.cos(u*Math.PI*folds*2)*(1+.25*Math.sin(v*Math.PI))];};for(let j=0;j<rows;j++)for(let i=0;i<cols;i++)g.quad(p(i,j),p(i+1,j),p(i+1,j+1),p(i,j+1),cloth);}
- function frond(angle,length=.5,origin=[0,0,0]){const cs=Math.cos(angle),sn=Math.sin(angle),p=(r,y,side=0)=>[origin[0]+cs*r-sn*side,origin[1]+y,origin[2]+sn*r+cs*side];
-  let prev=origin;for(let k=1;k<=5;k++){const t=k/5,r=length*t*.60,y=length*(Math.sin(t*Math.PI*.8)*.66+.20),now=p(r,y);g.quad(prev,[prev[0]+.003,prev[1],prev[2]],now,[now[0]-.003,now[1],now[2]],leaf);for(const sign of [-1,1]){const broad=length*.12*Math.sin(t*Math.PI*.85),mid=p(r-length*.035,y+.018,sign*broad*.65),tip=p(r+length*.10,y-.018,sign*broad);g.triangle(p(r-length*.07,y-.025),mid,tip,leaf);g.triangle(p(r-length*.07,y-.025),tip,p(r+length*.035,y-.012),leaf);}prev=now;}
+ function frond(angle,length=.5,origin=[0,0,0]){const cs=Math.cos(angle),sn=Math.sin(angle),p=(r,y,side=0)=>[origin[0]+cs*r-sn*side,origin[1]+y,origin[2]+sn*r+cs*side],steps=compact?6:7;
+  // Folded pinnae have actual upper/lower faces: readable from eye level without
+  // transparent materials, double-sided shaders, new draw groups or animation.
+  const leafFace=(a,b,c)=>{g.triangle(a,b,c,leaf);g.triangle(c,b,a,leaf);};
+  let prev=origin;for(let k=1;k<=steps;k++){const t=k/steps,r=length*t*.56,y=length*(Math.sin(t*1.8)*.83-.15*t),now=p(r,y),half=.002;
+   const a=[prev[0]-sn*half,prev[1],prev[2]+cs*half],b=[prev[0]+sn*half,prev[1],prev[2]-cs*half],c=[now[0]+sn*half,now[1],now[2]-cs*half],d=[now[0]-sn*half,now[1],now[2]+cs*half];leafFace(a,b,c);leafFace(a,c,d);
+   for(const sign of [-1,1]){const broad=length*.17*Math.sin(t*Math.PI*.91),base=p(r-length*.045,y-.012),tip=p(r+length*.035,y-.025,sign*broad),ridge=p(r,y+.014,sign*broad*.5),back=p(r+length*.055,y-.018);
+    leafFace(base,tip,ridge);leafFace(tip,back,ridge);
+   }prev=now;
+  }
  }
  if(type==='velvet-curtain'){
   for(const sign of [-1,1]){clothPanel(sign*width*.395,height/2,0,width*.20,height,5);clothPanel(sign*width*.30,height/2,-.021,width*.10,height*.97,3);box(sign*width*.395,height*.45,.016,width*.22,.025,.012,metal);for(let k=0;k<3;k++)box(sign*width*.395+(k-1)*.012,height*.40,.019,.006,.09,.006,metal);}

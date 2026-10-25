@@ -1,5 +1,7 @@
 # Forge final integration review
 
+Subsequent work: [ceiling and botanical visual follow-up](FORGE_VISUAL_FOLLOWUP.md) addresses the art findings below and adds a [Chrome/Mac acceptance procedure](FORGE_MAC_ACCEPTANCE.md). This document preserves the original certification snapshot and timing evidence; consult the follow-up for current validation and costs.
+
 **Recommendation: NOT READY TO MERGE.** All six implementations are present and the automated regressions pass after the fixes below. Visual luxury acceptance and representative device performance remain outstanding. Prepare an unmerged review PR; do not deploy.
 
 ## Revision and scope

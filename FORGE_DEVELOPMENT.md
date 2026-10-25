@@ -298,3 +298,5 @@ See [the shared textile/glass/botanical inventory, authored policies, quality bu
 ## Final integration review
 
 See [the integration assessment](docs/FORGE_INTEGRATION_REVIEW.md) and [matched pre-six-pass visual/performance evidence](docs/evidence/forge-integration/index.html). Automated regressions pass; ceiling-art acceptance and representative device performance remain open. Recommendation: **NOT READY TO MERGE**. No deployment or student archive replacement was performed.
+
+See the [visual follow-up](docs/FORGE_VISUAL_FOLLOWUP.md) for deeper ceiling relief, bounded chandelier fill and folded botanical foliage, and the [Chrome/Mac acceptance procedure](docs/FORGE_MAC_ACCEPTANCE.md) for the remaining device certification.

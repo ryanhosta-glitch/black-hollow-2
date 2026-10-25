@@ -1,0 +1,656 @@
+{
+  "beforeRevision": "76a650048beb144dce35644639cac0202105002c",
+  "benchmarkEnabled": false,
+  "beforeArchiveBytes": 5803542,
+  "afterArchiveBytes": 5872987,
+  "beforeInventoryTriangles": 491935,
+  "afterInventoryTriangles": 496513,
+  "views": [
+    {
+      "identity": "ballroom",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 83,
+        "triangles": 103468,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 67.21232361111133
+      },
+      "after": {
+        "draws": 83,
+        "triangles": 105326,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 67.21232361111133
+      }
+    },
+    {
+      "identity": "parlor",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 85,
+        "triangles": 104846,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 55.28432738888855
+      },
+      "after": {
+        "draws": 85,
+        "triangles": 106704,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 55.28432738888855
+      }
+    },
+    {
+      "identity": "library",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 74,
+        "triangles": 103610,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 40.28557513888924
+      },
+      "after": {
+        "draws": 74,
+        "triangles": 105468,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 40.28557513888924
+      }
+    },
+    {
+      "identity": "dining",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 112,
+        "triangles": 116920,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 108.83135694444358
+      },
+      "after": {
+        "draws": 112,
+        "triangles": 120506,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 110.53887402777625
+      }
+    },
+    {
+      "identity": "gallery",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 98,
+        "triangles": 116358,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 59.18566388888885
+      },
+      "after": {
+        "draws": 98,
+        "triangles": 119944,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 59.18566388888885
+      }
+    },
+    {
+      "identity": "conservatory",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 85,
+        "triangles": 112840,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 112.09068355555513
+      },
+      "after": {
+        "draws": 85,
+        "triangles": 116426,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 112.09068355555513
+      }
+    },
+    {
+      "identity": "bedroom",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 63,
+        "triangles": 62039,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 40.431597500000265
+      },
+      "after": {
+        "draws": 63,
+        "triangles": 62135,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 40.431597500000265
+      }
+    },
+    {
+      "identity": "nursery",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 56,
+        "triangles": 58443,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 40.40538772222259
+      },
+      "after": {
+        "draws": 56,
+        "triangles": 58539,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 40.40538772222259
+      }
+    },
+    {
+      "identity": "crypt",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 45,
+        "triangles": 50649,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 43.41946869444433
+      },
+      "after": {
+        "draws": 45,
+        "triangles": 50745,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 43.41946869444433
+      }
+    },
+    {
+      "identity": "laboratory",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 105,
+        "triangles": 69181,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 118.24584561111128
+      },
+      "after": {
+        "draws": 105,
+        "triangles": 69277,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 118.24584561111128
+      }
+    },
+    {
+      "identity": "circulation",
+      "quality": "cinematic",
+      "detail": "room",
+      "before": {
+        "draws": 75,
+        "triangles": 63199,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 46.478804277778025
+      },
+      "after": {
+        "draws": 75,
+        "triangles": 63295,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 46.478804277778025
+      }
+    },
+    {
+      "identity": "ballroom",
+      "quality": "cinematic",
+      "detail": "ceiling",
+      "before": {
+        "draws": 48,
+        "triangles": 97288,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 50.9295564722225
+      },
+      "after": {
+        "draws": 48,
+        "triangles": 99146,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 47.45053252777713
+      }
+    },
+    {
+      "identity": "dining",
+      "quality": "cinematic",
+      "detail": "panels",
+      "before": {
+        "draws": 103,
+        "triangles": 116370,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 31.14412427777767
+      },
+      "after": {
+        "draws": 103,
+        "triangles": 119956,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 31.14412427777767
+      }
+    },
+    {
+      "identity": "bedroom",
+      "quality": "cinematic",
+      "detail": "furniture",
+      "before": {
+        "draws": 60,
+        "triangles": 58533,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 28.91829752777676
+      },
+      "after": {
+        "draws": 60,
+        "triangles": 58629,
+        "decodedRGBAWithMipsEstimate": 8846776,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 28.91829752777676
+      }
+    },
+    {
+      "identity": "library",
+      "quality": "cinematic",
+      "detail": "story",
+      "before": {
+        "draws": 40,
+        "triangles": 68004,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 91.4375090000018
+      },
+      "after": {
+        "draws": 40,
+        "triangles": 68356,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 91.4375090000018
+      }
+    },
+    {
+      "identity": "parlor",
+      "quality": "cinematic",
+      "detail": "window",
+      "before": {
+        "draws": 48,
+        "triangles": 97288,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 180.92025055555553
+      },
+      "after": {
+        "draws": 48,
+        "triangles": 99146,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 180.92025055555553
+      }
+    },
+    {
+      "identity": "conservatory",
+      "quality": "cinematic",
+      "detail": "botanical",
+      "before": {
+        "draws": 70,
+        "triangles": 108628,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 72.09869338888801
+      },
+      "after": {
+        "draws": 70,
+        "triangles": 112214,
+        "decodedRGBAWithMipsEstimate": 10878994,
+        "lights": 3,
+        "shadowLights": 1,
+        "shadowPixels": 262144,
+        "navigationRegionLuma": 72.09869338888801
+      }
+    },
+    {
+      "identity": "ballroom",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 80,
+        "triangles": 103444,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 55.81526427777802
+      },
+      "after": {
+        "draws": 80,
+        "triangles": 105302,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 55.81526427777802
+      }
+    },
+    {
+      "identity": "parlor",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 81,
+        "triangles": 104798,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 47.45665419444427
+      },
+      "after": {
+        "draws": 81,
+        "triangles": 106656,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 47.45665419444427
+      }
+    },
+    {
+      "identity": "library",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 71,
+        "triangles": 103586,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 32.214156138888846
+      },
+      "after": {
+        "draws": 71,
+        "triangles": 105444,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 32.214156138888846
+      }
+    },
+    {
+      "identity": "dining",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 112,
+        "triangles": 116920,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 104.9036072500006
+      },
+      "after": {
+        "draws": 112,
+        "triangles": 120506,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 104.9036072500006
+      }
+    },
+    {
+      "identity": "gallery",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 98,
+        "triangles": 116358,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 52.74579738888901
+      },
+      "after": {
+        "draws": 98,
+        "triangles": 119944,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 52.74579738888901
+      }
+    },
+    {
+      "identity": "conservatory",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 84,
+        "triangles": 112840,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 96.17650044444261
+      },
+      "after": {
+        "draws": 84,
+        "triangles": 116426,
+        "decodedRGBAWithMipsEstimate": 10747918,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 96.17650044444261
+      }
+    },
+    {
+      "identity": "bedroom",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 62,
+        "triangles": 62039,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 32.608082999999304
+      },
+      "after": {
+        "draws": 62,
+        "triangles": 62135,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 32.608082999999304
+      }
+    },
+    {
+      "identity": "nursery",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 56,
+        "triangles": 58443,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 32.26093452777777
+      },
+      "after": {
+        "draws": 56,
+        "triangles": 58539,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 32.26093452777777
+      }
+    },
+    {
+      "identity": "crypt",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 44,
+        "triangles": 50649,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 33.82403002777935
+      },
+      "after": {
+        "draws": 44,
+        "triangles": 50745,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 33.82403002777935
+      }
+    },
+    {
+      "identity": "laboratory",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 104,
+        "triangles": 69181,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 108.33385958333098
+      },
+      "after": {
+        "draws": 104,
+        "triangles": 69277,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 108.33385958333098
+      }
+    },
+    {
+      "identity": "circulation",
+      "quality": "performance",
+      "detail": "room",
+      "before": {
+        "draws": 74,
+        "triangles": 63199,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 37.042825333333184
+      },
+      "after": {
+        "draws": 74,
+        "triangles": 63295,
+        "decodedRGBAWithMipsEstimate": 8715700,
+        "lights": 2,
+        "shadowLights": 0,
+        "shadowPixels": 0,
+        "navigationRegionLuma": 37.042825333333184
+      }
+    }
+  ],
+  "beforeCeilingRegionLuma": 67.90720592122395,
+  "afterCeilingRegionLuma": 139.12840904296874
+}

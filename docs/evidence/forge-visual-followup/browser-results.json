@@ -1,0 +1,22 @@
+[
+  {
+    "suite": "atmosphere",
+    "exitCode": 0
+  },
+  {
+    "suite": "luxury",
+    "exitCode": 0
+  },
+  {
+    "suite": "rooms",
+    "exitCode": 0
+  },
+  {
+    "suite": "pipeline",
+    "exitCode": 0
+  },
+  {
+    "suite": "lighting",
+    "exitCode": 0
+  }
+]

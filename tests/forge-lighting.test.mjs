@@ -73,3 +73,11 @@ test('fixture emitter materials append indices and retain modest exported emissi
 test('combined two-story CASA carries all eleven lighting treatments with the existing loading contract',async()=>{
  const fixture=JSON.parse(await readFile(new URL('./fixtures/forge-luxury.json',import.meta.url))),{house}=await compileFixture(fixture),plan=await house.json(house.manifest.lightingPlan);assert.equal(plan.edition,'house-light-2');assert.equal(plan.baked,false);assert.equal(plan.limits.performance.activeLights,2);assert.ok(house.playability.staticRoutesVerified);for(const id of Object.keys(ROOM_PROFILES))assert.ok(plan.lights.some(l=>l.roomId===id&&l.role==='key'));const budget=await house.json(house.manifest.packageBudget);assert.ok(budget.components.withinLimits);
 });
+
+test('ceiling bounce uses only the cinematic spare slot and yields to nearby authored-space activities',()=>{
+ const d=planDecoration(source(room('ballroom'))),key=d.lights.find(l=>l.role==='key'),position=[key.positionMeters[0],1.62,key.positionMeters[2]],snapshot=structuredClone(d),house={decoration:d};
+ const selected=selectHouseLights(house,{roomId:'ballroom',floor:0,position});assert.equal(selected.length,3);const bounce=selected.find(l=>l.role==='bounce');assert.ok(bounce?.indirectApproximation);assert.equal(bounce.castShadow,false);assert.equal(bounce.lightType,'point');assert.ok(bounce.intensity<=2.5);assert.deepEqual(d,snapshot);
+ assert.ok(!selectHouseLights(house,{roomId:'ballroom',floor:0,position,quality:'performance'}).some(l=>l.role==='bounce'));
+ for(const role of ['task','hearth','portrait','moon']){const extra={...key,id:'priority:'+role,role,positionMeters:position};const near=selectHouseLights({decoration:{...d,lights:[...d.lights.filter(l=>role!=='moon'||!['moon','stained'].includes(l.role)),extra]}},{roomId:'ballroom',floor:0,position});assert.ok(near.some(l=>l.role===role),role);assert.ok(!near.some(l=>l.role==='bounce'),role);assert.ok(near.length<=3);}
+ for(const override of [{sourceOnly:true},{fixtureGeometryCompiled:false},{photometricEdition:'house-light-1'}])assert.ok(!selectHouseLights({decoration:{...d,lights:d.lights.map(l=>l===key?{...l,...override}:l)}},{roomId:'ballroom',floor:0,position}).some(l=>l.role==='bounce'));
+});

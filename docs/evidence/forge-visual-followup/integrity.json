@@ -1,0 +1,489 @@
+{
+  "protectedFiles": 25,
+  "archives": 23,
+  "allBytesAndFingerprintsUnchanged": true,
+  "repairedSourceIssueCodes": {
+    "before": {
+      "UNSUPPORTED_AUTHORED_FURNITURE": 265,
+      "AUTHORED_FURNITURE_CLEARANCE": 310,
+      "PORCH_JAMB_CLEARANCE": 4
+    },
+    "after": {
+      "UNSUPPORTED_AUTHORED_FURNITURE": 265,
+      "AUTHORED_FURNITURE_CLEARANCE": 310,
+      "PORCH_JAMB_CLEARANCE": 4
+    }
+  },
+  "originalSourceIssueCodes": {
+    "before": {
+      "UNSUPPORTED_AUTHORED_FURNITURE": 265,
+      "AUTHORED_FURNITURE_CLEARANCE": 310
+    },
+    "after": {
+      "UNSUPPORTED_AUTHORED_FURNITURE": 265,
+      "AUTHORED_FURNITURE_CLEARANCE": 310
+    }
+  },
+  "results": [
+    {
+      "file": "casa_game/houses/house-03f984fb4d9ae0.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "03f984fb4d9ae0806c51d38fd202ebb1c6344e10f1d2104184a5e390b2f3a23d",
+          "rooms": 36,
+          "beforeIssues": 31,
+          "afterIssues": 31
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "1929d9bc5b58b31b179cff342c5553fae216135ec0a7e66934b09098ad1f0b8e",
+          "rooms": 36,
+          "beforeIssues": 32,
+          "afterIssues": 32
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-0c1593269393e1.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "0c1593269393e1a64b7079597aee042ac1dfcd3df4c79fd00cb743d41fbafa43",
+          "rooms": 49,
+          "beforeIssues": 35,
+          "afterIssues": 35
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "9db8b4aa151d94033c8ee70129c7c94a25751a3f60b5fadf0538b6efd1369da0",
+          "rooms": 49,
+          "beforeIssues": 35,
+          "afterIssues": 35
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-0e940e170c5d1b.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "0e940e170c5d1b6475d9666d06f705668bdc7891e2d69174f0eb1fc83f1c0225",
+          "rooms": 5,
+          "beforeIssues": 0,
+          "afterIssues": 0
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "e66ad1441e92470314b089001e77bc3bf27258bba8380edd239d190ad6b3f374",
+          "rooms": 5,
+          "beforeIssues": 0,
+          "afterIssues": 0
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-1a442c2a1b0d74.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "1a442c2a1b0d7408dc209eefac011a6388ed724be8c8e5bbc3dc39352b3bb99a",
+          "rooms": 17,
+          "beforeIssues": 8,
+          "afterIssues": 8
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "76999cd9c0c52ee1723b1c783d20c117e0f981ee441aa733d99abad3a4a0abb1",
+          "rooms": 17,
+          "beforeIssues": 9,
+          "afterIssues": 9
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-1aa4a4075a9c05.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "1aa4a4075a9c058c55cf9b4eb5882cfc40b3880dec1139b1392308714519d486",
+          "rooms": 3,
+          "beforeIssues": 2,
+          "afterIssues": 2
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "4fdfe74114fc1090e19517b8c5f7ec6c7a81bb288c8162753c3f814bb6e99a82",
+          "rooms": 3,
+          "beforeIssues": 2,
+          "afterIssues": 2
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-1af2d7b6042573.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "1af2d7b6042573e9cfbba143ebbcce95ad8f9dd81aa7ada0b199914f2aed5952",
+          "rooms": 15,
+          "beforeIssues": 28,
+          "afterIssues": 28
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "f365a5f725663fdcdb616bdfdf1e7f1c7bad9ccc92d7d215ed85f7149c226297",
+          "rooms": 15,
+          "beforeIssues": 28,
+          "afterIssues": 28
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-2e2423085d130b.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "2e2423085d130bc3e2b0608e936acef0a5be2b66316ee17d8f6ea24412ea6d9f",
+          "rooms": 7,
+          "beforeIssues": 0,
+          "afterIssues": 0
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "1b91009c7b5c6e4d04a8469f184d129c3a146987d05f513589cf5a48a749748d",
+          "rooms": 7,
+          "beforeIssues": 0,
+          "afterIssues": 0
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-389efcfb9f5ac4.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "389efcfb9f5ac40163d144ddef3b4241ee5b67c6a6bb18feb792c4fee93fbc4a",
+          "rooms": 23,
+          "beforeIssues": 149,
+          "afterIssues": 149
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "3f90fe464cbf55a6626055ad185c731f51b1a3432ae4ddbd80a9d21e05404b36",
+          "rooms": 23,
+          "beforeIssues": 149,
+          "afterIssues": 149
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-41483e0f829339.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "41483e0f82933927046ce545093e938b77cf9bcfe97debef3ff768733c89fbba",
+          "rooms": 18,
+          "beforeIssues": 44,
+          "afterIssues": 44
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "0df0d7c12d9ef2aad620dc7807217cf383833d4fb2cae4790e10b194d0e7449e",
+          "rooms": 18,
+          "beforeIssues": 44,
+          "afterIssues": 44
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-4729d1cf7ac06a.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "4729d1cf7ac06a4330d804a8674665dd18021e4838241bd7975686b6fd4c8907",
+          "rooms": 23,
+          "beforeIssues": 16,
+          "afterIssues": 16
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "c68502b980bf91b4ca81fdbcdb229c118eba6df1858d2ed25962e4dfcfb8924b",
+          "rooms": 23,
+          "beforeIssues": 16,
+          "afterIssues": 16
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-56d23561d1dad8.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "56d23561d1dad832118e328027092ce1f5397d60f41e9836351f07d740429477",
+          "rooms": 26,
+          "beforeIssues": 24,
+          "afterIssues": 24
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "244350d3ca4259ab58148dc6ffdbf0c160cc9a0d60f489f60ab6adfad05cc87a",
+          "rooms": 26,
+          "beforeIssues": 24,
+          "afterIssues": 24
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-5efc01faa87b76.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "5efc01faa87b7635760cadb94b307e93f3a153a6bef985d6c81308a3011ee0da",
+          "rooms": 20,
+          "beforeIssues": 0,
+          "afterIssues": 0
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "a6430948235674a761f2468af22e785df6aa572e32211b5ed4d3877d1a1be5a1",
+          "rooms": 20,
+          "beforeIssues": 1,
+          "afterIssues": 1
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-62f82b6454d42d.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "62f82b6454d42d97da139e14017c5e694b0d737c097bd0391ec74985d03f3eed",
+          "rooms": 23,
+          "beforeIssues": 19,
+          "afterIssues": 19
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "ea0375b2b40af5019f7269e75e40383374de208ebffaadbe57d2ca16c78fa7d9",
+          "rooms": 23,
+          "beforeIssues": 19,
+          "afterIssues": 19
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-8102ef435f6dcc.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "8102ef435f6dcc0a7a2ae77105bb773759952a3bc0b50ef38924b6fd5ffb2669",
+          "rooms": 17,
+          "beforeIssues": 11,
+          "afterIssues": 11
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "6d8746b1d5fd639d3bbf931bab6dee8e47cdbb3c07aa504d5bc93bcd73d75b7f",
+          "rooms": 17,
+          "beforeIssues": 11,
+          "afterIssues": 11
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-82fed66d1530d5.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "82fed66d1530d50adca49baac0b5dbbcd6a3d5c7b3f9e4a37e26c1677836d18b",
+          "rooms": 22,
+          "beforeIssues": 44,
+          "afterIssues": 44
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "4e109900dc5c16c0d31e2eec4e369caba58aef838e84d1750d88d904881ca501",
+          "rooms": 22,
+          "beforeIssues": 44,
+          "afterIssues": 44
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-8758b94897b0ba.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "8758b94897b0ba2cac508d1014da582495c0b4b2f5060e7506fcf53f5276f083",
+          "rooms": 31,
+          "beforeIssues": 73,
+          "afterIssues": 73
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "c08b2e4107591bf5d76c1c0e13c136833aee580d494c1dfe5877631806215423",
+          "rooms": 31,
+          "beforeIssues": 73,
+          "afterIssues": 73
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-956f3c329fefe5.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "956f3c329fefe56870edbeb1dd3116bc42af043cb300769c70fed032eaa09997",
+          "rooms": 36,
+          "beforeIssues": 18,
+          "afterIssues": 18
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "5919b066b18c2c8c2c053058c1c9038ca2bfa0b50e4c005710855cba44bc91d6",
+          "rooms": 36,
+          "beforeIssues": 18,
+          "afterIssues": 18
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-97408b549b8b23.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "97408b549b8b23a0ccd1cb18d850fbb1beaf726abdd2a478dcd73b9f7963ac82",
+          "rooms": 8,
+          "beforeIssues": 1,
+          "afterIssues": 1
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "6e08b82d042e476bacd242e17e2f7b8accf865b7289b723064128a61a1665b3e",
+          "rooms": 8,
+          "beforeIssues": 1,
+          "afterIssues": 1
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-adc95034eb7871.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "adc95034eb7871580340ce7a78d4f39e15434a1f1872c859d4b5724eba7b4951",
+          "rooms": 3,
+          "beforeIssues": 22,
+          "afterIssues": 22
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "2aa96614af3e358ff3c1e41016b261336e844064997c55f40e5bdbc4fd9813f2",
+          "rooms": 3,
+          "beforeIssues": 22,
+          "afterIssues": 22
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-c253d341258532.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "c253d3412585322af134a32770f5726fc8b61da9686aa46dc65962d93b6e4a26",
+          "rooms": 23,
+          "beforeIssues": 30,
+          "afterIssues": 30
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "a5f48f49adb5c4d3cde3e5347e477af70158b68135b7e173ef6be8a202268cdb",
+          "rooms": 23,
+          "beforeIssues": 31,
+          "afterIssues": 31
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-c3891fccdad9b0.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "c3891fccdad9b0af31727a55617b0401040dacff1c138a8a3206d0e0e8893594",
+          "rooms": 18,
+          "beforeIssues": 8,
+          "afterIssues": 8
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "a2346830a502b1978ccbf5c4e31e16fe607f946e66db356fea4cd4bbcb6c2bc0",
+          "rooms": 18,
+          "beforeIssues": 8,
+          "afterIssues": 8
+        }
+      }
+    },
+    {
+      "file": "casa_game/houses/house-eb8f563c3fed01.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "eb8f563c3fed015b9d41078e3c84c1b7befdf5d2a94d21275d1447a1b9002ccb",
+          "rooms": 8,
+          "beforeIssues": 12,
+          "afterIssues": 12
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "826b02daa4ff62d93d649b7f5125314cc2bc8520e3e29f59ee0a6da62f01a69b",
+          "rooms": 8,
+          "beforeIssues": 12,
+          "afterIssues": 12
+        }
+      }
+    },
+    {
+      "file": "casa_game/samples/moonveil.casa",
+      "fingerprintUnchanged": true,
+      "sources": {
+        "original": {
+          "path": "source.haunt",
+          "sha256": "f7cd4400a122331bac2935bb1523b763ec9108a1e40b611c569f47b301ebccb4",
+          "rooms": 12,
+          "beforeIssues": 0,
+          "afterIssues": 0
+        },
+        "repaired": {
+          "path": "repaired.haunt",
+          "sha256": "cb738e3e8ee6a9f4d0d5c1a75076f916ceb7974bed4ba3ff3da04c253b077421",
+          "rooms": 12,
+          "beforeIssues": 0,
+          "afterIssues": 0
+        }
+      }
+    }
+  ]
+}

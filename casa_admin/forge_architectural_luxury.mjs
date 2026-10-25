@@ -95,7 +95,7 @@ export function architecturalLuxury(room,base,components,{decoration={}}={}){
    // Coffers are raised perimeter frames, preserving the structural ceiling plane.
    for(let i=0;i<columns;i++)for(let j=0;j<rows;j++){
     const a=x+inset+(l-2*inset)*i/columns,b=x+inset+(l-2*inset)*(i+1)/columns,c=z+inset+(w-2*inset)*j/rows,d=z+inset+(w-2*inset)*(j+1)/rows;
-    const pz=(at,y,depth)=>[at,cy-y,c+depth],px=(at,y,depth)=>[a+depth,cy-y,at],profile=[[0,0],[.20,0],[.20,.12],[.12,.20],[0,.20]];
+    const pz=(at,y,depth)=>[at,cy-y,c+depth],px=(at,y,depth)=>[a+depth,cy-y,at],profile=[[0,0],[.38,0],[.38,.12],[.30,.12],[.30,.26],[.16,.34],[0,.34]];
     shapes.sweep(pz,a,b,profile,treatment.cofferMaterial);if(j===rows-1)shapes.sweep((at,y,dep)=>[at,cy-y,d-dep],a,b,profile,treatment.cofferMaterial);
     shapes.sweep(px,c,d,profile,treatment.cofferMaterial);if(i===columns-1)shapes.sweep((at,y,dep)=>[b-dep,cy-y,at],c,d,profile,treatment.cofferMaterial);
     if(!treatment.restrained){for(const [cx,cz]of [[a+.28,c+.28],[b-.28,d-.28]])shapes.rosette((u,v,t)=>[u,cy-.08-t,v],cx,cz,.16,accent,4);}
@@ -103,7 +103,7 @@ export function architecturalLuxury(room,base,components,{decoration={}}={}){
   },'ceiling-coffers');
   build('carved-medallions','room',shapes=>{
    if(!treatment.ceiling)return;
-   const cx=x+l/2,cz=z+w/2,cy=base+h-.34,r=treatment.restrained?.62:treatment.formal?1.20:.96,segments=24;
+   const cx=x+l/2,cz=z+w/2,cy=base+h-.34,r=treatment.restrained?.62:treatment.formal?1.85:1.28,segments=24;
    for(let k=0;k<segments;k++){
     const a=k/segments*Math.PI*2,b=(k+1)/segments*Math.PI*2;
     const p=(angle,radius,drop)=>[cx+Math.cos(angle)*radius,cy-drop,cz+Math.sin(angle)*radius];
