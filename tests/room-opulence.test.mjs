@@ -25,7 +25,7 @@ test('large houses share a bounded dressing budget instead of starving the last 
  assert.ok(contents.reduce((n,c)=>n+c.primitives.length,0)<=14000);assert.ok(contents.at(-1).primitives.length>0);assert.deepEqual(contents,planRoomContents(rooms,{furniture:[],artwork:[]}));
 });
 test('low ceilings and circulation never receive hanging geometry in walking headroom',()=>{
- for(const h of [6.5,7.5,8,9]){const plan=planDecoration(source({...room('circulation'),l:5,h}));assert.equal(plan.furniture.length,0);for(const p of plan.roomContents[0].primitives)if(p.c[0]>0.6&&p.c[0]<.9)assert.ok(p.c[1]-p.s[1]/2>=1.85||p.s[1]<.03);}
+ for(const h of [6.5,7.5,8,9]){const r={...room('circulation'),l:5,h},plan=planDecoration(source(r));assert.equal(plan.furniture.length,0);for(const p of plan.roomContents[0].primitives)if(p.c[0]>0.6&&p.c[0]<.9)assert.ok(p.c[1]-p.s[1]/2>=1.85||p.s[1]<.03||p.triangles?.flat().every(v=>Math.min(Math.abs(v[0]),Math.abs(v[0]-r.l*.3048),Math.abs(v[2]),Math.abs(v[2]-r.w*.3048))<=.06),'low details remain flush with walls');}
 });
 test('CASA rebuild preserves published identity, chosen finishes and embedded source',async()=>{
  const {bytes,house}=await compileFixture(source(room('library')),{identity:{id:'house-published',name:'The Original',creator:'Ryan',desc:'A waiting room',exteriorStyle:'siding-plum',exteriorTrim:'gold',exteriorRoof:'moss'}});

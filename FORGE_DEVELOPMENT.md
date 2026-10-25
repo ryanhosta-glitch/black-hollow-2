@@ -286,3 +286,7 @@ See [the Pass 3 component inventory, cost assessment and regression evidence](do
 ## Cinematic Victorian lighting — Pass 4
 
 See [the shared lighting policy, fixture inventory, compatibility assessment and measured costs](docs/FORGE_CINEMATIC_LIGHTING_PASS4.md) and [the two-quality before/after study](docs/evidence/forge-lighting/index.html). The existing practical rig now uses a soft primary spotlight with bounded point accents; no student archives are rewritten or published.
+
+## Environmental storytelling — Pass 5
+
+See [the shared object inventory, surface rules, compatibility and regression assessment](docs/FORGE_ENVIRONMENTAL_STORYTELLING_PASS5.md) and [the matched room/story comparisons](docs/evidence/forge-storytelling/index.html). Curated deterministic arrangements replace overlapping tabletop clutter, preserving existing optional memories and quest bindings. No student archives are replaced or published.

@@ -1,0 +1,1694 @@
+{
+  "edition": "before",
+  "browser": "154.0.8037.57",
+  "webgl": true,
+  "compiledBytes": 5379740,
+  "views": [
+    {
+      "identity": "ballroom",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 57,
+      "triangles": 98478,
+      "undecoded": 0,
+      "compileMs": 69,
+      "firstFrameMs": 632.1000000089407,
+      "gpuGeometries": 70,
+      "gpuTextures": 24,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:ballroom:chandelier",
+          "role": "key",
+          "color": "#ffdbac"
+        },
+        {
+          "id": "artisan:ballroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:forge:ballroom:furniture:generated-4",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 61.59042756983218,
+      "darkFraction": 0.09315,
+      "brightFraction": 0.000016666666666666667
+    },
+    {
+      "identity": "ballroom",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 31,
+      "triangles": 84324,
+      "undecoded": 0,
+      "compileMs": 34.900000005960464,
+      "firstFrameMs": 8,
+      "gpuGeometries": 70,
+      "gpuTextures": 24,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:ballroom:chandelier",
+          "role": "key",
+          "color": "#ffdbac"
+        },
+        {
+          "id": "artisan:ballroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:ballroom:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 21.45816536312727,
+      "darkFraction": 0.46935,
+      "brightFraction": 0
+    },
+    {
+      "identity": "parlor",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 73,
+      "triangles": 100132,
+      "undecoded": 0,
+      "compileMs": 21.599999994039536,
+      "firstFrameMs": 22,
+      "gpuGeometries": 88,
+      "gpuTextures": 25,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:parlor:chandelier",
+          "role": "key",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:parlor:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:parlor-hearth",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 60.83654170391096,
+      "darkFraction": 0.07061666666666666,
+      "brightFraction": 0.0012166666666666667
+    },
+    {
+      "identity": "parlor",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 58,
+      "triangles": 101158,
+      "undecoded": 0,
+      "compileMs": 17.599999994039536,
+      "firstFrameMs": 18.299999997019768,
+      "gpuGeometries": 72,
+      "gpuTextures": 28,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:parlor:chandelier",
+          "role": "key",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:parlor:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:forge:parlor:furniture:generated-2",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 23.103550893854695,
+      "darkFraction": 0.50735,
+      "brightFraction": 0
+    },
+    {
+      "identity": "library",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 61,
+      "triangles": 98896,
+      "undecoded": 0,
+      "compileMs": 27.69999998807907,
+      "firstFrameMs": 12.400000005960464,
+      "gpuGeometries": 81,
+      "gpuTextures": 28,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:library:chandelier",
+          "role": "key",
+          "color": "#ffd19a"
+        },
+        {
+          "id": "artisan:library:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:library-hearth",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 45.57491527933027,
+      "darkFraction": 0.34496666666666664,
+      "brightFraction": 0.0003333333333333333
+    },
+    {
+      "identity": "library",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 37,
+      "triangles": 84952,
+      "undecoded": 0,
+      "compileMs": 17.299999997019768,
+      "firstFrameMs": 3.2999999970197678,
+      "gpuGeometries": 73,
+      "gpuTextures": 28,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:library:chandelier",
+          "role": "key",
+          "color": "#ffd19a"
+        },
+        {
+          "id": "lighting:library:task:forge:library:furniture:generated-2",
+          "role": "task",
+          "color": "#ffd2a0"
+        },
+        {
+          "id": "artisan:library:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 94.866409385476,
+      "darkFraction": 0.07831666666666667,
+      "brightFraction": 0.005883333333333333
+    },
+    {
+      "identity": "dining",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 80,
+      "triangles": 108142,
+      "undecoded": 0,
+      "compileMs": 37.20000000298023,
+      "firstFrameMs": 7.0999999940395355,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:dining:chandelier",
+          "role": "key",
+          "color": "#ffdaad"
+        },
+        {
+          "id": "artisan:dining:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:dining:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 111.19675966480432,
+      "darkFraction": 0.11845,
+      "brightFraction": 0.0005166666666666667
+    },
+    {
+      "identity": "dining",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 76,
+      "triangles": 108140,
+      "undecoded": 0,
+      "compileMs": 18.299999997019768,
+      "firstFrameMs": 5.799999997019768,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:dining:chandelier",
+          "role": "key",
+          "color": "#ffdaad"
+        },
+        {
+          "id": "artisan:dining:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:dining:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 76.47905198323971,
+      "darkFraction": 0.1667,
+      "brightFraction": 0
+    },
+    {
+      "identity": "gallery",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 75,
+      "triangles": 108128,
+      "undecoded": 0,
+      "compileMs": 17.700000002980232,
+      "firstFrameMs": 5.799999997019768,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:gallery:chandelier",
+          "role": "key",
+          "color": "#ffe0b5"
+        },
+        {
+          "id": "lighting:gallery:portrait",
+          "role": "portrait",
+          "color": "#ffe0b9"
+        },
+        {
+          "id": "lighting:gallery:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 59.32502365921785,
+      "darkFraction": 0.09581666666666666,
+      "brightFraction": 0.00016666666666666666
+    },
+    {
+      "identity": "gallery",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 62,
+      "triangles": 102992,
+      "undecoded": 0,
+      "compileMs": 30.299999997019768,
+      "firstFrameMs": 13.700000002980232,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:gallery:chandelier",
+          "role": "key",
+          "color": "#ffe0b5"
+        },
+        {
+          "id": "lighting:gallery:portrait",
+          "role": "portrait",
+          "color": "#ffe0b9"
+        },
+        {
+          "id": "lighting:gallery:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 21.1853322346361,
+      "darkFraction": 0.44153333333333333,
+      "brightFraction": 0
+    },
+    {
+      "identity": "conservatory",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 66,
+      "triangles": 104096,
+      "undecoded": 0,
+      "compileMs": 20.200000002980232,
+      "firstFrameMs": 1.7000000029802322,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:conservatory:chandelier",
+          "role": "key",
+          "color": "#d1e1bf"
+        },
+        {
+          "id": "lighting:conservatory:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        },
+        {
+          "id": "lighting:conservatory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 112.4200988826812,
+      "darkFraction": 0.09288333333333333,
+      "brightFraction": 0
+    },
+    {
+      "identity": "conservatory",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 59,
+      "triangles": 102250,
+      "undecoded": 0,
+      "compileMs": 17.099999994039536,
+      "firstFrameMs": 3.4000000059604645,
+      "gpuGeometries": 73,
+      "gpuTextures": 30,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:conservatory:chandelier",
+          "role": "key",
+          "color": "#d1e1bf"
+        },
+        {
+          "id": "lighting:conservatory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        },
+        {
+          "id": "lighting:conservatory:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 60.485290446928076,
+      "darkFraction": 0.30293333333333333,
+      "brightFraction": 0
+    },
+    {
+      "identity": "bedroom",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 46,
+      "triangles": 56114,
+      "undecoded": 0,
+      "compileMs": 21.100000008940697,
+      "firstFrameMs": 545.8999999910593,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:bedroom:chandelier",
+          "role": "key",
+          "color": "#ffceab"
+        },
+        {
+          "id": "artisan:bedroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:forge:bedroom:furniture:generated-2",
+          "role": "hearth",
+          "color": "#ffb16e"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 37.896071340782036,
+      "darkFraction": 0.14848333333333333,
+      "brightFraction": 0.00048333333333333334
+    },
+    {
+      "identity": "bedroom",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 33,
+      "triangles": 46332,
+      "undecoded": 0,
+      "compileMs": 13.400000005960464,
+      "firstFrameMs": 2.0999999940395355,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:bedroom:chandelier",
+          "role": "key",
+          "color": "#ffceab"
+        },
+        {
+          "id": "artisan:bedroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:bedroom:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 26.079940586594198,
+      "darkFraction": 0.2594666666666667,
+      "brightFraction": 0
+    },
+    {
+      "identity": "nursery",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 40,
+      "triangles": 53292,
+      "undecoded": 0,
+      "compileMs": 13.400000005960464,
+      "firstFrameMs": 8,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:nursery:chandelier",
+          "role": "key",
+          "color": "#ffe0b8"
+        },
+        {
+          "id": "artisan:nursery:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:nursery:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 38.4248355307267,
+      "darkFraction": 0.14943333333333333,
+      "brightFraction": 0.00006666666666666667
+    },
+    {
+      "identity": "nursery",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 34,
+      "triangles": 50584,
+      "undecoded": 0,
+      "compileMs": 12.899999991059303,
+      "firstFrameMs": 1.300000011920929,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:nursery:chandelier",
+          "role": "key",
+          "color": "#ffe0b8"
+        },
+        {
+          "id": "artisan:nursery:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:nursery:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 95.95400036312715,
+      "darkFraction": 0.2774,
+      "brightFraction": 0
+    },
+    {
+      "identity": "crypt",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 31,
+      "triangles": 46966,
+      "undecoded": 0,
+      "compileMs": 11.899999991059303,
+      "firstFrameMs": 2.2000000029802322,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:crypt:chandelier",
+          "role": "key",
+          "color": "#a7cadd"
+        },
+        {
+          "id": "artisan:crypt:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:crypt:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 44.06739030726203,
+      "darkFraction": 0.02735,
+      "brightFraction": 0.00023333333333333333
+    },
+    {
+      "identity": "crypt",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 31,
+      "triangles": 46966,
+      "undecoded": 0,
+      "compileMs": 11.900000005960464,
+      "firstFrameMs": 1.2999999970197678,
+      "gpuGeometries": 67,
+      "gpuTextures": 26,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:crypt:chandelier",
+          "role": "key",
+          "color": "#a7cadd"
+        },
+        {
+          "id": "artisan:crypt:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:crypt:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 36.610829608939135,
+      "darkFraction": 0.059166666666666666,
+      "brightFraction": 0
+    },
+    {
+      "identity": "laboratory",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 73,
+      "triangles": 62764,
+      "undecoded": 0,
+      "compileMs": 16.900000005960464,
+      "firstFrameMs": 5.700000002980232,
+      "gpuGeometries": 69,
+      "gpuTextures": 31,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:laboratory:chandelier",
+          "role": "key",
+          "color": "#c0ddf3"
+        },
+        {
+          "id": "artisan:laboratory:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:laboratory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 121.40008092178896,
+      "darkFraction": 0.07128333333333334,
+      "brightFraction": 0.0022
+    },
+    {
+      "identity": "laboratory",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 43,
+      "triangles": 48660,
+      "undecoded": 0,
+      "compileMs": 11.799999997019768,
+      "firstFrameMs": 1.4000000059604645,
+      "gpuGeometries": 69,
+      "gpuTextures": 31,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:laboratory:chandelier",
+          "role": "key",
+          "color": "#c0ddf3"
+        },
+        {
+          "id": "lighting:laboratory:task:forge:laboratory:furniture:generated-0",
+          "role": "task",
+          "color": "#ffd2a0"
+        },
+        {
+          "id": "lighting:laboratory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 85.69548229050537,
+      "darkFraction": 0.07506666666666667,
+      "brightFraction": 0.06513333333333333
+    },
+    {
+      "identity": "circulation",
+      "detail": "room",
+      "quality": "cinematic",
+      "draws": 53,
+      "triangles": 58586,
+      "undecoded": 0,
+      "compileMs": 12.799999997019768,
+      "firstFrameMs": 2.2999999970197678,
+      "gpuGeometries": 69,
+      "gpuTextures": 31,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:circulation:chandelier",
+          "role": "key",
+          "color": "#ffd5aa"
+        },
+        {
+          "id": "artisan:circulation:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:circulation:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 46.5150298603355,
+      "darkFraction": 0.16376666666666667,
+      "brightFraction": 0.0001
+    },
+    {
+      "identity": "circulation",
+      "detail": "story",
+      "quality": "cinematic",
+      "draws": 37,
+      "triangles": 52374,
+      "undecoded": 0,
+      "compileMs": 13.799999997019768,
+      "firstFrameMs": 1.2000000029802322,
+      "gpuGeometries": 69,
+      "gpuTextures": 31,
+      "shaderPrograms": 16,
+      "selected": [
+        {
+          "id": "lighting:circulation:chandelier",
+          "role": "key",
+          "color": "#ffd5aa"
+        },
+        {
+          "id": "artisan:circulation:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:circulation:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 8.35862092178769,
+      "darkFraction": 0.5931,
+      "brightFraction": 0
+    }
+  ],
+  "budget": {
+    "components": {
+      "version": 1,
+      "rooms": 11,
+      "scopes": 22,
+      "totals": {
+        "primitives": 2441,
+        "triangles": 67570,
+        "geometryBytes": 7297560
+      },
+      "withinLimits": true,
+      "byComponent": {
+        "mansion-envelope": {
+          "instances": 11,
+          "primitives": 604,
+          "triangles": 7248
+        },
+        "profiled-cornices": {
+          "instances": 44,
+          "primitives": 84,
+          "triangles": 1584
+        },
+        "raised-wainscoting": {
+          "instances": 44,
+          "primitives": 80,
+          "triangles": 12652
+        },
+        "pediment-surrounds": {
+          "instances": 26,
+          "primitives": 47,
+          "triangles": 1534
+        },
+        "coffered-ceilings": {
+          "instances": 8,
+          "primitives": 14,
+          "triangles": 1408
+        },
+        "carved-medallions": {
+          "instances": 8,
+          "primitives": 15,
+          "triangles": 1456
+        },
+        "period-floor-inlays": {
+          "instances": 11,
+          "primitives": 17,
+          "triangles": 1896
+        },
+        "wall-display": {
+          "instances": 52,
+          "primitives": 388,
+          "triangles": 4656
+        },
+        "woven-rug": {
+          "instances": 5,
+          "primitives": 25,
+          "triangles": 300
+        },
+        "story-vignette": {
+          "instances": 10,
+          "primitives": 131,
+          "triangles": 3776
+        },
+        "wall-mirror": {
+          "instances": 8,
+          "primitives": 107,
+          "triangles": 3148
+        },
+        "floor-rosette": {
+          "instances": 10,
+          "primitives": 10,
+          "triangles": 6400
+        },
+        "ceiling-chandelier": {
+          "instances": 11,
+          "primitives": 25,
+          "triangles": 9196
+        },
+        "artisan-fixtures": {
+          "instances": 21,
+          "primitives": 51,
+          "triangles": 2568
+        },
+        "wall-panel": {
+          "instances": 37,
+          "primitives": 535,
+          "triangles": 6420
+        },
+        "surface-tableau": {
+          "instances": 14,
+          "primitives": 108,
+          "triangles": 1296
+        },
+        "corner-web": {
+          "instances": 20,
+          "primitives": 80,
+          "triangles": 960
+        },
+        "task-lamp": {
+          "instances": 2,
+          "primitives": 6,
+          "triangles": 304
+        },
+        "window-valance": {
+          "instances": 6,
+          "primitives": 6,
+          "triangles": 72
+        },
+        "leaded-window": {
+          "instances": 3,
+          "primitives": 93,
+          "triangles": 516
+        },
+        "support-objects": {
+          "instances": 3,
+          "primitives": 15,
+          "triangles": 180
+        }
+      },
+      "omissions": [
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:ballroom:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:ballroom:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:parlor:furniture:generated-4",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:parlor:furniture:generated-4",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:library:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:library:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:dining:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:dining:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:gallery:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:gallery:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "support-objects",
+          "key": "forge:conservatory:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "surface-tableau",
+          "key": "forge:conservatory:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:bedroom:furniture:generated-3",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "2",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "wall-panel",
+          "key": "3",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:crypt:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:crypt:furniture:generated-2",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "support-objects",
+          "key": "forge:laboratory:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "surface-tableau",
+          "key": "forge:laboratory:furniture:generated-0",
+          "reason": "SURFACE_ALREADY_DECORATED"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "story-vignette",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        }
+      ],
+      "geometryBytesEstimated": true,
+      "sharedTexturesCountedByPackageInventory": true
+    },
+    "version": 1,
+    "method": "static-export-inventory",
+    "bytes": 21213132,
+    "models": [
+      {
+        "path": "geometry/elevator_cabin.glb",
+        "bytes": 25316,
+        "triangles": 60,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_00.glb",
+        "bytes": 1599860,
+        "triangles": 19346,
+        "draws": 14,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_01.glb",
+        "bytes": 1243468,
+        "triangles": 14552,
+        "draws": 14,
+        "instances": 1
+      },
+      {
+        "path": "exterior/street_preview.glb",
+        "bytes": 3022260,
+        "triangles": 38632,
+        "draws": 19,
+        "instances": 1
+      },
+      {
+        "path": "geometry/roof.glb",
+        "bytes": 391248,
+        "triangles": 4734,
+        "draws": 6,
+        "instances": 1
+      },
+      {
+        "path": "exterior/frontage.glb",
+        "bytes": 3022260,
+        "triangles": 38632,
+        "draws": 19,
+        "instances": 1
+      },
+      {
+        "path": "geometry/decoration.glb",
+        "bytes": 8948216,
+        "triangles": 124048,
+        "draws": 26,
+        "instances": 1
+      },
+      {
+        "path": "geometry/artwork.glb",
+        "bytes": 10072,
+        "triangles": 20,
+        "draws": 10,
+        "instances": 10
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-claret-preserved-luxury-0.glb",
+        "bytes": 106492,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 260292,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 106492,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-ebony-blue-preserved-luxury-0.glb",
+        "bytes": 247740,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-painted-emerald-aged-luxury-1.glb",
+        "bytes": 106492,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-oak-blue-preserved-luxury-2.glb",
+        "bytes": 92920,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-blue-preserved-luxury-2.glb",
+        "bytes": 106720,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-painted-ivory-preserved-luxury-2.glb",
+        "bytes": 92692,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-leather-aged-luxury-0.glb",
+        "bytes": 106720,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-oak-leather-aged-luxury-0.glb",
+        "bytes": 260520,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/special_main_hall.glb",
+        "bytes": 180968,
+        "triangles": 63492,
+        "draws": 17,
+        "instances": 1670
+      },
+      {
+        "path": "geometry/special_floor13_conservatory.glb",
+        "bytes": 323192,
+        "triangles": 157812,
+        "draws": 25,
+        "instances": 2900
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/portraits/hooded_wraith_bw.webp",
+        "bytes": 28676
+      },
+      {
+        "path": "assets/portraits/gothic_family_wolf_bw.webp",
+        "bytes": 26578
+      },
+      {
+        "path": "assets/portraits/vampire_countess_pair_bw.webp",
+        "bytes": 35484
+      },
+      {
+        "path": "assets/portraits/vampire_lord_chair_bw.webp",
+        "bytes": 36466
+      },
+      {
+        "path": "assets/portraits/occult_noble_pair_bw.webp",
+        "bytes": 46870
+      },
+      {
+        "path": "assets/portraits/victorian_ancestor_portrait_bw.webp",
+        "bytes": 28298
+      },
+      {
+        "path": "assets/portraits/electrified_madman_bw.webp",
+        "bytes": 64656
+      },
+      {
+        "path": "assets/portraits/carnivorous_plant_collection_bw.webp",
+        "bytes": 26972
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_botanical_bw.webp",
+        "bytes": 14796
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_study_bw.webp",
+        "bytes": 9532
+      }
+    ],
+    "budget": {
+      "maxPackageBytes": 33554432,
+      "maxModelTriangles": 450000,
+      "maxModelDraws": 160
+    },
+    "issues": [],
+    "withinPlanningBudget": true,
+    "fpsMeasured": false,
+    "limitations": [
+      "Model primitive counts are estimates; materials, shadows, repeated template placements and visibility affect real runtime cost",
+      "Per-device GPU performance must be measured in the game"
+    ]
+  },
+  "errors": [],
+  "storytelling": null
+}

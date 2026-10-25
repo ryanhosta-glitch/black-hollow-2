@@ -1,0 +1,331 @@
+{
+  "views": [
+    {
+      "kind": "hall",
+      "camera": [
+        0,
+        2,
+        -12
+      ],
+      "room": "signature-main-hall",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "draws": 241,
+      "triangles": 253562
+    },
+    {
+      "kind": "bedroom",
+      "camera": [
+        7.86448,
+        7.746,
+        6.353999999999999
+      ],
+      "room": "mv-bedchamber",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "draws": 94,
+      "triangles": 67049
+    },
+    {
+      "kind": "library",
+      "camera": [
+        8.5344,
+        4.698,
+        3.6576000000000004
+      ],
+      "room": "mv-library",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "draws": 158,
+      "triangles": 57843
+    },
+    {
+      "kind": "dining",
+      "camera": [
+        0.17720000000000038,
+        5.448,
+        5.304
+      ],
+      "room": "mv-dining",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "draws": 129,
+      "triangles": 61858
+    },
+    {
+      "kind": "cabinet",
+      "camera": [
+        0.7653760000000003,
+        1.45,
+        6.844
+      ],
+      "room": "mv-crypt",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "draws": 17,
+      "triangles": 25112
+    },
+    {
+      "kind": "seating",
+      "camera": [
+        7.8831999999999995,
+        7.546,
+        2.29
+      ],
+      "room": "mv-gallery",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "draws": 31,
+      "triangles": 31779
+    },
+    {
+      "kind": "lantern",
+      "camera": [
+        8.838199999999999,
+        5.1612,
+        4.277274
+      ],
+      "room": "mv-library",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "draws": 64,
+      "triangles": 42493
+    },
+    {
+      "kind": "exterior",
+      "camera": [
+        7.010400000000001,
+        4.8,
+        -14
+      ],
+      "room": "cemetery",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "trees": 1,
+      "draws": 120,
+      "triangles": 78439
+    },
+    {
+      "kind": "grounds",
+      "camera": [
+        -8,
+        5,
+        -16
+      ],
+      "room": "cemetery",
+      "beds": [
+        {
+          "id": "forge:mv-bedchamber:furniture:generated-0",
+          "roomId": "mv-bedchamber",
+          "floor": 2,
+          "type": "bed",
+          "model": null,
+          "builtIn": true,
+          "positionMeters": [
+            5.36448,
+            6.096,
+            7.853999999999999
+          ],
+          "rotationY": 3.141592653589793,
+          "authored": false,
+          "source": null,
+          "furnitureStyle": {
+            "wood": "oak",
+            "upholstery": "blue",
+            "condition": "preserved",
+            "ornament": "luxury",
+            "pattern": 1
+          }
+        }
+      ],
+      "trees": 1,
+      "draws": 124,
+      "triangles": 82289
+    }
+  ],
+  "errors": []
+}

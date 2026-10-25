@@ -109,7 +109,7 @@ function build(type,style,finishTreatment){
    box(x,.46,cz,.43,.07,.42);cushion(x,.52,cz,.39,.065,.38);
    const plane=(at,y,depth)=>[x+side*(.30-depth),y,cz+at];g.panel(plane,0,1.02,.39,.57,wood,.12);g.panel(plane,0,1.04,.31,.41,fabric,.21);
    for(const u of [-1,1])rail([x+side*.18,.49,cz+u*.19],[x+side*.18,1.34,cz+u*.19],.022,wood);
-   lathe(side*w*.30,.82,t,[[0,0],[.12,0],[.12,.012],[.09,.025],[0,.025]],M.ivory,10);
+   lathe(side*w*.30,.805,t,[[0,0],[.12,0],[.12,.012],[.09,.025],[0,.025]],M.ivory,10);
   }
  }
  if(['marble_fireplace','mahogany_fireplace'].includes(type)){

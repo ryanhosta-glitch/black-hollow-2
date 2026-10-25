@@ -1,0 +1,172 @@
+{
+  "result": {
+    "ornaments": [
+      {
+        "id": "legacy:library",
+        "type": "victorian-story-vignette",
+        "positionMeters": [
+          3.885,
+          0.785,
+          4
+        ],
+        "width": 0.5760000000000001,
+        "height": 0.37,
+        "storyTitle": "An unfinished letter"
+      }
+    ],
+    "arrangements": [
+      {
+        "id": "story:library:primary",
+        "identity": "library",
+        "supportId": "desk",
+        "supportKind": "writing_desk",
+        "surface": {
+          "id": "desk",
+          "kind": "writing_desk",
+          "positionMeters": [
+            4,
+            0,
+            4
+          ],
+          "rotationY": 0,
+          "top": 0.785,
+          "width": 0.73,
+          "depth": 0.38,
+          "u": -0.115,
+          "v": 0
+        },
+        "positionMeters": [
+          3.885,
+          0.785,
+          4
+        ],
+        "rotationY": 0,
+        "compact": true,
+        "objects": [
+          {
+            "supportBounds": {
+              "minX": -0.40300000000000047,
+              "maxX": -0.15300000000000047,
+              "minZ": -0.10461621679246669,
+              "maxZ": 0.10461621679246669
+            },
+            "id": "story:library:primary:0",
+            "component": "brass-globe",
+            "family": "scholarly",
+            "label": "A brass celestial globe",
+            "bounds": {
+              "min": [
+                3.5969999999999995,
+                0.785,
+                3.8953837832075333
+              ],
+              "max": [
+                3.8469999999999995,
+                1.155,
+                4.104616216792467
+              ]
+            },
+            "positionMeters": [
+              3.7219999999999995,
+              0.785,
+              4
+            ],
+            "scale": 1,
+            "interactive": false,
+            "questBinding": null,
+            "requiredForQuest": false
+          },
+          {
+            "supportBounds": {
+              "minX": -0.12700000000000022,
+              "maxX": 0.17300000000000004,
+              "minZ": -0.10999999999999988,
+              "maxZ": 0.11000000000000032
+            },
+            "id": "story:library:primary:1",
+            "component": "open-atlas",
+            "family": "writing",
+            "label": "A half-open atlas",
+            "bounds": {
+              "min": [
+                3.8729999999999998,
+                0.785,
+                3.89
+              ],
+              "max": [
+                4.173,
+                0.8180000000000001,
+                4.11
+              ]
+            },
+            "positionMeters": [
+              4.023,
+              0.785,
+              4
+            ],
+            "scale": 1,
+            "interactive": false,
+            "questBinding": null,
+            "requiredForQuest": false
+          }
+        ]
+      }
+    ],
+    "story": {
+      "title": "An unfinished letter",
+      "text": "An open book marks the place where its reader stopped. A letter beneath it ends halfway through a sentence."
+    },
+    "density": {
+      "edition": "environmental-story-1",
+      "area": 72.83598336,
+      "arrangements": 1,
+      "objects": 2,
+      "objectsPerSquareMeter": 0.02745895514466766,
+      "omissions": [
+        {
+          "reason": "STORY_COMPOSITION_SIMPLIFIED"
+        },
+        {
+          "component": "story-vignette",
+          "key": "primary",
+          "reason": "BUDGET_TRIANGLES"
+        }
+      ]
+    }
+  },
+  "components": {
+    "version": 1,
+    "family": "scholarly",
+    "identity": "library",
+    "detail": "luxury",
+    "variant": 3,
+    "budget": {
+      "primitives": 420,
+      "triangles": 600,
+      "geometryBytes": 25165824
+    },
+    "used": {
+      "primitives": 4,
+      "triangles": 424,
+      "geometryBytes": 45792
+    },
+    "emitted": [
+      {
+        "component": "story-vignette",
+        "key": "primary-compact",
+        "surface": "support:desk",
+        "variant": 6,
+        "primitives": 4,
+        "triangles": 424
+      }
+    ],
+    "omitted": [
+      {
+        "component": "story-vignette",
+        "key": "primary",
+        "reason": "BUDGET_TRIANGLES"
+      }
+    ],
+    "geometryByteEstimate": "unindexed-vertices-and-32-bit-indices; excludes shared textures"
+  }
+}

@@ -32,14 +32,6 @@ export function dressRoom(room,{identity,y=0,furniture=[],occupied=[],add:emit,c
   const p=[mx,y+my,mz];group(privateRoom?'velvet-and-gilt-overdoor':'carved-wall-panel',p,width,height,mount.wall);
   occupied.push({wall:mount.wall,center:mount.wall==='left'||mount.wall==='right'?mz-z:mx-x,width:width+.10});
  },{key:i});}
- // Dress each useful surface in its own local coordinates, including rotated desks.
- const tops={writing_desk:.83,dining_table:.79,laboratory_bench:.90,console:.88,sarcophagus:.89};
- for(const f of furniture){if(!(f.type in tops))continue;withRoomComponent(components,'surface-tableau',()=>{const [sx,sy,sz]=f.positionMeters,a=f.rotationY||0,cs=Math.cos(a),sn=Math.sin(a),top=sy+tops[f.type],box=(u,v,t,sw,sh,sd,mat=8)=>add([sx+u*cs+t*sn,top+v,sz-u*sn+t*cs],[sw,sh,sd],mat,a);
-  if(identity==='laboratory'){box(-.34,.025,0,.24,.04,.20,7);box(-.34,.23,0,.025,.42,.025,8);box(-.26,.40,0,.18,.025,.025,8);for(let k=0;k<3;k++){box(.06+k*.12,.12,0,.065,.23,.065,9);box(.06+k*.12,.25,0,.045,.03,.045,8);}}
-  else if(identity==='crypt'){for(let k=0;k<5;k++)box((k-2)*.09,.025,0,.06,.035,.09,k%2?3:16);}
-  else {for(let k=0;k<3;k++){box(-.22,.025+k*.035,0,.26,.028,.19,k%2?5:6);box(-.22,.027+k*.035,.098,.22,.012,.012,8);}box(.18,.025,0,.12,.025,.12,8);box(.18,.095,0,.045,.13,.045,3);box(.18,.18,0,.025,.035,.025,8);if(identity==='dining'){box(0,.025,.13,.13,.025,.10,3);box(0,.08,.13,.075,.09,.065,3);}}
-  group('inhabited-tableau',[sx,top,sz],.8,.45);
- },{key:f.id,surface:'support:'+f.id});}
  // Corner cobwebs live entirely above headroom; fine radial strands and arcs.
  if(h>2.7&&identity!=='conservatory')for(const side of [-1,1]){withRoomComponent(components,'corner-web',()=>{
   const px=side<0?x+.09:x+w-.09,pz=z+.09,cy=y+h-.20;

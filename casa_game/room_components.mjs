@@ -5,7 +5,7 @@ import {ROOM_MATERIALS} from './room_materials.mjs';
 const entries=[
  ['wall-display','wall-decoration','planRoomContents',0],['ceiling-fallback','architecture','planRoomContents',0],
  ['woven-rug','accessory','planRoomContents',0],['window-valance','wall-decoration','planRoomContents',0],
- ['support-objects','accessory','planRoomContents',0],['story-vignette','accessory','legacyVignette',0],
+ ['support-objects','accessory','planRoomContents',0],['story-vignette','accessory','composeStoryRoom',0],['story-accessories','accessory','composeStoryRoom',1],['story-wall-trace','wall-decoration','composeStoryRoom',0],
  ['task-lamp','lighting','roomLighting',0],['artisan-fixtures','lighting','roomLighting',0],['wall-mirror','wall-decoration','artisanDetails',1],
  ['floor-rosette','architecture','artisanDetails',2],['ceiling-chandelier','lighting','roomLighting',1],
  ['wall-panel','wall-decoration','dressRoom',1],['surface-tableau','accessory','dressRoom',1],

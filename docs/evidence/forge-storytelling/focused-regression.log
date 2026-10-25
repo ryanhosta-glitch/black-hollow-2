@@ -1,0 +1,57 @@
+
+> test:forge-storytelling
+> node --test tests/forge-storytelling.test.mjs tests/forge-components.test.mjs tests/room-completeness.test.mjs tests/room-opulence.test.mjs tests/victorian-playpack.test.mjs
+
+✔ all eleven identities inherit exactly one family and share registered furniture and materials (8.078253ms)
+✔ identity overrides specialize inherited family defaults without changing siblings (0.168709ms)
+✔ furniture registry delegates to existing geometry instead of copying or layering models (778.020438ms)
+✔ stable identities produce identical content, including when room order changes (748.768588ms)
+✔ explicit identities, authored furniture, finishes and blueprint geometry stay authoritative (144.175288ms)
+✔ detail levels and per-room component overrides select existing generators deterministically (135.375901ms)
+✔ budget failures roll back a complete fixture, occupied mount, surface claim and light metadata (0.765171ms)
+✔ custom triangle and geometry-memory budgets cannot be bypassed by large single primitives (0.505006ms)
+✔ invalid material/geometry references are rejected atomically and reported (0.457196ms)
+✔ one component owns each tabletop; repeated component tokens cannot decorate twice (19.893335ms)
+✔ wall details do not reuse portrait or aperture spans; stairs retain clear routes (217.351421ms)
+✔ large houses retain fair bounded content allocations and observable omission reports (1469.117612ms)
+✔ envelope details use the registry budgets and preserve source geometry (5.569046ms)
+✔ new CASA exports retain the Game contract, embed geometry once and expose additive QA (2890.683654ms)
+✔ shared story library covers every requested family with bounded, grounded, finite material batches (467.110006ms)
+✔ surface descriptors contact actual current furniture triangles rather than approximate catalog heights (236.899326ms)
+✔ all eleven room identities receive deterministic, narrative-specific, optional physical compositions (738.104056ms)
+✔ real support contact, rotation, footprint containment and non-overlap hold for every narrative and support type (409.527019ms)
+✔ room-size density stays curated, surfaces have one owner, and existing light/discovery support corners remain free (139.119049ms)
+✔ empty, narrow, low and removed-partition rooms receive wall-supported clues without blocked walking space (246.198011ms)
+✔ tiny budgets retain a compact hero before small accessories, roll back failures and report omissions (20.323181ms)
+✔ authored surface protection and room/component opt-outs are honored without editing student records (17.030546ms)
+✔ support-free story cases and flush records avoid portraits, windows and every removed wall (6.508494ms)
+✔ shared object templates are immutable across repeated placements and cache eviction (91.807564ms)
+✔ showcase archive preserves existing optional discovery IDs, encounters, quest flags and reproducibility (25952.013096ms)
+✔ irregular L-shaped layouts and heavily authored furnishings keep collision reservations and validated discoveries (2944.11967ms)
+✔ identities distinguish lab, crypt, nursery, passage and living rooms (1.553144ms)
+✔ large rooms get more coherent furniture, authored objects remain unchanged, and dressing is deterministic (375.550224ms)
+✔ occupied wall mounts are never reused and low/narrow rooms get compact decoration (10.109332ms)
+✔ completeness reports actual gaps and never claim rendered or physics certification (31.068153ms)
+✔ built-in furniture geometry fits its declared footprint and height (374.223198ms)
+✔ real Forge packages room scenes, approach anchors, frames and an honest per-room report (3501.931249ms)
+✔ every room identity has portable detail, high fixtures and clear furnishing routes (1136.920553ms)
+✔ all new heirlooms use the same geometry for their clearance footprint (11.242487ms)
+✔ large houses share a bounded dressing budget instead of starving the last rooms (3611.493329ms)
+✔ low ceilings and circulation never receive hanging geometry in walking headroom (12.365797ms)
+✔ CASA rebuild preserves published identity, chosen finishes and embedded source (4037.884019ms)
+✔ ten Victorian identities get distinct bounded vignettes and optional local stories (713.89069ms)
+✔ real CASA exports a complete visual/game handoff and all eight games use its checked sites (3612.47899ms)
+✔ compiled encounter corruption fails closed, including malformed and overlapping stations (1999.020714ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31895.42578
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

@@ -119,7 +119,7 @@ test('one component owns each tabletop; repeated component tokens cannot decorat
  const r=room('library'),plan=planDecoration(source(r)),report=plan.roomContents[0].componentReport;
  const supports=report.emitted.filter(c=>c.surface?.startsWith('support:'));
  assert.equal(new Set(supports.map(c=>c.surface)).size,supports.length);
- assert.ok(report.omitted.some(o=>o.reason==='SURFACE_ALREADY_DECORATED'));
+ assert.ok(report.emitted.some(o=>o.component==='story-vignette'));
  const session=createRoomComponentSession(r);
  session.run('wall-display',()=>box(session));session.run('wall-display',()=>box(session));
  assert.equal(session.primitives.length,1);assert.equal(session.emitted.length,1);

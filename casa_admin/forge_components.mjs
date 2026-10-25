@@ -1,3 +1,4 @@
+import {STORY_OBJECTS,storyObjectParts} from '../casa_game/room_story_objects.mjs';
 import {HEIRLOOM_TYPES} from './forge_heirloom_style.mjs';
 import {heirloomFurnitureParts} from './forge_heirloom_furniture.mjs';
 import {architecturalLuxury} from './forge_architectural_luxury.mjs';
@@ -10,6 +11,7 @@ import {mansionEnvelope} from './forge_envelope_finish.mjs';
 
 /** Forge adapters reuse existing geometry/catalog models; no model payloads are copied. */
 export const FORGE_COMPONENT_REGISTRY=Object.freeze({
+ ...Object.fromEntries(Object.entries(STORY_OBJECTS).map(([id,spec])=>['story-object:'+id,Object.freeze({...spec,id:'story-object:'+id,category:'accessory',generate:storyObjectParts})])),
  ...Object.fromEntries(Object.entries(ROOM_COMPONENTS).map(([id,component])=>[id,component.generator==='architecturalLuxury'?Object.freeze({...component,generate:architecturalLuxury}):component])),
  ...Object.fromEntries(Object.keys({...FURNITURE_CATALOG,...ROOM_FURNITURE}).map(type=>['furniture:'+type,Object.freeze({
   id:'furniture:'+type,category:'furniture',type,builtIn:!!ROOM_FURNITURE[type],
