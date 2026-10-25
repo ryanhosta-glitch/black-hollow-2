@@ -1,4 +1,4 @@
-import {usesArchitecturalLuxury} from './room_profiles.mjs';
+import {roomLighting} from './room_lighting.mjs';
 import {stableRoomHash as hash} from './room_profiles.mjs';
 import {resolveRoomProfile} from './room_profiles.mjs';
 import {withRoomComponent} from './room_components.mjs';
@@ -10,25 +10,15 @@ const FT=.3048;
 /** Portable, bounded set dressing. Floor furniture remains owned by the clearance planner. */
 export function dressRoom(room,{identity,y=0,furniture=[],occupied=[],add:emit,components=null,profile=resolveRoomProfile(room)}){
  const b=room.boundsFeet||room,x=+b.x*FT,z=+b.y*FT,w=+b.l*FT,d=+b.w*FT,h=+b.h*FT,seed=hash(room.id),ornaments=[],lights=[];
- const cx=x+w/2,cz=z+d/2,privateRoom=profile.wallDrapery,stone=profile.stone,metal=profile.metal,trim=stone?7:8;
+ const privateRoom=profile.wallDrapery,trim=profile.stone?7:8;
  components?.track(ornaments,lights);
  let written=0,checkpoint=0;const add=(...args)=>{const ok=emit(...args);if(ok)written++;return ok;};
  const group=(type,p,width,height,wall)=>{if(written===checkpoint)return;checkpoint=written;ornaments.push({id:`opulence:${room.id}:${ornaments.length}`,type,positionMeters:p,width,height,...(wall?{wall}:{})});};
  const artisan=artisanDetails(room,{identity,y,occupied,furniture,add,components,profile});ornaments.push(...artisan.ornaments);lights.push(...artisan.lights);
  // Layered ceiling rose, radial brass arms, candle cups and hanging prisms.
  // The lowest part always stays above 2.18 m, even in low student rooms.
- if(w>1.25&&d>1.25&&h>2.55&&!room.forgeStair){withRoomComponent(components,'ceiling-chandelier',()=>{
-  const radius=Math.min(.65,w*.16,d*.16),drop=Math.min(.80,h-2.3),base=y+h-drop;
-  if(!usesArchitecturalLuxury(room))for(const [size,dy,mat]of [[radius*2,.025,trim],[radius*1.55,.055,3],[radius*.95,.08,trim]])add([cx,y+h-dy,cz],[size,.025,size],mat,Math.PI/4);
-  add([cx,y+h-drop/2,cz],[.045,drop,.045],trim);
-  for(let k=0;k<6;k++){const angle=k*Math.PI/3,px=cx+Math.sin(angle)*radius,pz=cz+Math.cos(angle)*radius;
-   add([cx+Math.sin(angle)*radius/2,base+.12,cz+Math.cos(angle)*radius/2],[.035,.035,radius],trim,angle);
-   add([px,base+.14,pz],[.12,.045,.12],trim);add([px,base+.25,pz],[.045,.19,.045],3);add([px,base+.36,pz],[.035,.045,.035],8,Math.PI/4);
-   if(!stone){add([px,base+.025,pz],[.04,.15,.04],9,Math.PI/4);add([px,base-.06,pz],[.065,.055,.065],9,Math.PI/4);}
-  }
-  group(stone?'votive-crown':metal?'botanical-lantern':'crystal-chandelier',[cx,base+.25,cz],radius*2,drop);
-  lights.push({id:`opulence:${room.id}:chandelier`,roomId:String(room.id),floor:room.floor,positionMeters:[cx,base+.28,cz],color:stone?'#9bc5cc':metal?'#c4dfc3':'#ffd6a0',intensity:1.1,rangeMeters:Math.max(w,d),static:true,castShadow:false,fixtureGeometryCompiled:true,gameEffects:[]});
- },{surface:'ceiling-center'});}
+
+ const lighting=roomLighting(room,{y,furniture,occupied,add,components,profile});ornaments.push(...lighting.ornaments);lights.push(...lighting.lights);
  // Solid wall spans only: no dressing across doors, windows or removed walls.
  const sides=['top','right','bottom','left'];
  for(let i=0;i<(identity==='circulation'?1:4);i++){withRoomComponent(components,'wall-panel',()=>{

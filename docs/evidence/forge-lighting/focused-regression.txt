@@ -1,0 +1,60 @@
+
+> test:forge-lighting
+> node --test tests/forge-lighting.test.mjs tests/whole-house.test.mjs tests/room-opulence.test.mjs tests/forge-components.test.mjs tests/runtime-cleanup.test.mjs
+
+✔ all eleven identities inherit exactly one family and share registered furniture and materials (2.97725ms)
+✔ identity overrides specialize inherited family defaults without changing siblings (0.155169ms)
+✔ furniture registry delegates to existing geometry instead of copying or layering models (227.997391ms)
+✔ stable identities produce identical content, including when room order changes (144.878533ms)
+✔ explicit identities, authored furniture, finishes and blueprint geometry stay authoritative (31.10812ms)
+✔ detail levels and per-room component overrides select existing generators deterministically (20.647405ms)
+✔ budget failures roll back a complete fixture, occupied mount, surface claim and light metadata (0.52075ms)
+✔ custom triangle and geometry-memory budgets cannot be bypassed by large single primitives (6.110311ms)
+✔ invalid material/geometry references are rejected atomically and reported (0.588871ms)
+✔ one component owns each tabletop; repeated component tokens cannot decorate twice (8.491409ms)
+✔ wall details do not reuse portrait or aperture spans; stairs retain clear routes (58.099086ms)
+✔ large houses retain fair bounded content allocations and observable omission reports (325.045706ms)
+✔ envelope details use the registry budgets and preserve source geometry (7.196315ms)
+✔ new CASA exports retain the Game contract, embed geometry once and expose additive QA (1210.954571ms)
+✔ all eleven identities resolve deterministic distinct lighting compositions without duplicate ceiling sources (369.402186ms)
+✔ all emitted fixture vertices are finite, material-valid and ceilings preserve headroom even in low rooms (87.389275ms)
+✔ low ceilings, stair rooms and geometry limits omit housings without omitting navigable light (1.26562ms)
+✔ wall fixtures avoid authored openings and occupied portraits, and task lamps remain over real desks (12.564259ms)
+✔ dining chandelier follows its main arrangement without changing authored furnishing placement (2.745698ms)
+✔ selection is bounded and room-local, prioritizes task, portrait, filtered window and hearth contributions (62.286489ms)
+✔ legacy photometry remains idempotent and new candela values are never amplified twice (0.403646ms)
+✔ quality presets cap active shader lights, dispose shadow maps on downgrade and preserve an ambient visibility floor (2.407658ms)
+✔ actual atmosphere retains a fixed pool across room changes and lighting stays steady with reduced motion (27.669443ms)
+✔ fixture emitter materials append indices and retain modest exported emissive energy (17.739017ms)
+✔ combined two-story CASA carries all eleven lighting treatments with the existing loading contract (6295.189816ms)
+✔ every room identity has portable detail, high fixtures and clear furnishing routes (342.088233ms)
+✔ all new heirlooms use the same geometry for their clearance footprint (5.311009ms)
+✔ large houses share a bounded dressing budget instead of starving the last rooms (795.870166ms)
+✔ low ceilings and circulation never receive hanging geometry in walking headroom (2.460416ms)
+✔ CASA rebuild preserves published identity, chosen finishes and embedded source (1144.906833ms)
+✔ root URL routes to the current CASA game without loading the retired blueprint engine (13.640459ms)
+✔ 34 direct Game imports run sequentially, retain errors, and continue after an invalid file (1.526095ms)
+✔ the current drawing-buffer budget remains bounded after small-to-large viewport changes (0.265623ms)
+✔ practical lights keep their slots and fade dark before moving to another room (1.813791ms)
+✔ surface finishing preserves packaged claret maps and keeps wallpaper relief finer than wood and stone (2.397723ms)
+✔ light composition stays inside the active room, preserves a key and window fill, and never exceeds three lights (2.721863ms)
+✔ nearby hearths receive a light slot without inventing extra lights (0.370347ms)
+✔ whole-house architectural trim avoids doorway apertures and adds real layered geometry (26.563969ms)
+✔ authored floor types survive room themes and footsteps match the surface (0.5954ms)
+✔ ordinary fireplaces export fire anchors, window moonlight and no duplicate fixture housings (18.271012ms)
+✔ actual whole-house CASA includes new envelope, shared damask, checker floor and working routes (1237.889557ms)
+✔ lossless ZIP compression preserves every CASA entry and the existing archive reader can decode it (1667.240149ms)
+✔ curved upholstery shares smooth unit normals while architectural corners retain hard edges (25.49543ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 43
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7092.986206
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

@@ -11,7 +11,7 @@ test('every room identity has portable detail, high fixtures and clear furnishin
  for(const [i,theme]of Object.keys(ROOM_PROFILES).entries()){
   const r=room(theme,i),s=source(r),before=JSON.stringify(s),plan=planDecoration(s),c=plan.roomContents[0];
   assert.equal(c.edition,'whole-house-1');assert.ok(c.ornaments.some(o=>/chandelier|lantern|crown/.test(o.type)),theme);
-  assert.ok(c.primitives.length>50,theme);assert.ok(c.primitives.length<=420);assert.equal(JSON.stringify(s),before);
+  assert.ok(c.primitives.reduce((n,p)=>n+(p.triangles?.length||12),0)>500,theme);assert.ok(c.primitives.length<=420);assert.equal(JSON.stringify(s),before);
   for(const f of plan.furniture){const b=plan.colliders.find(c=>c.objectId===f.id).bounds;for(const a of plan.reserved.map(r=>r.bounds))assert.ok(!(a.minX<b.maxX&&a.maxX>b.minX&&a.minZ<b.maxZ&&a.maxZ>b.minZ),theme);}
   for(const p of decorationBoxes(plan)){assert.ok(p.c.every(Number.isFinite));assert.ok(p.s.every(n=>Number.isFinite(n)&&n>0));}
   for(const o of c.ornaments.filter(o=>o.type==='carved-wall-panel'||o.type==='velvet-and-gilt-overdoor'))assert.ok(o.positionMeters[1]-o.height/2>=2);

@@ -19,20 +19,7 @@ export function artisanDetails(room,{identity,y,occupied,furniture,add,component
   const p=[mx,y+my,mz],vertical=mount.wall==='left'||mount.wall==='right';occupied.push({wall:mount.wall,center:vertical?mz-z:mx-x,width:width+.10});ornaments.push({id:`artisan:${room.id}:${ornaments.length}`,type,wall:mount.wall,positionMeters:p,normal:mount.normal,width,height});return {mount,p};
  }
  // Fixtures remain above eye and walking headroom; low rooms get no hanging substitute.
- if(h>=2.62){const height=Math.min(.70,h-2.25),py=Math.min(2.48,h-.17-height/2),iron=profile.ironFixtures;
-  for(let i=0;i<(identity==='circulation'?1:2);i++){withRoomComponent(components,'artisan-fixtures',()=>{
-   const fixture=mounted(.42,height,py,i?['bottom','left','right','top']:['right','top','left','bottom'],({box,line,ellipse})=>{
-    const scale=height/.70,metal=iron?19:8,v=q=>q*scale;
-    box(0,0,.01,.12,height*.85,.035,metal);ellipse(0,0,.075,height*.4,.04,metal);
-    if(iron){box(0,v(-.19),.13,.32,v(.10),.22,19);for(const side of [-1,1]){line([[0,v(.29),.05],[side*.14,v(-.14),.19]],.008,18);box(side*.10,v(.01),.15,.025,v(.27),.025,17);box(side*.10,v(.16),.15,.025,v(.045),.025,8);}for(const side of [-1,1])ellipse(side*.12,v(-.21),.05,v(.07),.13,19);}
-    else {box(0,v(-.20),.17,.30,v(.065),.25,8);box(0,v(.18),.17,.30,v(.055),.25,8);box(0,v(-.025),.17,.25,v(.34),.21,22);
-     for(const side of [-1,1]){box(side*.14,v(-.015),.29,.023,v(.37),.023,8);line([[side*.12,v(.17),.29],[side*.09,v(.25),.26],[0,v(.30),.18]],.012,8);ellipse(side*.065,v(.04),.052,v(.10),.287,8);}
-     box(0,v(-.06),.19,.034,v(.19),.035,17);box(0,v(.055),.19,.035,v(.045),.035,8);box(0,v(.28),.16,.06,v(.055),.06,8);
-    }
-   },iron?'chained-iron-votive':'pierced-bronze-lantern');
-   if(fixture)lights.push({id:`artisan:${room.id}:light:${i}`,roomId:String(room.id),floor:room.floor,positionMeters:fixture.p.map((v,k)=>v+(fixture.mount.normal[k]||0)*.27),color:iron?'#f5bc79':'#ffd09a',intensity:.65,rangeMeters:3.5,static:true,castShadow:false,fixtureGeometryCompiled:true,gameEffects:[]});
-  },{key:i});}
- }
+
  if(!['laboratory','conservatory','circulation'].includes(identity)&&h>2.5&&w>2.5&&d>2.5){withRoomComponent(components,'wall-mirror',()=>{
   const bat=seed%2===0||identity==='crypt',width=.88,height=1.12,py=Math.min(1.83,h-.78);
   mounted(width,height,py,['left','bottom','right','top'],({box,line,ellipse})=>{

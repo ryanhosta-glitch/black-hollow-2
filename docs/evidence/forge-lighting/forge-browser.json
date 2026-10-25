@@ -1,0 +1,24 @@
+{
+  "sharedWallMaterials": [
+    "library emerald damask",
+    "laboratory glazed ivory tile",
+    "dark mahogany",
+    "laboratory glazed ivory tile"
+  ],
+  "browser": "154.0.8037.57",
+  "webgl": true,
+  "errors": [],
+  "previewSummary": "41 resident meshes · 41 materials · 15 textures (0 undecoded) · 9772 triangles · 3.7 MiB estimated texture memory · 41 draw calls",
+  "compiledBytes": 3243412,
+  "physicalHallStairHeight": 5.25,
+  "checked": [
+    "UI blueprint compilation and CASA download",
+    "PNG and WebP texture decoding",
+    "exterior roofs and interior floor views",
+    "room inspection and cutaway toggle",
+    "collision guides and floor visibility controls",
+    "fresh CASA loaded in actual Game",
+    "physical Hall stair ascent",
+    "fresh lower and upper house floors"
+  ]
+}

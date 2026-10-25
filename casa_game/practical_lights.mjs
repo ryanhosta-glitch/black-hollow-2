@@ -2,7 +2,7 @@
 export function createPracticalLights(lights){
  const identity=s=>s?String(s.id||JSON.stringify(s.positionMeters||s.position)):'off';
  const slots=lights.map(light=>({light,current:'off',target:null}));
- function apply(slot,spec){const light=slot.light,p=spec.positionMeters||spec.position;if(light.position.toArray().some((n,i)=>Math.abs(n-p[i])>.05))light.shadow.needsUpdate=true;light.position.fromArray(p);light.color.set(spec.color??0xffc08a);light.distance=Math.min(32,Math.max(0,Number(spec.rangeMeters??spec.distance??8)||0));slot.current=identity(spec);}
+ function apply(slot,spec){const light=slot.light,p=spec.positionMeters||spec.position;if(light.position.toArray().some((n,i)=>Math.abs(n-p[i])>.05))light.shadow.needsUpdate=true;light.position.fromArray(p);if(light.isSpotLight){light.target.position.fromArray(spec.targetMeters||[p[0],p[1]-1,p[2]]);light.target.updateMatrixWorld();}light.color.set(spec.color??0xffc08a);light.distance=Math.min(32,Math.max(0,Number(spec.rangeMeters??spec.distance??8)||0));slot.current=identity(spec);}
  const intensity=s=>s?Math.min(500,Math.max(0,Number(s.intensity??4)||0)):0;
  return {set(specs,{immediate=false}={}){
   const remaining=specs.slice(0,slots.length).filter(s=>(s.positionMeters||s.position)?.length===3&&(s.positionMeters||s.position).every(Number.isFinite));

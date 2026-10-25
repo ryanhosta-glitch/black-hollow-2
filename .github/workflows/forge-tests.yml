@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [heirloom, luxury, playpack, household, nocturne, release-entry, townlife, polish, afterlife, village, magic, playtest-pass, scares, phoenix, forge, stairs, pipeline, reactions, rooms, organ, halloween, town, student-readiness, batch, street-memory, runtime-cleanup, directors-pass, reference]
+        suite: [lighting, heirloom, luxury, playpack, household, nocturne, release-entry, townlife, polish, afterlife, village, magic, playtest-pass, scares, phoenix, forge, stairs, pipeline, reactions, rooms, organ, halloween, town, student-readiness, batch, street-memory, runtime-cleanup, directors-pass, reference]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

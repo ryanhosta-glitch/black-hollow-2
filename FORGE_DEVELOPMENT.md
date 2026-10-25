@@ -282,3 +282,7 @@ See [the Pass 2 implementation and regression assessment](docs/FORGE_ARCHITECTUR
 ## Heirloom furniture — Pass 3
 
 See [the Pass 3 component inventory, cost assessment and regression evidence](docs/FORGE_HEIRLOOM_FURNITURE_PASS3.md) and [room/furniture comparisons](docs/evidence/forge-heirloom/index.html). Shared styled furniture templates preserve existing placements and collision specifications; no student archives are replaced or published.
+
+## Cinematic Victorian lighting — Pass 4
+
+See [the shared lighting policy, fixture inventory, compatibility assessment and measured costs](docs/FORGE_CINEMATIC_LIGHTING_PASS4.md) and [the two-quality before/after study](docs/evidence/forge-lighting/index.html). The existing practical rig now uses a soft primary spotlight with bounded point accents; no student archives are rewritten or published.
