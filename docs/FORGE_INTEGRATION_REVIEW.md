@@ -129,3 +129,20 @@ The implementation is functionally integrated with passing automated coverage. I
 Use Node 22 or newer, `npm ci`, and an available Chromium executable. Run `npm test` in a disposable copy to protect tracked sample archives; then run `CHROMIUM_PATH=/usr/bin/chromium npm run test:browser` there. The three legacy performance tests run with `node --test tests/performance.test.cjs`.
 
 For the matched study, save the baseline to a separate disposable directory with `git archive 4c47d7b2b5bd5e99d91b4ed6cc6ac81768a287e7`, make dependencies available there, then run the current `tests/browser-forge-certification.mjs` twice. Set `FORGE_REVIEW_ROOT` to each tree, `FORGE_REVIEW_EDITION=baseline` or `integrated`, `FORGE_REVIEW_OUTPUT` to distinct writable output directories, and `CHROMIUM_PATH` to the browser. Default output is ignored `tests/artifacts/certification/`. This harness creates a synthetic review archive, never a student archive. Software readback timing takes substantially longer than the ordinary suites.
+
+## Verified GitHub handoff outcome
+
+The development branch was successfully pushed and independently verified with `git ls-remote`. The implementation/review commit `78d30da058d15ef33b36f2c37aa1f58b3dfae576` is remotely available. Remote `main` remains `4c47d7b2b5bd5e99d91b4ed6cc6ac81768a287e7`. A documentation-only follow-up records this handoff; the final branch-tip SHA is supplied in the delivery message and can be verified with `git ls-remote`.
+
+**No PR was created.** Both normal and approved-access `gh pr create --draft` attempts returned `Post "https://api.github.com/graphql": Forbidden`. The active proxy/network restriction remains in effect. The saved environment network draft adding `api.github.com` has not been applied; no new token was requested or exposed. No automatic approval rejection occurred: the approved command ran and the API request itself was denied.
+
+After applying the network setting through environment settings, or from an authenticated local checkout with GitHub API access, run:
+
+```sh
+gh pr create --repo ryanhosta-glitch/black-hollow-2 \
+  --base main --head dev/forge-shared-components-pass1 \
+  --title "Forge passes 1–6: integration audit and review evidence" \
+  --body-file docs/FORGE_INTEGRATION_PR.md --draft
+```
+
+Alternatively open the [GitHub PR creation form](https://github.com/ryanhosta-glitch/black-hollow-2/compare/main...dev/forge-shared-components-pass1?expand=1) and use the committed PR description. **This is a creation form, not an existing pull-request URL.** Verify that the base is `main` and the head is the development branch. Do not merge or deploy. Final certification remains **NOT READY TO MERGE** for the stated visual and hardware-performance gates, independent of this API blocker.
