@@ -130,10 +130,12 @@ test('explicit fireplace finishes and new mahogany records retain authored furni
  }
 });
 
-test('library shelving relief remains inside the existing padded clearance reservation',()=>{
+test('legacy library shelving relief fits its reservation and styled bookcases own their carving',()=>{
  const r=room('library'),d=planDecoration(source(r)),only={...r,forgeDecoration:{components:Object.fromEntries(['profiled-cornices','raised-wainscoting','carved-pilasters','pediment-surrounds','coffered-ceilings','carved-medallions','period-floor-inlays','mansion-envelope'].map(k=>[k,false]))}},books=d.furniture.filter(f=>f.type==='bookcase');
  assert.ok(books.length);
- for(const f of books){
+ for(const styled of books){
+  const owned=createRoomComponentSession(only);FORGE_COMPONENT_REGISTRY['carved-shelving-surrounds'].generate(only,0,owned,{decoration:{furniture:[styled]}});assert.ok(!owned.emitted.some(c=>c.component==='carved-shelving-surrounds'));
+  const f={...styled};delete f.furnitureStyle;
   const session=createRoomComponentSession(only);FORGE_COMPONENT_REGISTRY['carved-shelving-surrounds'].generate(only,0,session,{decoration:{furniture:[f]}});
   assert.ok(session.emitted.some(c=>c.component==='carved-shelving-surrounds'&&c.key===f.id));assert.ok(session.primitives.length>0);
   const spec=FORGE_COMPONENT_REGISTRY['furniture:bookcase'].specification,a=f.rotationY||0;

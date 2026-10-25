@@ -278,3 +278,7 @@ See [the foundation report](docs/FORGE_SHARED_COMPONENTS_PASS1.md) for the regis
 ## Shared architectural luxury — Pass 2
 
 See [the Pass 2 implementation and regression assessment](docs/FORGE_ARCHITECTURAL_LUXURY_PASS2.md) and [rendered before/after study](docs/evidence/forge-luxury/index.html). This work continues on `dev/forge-shared-components-pass1`; it changes export-time shared architecture without deploying or replacing existing CASA archives.
+
+## Heirloom furniture — Pass 3
+
+See [the Pass 3 component inventory, cost assessment and regression evidence](docs/FORGE_HEIRLOOM_FURNITURE_PASS3.md) and [room/furniture comparisons](docs/evidence/forge-heirloom/index.html). Shared styled furniture templates preserve existing placements and collision specifications; no student archives are replaced or published.

@@ -1,0 +1,68 @@
+
+> test:forge-heirloom
+> node --test tests/forge-heirloom.test.mjs tests/forge-luxury.test.mjs tests/forge-components.test.mjs tests/room-completeness.test.mjs tests/room-opulence.test.mjs
+
+✔ all eleven identities inherit exactly one family and share registered furniture and materials (5.415735ms)
+✔ identity overrides specialize inherited family defaults without changing siblings (0.159506ms)
+✔ furniture registry delegates to existing geometry instead of copying or layering models (473.596087ms)
+✔ stable identities produce identical content, including when room order changes (150.094933ms)
+✔ explicit identities, authored furniture, finishes and blueprint geometry stay authoritative (57.884388ms)
+✔ detail levels and per-room component overrides select existing generators deterministically (17.160605ms)
+✔ budget failures roll back a complete fixture, occupied mount, surface claim and light metadata (0.408394ms)
+✔ custom triangle and geometry-memory budgets cannot be bypassed by large single primitives (0.391639ms)
+✔ invalid material/geometry references are rejected atomically and reported (0.29081ms)
+✔ one component owns each tabletop; repeated component tokens cannot decorate twice (10.646737ms)
+✔ wall details do not reuse portrait or aperture spans; stairs retain clear routes (61.309681ms)
+✔ large houses retain fair bounded content allocations and observable omission reports (530.481167ms)
+✔ envelope details use the registry budgets and preserve source geometry (14.023358ms)
+✔ new CASA exports retain the Game contract, embed geometry once and expose additive QA (2458.413168ms)
+✔ all reusable heirlooms fit existing rotated colliders, stand on the floor and have supported finite materials (1733.255185ms)
+✔ room-specific styles and composition remain distinct across all eleven profiles at three room sizes (803.612926ms)
+✔ authored furniture style overrides win without mutating type, identity, source or coordinates (11.171022ms)
+✔ styles reuse stable model paths and cached local geometry without sharing mutable world coordinates (20.632937ms)
+✔ upholstery has volume, tuft valleys, buttons, textile variants and supported arms (60.868739ms)
+✔ detail levels reduce carving and report their omissions without changing placement envelopes (33.793559ms)
+✔ Pass 2 material indices remain stable and furniture additions are append-only (0.234417ms)
+✔ eleven-room two-story export embeds shared styled models, validates Game loading and reports actual asset costs (8280.306982ms)
+✔ rounded upholstery cap normals face outward to prevent dark seams after smoothing (1.500477ms)
+✔ dining back upholstery faces the table and clears the carved backing field (0.797509ms)
+✔ Game floor streaming preserves new claret headboards while retaining the legacy curtain filter (73.587952ms)
+✔ shared profiled architecture upgrades all eleven identities with distinct family treatments (188.05161ms)
+✔ profiled moldings and raised panels contain dimensional bevels, not only flat colour changes (8.611418ms)
+✔ all new architectural components are routed through the Pass 1 registry (10.186116ms)
+✔ actual triangles preserve every door, window and full-height removed partition aperture (313.469442ms)
+✔ full-wall removed partitions never receive wall trim and crowded corner doors omit pediments (1.896403ms)
+✔ full-height carving avoids occupied portrait and wall-decoration rectangles (88.134895ms)
+✔ ceiling relief preserves headroom, stair voids and restrained room identities (27.330757ms)
+✔ authored finish choices remain authoritative and carpet never receives parquet inlays (6.124602ms)
+✔ ornament budgets omit complete components and keep strict triangle/memory accounting (29.108986ms)
+✔ marble and mahogany fireplace carving fits the original rotated collision volumes (32.246092ms)
+✔ explicit fireplace finishes and new mahogany records retain authored furniture and hearth bindings (70.291947ms)
+✔ legacy library shelving relief fits its reservation and styled bookcases own their carving (11.263158ms)
+✔ profiled triangle vertices use the same feet-to-meters conversion as structural boxes (0.240125ms)
+✔ combined two-story mansion exports all identities, bounded models and unchanged loading/navigation contracts (9528.3018ms)
+✔ the marble treatment appends a palette slot and embeds its shared tile only when used (30.538958ms)
+✔ identities distinguish lab, crypt, nursery, passage and living rooms (2.100394ms)
+✔ large rooms get more coherent furniture, authored objects remain unchanged, and dressing is deterministic (57.571655ms)
+✔ occupied wall mounts are never reused and low/narrow rooms get compact decoration (0.989973ms)
+✔ completeness reports actual gaps and never claim rendered or physics certification (10.905488ms)
+✔ built-in furniture geometry fits its declared footprint and height (158.068409ms)
+✔ real Forge packages room scenes, approach anchors, frames and an honest per-room report (1332.166711ms)
+✔ every room identity has portable detail, high fixtures and clear furnishing routes (693.154764ms)
+✔ all new heirlooms use the same geometry for their clearance footprint (12.658438ms)
+✔ large houses share a bounded dressing budget instead of starving the last rooms (970.942331ms)
+✔ low ceilings and circulation never receive hanging geometry in walking headroom (1.639062ms)
+✔ CASA rebuild preserves published identity, chosen finishes and embedded source (1722.61829ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 51
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11417.438161
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

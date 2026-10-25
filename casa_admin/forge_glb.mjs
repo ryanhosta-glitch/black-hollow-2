@@ -29,7 +29,13 @@ export const PALETTE=[
 {n:'midnight blue damask',c:[.28,.40,.59,1],rough:.85,textureMaterial:1},
 {n:'mulberry damask',c:[.53,.25,.43,1],rough:.86,textureMaterial:1},
 {n:'sage damask',c:[.40,.55,.39,1],rough:.86,textureMaterial:1},
-{n:'Carrara fireplace marble',c:[1,1,1,1],rough:.62,metal:0}];
+{n:'Carrara fireplace marble',c:[1,1,1,1],rough:.62,metal:0},
+{n:'painted heirloom wood',c:[.73,.70,.59,1],rough:.72,textureMaterial:5},
+{n:'emerald velvet upholstery',c:[.055,.22,.14,1],rough:.98},
+{n:'midnight blue velvet upholstery',c:[.055,.10,.25,1],rough:.98},
+{n:'carved golden oak',c:[.74,.58,.37,1],rough:.68,textureMaterial:0},
+{n:'worn mahogany veneer',c:[.65,.57,.50,1],rough:.89,textureMaterial:5},
+{n:'preserved furniture gilding',c:[.68,.47,.16,1],rough:.36,metal:.72}];
 export function glb(boxes,{exterior=null}={}){const palette=PALETTE.map(m=>({...m}));if(exterior){palette[MAT.siding]={n:exterior.label,c:exterior.color,textureMaterial:exterior.textureMaterial,rough:.93};palette[MAT.trim].c=exterior.trimColor;palette[MAT.roof].c=exterior.roofColor;}const positions=[],normals=[],uvs=[],vertexMap=new Map(),ranges=palette.map(()=>[]);const faces=[[0,1,2,3,[0,0,-1]],[5,4,7,6,[0,0,1]],[4,0,3,7,[-1,0,0]],[1,5,6,2,[1,0,0]],[3,2,6,7,[0,1,0]],[4,5,1,0,[0,-1,0]]];
 for(const b of boxes){
  const [x,y,z]=b.c,[a,d,e]=b.s.map(v=>v/2),verts=b.vertices||[[-a,-d,-e],[a,-d,-e],[a,d,-e],[-a,d,-e],[-a,-d,e],[a,-d,e],[a,d,e],[-a,d,e]];

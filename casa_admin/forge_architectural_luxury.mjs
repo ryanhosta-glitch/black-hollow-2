@@ -76,7 +76,7 @@ export function architecturalLuxury(room,base,components,{decoration={}}={}){
   },'surround:'+side+':'+index);
  }
  // Carving on existing library bookcase stiles/cornices; no second shelf model.
- if(treatment.identity==='library')for(const item of (decoration.furniture||[]).filter(f=>f.roomId===String(room.id)&&f.type==='bookcase'))build('carved-shelving-surrounds',item.id,shapes=>{
+ if(treatment.identity==='library')for(const item of (decoration.furniture||[]).filter(f=>f.roomId===String(room.id)&&f.type==='bookcase'&&!f.furnitureStyle))build('carved-shelving-surrounds',item.id,shapes=>{
   const [mx,my,mz]=item.positionMeters.map(v=>v/FT),a=item.rotationY||0,cs=Math.cos(a),sn=Math.sin(a),point=(u,v,t)=>[mx+(u*cs+t*sn)/FT,my+v/FT,mz+(-u*sn+t*cs)/FT];
   for(const side of [-1,1]){
    shapes.sweep(point,side*.70-.022,side*.70+.022,[[.246,.30],[.258,.30],[.258,2.13],[.246,2.13]],relief);
