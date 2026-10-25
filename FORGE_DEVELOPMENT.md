@@ -294,3 +294,7 @@ See [the shared object inventory, surface rules, compatibility and regression as
 ## Gothic atmosphere and material detail — Pass 6
 
 See [the shared textile/glass/botanical inventory, authored policies, quality budgets and regression assessment](docs/FORGE_GOTHIC_ATMOSPHERE_PASS6.md) and [the condition and quality comparison viewer](docs/evidence/forge-atmosphere/index.html). Per-room treatments replace overlapping runtime dressing in new exports; no student archives are rewritten or published.
+
+## Final integration review
+
+See [the integration assessment](docs/FORGE_INTEGRATION_REVIEW.md) and [matched pre-six-pass visual/performance evidence](docs/evidence/forge-integration/index.html). Automated regressions pass; ceiling-art acceptance and representative device performance remain open. Recommendation: **NOT READY TO MERGE**. No deployment or student archive replacement was performed.

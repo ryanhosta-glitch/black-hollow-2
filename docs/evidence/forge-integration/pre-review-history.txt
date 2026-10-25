@@ -1,0 +1,198 @@
+80bc9ba9783a159d100d190e6238acc7a0a1ddab feat(forge): add room-specific Gothic atmosphere and material detail
+07a2a10ea25b22742b2e7b6e7dd09ccfe030b7fb feat(forge): add curated environmental storytelling for all room profiles
+c030c099b81544e0a4af378eb67bcbcf21979fe9 feat(forge): unify cinematic Victorian lighting
+bfb29a281f7f0c6dbbb52b9e82a4a92a7a6583b3 feat(forge): add shared heirloom furniture and upholstery
+47d32987e5662b9eefd87402c39207aba796b625 feat(forge): add shared Victorian architectural luxury
+659b3760592bbce15899a00005d8f48393e6c6e1 Build shared Forge component registry and room-family foundation
+4c47d7b2b5bd5e99d91b4ed6cc6ac81768a287e7 Make Halloween a living neighborhood with twenty atmosphere and play layers
+fccdd0f34fbb9711646ca7873d6065b21a279159 Scale Halloween laser shows and neighborhood makeovers with new houses
+5b51fa8ee91f951931b36c430e6bf212fc51b3b0 Stage a Halloween yard festival and prevent resident crowd stacking
+41b8feea591ef8370af320950da04cab95d90bd5 Give promenade residents independent lives and visible fetch performances
+b0a45dacbc66fd5476c83f54508cb1c976077185 Repair estate frontages and bring Halloween night to life
+fffa66dcc6770749b1c126c5856ced161ed33bd0 Publish 22 Forged mansions
+7172ab3431d4d9c3f173235739160d0801200429 Merge pull request #36 from ryanhosta-glitch/development/publish-feedback
+8de32b3e36393c4dabec38b5e769d81c08755ac8 Restore permanent Moonveil and rebuild it through current Forge for tests and deployment
+dcf8648ca2d10d71c13aa676dbadd00190525a24 Match generated test catalog fingerprints to their isolated archives
+053a7a383009bb58269feacaa6917233061240e5 Prepare isolated test examples when the entire sample directory was removed
+df0963c29ba61d432bdff18a537b6429d0fad91b Bring upload progress into view when publication starts
+86bd0ffa849a346e8fb835378bb7615bf00f9258 Show publication feedback beside bulk controls and refresh review snapshot
+b2f04a7b387082a86dfb0d10aa1130713197b815 Remove one-room.casa
+75bcc4969c17c1b528636cc3b7241bd4f1b7703e Remove split-lantern.casa
+ca33c7705b2e86e6575ec333bfc48198c6ca457d Merge pull request #35 from ryanhosta-glitch/development/final-door-clearance
+0144acb642d109813a4a3ee1cca19c0bdc3a2471 Remove moonveil.casa
+b8efea767133f660bd8983e4e93f1fcbcb70287b Repair adjacent door swings after Forge generates access doors
+1f00bc57df9e8ff93be9cdd5a52072fa5fb9afe6 Merge pull request #34 from ryanhosta-glitch/development/forge-house-rescue
+031328cfcc3b88e50b4a818398fd1208037e673b Verify repaired student decoration reaches House Office ready state
+92a2ebbd5a32b2f1c950fd059271bf76c0d1db05 Rescue short shared jambs with independent elevator access
+cf8c64e3202030da5826d5d04d0ca1f07166b196 Repair damaged haunt blueprints before Victorian compilation and publication
+a853103a6bd4bb11680de23486a24e95a23248e9 Merge pull request #33 from ryanhosta-glitch/development/victorian-playpack
+0e992bbb896c2b094ca96b2c17837503bef789a9 Compile Victorian story vignettes and a checked eight-haunting play pack
+68abaa8c7256533c0f3d878aceeeca838bc7cf55 Merge pull request #32 from ryanhosta-glitch/development/upload-release-readiness
+3dcb979aef4e7927a9236219ac7460016742b681 Wait for the batch retry to finish before checking its final report
+03f34635b3ac85f90a60b2d94b99a152dcee26c4 Keep batch review visible and refresh Forge validation modules together
+1e4385c0b117efb7986da982b3b4e2811fd01098 Harden bulk Forge uploads, explicit replacements and reviewed publication
+b196d0845c47c0aefcf66f046d2281bf92e304f6 Merge pull request #31 from ryanhosta-glitch/development/living-grand-hall
+cf44d24ee29083b3b9f3aeaa629ff44b45cb281a Refresh cached hall dressing together with curved navigation
+de6da2b06c51d41ed02908ed5f9ff4270dc180ba Polish the glass candle cabinet and attach plaques clear of ghosts
+5df9c02c57c10d8e9b08b5b6e2f4e0be1327a315 Reserve room fixtures for spiders and validate hall-first journeys
+6dae8d1239ead2519e87010fad6eaec44b349c73 Verify cinematic hall arrivals and preserve explicit camera choices
+4c3c56220ea33f19916eac64d2f4f3a58f4bc6ea Bring the main hall to life, curve the stairs, and keep spiders clear of portraits
+fe6143c51e1c7a6ecbad2c1f1a9320aa2cf4cb26 Merge pull request #30 from ryanhosta-glitch/development/nocturne-conservatory
+7b69bbab7387fc70f91d7063635d030963a07e3e Give Floor 13 a living Nocturne Conservatory and saved herbarium
+94ec295154a8d49a891347d34add0cdf43ba285c Merge pull request #29 from ryanhosta-glitch/development/first-impression
+cf38de353adcd7929499aa63ecd2cc35e84c2706 Exercise both sound-toggle states through the player Options menu
+44eece4ac345c85be47fb139525eb5ecfd873553 Move local test-copy management to the House Office and preserve nested-menu focus
+1cd0bd94e0ab7fe3505ed4e031c25077b0c03170 Fit the welcome to phones and finish mailbox shape and local number previews
+1376b5288bcc6bb6625f9d782c5e8888bc56359e Prepare Black Hollow's first impression with a clear welcome, proper street signs and numbered mailboxes
+30b1b37d2f10d371f0f5d5dd431d4d60bdc646f5 Merge pull request #28 from ryanhosta-glitch/development/living-town
+a16a04d626d8a85f3dac4996652b4408ea916648 Alternate neighbourhood visits between the four streets
+1e5c6031dd7d2cf9cc5256677e9328330415976d Smooth the neighbourhood procession's turns and refresh changed town modules
+24f16b21f93e4ce34847d61f981924eda5966f2c Make village stalls two-sided, animate and use the clock, and let the neighbours trick-or-treat
+cc4413793e74817a3854fe0929321ed02555adfe Merge pull request #27 from ryanhosta-glitch/development/recent-passes-polish
+ba40bc0dd3906583f14b7c4d109f8df7ebc251a1 Reserve space for the pressure strip beside single-action prompts too
+5f3f8892060ab7b4303a886dc83f4f016602bba1 Keep the house pressure meter visible above compact mobile object actions
+872b0e4c4e8146e85acc4b6644793ea4f60d1f05 Finish candy, treat and festival reward wording in HUD and round results
+9fdf770a70fb3725fe89d16561c52317b371989a Put primary controls first and finish scene feedback and reduced-motion cleanup
+c4b73449dac5b4136599ba4be7f5373e1781dab9 Unify recent game passes with compact controls, clearer feedback and smoother residents
+20ecfab616baeb4223e30eaf2934ccb0abc9e451 Merge pull request #26 from ryanhosta-glitch/development/afterlife-neighbours
+01bdb9b108e4b82116e8b4982dbc304f06394f46 Give Madame Wick readable eye holes and keep encounter effects around the residents
+0aaf7623415e1bbbf4f69fddfc810d651a5c04d7 Light the residents from the approach and give Madame Wick matching heels
+827bd65da16080f779d7b0b4a81e59dada6bcd77 Bring Moth, Hemlock and the midnight witches into both game modes
+13ef043110af4564006a6a4333369658ed462a4c Merge pull request #25 from ryanhosta-glitch/development/crooked-hat-village
+bffb26b65abb168c082622aac2a75b497e900215 Mount the clock face above its curved timber wall
+baf309f8602b3ba8f623884b04f0fb95e07905c0 Clear the crossroad canopy and keep the potion recipe below the flower
+0fe5f9949dbd217df63d54e138c692d3ae43ff0d Light the village stalls, separate signs and verify recoverable plant state
+b4a2708f2311778a17a66fc333eb89663629741a Remember village stamps in the scenery and add a readable passport
+f88741d48841f1771924506de42c3909101d50a0 Bring the Crooked Hat village to story and Trick or Treat
+436c59d078f1069628b0aa48f607b5e4e511ff5d Merge pull request #24 from ryanhosta-glitch/development/living-grimoire
+cacc9ced78a0db01df9c907d17e38df563b8aa33 Put spell preparation before grimoire reading pages, especially on phones
+1dad69fb4b33da309f45136e4f5ded9504be9d42 Restore browser controls after clean spell screenshots before testing the next cast
+6422eb43eed6646d7b81eb324c2fcdb9847ffbc1 Unfurl moonflower petals radially and preserve atlas pages beyond room history pruning
+7e1ac2628bdb283ae87e95a621e959de7014917b Bring the living grimoire to Black Hollow with three castable spells and hidden witch marks
+684f5905fa452abc49078af861d9b95e9d51b408 Merge pull request #23 from ryanhosta-glitch/development/kid-tester-pass
+0f6c57ced8b9fea6fe7652a7088dea6a14547dfb Keep first clues readable in the world and frame ending visions above the result card
+315d26d9ae528d1172434741c6c32fcf22d99038 Keep scare performers attached to the scene and support relic/action keyboard and controller access
+3d15b22f781ba5e0ce2612ce51cd96905b97aad1 Make haunting actions immediate, stage endings and threats, display relics and verify visible scares
+dd6cdcbb8d7f79ad0e3d8fcb636769e74577903a Exercise ceiling scare in a freshly compiled tall gallery instead of low Moonveil rooms
+52546a9d7b4b587457ff0da6ada3de10aea5e18c Fix ceiling scare clearance and music recovery; repair browser audio probes
+d27fd3579c393efcd6fc79971417db1dbb271ac8 Regression test: house soundtrack remains audible alongside adaptive score
+bb5d36856648512ecaff26b7b64a27c29de4c545 Restore recorded background music underneath adaptive haunted-house score
+bc5d3b5441d8ba63353389dbba583e0547cf56f9 Stage architecture-aware jump scares with saved intensity and Forge location guides
+a90033d9b7635bff421c014087ac22ade755f903 Verify publication state directly after player HUD cleanup
+17eece913dbe8bb751941461b3686761df12afb4 Polish Forge inspection, material relief, practical lighting and Game interaction focus
+2edde1557dfcf5b0aea9a6a3b39b65242656119b Smooth tufted upholstery normals while preserving architectural edges
+3602d9437479e795d29880bbeb8673caf22afece Unify whole-house architecture, richer materials, room lighting, hearths and lossless CASA packaging
+5a112bf302af9f644377f52606efd4bde7cacf42 Expose ornate lantern cages and smooth continuous tufted upholstery
+d970017be3d591bde81c5c3b68155c509e94b0e5 Add carved Gothic seating, pierced lanterns, mourning mirrors and floor rosettes
+515da023cecfe4f02b72990e429b0417133a7fec Refine reference bedroom with dark carved headboard and softer damask cushions
+35941b780f6e5c2121f397b1c6b70ee604d54f12 Furnish compact dining rooms and stop reserving door swings for removed walls
+2ba91ce708b5af5c51bd2be33d0932199ededc3d Build reference-inspired banquet rooms, coffin cabinets and carved interiors
+5dd583a050f59a0d58e4b90c7d2de09a2bbc6072 Verify locked Ninth Door checklist and return-to-houses actions
+40d953da3cb687fc48daa5086f0bf3e539fbc14a Raise shared mansion room detail and rebuild bundled CASA interiors
+d207138ef2a52dec60767efe4e81d6b31fc68751 Finish editable bulk haunt queue with persistent rebuild overrides
+13f8e8b55151c5a8463e9f06dd4ab4378e0f344c Rewrite Ninth Door as clear eight-challenge unlock checklist
+025ab6fd84d56d274c7d772fbee9153992e0e035 Bust cached game module after street spawn repair
+84c554b33e8301124e96a2850949e0c65a4e1307 Face new players toward houses rather than the Ninth Door
+cf58cb9de9e2368279694db3efde2194074dc27b Spawn players along first haunted street instead of facing locked finale
+3bfe2e5a0e3f460dfed42c3f46f7a6f3a26ed381 Clarify onboarding: houses first, seals second, Ninth Door finale
+f9e10ea2f11c1546a629dbc93490b352c75f60ef Untrap players at locked Ninth Door with return-to-street and guide actions
+d91c583b50da3372dd86bf478618d75c43ae168a Raise street and interior exposure for legible mobile night scenes
+d9ebb1d2cacd35c3de85f54b0150af09009bf968 Offset cinematic camera over shoulder to reveal doorway signs
+d50ee1928e431cd140ecc9491465d7049e6482c9 Make mobile interaction prompt readable and touch accessible; refresh game module cache
+e2e4ffa0f326e718ad2a76ba6e4e986b415de59f Fix street house entry priority over Ninth Door and increase porch interaction reach
+76624b3800ceb35405381544eb61fa74e43139d3 Bring the Gilded Nocturne visual pass into Black Hollow
+c287e467564e362c0792b51af78e971143443eff Scale software rendering resolution and reflections while preserving full-quality reference verification
+54e4b7fe04b0f5b96c1f3800f7b181295765dac7 Keep encounter names on small object plaques and the readable interaction HUD
+1732cd62f4e9d8eb9fc3d1a01f49db12ab8c263a Keep point shadows optional on small screens and software renderers; exercise them in reference captures
+70a1d3f1790c0dc8b16f19bc48f3bb7a04faaddb Cache static interior shadows, await material decoding and replace box canopy drapes
+e823a5327210650d7c96ce71ce4be19ea80d92b1 Bring reference-led materials, architectural relief and candlelit depth into the playable world
+dfd067f3a512fea48f1bcf2a0a7e61bbd0a1a903 Stage Black Hollow with original music, theatrical reveals and optional player guidance
+733cce2dc25a270770fa243bb7ebfa5ca0eb9676 Keep musical and clock puzzle answers out of the default objective HUD
+ff369ebb05e672b28029a308a37ce621da468f2b Give reveals one clear stage and stack mobile guidance without overlapping dialogue
+c67dcd172482d33523fa3a448d8032572e256bf2 Leave listening space around choir notes even in the Hall's recorded soundtrack
+d6b0cc4c4ff139f1d3612919389b334806b9b7a2 Hold the timed story card during software-rendered screenshot capture
+386624d400061536811ffdae4ae8394300e70ad9 Allow lantern-guide setup before 3D initialization and retain journal context
+05f5025ff3dcc69c1ea2aa952a371f141817a9c7 Give hauntings original adaptive motifs, theatrical turns and optional lantern guidance
+1b90bd8d927385f732e77c890cf7b039e1aa6ba8 Retire obsolete entry paths and clean up the active Black Hollow runtime
+3b8fcb07441620a6fc526eb449415933c79cdfd4 Retire stale game entry and fix class imports, audio lifecycle and resize budgets
+0012edb972ec769826818184c498a38ba63e3b85 Give Black Hallow memory, consequences and the Ninth Door
+0d514ffa84985082f98c36c7c3d7918bdf292aec Include the Ninth Door in cinematic camera obstruction checks
+7c51b68263e41a0906b68603935a034daf42131e Give the Ninth Door an unobstructed crossroads view and preserve Halloween atmosphere
+52a8ad8a6cda98e42bb2f8618d3a674f464f0bbc Let Black Hallow remember mansion endings and awaken the Ninth Door
+f3abf49f06f9034e76d1d2c299f13249628ded59 Open the failed queue entry before exercising its removal in browser regression
+8642997dacbb589306f1e7346a4755dcb26e72f6 Allow individual Mansion Foundry queue repairs without clearing prepared houses
+175ba872d2166678834bb0b1cdbf74cb4b88c04b Deploy persistent bulk Mansion Foundry for 34 student houses
+8b4d237efeb2e38e1b276bebf5d9e83e2bbe2ac5 Deploy The Unwritten Night and Gothic atmosphere updates
+c31c03ae472c51f919fba82284f77e4dadaaae3f Preserve the chosen camera through scene changes and clear stale house dialogue
+5042eef026e2e0faf131fc114cbb128ac3ab1025 Batch Gothic hall scenery and share three lights for responsive house play
+fb2332d53680ab92d93e873af87e56b7ad98281e Give the spatial choir distinct audible notes and replayable score phrases
+025f6b7ab0ccf8036c2995140f0c1ee3bc1f8804 Keep haunting timers accurate on slow frames and refine rule HUD readability
+2990013771ab7d1df9094ee4b31e910ca48db196 Carry the traveling guest through portals and validate its physical following
+40f12745d5cee830fe61ad604bfe0db2b15747a8 Reimagine Black Hollow as The Unwritten Night with eight rule-driven hauntings
+da93cc026c401b0cf7e754b146385bdb63cce3e9 Clarify first ghost objective and extend organist encounter
+d3aeb706a16e929acc64ce69b3e1736c1bb220b0 Re-export all published CASA houses with Gothic Forge details and preserve save migrations
+5dad38b50a5fd24fb581e24100d4a21f5ea644c6 Extend Gothic estate atmosphere: estate-theatre.test.mjs
+401c2987f3638a86d80ad21889953ec7d0699bef Extend Gothic estate atmosphere: room_theatre.mjs
+3f41058f141177752f7657a77710d7f07a8b45b2 Extend Gothic estate atmosphere: package.json
+8d42bb1e36239c04a4ca2b4c8b595aea66452cce Extend Gothic estate atmosphere: night.mjs
+c5eb04c98abd1684dac800f4f29048ab53d79ab6 Extend Gothic estate atmosphere: haunted_interiors.mjs
+e3eb701b7fd55367d686c6b12ae113b2d5635067 Extend Gothic estate atmosphere: encounters.mjs
+e98172dfcebeee93d9abbe2809f9c28f18b2b03f Extend Gothic estate atmosphere: forge_room_furniture.mjs
+99be51e0fa039f1e9f8439cb04a839875a4ea249 Extend Gothic estate atmosphere: forge_roof_ornaments.mjs
+98d8c67936754d07dce99eb89392ae8cec22357e Extend Gothic estate atmosphere: forge_glb.mjs
+020a45f8859292e325ab259b18837be7813d235d Extend Gothic estate atmosphere: forge_exterior_details.mjs
+01827d60ca8d92dee9cb8fb8f2712a5d63c9688d Connect Nocturne atmosphere to grand hall runtime
+6d2ed71933ec9d56df628a2e3485cf85f3d52f23 Connect Nocturne atmosphere to grand hall runtime
+2481d4df9aa2d000d65f548f5d92b1d79f91e926 Add Gothic velvet window bays and animated hall atmosphere
+2ee94a14d06eab7044c0fb24f327b80f4cb8924b Merge pull request #16 from ryanhosta-glitch/design/gilded-nocturne-hall
+dbed2cd68be4fe7ec9246af7556e8e2592b51848 Add Gilded Nocturne architectural finish to the grand hall
+9cce5f597c8519c2351d08564bd317b0f7ffa622 Merge pull request #15 from ryanhosta-glitch/development/forge-student-readiness
+8797a14c8d4e0dd4f7df664c78fb74f76e9375bd Prepare student houses with stable room themes, varied exterior finishes and repair reports
+2724f09194614d06593d1d31eb8d24dab289cdb1 Merge pull request #14 from ryanhosta-glitch/development/black-hallow-town
+087eb4045f8b4ea3e6ffdebd5f8339076ba43a1f Update pipeline browser flow for direct Hall arrival
+540d7a8b796c40f88e5911cfc8e1ac3632e796e0 Build Black Hallow town, recorded Halloween audio and automatic elevator experience
+00e2264f6f820a80cbdfc4534f04551101a394c9 Merge pull request #13 from ryanhosta-glitch/development/autumn-street
+dc0cd8fda45a4b6d112828031cee7e6fa9a00e8d Sample actual musical energy before checking organ key continuation
+e01064082be3c477b7f665b65da1be5da4105002 Transform autumn yards and bind Halloween visits to authored house doors
+16c75883743a7dcb5332773a9a5317a59d5cf6da Merge pull request #12 from ryanhosta-glitch/development/trick-or-treat
+b54f4ba45cf5054c369ce34d903e08f209f7b70a Add Halloween trick-or-treat street mode, rebuild furnished houses and enrich the pipe organ
+1aef61e15e6f10edb478d5211ea71a3a9805204e Merge pull request #10 from ryanhosta-glitch/development/victorian-forge
+a14732fb5392447cc0ec6ba6ad95abd1f3241a8c Merge pull request #11 from ryanhosta-glitch/development/room-stories-and-organ
+2ffa0709e2cbdeeb40de8b41e814cf18585fc0b9 Capture stable pipeline screenshots after checking live fabric motion
+671f10ff1247fc2813fbfcdc6f756be7eb8e28d7 Verify flowing cloth in pipeline and remove runner-only command dependency
+5633900ba6cfb51353a1c00db8c58a8563e0a45a Furnish themed rooms, report completeness and add haunted Hall organ
+d2d1a9fa3098c93b8ed06eca731e4bb8e14dfc6d Bring the estate to life with distributed quests and automatic reactive encounters
+da126345ee5c2d912117a7f241bd4b54135ad85b Merge pull request #9 from ryanhosta-glitch/development/victorian-forge
+73518f2a48c2187536bf210e259c8e9a90f7fd18 Move mansion entry between Hall stairs and guard the elevator balcony
+6ba74ad2eaf16cd6c0d3ddf4f2f5f309f2ab1055 Preserve disconnected-wing access while excluding the current elevator landing
+c47d7cf26faa0098017594ea6e208ef6310c4a95 Improve haunted hall, faceless spirits, automatic elevators and fleeing wildlife
+d00f66334a8c4afbcc5365e023029c57e0ad818c Release textured mansions and animated wraith
+8ac4572a46d6018123f86ad55083395c4d358ffd Allow software WebGL screenshot readback without weakening stair assertions
+883673175e9aaf0497a2341315f3f46713dd8f72 Use hosted Ubuntu browser libraries without redundant apt upgrades
+59737d586ce2ceb5f9300c3ddab71eedbaf87339 Capture the animated wraith after the rendered camera frame
+b658d5ae40a51dc0629e5e0bafada25a73de0078 Document verification of the current mansion and wraith release head
+fdf1f512eb11fc93104a05888bb238f0c831a146 Animate the wraith skeleton with spectral limb, head and finger motion
+b141dd68da536b7df4d7772d8619110f84695089 Retain stair failure evidence and allow slow software-rendered traversal
+67b138b5fd81aad549136e0bbff7c3876fa5be93 Rebuild textured mansion packages and verify the complete CASA publication workflow
+e973c8026f602040bfd7272ce230d122fbc78036 Compile walkable straight stairs with continuous floor residency and browser traversal tests
+16eb713aeb688270a2c2fc89682e9099213b7777 Fix rendered indoor path spikes and strengthen Forge placement diagnostics
+896d2fbaeea1fddc2b3281c4dfc0867e7f6d5221 Forge 4.3: construct wing roofs, room finishes and diagnostic inspection
+8b282208c824d5e204fdd99a52077a8d214eb505 Merge pull request #7 from ryanhosta-glitch/development/victorian-forge
+0a94aa6e85355f6c7d39f262c487e19ff556f977 Build textured Victorian Forge architecture, safe wall props and CASA inspection preview
+d32c8ccb68dd3cd0a6b40ee39e32586dc0254517 Admin: clarify enhanced Forge geometry and remaining QA limitations
+e5c8e6cc124186983dbe0da6c71bcc745bc27d11 Forge: mount wall portraits in front of Victorian paneling
+f1b7511f1feafe8ff423c11cb34736fdcaedbef0 Forge: add doorway-aware Victorian paneling and architectural trim to CASA exports
+eedcaad4c4634d8b34648cc51d25b8f15a8aa478 Add House Office for compiling and managing permanent CASA houses (#6)
+5194689638a75f56f647a4ad9714dee473b09f41 Remove solid black gate panels from street entrances (#5)
+f6d76f08fe15bcdbfee186d3e3a3198b15a196ba Replace generic porch interaction with a named Yes/No invitation (#4)
+9dbd73c685c9f0d6374ef562f164c825453694c2 Ship seven CASA haunting passes, direct Hall access and optional controllers (#3)
+a286508d8e5f31dbbc288ac18f5c470a65c071db Fix CASA house entry, physical cabin boarding, complete exteriors and flowing spirits (#2)
+34672f688d6ec049801f20fc0a63151f70b46752 Merge pull request #1 from ryanhosta-glitch/feature/casa-game
+c359c3acbfc0c0fff4f1e2993495d07e7a416e50 Create standalone CASA game with Haunted Hollow Street and streamed investigations
+66dc1158628300418c0db17cef5019211ad38d10 Batch stationary scenery into spatially culled meshes
+02af27476a4a7f627c48800217818b9969016b41 Tone down reflective finishes and window glare
+00a213230ec25c2cd498ef8ef961fb8354be9d87 Prepare shaders asynchronously and stabilize runtime lighting
+fd4e1eab1305bcce8ebef5bf5430bc6d1d92d8b0 Stop paused scene redraws and bound rendering resolution
+0a8b0326fbbe16a3da7636ba38a2ea9b00497395 Optimize static assets and add GitHub Pages deployment
+bcd52aff037e30eaa8e62eb2e2be3b4b6e928c46 Initial Black Hollow 2 release.
+094c1af6d54517d7d4b2f8f07b0fdc7519096ff3 Initial commit

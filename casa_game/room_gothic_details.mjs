@@ -23,7 +23,7 @@ export function createGothicRoom(room,{y=0,add,components,occupied=[],furniture=
   const flag=(room.forgeDecoration||room.source?.forgeDecoration)?.components?.['window-valance'];if(!policy.textiles||stair||flag===false||flag?.enabled===false)return;
   components?.track(ornaments);
   for(const [i,o]of(room.openings||[]).filter(o=>o.type==='window').slice(0,2).entries())run('gothic-textiles','window-'+i,()=>{
-   if(o.drapery===false||o.drapery||o.curtains||o.decoration)return skip('window-'+i,'AUTHORED_WINDOW_TREATMENT');
+   if(['drapery','curtains','decoration'].some(key=>o[key]!=null))return skip('window-'+i,'AUTHORED_WINDOW_TREATMENT');
    const f=gothicWindowFrame(room,o,y);if(f?.width>4)return skip('window-'+i,'OVERSIZE_WINDOW_DETAIL');if(!f||h<2.7)return skip('window-'+i,'NO_SAFE_WINDOW_TEXTILE');
    const n=[Math.sin(f.rotationY),0,Math.cos(f.rotationY)],p=f.position.map((v,k)=>v+n[k]*.037),height=f.height-.04;
    const drawn=model('velvet-curtain',p,f.rotationY,{width:f.width-.04,height},'window-'+i);
@@ -33,7 +33,7 @@ export function createGothicRoom(room,{y=0,add,components,occupied=[],furniture=
  }
  function wallPanel(position,rotationY,width,height){if(records.filter(r=>r.type==='upholstered-panel').length>=2)return skip('wall-panel','CURATED_PANEL_DENSITY');return policy.textiles&&model('upholstered-panel',position,rotationY,{width,height},'wall-panel:'+records.length);}
  function windowGlass(o,i,ornaments){
-  if(!policy.glass||o.glass||o.glazing||o.material||o.finishes||o.windowStyle)return skip('glass-'+i,'AUTHORED_OR_DISABLED_GLASS');const f=gothicWindowFrame(room,o,y);if(f?.width>4)return skip('glass-'+i,'OVERSIZE_WINDOW_DETAIL');if(!f)return false;
+  if(!policy.glass||['glass','glazing','material','finishes','windowStyle','decoration'].some(key=>o[key]!=null))return skip('glass-'+i,'AUTHORED_OR_DISABLED_GLASS');const f=gothicWindowFrame(room,o,y);if(f?.width>4)return skip('glass-'+i,'OVERSIZE_WINDOW_DETAIL');if(!f)return false;
   const n=[Math.sin(f.rotationY),0,Math.cos(f.rotationY)],p=f.position.map((v,k)=>v+n[k]*.018),drawn=model('leaded-rosette',p,f.rotationY,{width:f.width,height:f.height,compact:policy.identity==='laboratory'},'glass-'+i);
   if(drawn)ornaments.push({id:`leaded:${room.id}:${i}`,type:'jewel-leaded-glass',positionMeters:[p[0],p[1]+f.height/2,p[2]],width:f.width,height:f.height});return drawn;
  }
@@ -56,7 +56,7 @@ export function createGothicRoom(room,{y=0,add,components,occupied=[],furniture=
    ornaments.push({id:`gothic:${room.id}:botanical`,type,wall:mount.wall,positionMeters:[p[0],p[1]+height/2,p[2]],width,height});const b=room.boundsFeet||room;occupied.push({wall:mount.wall,center:mount.wall==='left'||mount.wall==='right'?p[2]-+b.y*FT:p[0]-+b.x*FT,width:width+.1});return true;
   },'botanical-wall:'+room.id);
   if(policy.waterStaining&&!stair&&!room.finishes&&!room.source?.finishes)for(const [i,o]of(room.openings||[]).filter(o=>o.type==='window').slice(0,1).entries())run('surface-aging','water-'+i,()=>{
-   const f=gothicWindowFrame(room,o,y);if(!f)return false;const n=[Math.sin(f.rotationY),0,Math.cos(f.rotationY)],height=Math.min(.42,f.low-.15),p=f.position.map((v,k)=>v+n[k]*.006);p[1]-=height+.025;return model('water-trace',p,f.rotationY,{width:f.width*.45,height},'water-'+i);
+   const f=gothicWindowFrame(room,o,y);if(!f)return false;const n=[Math.sin(f.rotationY),0,Math.cos(f.rotationY)],height=Math.min(.42,f.low-.15),p=f.position.map((v,k)=>v+n[k]*.006);p[1]-=height+.025;return model('water-trace',p,f.rotationY,{width:Math.min(1.2,f.width*.45),height},'water-'+i);
   },'water-under-window:'+i);
   if(policy.wear>0)for(const f of furniture.filter(f=>!f.authored&&['console','side_table','writing_desk'].includes(f.type)&&!used.has(String(f.id))).slice(0,1))run('surface-aging','dust-'+f.id,()=>{
    const t=furnitureSurface(f);if(!t)return false;const a=f.rotationY||0,u=t.u+t.width*.32,v=t.v+t.depth*.25,c=Math.cos(a),s=Math.sin(a),p=[f.positionMeters[0]+u*c+v*s,f.positionMeters[1]+t.top+.0005,f.positionMeters[2]-u*s+v*c],size=.045;

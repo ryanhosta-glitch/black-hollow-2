@@ -1,0 +1,628 @@
+[
+  {
+    "suite": "atmosphere",
+    "exitCode": 0,
+    "seconds": 62.39,
+    "artifacts": [
+      "atmosphere/effects-report.json",
+      "atmosphere/after-profile/report.json",
+      "atmosphere/after-profile/performance-bedroom-room.png",
+      "atmosphere/after-profile/performance-conservatory-room.png",
+      "atmosphere/after-profile/performance-parlor-room.png",
+      "atmosphere/after-profile/cinematic-gallery-mirror.png",
+      "atmosphere/after-profile/cinematic-library-window.png",
+      "atmosphere/after-profile/cinematic-crypt-botanical.png",
+      "atmosphere/after-profile/cinematic-conservatory-botanical.png",
+      "atmosphere/after-profile/cinematic-bedroom-canopy.png",
+      "atmosphere/after-profile/cinematic-parlor-window.png",
+      "atmosphere/after-profile/cinematic-circulation-room.png",
+      "atmosphere/after-profile/cinematic-laboratory-room.png",
+      "atmosphere/after-profile/cinematic-crypt-room.png",
+      "atmosphere/after-profile/cinematic-nursery-room.png",
+      "atmosphere/after-profile/cinematic-bedroom-room.png",
+      "atmosphere/after-profile/cinematic-conservatory-room.png",
+      "atmosphere/after-profile/cinematic-gallery-room.png",
+      "atmosphere/after-profile/cinematic-dining-room.png",
+      "atmosphere/after-profile/cinematic-library-room.png",
+      "atmosphere/after-profile/cinematic-parlor-room.png",
+      "atmosphere/after-profile/cinematic-ballroom-room.png",
+      "atmosphere/after-profile/study.casa"
+    ],
+    "jsonReports": [
+      "atmosphere/effects-report.json",
+      "atmosphere/after-profile/report.json"
+    ]
+  },
+  {
+    "suite": "storytelling",
+    "exitCode": 0,
+    "seconds": 68.46,
+    "artifacts": [
+      "storytelling/after/report.json",
+      "storytelling/after/circulation-story.png",
+      "storytelling/after/circulation-room.png",
+      "storytelling/after/laboratory-story.png",
+      "storytelling/after/laboratory-room.png",
+      "storytelling/after/crypt-story.png",
+      "storytelling/after/crypt-room.png",
+      "storytelling/after/nursery-story.png",
+      "storytelling/after/nursery-room.png",
+      "storytelling/after/bedroom-story.png",
+      "storytelling/after/bedroom-room.png",
+      "storytelling/after/conservatory-story.png",
+      "storytelling/after/conservatory-room.png",
+      "storytelling/after/gallery-story.png",
+      "storytelling/after/gallery-room.png",
+      "storytelling/after/dining-story.png",
+      "storytelling/after/dining-room.png",
+      "storytelling/after/library-story.png",
+      "storytelling/after/library-room.png",
+      "storytelling/after/parlor-story.png",
+      "storytelling/after/parlor-room.png",
+      "storytelling/after/ballroom-story.png",
+      "storytelling/after/ballroom-room.png",
+      "storytelling/after/study.casa"
+    ],
+    "jsonReports": [
+      "storytelling/after/report.json"
+    ]
+  },
+  {
+    "suite": "lighting",
+    "exitCode": 0,
+    "seconds": 347.45,
+    "artifacts": [
+      "lighting/after/report.json",
+      "lighting/after/performance-parlor-fireplace.png",
+      "lighting/after/performance-conservatory-window.png",
+      "lighting/after/performance-library-task.png",
+      "lighting/after/performance-library-corner.png",
+      "lighting/after/performance-ballroom-ceiling.png",
+      "lighting/after/performance-circulation-room.png",
+      "lighting/after/performance-laboratory-room.png",
+      "lighting/after/performance-crypt-room.png",
+      "lighting/after/performance-nursery-room.png",
+      "lighting/after/performance-bedroom-room.png",
+      "lighting/after/performance-conservatory-room.png",
+      "lighting/after/performance-gallery-room.png",
+      "lighting/after/performance-dining-room.png",
+      "lighting/after/performance-library-room.png",
+      "lighting/after/performance-parlor-room.png",
+      "lighting/after/performance-ballroom-room.png",
+      "lighting/after/cinematic-parlor-fireplace.png",
+      "lighting/after/cinematic-conservatory-window.png",
+      "lighting/after/cinematic-library-task.png",
+      "lighting/after/cinematic-library-corner.png",
+      "lighting/after/cinematic-ballroom-ceiling.png",
+      "lighting/after/cinematic-circulation-room.png",
+      "lighting/after/cinematic-laboratory-room.png",
+      "lighting/after/cinematic-crypt-room.png",
+      "lighting/after/cinematic-nursery-room.png",
+      "lighting/after/cinematic-bedroom-room.png",
+      "lighting/after/cinematic-conservatory-room.png",
+      "lighting/after/cinematic-gallery-room.png",
+      "lighting/after/cinematic-dining-room.png",
+      "lighting/after/cinematic-library-room.png",
+      "lighting/after/cinematic-parlor-room.png",
+      "lighting/after/cinematic-ballroom-room.png",
+      "lighting/after/study.casa"
+    ],
+    "jsonReports": [
+      "lighting/after/report.json"
+    ]
+  },
+  {
+    "suite": "heirloom",
+    "exitCode": 0,
+    "seconds": 48.98,
+    "artifacts": [
+      "heirloom/after/report.json",
+      "heirloom/after/side_table-rear.png",
+      "heirloom/after/side_table-angle.png",
+      "heirloom/after/side_table-front.png",
+      "heirloom/after/banquet_ensemble-rear.png",
+      "heirloom/after/banquet_ensemble-angle.png",
+      "heirloom/after/banquet_ensemble-front.png",
+      "heirloom/after/grandfather_clock-rear.png",
+      "heirloom/after/grandfather_clock-angle.png",
+      "heirloom/after/grandfather_clock-front.png",
+      "heirloom/after/curio_cabinet-rear.png",
+      "heirloom/after/curio_cabinet-angle.png",
+      "heirloom/after/curio_cabinet-front.png",
+      "heirloom/after/bed-rear.png",
+      "heirloom/after/bed-angle.png",
+      "heirloom/after/bed-front.png",
+      "heirloom/after/wardrobe-rear.png",
+      "heirloom/after/wardrobe-angle.png",
+      "heirloom/after/wardrobe-front.png",
+      "heirloom/after/bookcase-rear.png",
+      "heirloom/after/bookcase-angle.png",
+      "heirloom/after/bookcase-front.png",
+      "heirloom/after/writing_desk-rear.png",
+      "heirloom/after/writing_desk-angle.png",
+      "heirloom/after/writing_desk-front.png",
+      "heirloom/after/gothic_armchair-rear.png",
+      "heirloom/after/gothic_armchair-angle.png",
+      "heirloom/after/gothic_armchair-front.png",
+      "heirloom/after/tufted_settee-rear.png",
+      "heirloom/after/tufted_settee-angle.png",
+      "heirloom/after/tufted_settee-front.png",
+      "heirloom/after/dining-door.png",
+      "heirloom/after/library-fireplace.png",
+      "heirloom/after/parlor-fireplace.png",
+      "heirloom/after/ballroom-ceiling.png",
+      "heirloom/after/parlor-panels.png",
+      "heirloom/after/circulation-room.png",
+      "heirloom/after/laboratory-room.png",
+      "heirloom/after/crypt-room.png",
+      "heirloom/after/nursery-room.png",
+      "heirloom/after/bedroom-room.png",
+      "heirloom/after/conservatory-room.png",
+      "heirloom/after/gallery-room.png",
+      "heirloom/after/dining-room.png",
+      "heirloom/after/library-room.png",
+      "heirloom/after/parlor-room.png",
+      "heirloom/after/ballroom-room.png",
+      "heirloom/after/study.casa"
+    ],
+    "jsonReports": [
+      "heirloom/after/report.json"
+    ]
+  },
+  {
+    "suite": "luxury",
+    "exitCode": 0,
+    "seconds": 40.31,
+    "artifacts": [
+      "luxury/after/report.json",
+      "luxury/after/dining-door.png",
+      "luxury/after/library-fireplace.png",
+      "luxury/after/parlor-fireplace.png",
+      "luxury/after/ballroom-ceiling.png",
+      "luxury/after/parlor-panels.png",
+      "luxury/after/circulation-room.png",
+      "luxury/after/laboratory-room.png",
+      "luxury/after/crypt-room.png",
+      "luxury/after/nursery-room.png",
+      "luxury/after/bedroom-room.png",
+      "luxury/after/conservatory-room.png",
+      "luxury/after/gallery-room.png",
+      "luxury/after/dining-room.png",
+      "luxury/after/library-room.png",
+      "luxury/after/parlor-room.png",
+      "luxury/after/ballroom-room.png",
+      "luxury/after/study.casa"
+    ],
+    "jsonReports": [
+      "luxury/after/report.json"
+    ]
+  },
+  {
+    "suite": "nocturne",
+    "exitCode": 0,
+    "seconds": 29.78,
+    "artifacts": [
+      "nocturne-report.json",
+      "nocturne-keeper.png",
+      "nocturne-living-beds.png",
+      "nocturne-caged-fern.png",
+      "nocturne-conservatory.png",
+      "phoenix-landing.png"
+    ],
+    "jsonReports": [
+      "nocturne-report.json"
+    ]
+  },
+  {
+    "suite": "playpack",
+    "exitCode": 0,
+    "seconds": 28.95,
+    "artifacts": [
+      "playpack-report.json",
+      "playpack-parlor.png",
+      "playpack-crypt.png",
+      "playpack-gallery.png",
+      "playpack-ballroom.png",
+      "playpack-dining.png",
+      "playpack-nursery.png",
+      "playpack-bedroom.png",
+      "playpack-conservatory.png",
+      "playpack-laboratory.png",
+      "playpack-library.png",
+      "playpack-room-memory.png"
+    ],
+    "jsonReports": [
+      "playpack-report.json"
+    ]
+  },
+  {
+    "suite": "household",
+    "exitCode": 0,
+    "seconds": 89.87,
+    "artifacts": [
+      "household-report.json",
+      "household-waltz.png",
+      "household-cabinet.png",
+      "household-reception.png",
+      "household-grand-vista.png"
+    ],
+    "jsonReports": [
+      "household-report.json"
+    ]
+  },
+  {
+    "suite": "release-entry",
+    "exitCode": 0,
+    "seconds": 8.47,
+    "artifacts": [
+      "release-entry-report.json",
+      "release-street-sign.png",
+      "release-mailbox-number.png",
+      "release-mailbox-name.png",
+      "release-welcome-mobile.png",
+      "release-welcome-desktop.png"
+    ],
+    "jsonReports": [
+      "release-entry-report.json"
+    ]
+  },
+  {
+    "suite": "afterlife",
+    "exitCode": 0,
+    "seconds": 21.4,
+    "artifacts": [
+      "afterlife-report.json",
+      "afterlife-mobile.png",
+      "afterlife-fetch-carry.png",
+      "afterlife-witches.png",
+      "afterlife-hemlock.png",
+      "afterlife-moth.png",
+      "afterlife-neighbours.png"
+    ],
+    "jsonReports": [
+      "afterlife-report.json"
+    ]
+  },
+  {
+    "suite": "village",
+    "exitCode": 0,
+    "seconds": 11.7,
+    "artifacts": [
+      "village-report.json",
+      "village-choir.png",
+      "village-brooms.png",
+      "village-potions.png",
+      "village-plaza.png"
+    ],
+    "jsonReports": [
+      "village-report.json"
+    ]
+  },
+  {
+    "suite": "magic",
+    "exitCode": 0,
+    "seconds": 18.44,
+    "artifacts": [
+      "magic-report.json",
+      "magic-mobile-grimoire.png",
+      "magic-starweave.png",
+      "magic-wildbloom.png",
+      "magic-witchlight.png"
+    ],
+    "jsonReports": [
+      "magic-report.json"
+    ]
+  },
+  {
+    "suite": "playtest-pass",
+    "exitCode": 0,
+    "seconds": 34.97,
+    "artifacts": [
+      "playtest-pass.json",
+      "kid-relics-mobile.png",
+      "kid-ending-seed.png",
+      "kid-ending-sky.png",
+      "kid-ending-name.png",
+      "kid-ending-escape.png",
+      "kid-ending-deal.png",
+      "kid-ending-free.png",
+      "kid-ending-banish.png",
+      "kid-ending-invite.png",
+      "kid-ending-preserve.png",
+      "kid-ending-tomorrow.png",
+      "kid-ending-road.png",
+      "kid-ending-home.png",
+      "kid-ending-silence.png",
+      "kid-ending-sing.png",
+      "kid-ending-claim.png",
+      "kid-ending-release.png",
+      "kid-collector.png",
+      "kid-mobile-pressure.png",
+      "kid-direct-plant.png",
+      "kid-real-ending.png"
+    ],
+    "jsonReports": [
+      "playtest-pass.json"
+    ]
+  },
+  {
+    "suite": "scares",
+    "exitCode": 0,
+    "seconds": 15.85,
+    "artifacts": [
+      "scares-report.json",
+      "scare-ceiling.png",
+      "scare-wall-shadow.png",
+      "scare-window.png",
+      "scare-reflection.png"
+    ],
+    "jsonReports": [
+      "scares-report.json"
+    ]
+  },
+  {
+    "suite": "phoenix",
+    "exitCode": 0,
+    "seconds": 112.62,
+    "artifacts": [
+      "phoenix-browser.json",
+      "phoenix-mobile-journal.png",
+      "phoenix-garden.png",
+      "phoenix-heist.png",
+      "phoenix-bargain.png",
+      "phoenix-masquerade.png",
+      "phoenix-loop.png",
+      "phoenix-escort.png",
+      "phoenix-choir.png",
+      "phoenix-vigil.png",
+      "phoenix-landing.png"
+    ],
+    "jsonReports": [
+      "phoenix-browser.json"
+    ]
+  },
+  {
+    "suite": "forge",
+    "exitCode": 0,
+    "seconds": 81.23,
+    "artifacts": [
+      "report.json",
+      "game-upper-floor.png",
+      "hall-rear-door-and-banister.png",
+      "hall-stairs.png",
+      "automatic-elevator.png",
+      "creepy-gallery.png",
+      "collision-guides.png",
+      "library-haunted-lighting.png",
+      "scare-location-guides.png",
+      "library.png",
+      "interior-cutaway.png",
+      "exterior.png",
+      "visual.casa"
+    ],
+    "jsonReports": [
+      "report.json"
+    ]
+  },
+  {
+    "suite": "stairs",
+    "exitCode": 0,
+    "seconds": 112.59,
+    "artifacts": [
+      "stairs-report.json",
+      "stairs-lower-landing.png",
+      "stairs-upper-landing.png",
+      "stairs-preview.png",
+      "straight.casa"
+    ],
+    "jsonReports": [
+      "stairs-report.json"
+    ]
+  },
+  {
+    "suite": "pipeline",
+    "exitCode": 0,
+    "seconds": 19.81,
+    "artifacts": [
+      "pipeline-report.json",
+      "pipeline-published-interior.png",
+      "pipeline-local-interior.png",
+      "pipeline-animated-wraith.png",
+      "pipeline-office-preview.png"
+    ],
+    "jsonReports": [
+      "pipeline-report.json"
+    ]
+  },
+  {
+    "suite": "reactions",
+    "exitCode": 0,
+    "seconds": 21.32,
+    "artifacts": [
+      "reactions-report.json",
+      "reactive-room-dressing.png",
+      "automatic-founder-dialogue.png",
+      "automatic-ghost-dialogue.png"
+    ],
+    "jsonReports": [
+      "reactions-report.json"
+    ]
+  },
+  {
+    "suite": "rooms",
+    "exitCode": 0,
+    "seconds": 21.77,
+    "artifacts": [
+      "room-completeness-browser.json",
+      "room-completeness-report.png",
+      "room-content-tiny.png",
+      "room-content-7.png",
+      "room-content-5.png",
+      "room-content-2.png",
+      "room-content-1.png",
+      "room-content-0.png"
+    ],
+    "jsonReports": [
+      "room-completeness-browser.json"
+    ]
+  },
+  {
+    "suite": "organ",
+    "exitCode": 0,
+    "seconds": 10.75,
+    "artifacts": [
+      "hall-organ-browser.json",
+      "hall-organ-departed.png",
+      "hall-organ-playing.png"
+    ],
+    "jsonReports": [
+      "hall-organ-browser.json"
+    ]
+  },
+  {
+    "suite": "halloween",
+    "exitCode": 0,
+    "seconds": 51.88,
+    "artifacts": [
+      "halloween-browser.json",
+      "autumn-investigation-street.png",
+      "halloween-candy.png",
+      "halloween-costume-mirror.png",
+      "halloween-house-laser.png",
+      "halloween-inflatable-yard.png",
+      "halloween-skeleton-yard.png",
+      "halloween-street.png"
+    ],
+    "jsonReports": [
+      "halloween-browser.json"
+    ]
+  },
+  {
+    "suite": "town",
+    "exitCode": 0,
+    "seconds": 14.39,
+    "artifacts": [
+      "town-elevator-browser.json",
+      "elevator-button-panel.png"
+    ],
+    "jsonReports": [
+      "town-elevator-browser.json"
+    ]
+  },
+  {
+    "suite": "student-readiness",
+    "exitCode": 0,
+    "seconds": 16.64,
+    "artifacts": [
+      "student-readiness-browser.json",
+      "student-stucco-rose.png",
+      "stucco-rose.casa",
+      "student-brick-red.png",
+      "brick-red.casa",
+      "student-siding-sage.png",
+      "siding-sage.casa"
+    ],
+    "jsonReports": [
+      "student-readiness-browser.json"
+    ]
+  },
+  {
+    "suite": "street-memory",
+    "exitCode": 0,
+    "seconds": 39.03,
+    "artifacts": [
+      "street-memory-browser.json",
+      "ninth-door-night.png",
+      "ninth-door-dawn.png"
+    ],
+    "jsonReports": [
+      "street-memory-browser.json"
+    ]
+  },
+  {
+    "suite": "reference",
+    "exitCode": 0,
+    "seconds": 45.45,
+    "artifacts": [
+      "reference-render.json",
+      "reference-grounds.png",
+      "reference-exterior.png",
+      "reference-lantern.png",
+      "reference-seating.png",
+      "reference-cabinet.png",
+      "reference-dining.png",
+      "reference-library.png",
+      "reference-bedroom.png",
+      "reference-hall.png"
+    ],
+    "jsonReports": [
+      "reference-render.json"
+    ]
+  },
+  {
+    "suite": "townlife",
+    "exitCode": 0,
+    "seconds": 57.7,
+    "artifacts": [
+      "townlife-report.json",
+      "townlife-cauldron.png",
+      "townlife-clock.png",
+      "townlife-trick-or-treaters.png"
+    ],
+    "jsonReports": [
+      "townlife-report.json"
+    ]
+  },
+  {
+    "suite": "batch",
+    "exitCode": 0,
+    "seconds": 59.21,
+    "artifacts": [
+      "upload-readiness-report.json",
+      "upload-office-mobile.png",
+      "upload-publication-review.png"
+    ],
+    "jsonReports": [
+      "upload-readiness-report.json"
+    ]
+  },
+  {
+    "suite": "runtime-cleanup",
+    "exitCode": 0,
+    "seconds": 13.32,
+    "artifacts": [
+      "runtime-cleanup-browser.json"
+    ],
+    "jsonReports": [
+      "runtime-cleanup-browser.json"
+    ]
+  },
+  {
+    "suite": "directors-pass",
+    "exitCode": 0,
+    "seconds": 23.25,
+    "artifacts": [
+      "directors-pass-browser.json",
+      "directors-mobile.png",
+      "directors-turning-point.png"
+    ],
+    "jsonReports": [
+      "directors-pass-browser.json"
+    ]
+  },
+  {
+    "suite": "polish",
+    "exitCode": 0,
+    "seconds": 40.55,
+    "artifacts": [
+      "polish-report.json",
+      "polish-landscape.png",
+      "polish-neighbours-mobile.png",
+      "polish-halloween-mobile.png",
+      "polish-story-mobile.png"
+    ],
+    "jsonReports": [
+      "polish-report.json"
+    ]
+  }
+]

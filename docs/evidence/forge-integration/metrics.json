@@ -1,0 +1,678 @@
+[
+  {
+    "identity": "ballroom",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 67,
+      "triangles": 137026,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 1985.7000000029802,
+        "p95SynchronousMs": 2157.7999999970198,
+        "synchronousThroughputFPS": 0.4991203004707921,
+        "cappedSceneLoopFPS": 0.23616766014529034,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    "after": {
+      "draws": 83,
+      "triangles": 103468,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 2053,
+        "p95SynchronousMs": 2617.5999999940395,
+        "synchronousThroughputFPS": 0.48354925150663514,
+        "cappedSceneLoopFPS": 0.22005750836218532,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    }
+  },
+  {
+    "identity": "parlor",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 81,
+      "triangles": 138714,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 85,
+      "triangles": 104846,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "library",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 69,
+      "triangles": 122524,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 1713.5,
+        "p95SynchronousMs": 1864.2000000029802,
+        "synchronousThroughputFPS": 0.601645500443354,
+        "cappedSceneLoopFPS": 0.2935535637402638,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    "after": {
+      "draws": 74,
+      "triangles": 103610,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 1778.3999999910593,
+        "p95SynchronousMs": 1835.1000000089407,
+        "synchronousThroughputFPS": 0.5744622793711545,
+        "cappedSceneLoopFPS": 0.27650890911705184,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    }
+  },
+  {
+    "identity": "dining",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 92,
+      "triangles": 140988,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 112,
+      "triangles": 116920,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "gallery",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 96,
+      "triangles": 142078,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 98,
+      "triangles": 116358,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "conservatory",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 77,
+      "triangles": 125406,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 2404,
+        "p95SynchronousMs": 2816.7999999970198,
+        "synchronousThroughputFPS": 0.4089282671664679,
+        "cappedSceneLoopFPS": 0.1991225333696179,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    "after": {
+      "draws": 85,
+      "triangles": 112840,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 2349.2000000029802,
+        "p95SynchronousMs": 2568,
+        "synchronousThroughputFPS": 0.42839395107750194,
+        "cappedSceneLoopFPS": 0.21393760723622565,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    }
+  },
+  {
+    "identity": "bedroom",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 73,
+      "triangles": 117450,
+      "decodedRGBAWithMipsEstimate": 10681780,
+      "shadowPixels": 2097152,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 2435.4000000059605,
+        "p95SynchronousMs": 2676.9000000059605,
+        "synchronousThroughputFPS": 0.40806055618645537,
+        "cappedSceneLoopFPS": 0.18833171995826567,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    "after": {
+      "draws": 63,
+      "triangles": 62039,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "shadowPixels": 262144,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 1865.7000000029802,
+        "p95SynchronousMs": 2076.6000000089407,
+        "synchronousThroughputFPS": 0.5334755934915978,
+        "cappedSceneLoopFPS": 0.2543912163800809,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    }
+  },
+  {
+    "identity": "nursery",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 58,
+      "triangles": 109282,
+      "decodedRGBAWithMipsEstimate": 10681780,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 56,
+      "triangles": 58443,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "crypt",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 30,
+      "triangles": 59184,
+      "decodedRGBAWithMipsEstimate": 10681780,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 45,
+      "triangles": 50649,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "laboratory",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 108,
+      "triangles": 126700,
+      "decodedRGBAWithMipsEstimate": 10681780,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 105,
+      "triangles": 69181,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "circulation",
+    "quality": "cinematic",
+    "detail": "room",
+    "before": {
+      "draws": 75,
+      "triangles": 113554,
+      "decodedRGBAWithMipsEstimate": 10681780,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 75,
+      "triangles": 63199,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "ballroom",
+    "quality": "cinematic",
+    "detail": "ceiling",
+    "before": {
+      "draws": 39,
+      "triangles": 133600,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 49,
+      "triangles": 97290,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "dining",
+    "quality": "cinematic",
+    "detail": "panels",
+    "before": {
+      "draws": 92,
+      "triangles": 142076,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 103,
+      "triangles": 116370,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "bedroom",
+    "quality": "cinematic",
+    "detail": "furniture",
+    "before": {
+      "draws": 70,
+      "triangles": 111334,
+      "decodedRGBAWithMipsEstimate": 10681780,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 60,
+      "triangles": 58533,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "library",
+    "quality": "cinematic",
+    "detail": "story",
+    "before": {
+      "draws": 37,
+      "triangles": 116478,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 40,
+      "triangles": 68004,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "parlor",
+    "quality": "cinematic",
+    "detail": "window",
+    "before": {
+      "draws": 36,
+      "triangles": 130694,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 48,
+      "triangles": 97288,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "conservatory",
+    "quality": "cinematic",
+    "detail": "botanical",
+    "before": {
+      "draws": 63,
+      "triangles": 137958,
+      "decodedRGBAWithMipsEstimate": 9655650,
+      "shadowPixels": 2097152,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 70,
+      "triangles": 108628,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "shadowPixels": 262144,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "ballroom",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 67,
+      "triangles": 137026,
+      "decodedRGBAWithMipsEstimate": 9524574,
+      "shadowPixels": 0,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 920,
+        "p95SynchronousMs": 1042.7999999970198,
+        "synchronousThroughputFPS": 1.0993541294504496,
+        "cappedSceneLoopFPS": 0.5451452993937989,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    "after": {
+      "draws": 80,
+      "triangles": 103444,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "shadowPixels": 0,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 837.2000000029802,
+        "p95SynchronousMs": 994.1000000089407,
+        "synchronousThroughputFPS": 1.1632528426967819,
+        "cappedSceneLoopFPS": 0.5600734816407923,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    }
+  },
+  {
+    "identity": "parlor",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 81,
+      "triangles": 138714,
+      "decodedRGBAWithMipsEstimate": 9524574,
+      "shadowPixels": 0,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 81,
+      "triangles": 104798,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "shadowPixels": 0,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "library",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 69,
+      "triangles": 122524,
+      "decodedRGBAWithMipsEstimate": 9524574,
+      "shadowPixels": 0,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 796.5999999940395,
+        "p95SynchronousMs": 918.2999999970198,
+        "synchronousThroughputFPS": 1.308871970504199,
+        "cappedSceneLoopFPS": 0.6392308774083036,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    "after": {
+      "draws": 71,
+      "triangles": 103586,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "shadowPixels": 0,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 758.0999999940395,
+        "p95SynchronousMs": 799.7000000029802,
+        "synchronousThroughputFPS": 1.3315579227718422,
+        "cappedSceneLoopFPS": 0.5952617167347911,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    }
+  },
+  {
+    "identity": "dining",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 92,
+      "triangles": 140988,
+      "decodedRGBAWithMipsEstimate": 9524574,
+      "shadowPixels": 0,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 112,
+      "triangles": 116920,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "shadowPixels": 0,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "gallery",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 96,
+      "triangles": 142078,
+      "decodedRGBAWithMipsEstimate": 9524574,
+      "shadowPixels": 0,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 98,
+      "triangles": 116358,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "shadowPixels": 0,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "conservatory",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 77,
+      "triangles": 125406,
+      "decodedRGBAWithMipsEstimate": 9524574,
+      "shadowPixels": 0,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 1158.5,
+        "p95SynchronousMs": 1404.0999999940395,
+        "synchronousThroughputFPS": 0.8484282866010416,
+        "cappedSceneLoopFPS": 0.41920635852204646,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    "after": {
+      "draws": 84,
+      "triangles": 112840,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "shadowPixels": 0,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 986.2000000029802,
+        "p95SynchronousMs": 1130.7000000029802,
+        "synchronousThroughputFPS": 0.9992422413008432,
+        "cappedSceneLoopFPS": 0.45046803628970483,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    }
+  },
+  {
+    "identity": "bedroom",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 73,
+      "triangles": 117450,
+      "decodedRGBAWithMipsEstimate": 10550704,
+      "shadowPixels": 0,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 1340.300000011921,
+        "p95SynchronousMs": 1523.8999999910593,
+        "synchronousThroughputFPS": 0.740557886942858,
+        "cappedSceneLoopFPS": 0.3663146789618157,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    "after": {
+      "draws": 62,
+      "triangles": 62039,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "shadowPixels": 0,
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 957.5,
+        "p95SynchronousMs": 1150.6000000089407,
+        "synchronousThroughputFPS": 1.0287448455594173,
+        "cappedSceneLoopFPS": 0.4997418000699638,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    }
+  },
+  {
+    "identity": "nursery",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 58,
+      "triangles": 109282,
+      "decodedRGBAWithMipsEstimate": 10550704,
+      "shadowPixels": 0,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 56,
+      "triangles": 58443,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "shadowPixels": 0,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "crypt",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 30,
+      "triangles": 59184,
+      "decodedRGBAWithMipsEstimate": 10550704,
+      "shadowPixels": 0,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 44,
+      "triangles": 50649,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "shadowPixels": 0,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "laboratory",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 108,
+      "triangles": 126700,
+      "decodedRGBAWithMipsEstimate": 10550704,
+      "shadowPixels": 0,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 104,
+      "triangles": 69181,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "shadowPixels": 0,
+      "benchmark": null
+    }
+  },
+  {
+    "identity": "circulation",
+    "quality": "performance",
+    "detail": "room",
+    "before": {
+      "draws": 75,
+      "triangles": 113554,
+      "decodedRGBAWithMipsEstimate": 10550704,
+      "shadowPixels": 0,
+      "benchmark": null
+    },
+    "after": {
+      "draws": 74,
+      "triangles": 63199,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "shadowPixels": 0,
+      "benchmark": null
+    }
+  }
+]

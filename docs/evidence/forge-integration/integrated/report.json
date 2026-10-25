@@ -1,0 +1,1619 @@
+{
+  "edition": "integrated",
+  "browser": "154.0.8037.57",
+  "fixture": "forge-atmosphere.json",
+  "compiledBytes": 5803542,
+  "views": [
+    {
+      "identity": "ballroom",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        1.024128,
+        1.62,
+        6.656832
+      ],
+      "target": [
+        4.69392,
+        1.75,
+        1.901952
+      ],
+      "draws": 83,
+      "triangles": 103468,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31103186,
+      "rendererGeometries": 93,
+      "rendererTextures": 23,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 67.21232361111133,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 2053,
+        "p95SynchronousMs": 2617.5999999940395,
+        "synchronousThroughputFPS": 0.48354925150663514,
+        "cappedSceneLoopFPS": 0.22005750836218532,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    {
+      "identity": "parlor",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        9.558527999999999,
+        1.62,
+        6.656832
+      ],
+      "target": [
+        13.22832,
+        1.75,
+        1.901952
+      ],
+      "draws": 85,
+      "triangles": 104846,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31116778,
+      "rendererGeometries": 103,
+      "rendererTextures": 24,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 55.28432738888855,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "library",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        18.092928,
+        1.62,
+        6.656832
+      ],
+      "target": [
+        21.76272,
+        1.75,
+        1.901952
+      ],
+      "draws": 74,
+      "triangles": 103610,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31103186,
+      "rendererGeometries": 96,
+      "rendererTextures": 24,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 40.28557513888924,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 1778.3999999910593,
+        "p95SynchronousMs": 1835.1000000089407,
+        "synchronousThroughputFPS": 0.5744622793711545,
+        "cappedSceneLoopFPS": 0.27650890911705184,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    {
+      "identity": "dining",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        1.024128,
+        1.62,
+        14.581631999999999
+      ],
+      "target": [
+        4.69392,
+        1.75,
+        9.826752
+      ],
+      "draws": 112,
+      "triangles": 116920,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31089594,
+      "rendererGeometries": 101,
+      "rendererTextures": 30,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 108.83135694444358,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "gallery",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        9.558527999999999,
+        1.62,
+        14.581631999999999
+      ],
+      "target": [
+        13.22832,
+        1.75,
+        9.826752
+      ],
+      "draws": 98,
+      "triangles": 116358,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31089594,
+      "rendererGeometries": 102,
+      "rendererTextures": 30,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 59.18566388888885,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "conservatory",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        18.092928,
+        1.62,
+        14.581631999999999
+      ],
+      "target": [
+        21.76272,
+        1.75,
+        9.826752
+      ],
+      "draws": 85,
+      "triangles": 112840,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31089594,
+      "rendererGeometries": 102,
+      "rendererTextures": 30,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 112.09068355555513,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 2349.2000000029802,
+        "p95SynchronousMs": 2568,
+        "synchronousThroughputFPS": 0.42839395107750194,
+        "cappedSceneLoopFPS": 0.21393760723622565,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    {
+      "identity": "bedroom",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        1.024128,
+        5.2776000000000005,
+        6.656832
+      ],
+      "target": [
+        4.69392,
+        5.4076,
+        1.901952
+      ],
+      "draws": 63,
+      "triangles": 62039,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 8136784,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "sceneGeometryBufferBytes": 22002082,
+      "rendererGeometries": 83,
+      "rendererTextures": 24,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 40.431597500000265,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 1865.7000000029802,
+        "p95SynchronousMs": 2076.6000000089407,
+        "synchronousThroughputFPS": 0.5334755934915978,
+        "cappedSceneLoopFPS": 0.2543912163800809,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    {
+      "identity": "nursery",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        9.558527999999999,
+        5.2776000000000005,
+        6.656832
+      ],
+      "target": [
+        13.22832,
+        5.4076,
+        1.901952
+      ],
+      "draws": 56,
+      "triangles": 58443,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 8136784,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "sceneGeometryBufferBytes": 21988490,
+      "rendererGeometries": 85,
+      "rendererTextures": 24,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 40.40538772222259,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "crypt",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        18.092928,
+        5.2776000000000005,
+        6.656832
+      ],
+      "target": [
+        21.76272,
+        5.4076,
+        1.901952
+      ],
+      "draws": 45,
+      "triangles": 50649,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 8136784,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "sceneGeometryBufferBytes": 21988490,
+      "rendererGeometries": 86,
+      "rendererTextures": 24,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 43.41946869444433,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "laboratory",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        1.024128,
+        5.2776000000000005,
+        14.581631999999999
+      ],
+      "target": [
+        4.69392,
+        5.4076,
+        9.826752
+      ],
+      "draws": 105,
+      "triangles": 69181,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 8136784,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "sceneGeometryBufferBytes": 21988490,
+      "rendererGeometries": 96,
+      "rendererTextures": 30,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 118.24584561111128,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "circulation",
+      "quality": "cinematic",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        9.558527999999999,
+        5.2776000000000005,
+        14.581631999999999
+      ],
+      "target": [
+        13.22832,
+        5.4076,
+        9.826752
+      ],
+      "draws": 75,
+      "triangles": 63199,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 8136784,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "sceneGeometryBufferBytes": 21988490,
+      "rendererGeometries": 96,
+      "rendererTextures": 30,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 46.478804277778025,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "ballroom",
+      "quality": "cinematic",
+      "detail": "ceiling",
+      "eyeHeight": 1.62,
+      "position": [
+        2.1336,
+        1.62,
+        5.9436
+      ],
+      "target": [
+        4.2672,
+        3.5376000000000003,
+        2.932176
+      ],
+      "draws": 49,
+      "triangles": 97290,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31103186,
+      "rendererGeometries": 80,
+      "rendererTextures": 17,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 21.098495583333104,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "dining",
+      "quality": "cinematic",
+      "detail": "panels",
+      "eyeHeight": 1.62,
+      "position": [
+        4.2672,
+        1.62,
+        12.600432000000001
+      ],
+      "target": [
+        7.68096,
+        1.2,
+        13.07592
+      ],
+      "draws": 103,
+      "triangles": 116370,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31089594,
+      "rendererGeometries": 101,
+      "rendererTextures": 27,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 31.14412427777767,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "bedroom",
+      "quality": "cinematic",
+      "detail": "furniture",
+      "eyeHeight": 1.62,
+      "position": [
+        1.8361920000000003,
+        5.2776000000000005,
+        4.6348
+      ],
+      "target": [
+        1.536192,
+        4.9076,
+        6.6348
+      ],
+      "draws": 60,
+      "triangles": 58533,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 8136784,
+      "decodedRGBAWithMipsEstimate": 8846776,
+      "sceneGeometryBufferBytes": 22002082,
+      "rendererGeometries": 79,
+      "rendererTextures": 22,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 28.91829752777676,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "library",
+      "quality": "cinematic",
+      "detail": "story",
+      "eyeHeight": 1.62,
+      "position": [
+        23.6932,
+        1.62,
+        1.7764639999999998
+      ],
+      "target": [
+        24.9932,
+        0.95,
+        1.426464
+      ],
+      "draws": 40,
+      "triangles": 68004,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31103186,
+      "rendererGeometries": 77,
+      "rendererTextures": 16,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 91.4375090000018,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "parlor",
+      "quality": "cinematic",
+      "detail": "window",
+      "eyeHeight": 1.62,
+      "position": [
+        10.326623999999999,
+        1.62,
+        1.8
+      ],
+      "target": [
+        10.326623999999999,
+        1.72,
+        0
+      ],
+      "draws": 48,
+      "triangles": 97288,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31116778,
+      "rendererGeometries": 87,
+      "rendererTextures": 17,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 180.92025055555553,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "conservatory",
+      "quality": "cinematic",
+      "detail": "botanical",
+      "eyeHeight": 1.62,
+      "position": [
+        18.904992,
+        1.62,
+        10.5248
+      ],
+      "target": [
+        18.604992,
+        1,
+        8.5248
+      ],
+      "draws": 70,
+      "triangles": 108628,
+      "decodedTextures": 27,
+      "undecoded": 0,
+      "decodedRGBABytes": 10125312,
+      "decodedRGBAWithMipsEstimate": 10878994,
+      "sceneGeometryBufferBytes": 31089594,
+      "rendererGeometries": 89,
+      "rendererTextures": 24,
+      "shaderPrograms": 17,
+      "lights": 3,
+      "shadowPixels": 262144,
+      "shadowLights": 1,
+      "navigationRegionLuma": 72.09869338888801,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "ballroom",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        1.024128,
+        1.62,
+        6.656832
+      ],
+      "target": [
+        4.69392,
+        1.75,
+        1.901952
+      ],
+      "draws": 80,
+      "triangles": 103444,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 10027008,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "sceneGeometryBufferBytes": 31100546,
+      "rendererGeometries": 94,
+      "rendererTextures": 23,
+      "shaderPrograms": 22,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 55.81526427777802,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 837.2000000029802,
+        "p95SynchronousMs": 994.1000000089407,
+        "synchronousThroughputFPS": 1.1632528426967819,
+        "cappedSceneLoopFPS": 0.5600734816407923,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    {
+      "identity": "parlor",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        9.558527999999999,
+        1.62,
+        6.656832
+      ],
+      "target": [
+        13.22832,
+        1.75,
+        1.901952
+      ],
+      "draws": 81,
+      "triangles": 104798,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 10027008,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "sceneGeometryBufferBytes": 31112266,
+      "rendererGeometries": 100,
+      "rendererTextures": 23,
+      "shaderPrograms": 22,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 47.45665419444427,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "library",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        18.092928,
+        1.62,
+        6.656832
+      ],
+      "target": [
+        21.76272,
+        1.75,
+        1.901952
+      ],
+      "draws": 71,
+      "triangles": 103586,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 10027008,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "sceneGeometryBufferBytes": 31100546,
+      "rendererGeometries": 94,
+      "rendererTextures": 23,
+      "shaderPrograms": 22,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 32.214156138888846,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 758.0999999940395,
+        "p95SynchronousMs": 799.7000000029802,
+        "synchronousThroughputFPS": 1.3315579227718422,
+        "cappedSceneLoopFPS": 0.5952617167347911,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    {
+      "identity": "dining",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        1.024128,
+        1.62,
+        14.581631999999999
+      ],
+      "target": [
+        4.69392,
+        1.75,
+        9.826752
+      ],
+      "draws": 112,
+      "triangles": 116920,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 10027008,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "sceneGeometryBufferBytes": 31088826,
+      "rendererGeometries": 101,
+      "rendererTextures": 27,
+      "shaderPrograms": 22,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 104.9036072500006,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "gallery",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        9.558527999999999,
+        1.62,
+        14.581631999999999
+      ],
+      "target": [
+        13.22832,
+        1.75,
+        9.826752
+      ],
+      "draws": 98,
+      "triangles": 116358,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 10027008,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "sceneGeometryBufferBytes": 31088826,
+      "rendererGeometries": 101,
+      "rendererTextures": 27,
+      "shaderPrograms": 22,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 52.74579738888901,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "conservatory",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        18.092928,
+        1.62,
+        14.581631999999999
+      ],
+      "target": [
+        21.76272,
+        1.75,
+        9.826752
+      ],
+      "draws": 84,
+      "triangles": 112840,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 10027008,
+      "decodedRGBAWithMipsEstimate": 10747918,
+      "sceneGeometryBufferBytes": 31088826,
+      "rendererGeometries": 101,
+      "rendererTextures": 27,
+      "shaderPrograms": 22,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 96.17650044444261,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 986.2000000029802,
+        "p95SynchronousMs": 1130.7000000029802,
+        "synchronousThroughputFPS": 0.9992422413008432,
+        "cappedSceneLoopFPS": 0.45046803628970483,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    {
+      "identity": "bedroom",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        1.024128,
+        5.2776000000000005,
+        6.656832
+      ],
+      "target": [
+        4.69392,
+        5.4076,
+        1.901952
+      ],
+      "draws": 62,
+      "triangles": 62039,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 8038480,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "sceneGeometryBufferBytes": 21999442,
+      "rendererGeometries": 65,
+      "rendererTextures": 21,
+      "shaderPrograms": 17,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 32.608082999999304,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": {
+        "samples": 12,
+        "medianSynchronousMs": 957.5,
+        "p95SynchronousMs": 1150.6000000089407,
+        "synchronousThroughputFPS": 1.0287448455594173,
+        "cappedSceneLoopFPS": 0.4997418000699638,
+        "cappedFrames": 16,
+        "mainGameFPSMeasured": false,
+        "synchronization": "one-pixel GPU readback"
+      }
+    },
+    {
+      "identity": "nursery",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        9.558527999999999,
+        5.2776000000000005,
+        6.656832
+      ],
+      "target": [
+        13.22832,
+        5.4076,
+        1.901952
+      ],
+      "draws": 56,
+      "triangles": 58443,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 8038480,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "sceneGeometryBufferBytes": 21987722,
+      "rendererGeometries": 66,
+      "rendererTextures": 21,
+      "shaderPrograms": 17,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 32.26093452777777,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "crypt",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        18.092928,
+        5.2776000000000005,
+        6.656832
+      ],
+      "target": [
+        21.76272,
+        5.4076,
+        1.901952
+      ],
+      "draws": 44,
+      "triangles": 50649,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 8038480,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "sceneGeometryBufferBytes": 21987722,
+      "rendererGeometries": 66,
+      "rendererTextures": 21,
+      "shaderPrograms": 17,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 33.82403002777935,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "laboratory",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        1.024128,
+        5.2776000000000005,
+        14.581631999999999
+      ],
+      "target": [
+        4.69392,
+        5.4076,
+        9.826752
+      ],
+      "draws": 104,
+      "triangles": 69181,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 8038480,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "sceneGeometryBufferBytes": 21987722,
+      "rendererGeometries": 95,
+      "rendererTextures": 27,
+      "shaderPrograms": 17,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 108.33385958333098,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    },
+    {
+      "identity": "circulation",
+      "quality": "performance",
+      "detail": "room",
+      "eyeHeight": 1.62,
+      "position": [
+        9.558527999999999,
+        5.2776000000000005,
+        14.581631999999999
+      ],
+      "target": [
+        13.22832,
+        5.4076,
+        9.826752
+      ],
+      "draws": 74,
+      "triangles": 63199,
+      "decodedTextures": 26,
+      "undecoded": 0,
+      "decodedRGBABytes": 8038480,
+      "decodedRGBAWithMipsEstimate": 8715700,
+      "sceneGeometryBufferBytes": 21987722,
+      "rendererGeometries": 95,
+      "rendererTextures": 27,
+      "shaderPrograms": 17,
+      "lights": 2,
+      "shadowPixels": 0,
+      "shadowLights": 0,
+      "navigationRegionLuma": 37.042825333333184,
+      "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "benchmark": null
+    }
+  ],
+  "errors": [],
+  "budget": {
+    "components": {
+      "version": 1,
+      "rooms": 11,
+      "scopes": 22,
+      "totals": {
+        "primitives": 1754,
+        "triangles": 78193,
+        "geometryBytes": 8444844
+      },
+      "withinLimits": true,
+      "byComponent": {
+        "mansion-envelope": {
+          "instances": 11,
+          "primitives": 624,
+          "triangles": 7488
+        },
+        "profiled-cornices": {
+          "instances": 44,
+          "primitives": 84,
+          "triangles": 1872
+        },
+        "raised-wainscoting": {
+          "instances": 44,
+          "primitives": 96,
+          "triangles": 12850
+        },
+        "pediment-surrounds": {
+          "instances": 26,
+          "primitives": 56,
+          "triangles": 1534
+        },
+        "carved-pilasters": {
+          "instances": 8,
+          "primitives": 14,
+          "triangles": 1440
+        },
+        "coffered-ceilings": {
+          "instances": 8,
+          "primitives": 14,
+          "triangles": 1408
+        },
+        "carved-medallions": {
+          "instances": 8,
+          "primitives": 15,
+          "triangles": 1456
+        },
+        "period-floor-inlays": {
+          "instances": 11,
+          "primitives": 18,
+          "triangles": 1896
+        },
+        "woven-rug": {
+          "instances": 5,
+          "primitives": 25,
+          "triangles": 300
+        },
+        "gothic-textiles": {
+          "instances": 11,
+          "primitives": 51,
+          "triangles": 6044
+        },
+        "story-vignette": {
+          "instances": 10,
+          "primitives": 53,
+          "triangles": 6758
+        },
+        "story-accessories": {
+          "instances": 8,
+          "primitives": 33,
+          "triangles": 1668
+        },
+        "wall-mirror": {
+          "instances": 8,
+          "primitives": 107,
+          "triangles": 3148
+        },
+        "floor-rosette": {
+          "instances": 10,
+          "primitives": 10,
+          "triangles": 6400
+        },
+        "ceiling-chandelier": {
+          "instances": 11,
+          "primitives": 25,
+          "triangles": 9196
+        },
+        "artisan-fixtures": {
+          "instances": 21,
+          "primitives": 51,
+          "triangles": 2568
+        },
+        "wall-panel": {
+          "instances": 41,
+          "primitives": 359,
+          "triangles": 7612
+        },
+        "corner-web": {
+          "instances": 8,
+          "primitives": 32,
+          "triangles": 384
+        },
+        "leaded-window": {
+          "instances": 9,
+          "primitives": 45,
+          "triangles": 1564
+        },
+        "gothic-botanicals": {
+          "instances": 8,
+          "primitives": 27,
+          "triangles": 2196
+        },
+        "task-lamp": {
+          "instances": 2,
+          "primitives": 6,
+          "triangles": 304
+        },
+        "surface-aging": {
+          "instances": 5,
+          "primitives": 5,
+          "triangles": 23
+        },
+        "story-wall-trace": {
+          "instances": 1,
+          "primitives": 4,
+          "triangles": 84
+        }
+      },
+      "omissions": [
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        }
+      ],
+      "geometryBytesEstimated": true,
+      "sharedTexturesCountedByPackageInventory": true
+    },
+    "version": 1,
+    "method": "static-export-inventory",
+    "bytes": 23112931,
+    "models": [
+      {
+        "path": "geometry/elevator_cabin.glb",
+        "bytes": 27576,
+        "triangles": 60,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_00.glb",
+        "bytes": 1754588,
+        "triangles": 21302,
+        "draws": 16,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_01.glb",
+        "bytes": 1338664,
+        "triangles": 15722,
+        "draws": 17,
+        "instances": 1
+      },
+      {
+        "path": "exterior/street_preview.glb",
+        "bytes": 3262212,
+        "triangles": 41758,
+        "draws": 22,
+        "instances": 1
+      },
+      {
+        "path": "geometry/roof.glb",
+        "bytes": 393508,
+        "triangles": 4734,
+        "draws": 6,
+        "instances": 1
+      },
+      {
+        "path": "exterior/frontage.glb",
+        "bytes": 3262212,
+        "triangles": 41758,
+        "draws": 22,
+        "instances": 1
+      },
+      {
+        "path": "geometry/decoration.glb",
+        "bytes": 9896600,
+        "triangles": 132393,
+        "draws": 39,
+        "instances": 1
+      },
+      {
+        "path": "geometry/artwork.glb",
+        "bytes": 9108,
+        "triangles": 18,
+        "draws": 9,
+        "instances": 9
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-claret-preserved-luxury-0.glb",
+        "bytes": 108756,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 262648,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 108756,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-ebony-blue-preserved-luxury-0.glb",
+        "bytes": 250096,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-painted-emerald-aged-luxury-1.glb",
+        "bytes": 108756,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-oak-blue-preserved-luxury-2.glb",
+        "bytes": 95184,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-blue-preserved-luxury-2.glb",
+        "bytes": 108984,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-painted-ivory-preserved-luxury-2.glb",
+        "bytes": 94956,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-leather-aged-luxury-0.glb",
+        "bytes": 108984,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-oak-leather-aged-luxury-0.glb",
+        "bytes": 262876,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/special_main_hall.glb",
+        "bytes": 180968,
+        "triangles": 63492,
+        "draws": 17,
+        "instances": 1670
+      },
+      {
+        "path": "geometry/special_floor13_conservatory.glb",
+        "bytes": 323192,
+        "triangles": 157812,
+        "draws": 25,
+        "instances": 2900
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/portraits/hooded_wraith_bw.webp",
+        "bytes": 28676
+      },
+      {
+        "path": "assets/portraits/gothic_family_wolf_bw.webp",
+        "bytes": 26578
+      },
+      {
+        "path": "assets/portraits/vampire_countess_pair_bw.webp",
+        "bytes": 35484
+      },
+      {
+        "path": "assets/portraits/vampire_lord_chair_bw.webp",
+        "bytes": 36466
+      },
+      {
+        "path": "assets/portraits/occult_noble_pair_bw.webp",
+        "bytes": 46870
+      },
+      {
+        "path": "assets/portraits/victorian_ancestor_portrait_bw.webp",
+        "bytes": 28298
+      },
+      {
+        "path": "assets/portraits/electrified_madman_bw.webp",
+        "bytes": 64656
+      },
+      {
+        "path": "assets/portraits/carnivorous_plant_collection_bw.webp",
+        "bytes": 26972
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_botanical_bw.webp",
+        "bytes": 14796
+      }
+    ],
+    "budget": {
+      "maxPackageBytes": 33554432,
+      "maxModelTriangles": 450000,
+      "maxModelDraws": 160
+    },
+    "issues": [],
+    "withinPlanningBudget": true,
+    "fpsMeasured": false,
+    "limitations": [
+      "Model primitive counts are estimates; materials, shadows, repeated template placements and visibility affect real runtime cost",
+      "Per-device GPU performance must be measured in the game"
+    ]
+  },
+  "limitations": [
+    "Software Chromium scene benchmark, not Mac/device certification",
+    "RAF loop uses the Game 30Hz gate but excludes the full main.mjs gameplay/audio/UI loop",
+    "Decoded RGBA/mip estimates exclude driver compression and PMREM/framebuffer/depth allocation; exact GPU memory unavailable"
+  ]
+}

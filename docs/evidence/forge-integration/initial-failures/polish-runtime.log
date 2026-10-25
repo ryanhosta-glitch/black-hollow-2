@@ -1,0 +1,18 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Hemlock bounds/. Input:
+
+'Madame Wick lifts her candle. Lady Rattle clicks her heels. The dead have excellent rhythm. You are invited.'
+
+    at file:///tmp/forge-certification/tests/browser-polish.mjs:19:286 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'Madame Wick lifts her candle. Lady Rattle clicks her heels. The dead have excellent rhythm. You are invited.',
+  expected: /Hemlock bounds/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
