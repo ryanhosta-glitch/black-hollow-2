@@ -1,3 +1,4 @@
+import {resolveRoomAtmosphere,atmosphereMaterial} from '../casa_game/room_atmosphere_profiles.mjs';
 import {stableHash} from './forge_exterior_style.mjs';
 import {MAT} from './forge_glb.mjs';
 import {resolveRoomProfile} from '../casa_game/room_profiles.mjs';
@@ -18,7 +19,7 @@ export function architecturalTreatment(room){
  const mode=id==='crypt'?'stone':id==='laboratory'?'ceramic':id==='conservatory'?'iron':id==='library'?'mahogany':id==='nursery'?'restrained':id==='circulation'?'passage':id==='bedroom'?'plaster':'carved';
  const restrained=['restrained','passage','ceramic','iron'].includes(mode),formal=['ballroom','dining','gallery'].includes(id);
  const authored=room.finishes||{};
- return {identity:id,mode,restrained,formal,finish,
+ const treatment={identity:id,mode,restrained,formal,finish,
   field:finish.panel,relief:authored.panel!=null?finish.panel:mode==='stone'?MAT.stone:mode==='ceramic'?MAT.laboratory:mode==='iron'?MAT.metal:mode==='plaster'||mode==='restrained'?MAT.plaster:MAT.wood,
   crown:authored.ceiling!=null?finish.ceiling:['stone','ceramic','iron','mahogany'].includes(mode)?finish.panel:MAT.plaster,
   accent:authored.trim!=null?finish.trim:mode==='stone'?MAT.stone:mode==='ceramic'||mode==='iron'?MAT.metal:id==='nursery'?MAT.trim:MAT.metal,
@@ -28,4 +29,5 @@ export function architecturalTreatment(room){
   ceiling:!['passage','ceramic','iron'].includes(mode),
   cofferMaterial:authored.ceiling!=null?finish.ceiling:mode==='mahogany'?MAT.wood:mode==='stone'?MAT.stone:MAT.plaster
  };
+ const policy=resolveRoomAtmosphere(room);for(const [field,authorField] of Object.entries({field:'panel',relief:'panel',accent:'trim',crown:'ceiling',cofferMaterial:'ceiling'}))if(authored[authorField]==null)treatment[field]=atmosphereMaterial(treatment[field],policy);return treatment;
 }

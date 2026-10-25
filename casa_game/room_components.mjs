@@ -3,6 +3,7 @@ import {ROOM_MATERIALS} from './room_materials.mjs';
 
 /** Registry entries select existing generators, never a second copy of their models. */
 const entries=[
+ ['gothic-textiles','accessory','gothicRoomDetails',0],['gothic-botanicals','accessory','gothicRoomDetails',1],['surface-aging','wall-decoration','gothicRoomDetails',1],
  ['wall-display','wall-decoration','planRoomContents',0],['ceiling-fallback','architecture','planRoomContents',0],
  ['woven-rug','accessory','planRoomContents',0],['window-valance','wall-decoration','planRoomContents',0],
  ['support-objects','accessory','planRoomContents',0],['story-vignette','accessory','composeStoryRoom',0],['story-accessories','accessory','composeStoryRoom',1],['story-wall-trace','wall-decoration','composeStoryRoom',0],

@@ -290,3 +290,7 @@ See [the shared lighting policy, fixture inventory, compatibility assessment and
 ## Environmental storytelling — Pass 5
 
 See [the shared object inventory, surface rules, compatibility and regression assessment](docs/FORGE_ENVIRONMENTAL_STORYTELLING_PASS5.md) and [the matched room/story comparisons](docs/evidence/forge-storytelling/index.html). Curated deterministic arrangements replace overlapping tabletop clutter, preserving existing optional memories and quest bindings. No student archives are replaced or published.
+
+## Gothic atmosphere and material detail — Pass 6
+
+See [the shared textile/glass/botanical inventory, authored policies, quality budgets and regression assessment](docs/FORGE_GOTHIC_ATMOSPHERE_PASS6.md) and [the condition and quality comparison viewer](docs/evidence/forge-atmosphere/index.html). Per-room treatments replace overlapping runtime dressing in new exports; no student archives are rewritten or published.

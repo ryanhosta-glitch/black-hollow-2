@@ -1,3 +1,4 @@
+import {stableRoomHash} from './room_profiles.mjs';
 export {lightingQualityForDevice} from './lighting_profiles.mjs';
 import {lightingQuality} from './lighting_profiles.mjs';
 /** A bounded three-light composition for the room currently occupied. */
@@ -18,7 +19,7 @@ export function selectHouseLights(house,{roomId,floor,position,quality='cinemati
  const windowRole=pool.some(l=>lightRole(l)==='stained'&&distance(position,l.positionMeters)<4)?'stained':'moon',botanical=pool.some(l=>l.roomLighting?.identity==='conservatory');
  for(const role of ['key',task?'task':nearbyFire?'hearth':portrait?'portrait':botanical?windowRole:'practical',windowRole,windowRole==='moon'?'stained':'moon']){const light=pool.find(l=>lightRole(l)===role&&!selected.includes(l));if(light)selected.push(light);}
  for(const light of pool)if(selected.length<3&&!selected.includes(light))selected.push(light);
- return selected.slice(0,lightingQuality(quality).lights);
+ const policy=house?.decoration?.roomContents?.find(c=>String(c.roomId)===String(roomId))?.atmosphere;return selected.slice(0,lightingQuality(quality).lights).map(l=>quality==='cinematic'&&policy?.effects&&['key','practical','hearth'].includes(lightRole(l))?{...l,gothicPulse:{amplitude:.025,periodSeconds:12,phase:stableRoomHash(l.id)%23}}:l);
 }
 export function footstepSurface(room,mode='house'){
  if(mode==='grounds')return 'soil';if(mode==='street')return 'stone';

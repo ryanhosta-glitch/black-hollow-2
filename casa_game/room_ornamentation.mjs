@@ -23,7 +23,7 @@ export function artisanDetails(room,{identity,y,occupied,furniture,add,component
  if(!['laboratory','conservatory','circulation'].includes(identity)&&h>2.5&&w>2.5&&d>2.5){withRoomComponent(components,'wall-mirror',()=>{
   const bat=seed%2===0||identity==='crypt',width=.88,height=1.12,py=Math.min(1.83,h-.78);
   mounted(width,height,py,['left','bottom','right','top'],({box,line,ellipse})=>{
-   const mat=bat?19:18;box(0,-.025,.045,.60,.79,.025,18);
+   const mat=bat?19:18;box(0,-.025,.045,.60,.79,.025,41);
    for(const side of [-1,1]){box(side*.33,-.02,.07,.055,.88,.05,mat);box(0,side*.45,.07,.69,.045,.05,mat);ellipse(side*.34,side*.38,.073,.10,.09,mat);ellipse(side*.34,0,.052,.075,.085,mat);}
    if(bat){line([[-.30,.47,.08],[-.25,.55,.08],[-.12,.48,.08],[0,.50,.08],[.12,.48,.08],[.25,.55,.08],[.30,.47,.08]],.024,19);for(const side of [-1,1]){line([[0,.47,.095],[side*.17,.54,.095],[side*.29,.46,.095],[side*.12,.43,.095],[0,.47,.095]],.018,19);ellipse(side*.27,-.49,.07,.06,.085,19);}}
    else {line([[-.31,.36,.09],[-.23,.45,.09],[0,.55,.09],[.23,.45,.09],[.31,.36,.09]],.018,18);for(const side of [-1,1])ellipse(side*.11,.43,.055,.09,.10,18);ellipse(0,-.48,.13,.055,.10,18);}

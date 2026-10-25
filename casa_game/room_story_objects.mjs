@@ -1,3 +1,4 @@
+import {gothicComponentParts} from './gothic_components.mjs';
 import {architecturalShapes} from './component_shapes.mjs';
 import {ROOM_MATERIALS as M} from './room_materials.mjs';
 const definitions={
@@ -59,7 +60,7 @@ function build(type,compact,variant){
   box(0,.018,0,.39,.036,.20);box(0,.18,-.08,.38,.28,.025);for(const s of [-1,1]){box(s*.17,.18,.07,.025,.30,.025,M.metal);for(let k=0;k<3;k++)box(s*(.13-k*.016),.195,.065,.025,.27,.018,M.upholstery);}box(0,.34,.03,.40,.035,.15,M.metal);box(-.065,.071,.01,.07,.07,.05,M.ivory);lathe(-.065,.105,.01,[[0,0],[.025,.015],[.025,.04],[0,.05]],M.ivory,6);box(.07,.057,.02,.075,.005,.06,M.ebony);
  }
  if(type==='wooden-toys'){for(const [k,z]of [[0,0],[1,-.02]]){box((k-.5)*.09,.035,z,.065,.07,.065,M.wood);g.rosette((u,v,t)=>[u,.072+t*.05,z+v],(k-.5)*.09,0,.018,M.metal,4);}box(.10,.002,.04,.065,.004,.065,M.ebony);}
- if(type==='botanical-bell'){lathe(0,0,0,[[0,0],[.105,0],[.105,.014],[0,.014]],M.wood);lathe(0,.015,0,[[.10,0],[.10,.20],[.08,.28],[.025,.33],[0,.34]],M.leadedGlass);for(let k=0;k<5;k++){const a=k*Math.PI*2/5;rod([0,.02,0],[Math.cos(a)*.06,.22,Math.sin(a)*.06],.003,M.conservatory);g.triangle([0,.10,0],[Math.cos(a)*.075,.23,Math.sin(a)*.075],[Math.cos(a+.5)*.04,.16,Math.sin(a+.5)*.04],M.conservatory);}}
+ if(type==='botanical-bell'){lathe(0,0,0,[[0,0],[.105,0],[.105,.014],[0,.014]],M.wood);lathe(0,.015,0,[[.10,0],[.10,.20],[.08,.28],[.025,.33],[0,.34]],M.displayGlass);for(const p of gothicComponentParts('fern-fronds',{height:.24,compact:true}))for(const t of p.triangles)g.triangle(...t.map(v=>[v[0]*.5,v[1]+.015,v[2]*.5]),p.mat);}
  if(type==='garden-snips'){for(const s of [-1,1]){ring([s*.035,.006,-.035],.026,.034,'y',M.metal,.003);g.triangle([s*.025,.007,-.01],[s*.05,.007,.085],[0,.007,.025],M.silver);}lathe(0,0,.012,[[0,0],[.008,0],[.008,.015],[0,.015]],M.metal,6);}
  if(type==='gramophone'){
   box(0,.03,0,.25,.06,.21);lathe(-.025,.06,.015,[[0,0],[.075,0],[.075,.009],[0,.009]],M.ebony,12);lathe(-.025,.07,.015,[[0,0],[.021,0],[.021,.002],[0,.002]],M.ivory,8);rod([.08,.065,-.055],[.08,.22,.035],.012);const c=[0,.34,.07],neck=[.08,.22,.035];for(let k=0;k<(compact?10:16);k++){const a=k/(compact?10:16)*Math.PI*2,b=(k+1)/(compact?10:16)*Math.PI*2;g.triangle(neck,[c[0]+Math.cos(a)*.14,c[1]+Math.sin(a)*.14,c[2]],[c[0]+Math.cos(b)*.14,c[1]+Math.sin(b)*.14,c[2]],M.metal);}ring(c,.14,.14,'z',M.metal,.006);rod([.125,.035,0],[.155,.035,.03],.006);}

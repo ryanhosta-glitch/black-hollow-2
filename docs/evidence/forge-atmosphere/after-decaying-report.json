@@ -1,0 +1,2751 @@
+{
+  "edition": "after",
+  "condition": "decaying",
+  "browser": "154.0.8037.57",
+  "webgl": true,
+  "compiledBytes": 5801801,
+  "views": [
+    {
+      "identity": "ballroom",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 79,
+      "triangles": 106404,
+      "undecoded": 0,
+      "compileMs": 204.29999999701977,
+      "firstFrameMs": 373,
+      "gpuGeometries": 88,
+      "gpuTextures": 23,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:ballroom:chandelier",
+          "role": "key",
+          "color": "#ffdbac"
+        },
+        {
+          "id": "artisan:ballroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:ballroom:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 68.39984407821242,
+      "darkFraction": 0.13098333333333334,
+      "brightFraction": 0.00045
+    },
+    {
+      "identity": "parlor",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 85,
+      "triangles": 107782,
+      "undecoded": 0,
+      "compileMs": 13.899999991059303,
+      "firstFrameMs": 4.700000002980232,
+      "gpuGeometries": 99,
+      "gpuTextures": 24,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:parlor:chandelier",
+          "role": "key",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "artisan:parlor:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:parlor:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 55.40772664804435,
+      "darkFraction": 0.09983333333333333,
+      "brightFraction": 0.00015
+    },
+    {
+      "identity": "library",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 70,
+      "triangles": 103190,
+      "undecoded": 0,
+      "compileMs": 15.599999994039536,
+      "firstFrameMs": 7.299999997019768,
+      "gpuGeometries": 92,
+      "gpuTextures": 24,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:library:chandelier",
+          "role": "key",
+          "color": "#ffd19a"
+        },
+        {
+          "id": "artisan:library:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:library:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 41.04266910614555,
+      "darkFraction": 0.36835,
+      "brightFraction": 0.00011666666666666667
+    },
+    {
+      "identity": "dining",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 108,
+      "triangles": 117484,
+      "undecoded": 0,
+      "compileMs": 15.900000005960464,
+      "firstFrameMs": 31.299999997019768,
+      "gpuGeometries": 97,
+      "gpuTextures": 30,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:dining:chandelier",
+          "role": "key",
+          "color": "#ffdaad"
+        },
+        {
+          "id": "artisan:dining:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:dining:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 109.32845547485957,
+      "darkFraction": 0.13903333333333334,
+      "brightFraction": 0.0004166666666666667
+    },
+    {
+      "identity": "gallery",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 97,
+      "triangles": 116922,
+      "undecoded": 0,
+      "compileMs": 15.5,
+      "firstFrameMs": 6,
+      "gpuGeometries": 98,
+      "gpuTextures": 30,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:gallery:chandelier",
+          "role": "key",
+          "color": "#ffe0b5"
+        },
+        {
+          "id": "lighting:gallery:portrait",
+          "role": "portrait",
+          "color": "#ffe0b9"
+        },
+        {
+          "id": "lighting:gallery:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 59.36327474860332,
+      "darkFraction": 0.1037,
+      "brightFraction": 0.00016666666666666666
+    },
+    {
+      "identity": "conservatory",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 83,
+      "triangles": 112330,
+      "undecoded": 0,
+      "compileMs": 13.299999997019768,
+      "firstFrameMs": 2.7000000029802322,
+      "gpuGeometries": 98,
+      "gpuTextures": 30,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:conservatory:chandelier",
+          "role": "key",
+          "color": "#d1e1bf"
+        },
+        {
+          "id": "lighting:conservatory:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        },
+        {
+          "id": "lighting:conservatory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 112.4200988826812,
+      "darkFraction": 0.09441666666666666,
+      "brightFraction": 0
+    },
+    {
+      "identity": "bedroom",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 61,
+      "triangles": 62315,
+      "undecoded": 0,
+      "compileMs": 29.5,
+      "firstFrameMs": 381.59999999403954,
+      "gpuGeometries": 80,
+      "gpuTextures": 24,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:bedroom:chandelier",
+          "role": "key",
+          "color": "#ffceab"
+        },
+        {
+          "id": "artisan:bedroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:bedroom:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 41.16993220670453,
+      "darkFraction": 0.22661666666666666,
+      "brightFraction": 0.0003
+    },
+    {
+      "identity": "nursery",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 54,
+      "triangles": 58719,
+      "undecoded": 0,
+      "compileMs": 13.5,
+      "firstFrameMs": 3.7999999970197678,
+      "gpuGeometries": 81,
+      "gpuTextures": 24,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:nursery:chandelier",
+          "role": "key",
+          "color": "#ffe0b8"
+        },
+        {
+          "id": "artisan:nursery:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:nursery:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 41.10587815642522,
+      "darkFraction": 0.23238333333333333,
+      "brightFraction": 0.00028333333333333335
+    },
+    {
+      "identity": "crypt",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 46,
+      "triangles": 53527,
+      "undecoded": 0,
+      "compileMs": 12.900000005960464,
+      "firstFrameMs": 4,
+      "gpuGeometries": 82,
+      "gpuTextures": 24,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:crypt:chandelier",
+          "role": "key",
+          "color": "#a7cadd"
+        },
+        {
+          "id": "artisan:crypt:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:crypt:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 43.47893159217867,
+      "darkFraction": 0.08483333333333333,
+      "brightFraction": 0.00015
+    },
+    {
+      "identity": "laboratory",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 101,
+      "triangles": 69429,
+      "undecoded": 0,
+      "compileMs": 12.799999997019768,
+      "firstFrameMs": 8.799999997019768,
+      "gpuGeometries": 92,
+      "gpuTextures": 30,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:laboratory:chandelier",
+          "role": "key",
+          "color": "#c0ddf3"
+        },
+        {
+          "id": "artisan:laboratory:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:laboratory:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 118.26233804469274,
+      "darkFraction": 0.08546666666666666,
+      "brightFraction": 0
+    },
+    {
+      "identity": "circulation",
+      "detail": "room",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 71,
+      "triangles": 63471,
+      "undecoded": 0,
+      "compileMs": 12.5,
+      "firstFrameMs": 2,
+      "gpuGeometries": 92,
+      "gpuTextures": 30,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:circulation:chandelier",
+          "role": "key",
+          "color": "#ffd5aa"
+        },
+        {
+          "id": "artisan:circulation:light:0",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:circulation:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 46.5150298603355,
+      "darkFraction": 0.16721666666666668,
+      "brightFraction": 0.0001
+    },
+    {
+      "identity": "parlor",
+      "detail": "window",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 47,
+      "triangles": 100224,
+      "undecoded": 0,
+      "compileMs": 25.900000005960464,
+      "firstFrameMs": 280.3999999910593,
+      "gpuGeometries": 82,
+      "gpuTextures": 16,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:parlor:chandelier",
+          "role": "key",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "hearth:parlor-hearth",
+          "role": "hearth",
+          "color": "#ffb16e"
+        },
+        {
+          "id": "lighting:parlor:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 180.98502905027937,
+      "darkFraction": 0.00555,
+      "brightFraction": 0
+    },
+    {
+      "identity": "bedroom",
+      "detail": "canopy",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 62,
+      "triangles": 60423,
+      "undecoded": 0,
+      "compileMs": 24.399999991059303,
+      "firstFrameMs": 335.6000000089407,
+      "gpuGeometries": 78,
+      "gpuTextures": 22,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:bedroom:chandelier",
+          "role": "key",
+          "color": "#ffceab"
+        },
+        {
+          "id": "artisan:bedroom:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:bedroom:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 75.56010477653558,
+      "darkFraction": 0.5383833333333333,
+      "brightFraction": 0
+    },
+    {
+      "identity": "conservatory",
+      "detail": "botanical",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 67,
+      "triangles": 107968,
+      "undecoded": 0,
+      "compileMs": 24.700000002980232,
+      "firstFrameMs": 404.8999999910593,
+      "gpuGeometries": 79,
+      "gpuTextures": 24,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:conservatory:chandelier",
+          "role": "key",
+          "color": "#d1e1bf"
+        },
+        {
+          "id": "lighting:conservatory:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        },
+        {
+          "id": "lighting:conservatory:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 70.20574298882661,
+      "darkFraction": 0.24906666666666666,
+      "brightFraction": 0
+    },
+    {
+      "identity": "crypt",
+      "detail": "botanical",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 43,
+      "triangles": 53353,
+      "undecoded": 0,
+      "compileMs": 22.100000008940697,
+      "firstFrameMs": 353.79999999701977,
+      "gpuGeometries": 69,
+      "gpuTextures": 19,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:crypt:chandelier",
+          "role": "key",
+          "color": "#a7cadd"
+        },
+        {
+          "id": "artisan:crypt:light:1",
+          "role": "practical",
+          "color": "#ffd0a0"
+        },
+        {
+          "id": "lighting:crypt:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 46.56718648044823,
+      "darkFraction": 0.05436666666666667,
+      "brightFraction": 0
+    },
+    {
+      "identity": "library",
+      "detail": "window",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 41,
+      "triangles": 88084,
+      "undecoded": 0,
+      "compileMs": 20.80000001192093,
+      "firstFrameMs": 318.3999999910593,
+      "gpuGeometries": 76,
+      "gpuTextures": 15,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:library:chandelier",
+          "role": "key",
+          "color": "#ffd19a"
+        },
+        {
+          "id": "hearth:library-hearth",
+          "role": "hearth",
+          "color": "#ffb16e"
+        },
+        {
+          "id": "lighting:library:stained",
+          "role": "stained",
+          "color": "#d8aa83"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 130.67684407821238,
+      "darkFraction": 0.016516666666666666,
+      "brightFraction": 0
+    },
+    {
+      "identity": "gallery",
+      "detail": "mirror",
+      "quality": "cinematic",
+      "dustCapacity": 64,
+      "dustCount": 64,
+      "draws": 50,
+      "triangles": 101434,
+      "undecoded": 0,
+      "compileMs": 15.599999994039536,
+      "firstFrameMs": 8.900000005960464,
+      "gpuGeometries": 85,
+      "gpuTextures": 16,
+      "shaderPrograms": 17,
+      "selected": [
+        {
+          "id": "lighting:gallery:chandelier",
+          "role": "key",
+          "color": "#ffe0b5"
+        },
+        {
+          "id": "lighting:gallery:portrait",
+          "role": "portrait",
+          "color": "#ffe0b9"
+        },
+        {
+          "id": "lighting:gallery:moon:0",
+          "role": "moon",
+          "color": "#a8c6ed"
+        }
+      ],
+      "activeLights": 3,
+      "activePoints": 2,
+      "activeSpots": 1,
+      "shadowLights": 1,
+      "shadowPixels": 262144,
+      "floorLuma": 13.732023770949702,
+      "darkFraction": 0.3657666666666667,
+      "brightFraction": 0
+    }
+  ],
+  "budget": {
+    "components": {
+      "version": 1,
+      "rooms": 11,
+      "scopes": 22,
+      "totals": {
+        "primitives": 1804,
+        "triangles": 79068,
+        "geometryBytes": 8539344
+      },
+      "withinLimits": true,
+      "byComponent": {
+        "mansion-envelope": {
+          "instances": 11,
+          "primitives": 624,
+          "triangles": 7488
+        },
+        "profiled-cornices": {
+          "instances": 44,
+          "primitives": 84,
+          "triangles": 1872
+        },
+        "raised-wainscoting": {
+          "instances": 44,
+          "primitives": 108,
+          "triangles": 12850
+        },
+        "pediment-surrounds": {
+          "instances": 26,
+          "primitives": 62,
+          "triangles": 1534
+        },
+        "carved-pilasters": {
+          "instances": 8,
+          "primitives": 14,
+          "triangles": 1440
+        },
+        "coffered-ceilings": {
+          "instances": 8,
+          "primitives": 14,
+          "triangles": 1408
+        },
+        "carved-medallions": {
+          "instances": 8,
+          "primitives": 15,
+          "triangles": 1456
+        },
+        "period-floor-inlays": {
+          "instances": 11,
+          "primitives": 18,
+          "triangles": 1896
+        },
+        "woven-rug": {
+          "instances": 5,
+          "primitives": 25,
+          "triangles": 300
+        },
+        "gothic-textiles": {
+          "instances": 11,
+          "primitives": 51,
+          "triangles": 6044
+        },
+        "story-vignette": {
+          "instances": 10,
+          "primitives": 53,
+          "triangles": 6758
+        },
+        "story-accessories": {
+          "instances": 8,
+          "primitives": 33,
+          "triangles": 1668
+        },
+        "wall-mirror": {
+          "instances": 8,
+          "primitives": 107,
+          "triangles": 3148
+        },
+        "floor-rosette": {
+          "instances": 10,
+          "primitives": 10,
+          "triangles": 6400
+        },
+        "ceiling-chandelier": {
+          "instances": 11,
+          "primitives": 25,
+          "triangles": 9196
+        },
+        "artisan-fixtures": {
+          "instances": 21,
+          "primitives": 51,
+          "triangles": 2568
+        },
+        "wall-panel": {
+          "instances": 41,
+          "primitives": 359,
+          "triangles": 7612
+        },
+        "corner-web": {
+          "instances": 20,
+          "primitives": 80,
+          "triangles": 960
+        },
+        "leaded-window": {
+          "instances": 9,
+          "primitives": 45,
+          "triangles": 1564
+        },
+        "gothic-botanicals": {
+          "instances": 8,
+          "primitives": 9,
+          "triangles": 2484
+        },
+        "task-lamp": {
+          "instances": 2,
+          "primitives": 6,
+          "triangles": 304
+        },
+        "surface-aging": {
+          "instances": 7,
+          "primitives": 7,
+          "triangles": 34
+        },
+        "story-wall-trace": {
+          "instances": 1,
+          "primitives": 4,
+          "triangles": 84
+        }
+      },
+      "omissions": [
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "ballroom",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "parlor",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "library",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "dining",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "gallery",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "conservatory",
+          "floor": 0,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "bedroom",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "nursery",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "laboratory",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "top",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "bottom",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "left",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-pilasters",
+          "key": "right",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "coffered-ceilings",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "carved-medallions",
+          "key": "room",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "crypt",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        },
+        {
+          "roomId": "circulation",
+          "floor": 1,
+          "component": "leaded-window",
+          "key": "0",
+          "reason": "NO_SAFE_PLACEMENT"
+        }
+      ],
+      "geometryBytesEstimated": true,
+      "sharedTexturesCountedByPackageInventory": true
+    },
+    "version": 1,
+    "method": "static-export-inventory",
+    "bytes": 23180156,
+    "models": [
+      {
+        "path": "geometry/elevator_cabin.glb",
+        "bytes": 27576,
+        "triangles": 60,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_00.glb",
+        "bytes": 1750764,
+        "triangles": 21302,
+        "draws": 16,
+        "instances": 1
+      },
+      {
+        "path": "geometry/floor_01.glb",
+        "bytes": 1334836,
+        "triangles": 15722,
+        "draws": 17,
+        "instances": 1
+      },
+      {
+        "path": "exterior/street_preview.glb",
+        "bytes": 3258384,
+        "triangles": 41758,
+        "draws": 22,
+        "instances": 1
+      },
+      {
+        "path": "geometry/roof.glb",
+        "bytes": 393512,
+        "triangles": 4734,
+        "draws": 6,
+        "instances": 1
+      },
+      {
+        "path": "exterior/frontage.glb",
+        "bytes": 3258384,
+        "triangles": 41758,
+        "draws": 22,
+        "instances": 1
+      },
+      {
+        "path": "geometry/decoration.glb",
+        "bytes": 9969360,
+        "triangles": 133268,
+        "draws": 35,
+        "instances": 1
+      },
+      {
+        "path": "geometry/artwork.glb",
+        "bytes": 9108,
+        "triangles": 18,
+        "draws": 9,
+        "instances": 9
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-claret-preserved-luxury-0.glb",
+        "bytes": 108756,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 262648,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-mahogany-leather-aged-luxury-1.glb",
+        "bytes": 108756,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-ebony-blue-preserved-luxury-0.glb",
+        "bytes": 250096,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-painted-emerald-aged-luxury-1.glb",
+        "bytes": 108756,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-oak-blue-preserved-luxury-2.glb",
+        "bytes": 95184,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-blue-preserved-luxury-2.glb",
+        "bytes": 108984,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/wardrobe-painted-ivory-preserved-luxury-2.glb",
+        "bytes": 94956,
+        "triangles": 916,
+        "draws": 2,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/writing_desk-oak-leather-aged-luxury-0.glb",
+        "bytes": 108984,
+        "triangles": 1102,
+        "draws": 3,
+        "instances": 1
+      },
+      {
+        "path": "geometry/furniture/bookcase-oak-leather-aged-luxury-0.glb",
+        "bytes": 262876,
+        "triangles": 1848,
+        "draws": 5,
+        "instances": 1
+      },
+      {
+        "path": "geometry/special_main_hall.glb",
+        "bytes": 180968,
+        "triangles": 63492,
+        "draws": 17,
+        "instances": 1670
+      },
+      {
+        "path": "geometry/special_floor13_conservatory.glb",
+        "bytes": 323192,
+        "triangles": 157812,
+        "draws": 25,
+        "instances": 2900
+      }
+    ],
+    "images": [
+      {
+        "path": "assets/portraits/hooded_wraith_bw.webp",
+        "bytes": 28676
+      },
+      {
+        "path": "assets/portraits/gothic_family_wolf_bw.webp",
+        "bytes": 26578
+      },
+      {
+        "path": "assets/portraits/vampire_countess_pair_bw.webp",
+        "bytes": 35484
+      },
+      {
+        "path": "assets/portraits/vampire_lord_chair_bw.webp",
+        "bytes": 36466
+      },
+      {
+        "path": "assets/portraits/occult_noble_pair_bw.webp",
+        "bytes": 46870
+      },
+      {
+        "path": "assets/portraits/victorian_ancestor_portrait_bw.webp",
+        "bytes": 28298
+      },
+      {
+        "path": "assets/portraits/electrified_madman_bw.webp",
+        "bytes": 64656
+      },
+      {
+        "path": "assets/portraits/carnivorous_plant_collection_bw.webp",
+        "bytes": 26972
+      },
+      {
+        "path": "assets/portraits/pitcher_plant_botanical_bw.webp",
+        "bytes": 14796
+      }
+    ],
+    "budget": {
+      "maxPackageBytes": 33554432,
+      "maxModelTriangles": 450000,
+      "maxModelDraws": 160
+    },
+    "issues": [],
+    "withinPlanningBudget": true,
+    "fpsMeasured": false,
+    "limitations": [
+      "Model primitive counts are estimates; materials, shadows, repeated template placements and visibility affect real runtime cost",
+      "Per-device GPU performance must be measured in the game"
+    ]
+  },
+  "errors": [],
+  "atmosphere": {
+    "version": 1,
+    "edition": "gothic-atmosphere-1",
+    "optional": true,
+    "rooms": [
+      {
+        "roomId": "ballroom",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "ballroom",
+          "family": "formal",
+          "condition": "decaying",
+          "variant": 2,
+          "enabled": true,
+          "textiles": true,
+          "glass": true,
+          "botanicals": true,
+          "fabric": "claret",
+          "aging": true,
+          "effects": true,
+          "waterStaining": false,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "ballroom",
+            "family": "formal",
+            "condition": "decaying",
+            "variant": 2,
+            "enabled": true,
+            "textiles": true,
+            "glass": true,
+            "botanicals": true,
+            "fabric": "claret",
+            "aging": true,
+            "effects": true,
+            "waterStaining": false,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "velvet-curtain",
+              "key": "window-0",
+              "positionMeters": [
+                1.7922239999999998,
+                0.95,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 416,
+              "groups": 2
+            },
+            {
+              "type": "layered-valance",
+              "key": "valance-0",
+              "positionMeters": [
+                1.7922239999999998,
+                2.32,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:2",
+              "positionMeters": [
+                0.055,
+                2.6276000000000006,
+                6.1886
+              ],
+              "rotationY": 1.5707963267948966,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:3",
+              "positionMeters": [
+                7.7376000000000005,
+                2.6276000000000006,
+                0.055
+              ],
+              "rotationY": 0,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                1.7922239999999998,
+                0.95,
+                0.018
+              ],
+              "rotationY": 0,
+              "triangles": 176,
+              "groups": 5
+            },
+            {
+              "type": "trailing-ivy",
+              "key": "wall-botanical",
+              "positionMeters": [
+                3.029712,
+                2.8126,
+                0.08
+              ],
+              "rotationY": 0,
+              "triangles": 324,
+              "groups": 1
+            }
+          ],
+          "triangles": 1712,
+          "groups": 15,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            },
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            }
+          ]
+        }
+      },
+      {
+        "roomId": "parlor",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "parlor",
+          "family": "formal",
+          "condition": "decaying",
+          "variant": 0,
+          "enabled": true,
+          "textiles": true,
+          "glass": true,
+          "botanicals": true,
+          "fabric": "claret",
+          "aging": true,
+          "effects": true,
+          "waterStaining": false,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "parlor",
+            "family": "formal",
+            "condition": "decaying",
+            "variant": 0,
+            "enabled": true,
+            "textiles": true,
+            "glass": true,
+            "botanicals": true,
+            "fabric": "claret",
+            "aging": true,
+            "effects": true,
+            "waterStaining": false,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "velvet-curtain",
+              "key": "window-0",
+              "positionMeters": [
+                10.326623999999999,
+                0.95,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 416,
+              "groups": 2
+            },
+            {
+              "type": "layered-valance",
+              "key": "valance-0",
+              "positionMeters": [
+                10.326623999999999,
+                2.32,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:2",
+              "positionMeters": [
+                15.204948,
+                2.6276000000000006,
+                0.055
+              ],
+              "rotationY": 0,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:3",
+              "positionMeters": [
+                17.0138,
+                2.6276000000000006,
+                1.7112
+              ],
+              "rotationY": -1.5707963267948966,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                10.326623999999999,
+                0.95,
+                0.018
+              ],
+              "rotationY": 0,
+              "triangles": 176,
+              "groups": 5
+            },
+            {
+              "type": "trailing-ivy",
+              "key": "wall-botanical",
+              "positionMeters": [
+                11.564112,
+                2.8126,
+                0.08
+              ],
+              "rotationY": 0,
+              "triangles": 324,
+              "groups": 1
+            }
+          ],
+          "triangles": 1712,
+          "groups": 15,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            },
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            }
+          ]
+        }
+      },
+      {
+        "roomId": "library",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "library",
+          "family": "scholarly",
+          "condition": "decaying",
+          "variant": 1,
+          "enabled": true,
+          "textiles": true,
+          "glass": true,
+          "botanicals": true,
+          "fabric": "emerald",
+          "aging": true,
+          "effects": true,
+          "waterStaining": false,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "library",
+            "family": "scholarly",
+            "condition": "decaying",
+            "variant": 1,
+            "enabled": true,
+            "textiles": true,
+            "glass": true,
+            "botanicals": true,
+            "fabric": "emerald",
+            "aging": true,
+            "effects": true,
+            "waterStaining": false,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "velvet-curtain",
+              "key": "window-0",
+              "positionMeters": [
+                18.861024,
+                0.95,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 416,
+              "groups": 2
+            },
+            {
+              "type": "layered-valance",
+              "key": "valance-0",
+              "positionMeters": [
+                18.861024,
+                2.32,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:2",
+              "positionMeters": [
+                18.9324,
+                2.6276000000000006,
+                7.869800000000001
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:3",
+              "positionMeters": [
+                23.739348,
+                2.6276000000000006,
+                0.055
+              ],
+              "rotationY": 0,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                18.861024,
+                0.95,
+                0.018
+              ],
+              "rotationY": 0,
+              "triangles": 176,
+              "groups": 5
+            },
+            {
+              "type": "trailing-ivy",
+              "key": "wall-botanical",
+              "positionMeters": [
+                20.098512,
+                2.8126,
+                0.08
+              ],
+              "rotationY": 0,
+              "triangles": 324,
+              "groups": 1
+            }
+          ],
+          "triangles": 1712,
+          "groups": 15,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            },
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            }
+          ]
+        }
+      },
+      {
+        "roomId": "dining",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "dining",
+          "family": "formal",
+          "condition": "decaying",
+          "variant": 1,
+          "enabled": true,
+          "textiles": true,
+          "glass": true,
+          "botanicals": true,
+          "fabric": "emerald",
+          "aging": true,
+          "effects": true,
+          "waterStaining": false,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "dining",
+            "family": "formal",
+            "condition": "decaying",
+            "variant": 1,
+            "enabled": true,
+            "textiles": true,
+            "glass": true,
+            "botanicals": true,
+            "fabric": "emerald",
+            "aging": true,
+            "effects": true,
+            "waterStaining": false,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "velvet-curtain",
+              "key": "window-0",
+              "positionMeters": [
+                4.2672,
+                0.95,
+                15.8126
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 416,
+              "groups": 2
+            },
+            {
+              "type": "layered-valance",
+              "key": "valance-0",
+              "positionMeters": [
+                4.2672,
+                2.32,
+                15.8126
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:2",
+              "positionMeters": [
+                1.8638519999999998,
+                2.6276000000000006,
+                15.7946
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:3",
+              "positionMeters": [
+                0.055,
+                2.6276000000000006,
+                9.661
+              ],
+              "rotationY": 1.5707963267948966,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                4.2672,
+                0.95,
+                15.8316
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 176,
+              "groups": 5
+            },
+            {
+              "type": "table-cover",
+              "key": "cover-forge:dining:furniture:generated-5",
+              "positionMeters": [
+                6.998207999999999,
+                0.8903,
+                15.4196
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 48,
+              "groups": 2
+            },
+            {
+              "type": "trailing-ivy",
+              "key": "wall-botanical",
+              "positionMeters": [
+                6.6708,
+                2.8126,
+                8.0048
+              ],
+              "rotationY": 0,
+              "triangles": 324,
+              "groups": 1
+            },
+            {
+              "type": "settled-dust",
+              "key": "dust-forge:dining:furniture:generated-5",
+              "positionMeters": [
+                6.799807999999999,
+                0.8905,
+                15.3571
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 1,
+              "groups": 1
+            }
+          ],
+          "triangles": 1761,
+          "groups": 18,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            },
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            }
+          ]
+        }
+      },
+      {
+        "roomId": "gallery",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "gallery",
+          "family": "formal",
+          "condition": "decaying",
+          "variant": 0,
+          "enabled": true,
+          "textiles": true,
+          "glass": true,
+          "botanicals": true,
+          "fabric": "blue",
+          "aging": true,
+          "effects": true,
+          "waterStaining": false,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "gallery",
+            "family": "formal",
+            "condition": "decaying",
+            "variant": 0,
+            "enabled": true,
+            "textiles": true,
+            "glass": true,
+            "botanicals": true,
+            "fabric": "blue",
+            "aging": true,
+            "effects": true,
+            "waterStaining": false,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "velvet-curtain",
+              "key": "window-0",
+              "positionMeters": [
+                12.8016,
+                0.95,
+                15.8126
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 416,
+              "groups": 2
+            },
+            {
+              "type": "layered-valance",
+              "key": "valance-0",
+              "positionMeters": [
+                12.8016,
+                2.32,
+                15.8126
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:2",
+              "positionMeters": [
+                17.0138,
+                2.6276000000000006,
+                9.726
+              ],
+              "rotationY": -1.5707963267948966,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:3",
+              "positionMeters": [
+                10.398252,
+                2.6276000000000006,
+                15.7946
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                12.8016,
+                0.95,
+                15.8316
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 176,
+              "groups": 5
+            },
+            {
+              "type": "trailing-ivy",
+              "key": "wall-botanical",
+              "positionMeters": [
+                15.2052,
+                2.8126,
+                8.0048
+              ],
+              "rotationY": 0,
+              "triangles": 324,
+              "groups": 1
+            }
+          ],
+          "triangles": 1712,
+          "groups": 15,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            },
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            }
+          ]
+        }
+      },
+      {
+        "roomId": "conservatory",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "conservatory",
+          "family": "botanical",
+          "condition": "decaying",
+          "variant": 1,
+          "enabled": true,
+          "textiles": false,
+          "glass": true,
+          "botanicals": true,
+          "fabric": "emerald",
+          "aging": true,
+          "effects": true,
+          "waterStaining": true,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "conservatory",
+            "family": "botanical",
+            "condition": "decaying",
+            "variant": 1,
+            "enabled": true,
+            "textiles": false,
+            "glass": true,
+            "botanicals": true,
+            "fabric": "emerald",
+            "aging": true,
+            "effects": true,
+            "waterStaining": true,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                21.336,
+                0.95,
+                15.8316
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 176,
+              "groups": 5
+            },
+            {
+              "type": "trailing-ivy",
+              "key": "wall-botanical",
+              "positionMeters": [
+                22.6278,
+                2.8126,
+                8.0048
+              ],
+              "rotationY": 0,
+              "triangles": 324,
+              "groups": 1
+            },
+            {
+              "type": "water-trace",
+              "key": "water-0",
+              "positionMeters": [
+                21.336,
+                0.5049999999999999,
+                15.8436
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 10,
+              "groups": 1
+            }
+          ],
+          "triangles": 510,
+          "groups": 7,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": []
+        }
+      },
+      {
+        "roomId": "bedroom",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "bedroom",
+          "family": "private",
+          "condition": "decaying",
+          "variant": 2,
+          "enabled": true,
+          "textiles": true,
+          "glass": true,
+          "botanicals": false,
+          "fabric": "blue",
+          "aging": true,
+          "effects": true,
+          "waterStaining": false,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "bedroom",
+            "family": "private",
+            "condition": "decaying",
+            "variant": 2,
+            "enabled": true,
+            "textiles": true,
+            "glass": true,
+            "botanicals": false,
+            "fabric": "blue",
+            "aging": true,
+            "effects": true,
+            "waterStaining": false,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "velvet-curtain",
+              "key": "window-0",
+              "positionMeters": [
+                1.7922239999999998,
+                4.607600000000001,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 416,
+              "groups": 2
+            },
+            {
+              "type": "layered-valance",
+              "key": "valance-0",
+              "positionMeters": [
+                1.7922239999999998,
+                5.977600000000001,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:2",
+              "positionMeters": [
+                0.055,
+                5.9804,
+                6.1886
+              ],
+              "rotationY": 1.5707963267948966,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:3",
+              "positionMeters": [
+                7.7376000000000005,
+                5.9804,
+                0.055
+              ],
+              "rotationY": 0,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                1.7922239999999998,
+                4.607600000000001,
+                0.018
+              ],
+              "rotationY": 0,
+              "triangles": 176,
+              "groups": 5
+            },
+            {
+              "type": "bed-canopy",
+              "key": "bed-forge:bedroom:furniture:generated-0--1",
+              "positionMeters": [
+                1.5361919999999998,
+                5.7376000000000005,
+                7.5948
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "bed-canopy",
+              "key": "bed-forge:bedroom:furniture:generated-0-1",
+              "positionMeters": [
+                1.5361920000000002,
+                5.7376000000000005,
+                5.6748
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "table-cover",
+              "key": "cover-forge:bedroom:furniture:generated-5",
+              "positionMeters": [
+                1.536192,
+                4.5479,
+                0.43
+              ],
+              "rotationY": 0,
+              "triangles": 48,
+              "groups": 2
+            },
+            {
+              "type": "settled-dust",
+              "key": "dust-forge:bedroom:furniture:generated-5",
+              "positionMeters": [
+                1.734592,
+                4.5481,
+                0.4925
+              ],
+              "rotationY": 0,
+              "triangles": 1,
+              "groups": 1
+            }
+          ],
+          "triangles": 1989,
+          "groups": 23,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            },
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            }
+          ]
+        }
+      },
+      {
+        "roomId": "nursery",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "nursery",
+          "family": "private",
+          "condition": "decaying",
+          "variant": 2,
+          "enabled": true,
+          "textiles": true,
+          "glass": true,
+          "botanicals": false,
+          "fabric": "ivory",
+          "aging": true,
+          "effects": false,
+          "waterStaining": false,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "nursery",
+            "family": "private",
+            "condition": "decaying",
+            "variant": 2,
+            "enabled": true,
+            "textiles": true,
+            "glass": true,
+            "botanicals": false,
+            "fabric": "ivory",
+            "aging": true,
+            "effects": false,
+            "waterStaining": false,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "velvet-curtain",
+              "key": "window-0",
+              "positionMeters": [
+                10.326623999999999,
+                4.607600000000001,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 416,
+              "groups": 2
+            },
+            {
+              "type": "layered-valance",
+              "key": "valance-0",
+              "positionMeters": [
+                10.326623999999999,
+                5.977600000000001,
+                0.037
+              ],
+              "rotationY": 0,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:2",
+              "positionMeters": [
+                8.5894,
+                5.9804,
+                2.6768
+              ],
+              "rotationY": 1.5707963267948966,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "upholstered-panel",
+              "key": "wall-panel:3",
+              "positionMeters": [
+                14.093022,
+                5.9804,
+                0.055
+              ],
+              "rotationY": 0,
+              "triangles": 260,
+              "groups": 2
+            },
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                10.326623999999999,
+                4.607600000000001,
+                0.018
+              ],
+              "rotationY": 0,
+              "triangles": 176,
+              "groups": 5
+            },
+            {
+              "type": "bed-canopy",
+              "key": "bed-forge:nursery:furniture:generated-0--1",
+              "positionMeters": [
+                10.070592,
+                5.7376000000000005,
+                7.5948
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 276,
+              "groups": 3
+            },
+            {
+              "type": "bed-canopy",
+              "key": "bed-forge:nursery:furniture:generated-0-1",
+              "positionMeters": [
+                10.070592,
+                5.7376000000000005,
+                5.6748
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 276,
+              "groups": 3
+            }
+          ],
+          "triangles": 1940,
+          "groups": 20,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            },
+            {
+              "key": "wall-panel",
+              "reason": "CURATED_PANEL_DENSITY"
+            }
+          ]
+        }
+      },
+      {
+        "roomId": "crypt",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "crypt",
+          "family": "funerary",
+          "condition": "decaying",
+          "variant": 0,
+          "enabled": true,
+          "textiles": false,
+          "glass": false,
+          "botanicals": true,
+          "fabric": "emerald",
+          "aging": true,
+          "effects": true,
+          "waterStaining": true,
+          "botanicalState": "dried",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "crypt",
+            "family": "funerary",
+            "condition": "decaying",
+            "variant": 0,
+            "enabled": true,
+            "textiles": false,
+            "glass": false,
+            "botanicals": true,
+            "fabric": "emerald",
+            "aging": true,
+            "effects": true,
+            "waterStaining": true,
+            "botanicalState": "dried",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "funeral-spray",
+              "key": "wall-botanical",
+              "positionMeters": [
+                20.098512,
+                6.165400000000001,
+                0.08
+              ],
+              "rotationY": 0,
+              "triangles": 216,
+              "groups": 2
+            },
+            {
+              "type": "water-trace",
+              "key": "water-0",
+              "positionMeters": [
+                18.861024,
+                4.1626,
+                0.006
+              ],
+              "rotationY": 0,
+              "triangles": 10,
+              "groups": 1
+            },
+            {
+              "type": "settled-dust",
+              "key": "dust-forge:crypt:furniture:generated-2",
+              "positionMeters": [
+                17.5613,
+                4.5481,
+                1.228064
+              ],
+              "rotationY": 1.5707963267948966,
+              "triangles": 1,
+              "groups": 1
+            }
+          ],
+          "triangles": 227,
+          "groups": 4,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "glass-0",
+              "reason": "AUTHORED_OR_DISABLED_GLASS"
+            }
+          ]
+        }
+      },
+      {
+        "roomId": "laboratory",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "laboratory",
+          "family": "scholarly",
+          "condition": "decaying",
+          "variant": 0,
+          "enabled": true,
+          "textiles": false,
+          "glass": true,
+          "botanicals": true,
+          "fabric": "emerald",
+          "aging": true,
+          "effects": true,
+          "waterStaining": true,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "laboratory",
+            "family": "scholarly",
+            "condition": "decaying",
+            "variant": 0,
+            "enabled": true,
+            "textiles": false,
+            "glass": true,
+            "botanicals": true,
+            "fabric": "emerald",
+            "aging": true,
+            "effects": true,
+            "waterStaining": true,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [
+            {
+              "type": "leaded-rosette",
+              "key": "glass-0",
+              "positionMeters": [
+                4.2672,
+                4.607600000000001,
+                15.8316
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 156,
+              "groups": 5
+            },
+            {
+              "type": "trailing-ivy",
+              "key": "wall-botanical",
+              "positionMeters": [
+                6.6708,
+                6.165400000000001,
+                8.0048
+              ],
+              "rotationY": 0,
+              "triangles": 324,
+              "groups": 1
+            },
+            {
+              "type": "water-trace",
+              "key": "water-0",
+              "positionMeters": [
+                4.2672,
+                4.1626,
+                15.8436
+              ],
+              "rotationY": 3.141592653589793,
+              "triangles": 10,
+              "groups": 1
+            },
+            {
+              "type": "settled-dust",
+              "key": "dust-forge:laboratory:furniture:generated-2",
+              "positionMeters": [
+                7.829400000000001,
+                4.4431,
+                9.469864000000001
+              ],
+              "rotationY": -1.5707963267948966,
+              "triangles": 1,
+              "groups": 1
+            }
+          ],
+          "triangles": 491,
+          "groups": 8,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": []
+        }
+      },
+      {
+        "roomId": "circulation",
+        "policy": {
+          "edition": "gothic-atmosphere-1",
+          "identity": "circulation",
+          "family": "circulation",
+          "condition": "decaying",
+          "variant": 1,
+          "enabled": true,
+          "textiles": false,
+          "glass": false,
+          "botanicals": false,
+          "fabric": "emerald",
+          "aging": true,
+          "effects": true,
+          "waterStaining": false,
+          "botanicalState": "overgrown",
+          "wear": 2,
+          "webs": 2
+        },
+        "report": {
+          "edition": "gothic-atmosphere-1",
+          "policy": {
+            "edition": "gothic-atmosphere-1",
+            "identity": "circulation",
+            "family": "circulation",
+            "condition": "decaying",
+            "variant": 1,
+            "enabled": true,
+            "textiles": false,
+            "glass": false,
+            "botanicals": false,
+            "fabric": "emerald",
+            "aging": true,
+            "effects": true,
+            "waterStaining": false,
+            "botanicalState": "overgrown",
+            "wear": 2,
+            "webs": 2
+          },
+          "components": [],
+          "triangles": 0,
+          "groups": 0,
+          "limits": {
+            "maxTemplateTriangles": 1200,
+            "maxTemplateMaterials": 8,
+            "maxRoomTriangles": 2200,
+            "maxRoomGroups": 40,
+            "dust": {
+              "cinematic": 64,
+              "performance": 0
+            },
+            "pulseAmplitude": 0.025,
+            "minPulseSeconds": 10
+          },
+          "omitted": [
+            {
+              "key": "glass-0",
+              "reason": "AUTHORED_OR_DISABLED_GLASS"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

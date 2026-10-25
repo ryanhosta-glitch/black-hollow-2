@@ -73,7 +73,7 @@ function build(type,style,finishTreatment){
   if(book||curio){for(let j=0;j<(book?5:4);j++){const sy=.27+j*(h-.48)/(book?5:4);box(0,sy,0,w-.12,.035,d-.08);if(detail)box(0,sy+.02,d/2-.047,w-.15,.009,.008,gold);
     for(let k=0;k<(book?8:3);k++){const x=(k-(book?7:2)/2)*(book?(w-.29)/8:.24);if(book){const bh=.17+((j+k+style.pattern)%4)*.025;box(x,sy+.025+bh/2,0,.085,bh,d*.60,[M.leather,M.linen,M.upholstery][(k+j)%3]);if(detail)box(x,sy+bh*.70,d*.31,.06,.012,.006,gold);}else{lathe(x,sy+.025,0,[[0,0],[.045,0],[.045,.03],[.025,.07],[.052,.12],[.04,.20],[0,.22]],j%2?M.ivory:M.silver);}}
    }
-   if(curio){box(0,1.04,d/2-.03,w-.14,1.50,.012,M.glass);box(0,1.02,d/2-.016,.025,1.50,.018);}
+   if(curio){box(0,1.04,d/2-.03,w-.14,1.50,.012,M.displayGlass);box(0,1.02,d/2-.016,.025,1.50,.018);}
   }else{for(const side of [-1,1]){panel(side*w*.235,1.13,d/2-.028,w*.43,1.73);orb(side*.035,1.12,d/2-.004,.014);}}
   for(const side of [-1,1]){rail([side*(w/2-.09),.23,d/2-.01],[side*(w/2-.09),h-.21,d/2-.01],.012);carving(side*(w/2-.09),h-.25,d/2-.016,.04);}
   carving(0,h-.055,d/2-.02,.043);

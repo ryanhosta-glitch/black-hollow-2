@@ -1,3 +1,4 @@
+import {resolveRoomAtmosphere} from '../casa_game/room_atmosphere_profiles.mjs';
 import {architecturalLightSources} from '../casa_game/room_lighting.mjs';
 import {LIGHTING_PROFILES} from '../casa_game/lighting_profiles.mjs';
 import {HEIRLOOM_TYPES,HEIRLOOM_FINISHES,HEIRLOOM_UPHOLSTERY,heirloomStyle,heirloomStyleKey} from './forge_heirloom_style.mjs';
@@ -35,7 +36,7 @@ export function planDecoration(source,{repair=false,detail,...contentLimits}={})
    const obj={id:oid,roomId:id,floor,type,model:ROOM_FURNITURE[type]?null:`geometry/furniture/${type}.glb`,builtIn:!!ROOM_FURNITURE[type],positionMeters:[px,y,pz],rotationY:rotation,...(['marble_fireplace','mahogany_fireplace'].includes(type)?{finishTreatment:authored?.finishTreatment==='mahogany'||type==='mahogany_fireplace'?'mahogany':authored?'marble':roomIdentity(r)==='parlor'?'mahogany':'marble'}:{}),authored:!!authored,source:authored?structuredClone(authored):null};
    if(authored?.furnitureStyle)for(const [field,value] of Object.entries(authored.furnitureStyle)){const supported=field==='wood'?Object.hasOwn(HEIRLOOM_FINISHES,value):field==='upholstery'?Object.hasOwn(HEIRLOOM_UPHOLSTERY,value):field==='condition'?['aged','preserved'].includes(value):field==='ornament'?['essential','standard','luxury'].includes(value):field==='pattern'&&Number.isInteger(value);if(!supported)issues.push({severity:'ADVISORY',code:'AUTHORED_FURNITURE_STYLE_UNSUPPORTED',roomId:id,objectId:oid,field,value,sourcePreserved:true});}
    if(HEIRLOOM_TYPES.includes(type)){obj.furnitureStyle=heirloomStyle(r,authored);if(!obj.builtIn)obj.model=`geometry/furniture/${type}-${heirloomStyleKey(obj.furnitureStyle)}.glb`;}
-   furniture.push(obj);blocked.push(b);colliders.push({objectId:oid,roomId:id,floor,bounds:b,minY:y,maxY:y+spec.height});changes.push({code:authored?'COMPILE_AUTHORED_FURNITURE':'ADD_ROOM_FURNITURE',objectId:oid,roomId:id});return true;
+   if(!authored&&['fern_urn','plant_stand'].includes(type))obj.botanicalState=resolveRoomAtmosphere(r).botanicalState;furniture.push(obj);blocked.push(b);colliders.push({objectId:oid,roomId:id,floor,bounds:b,minY:y,maxY:y+spec.height});changes.push({code:authored?'COMPILE_AUTHORED_FURNITURE':'ADD_ROOM_FURNITURE',objectId:oid,roomId:id});return true;
   };
   const aliases={desk:'writing_desk',chair:'armchair',sofa:'settee',table:'dining_table',bookshelf:'bookcase',cabinet:'wardrobe'};
   (r.furniture||[]).forEach((obj,i)=>{

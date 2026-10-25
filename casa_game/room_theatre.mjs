@@ -2,7 +2,7 @@ import {wallMount} from './wall_mount.mjs';
 import {roomIdentity} from './room_content.mjs';
 import {floorY,seedNumber} from './session.mjs';
 /** Optional wall performances. Never a quest actor, floor obstacle or navigation surface. */
-export function createRoomTheatre(T,house,floor,{reducedMotion=false}={}){
+export function createRoomTheatre(T,house,floor,{reducedMotion=false,effectsEnabled=true}={}){
  const root=new T.Group();root.name='The house remembers';const actors=[];
  const gold=new T.MeshStandardMaterial({color:0xa07c42,metalness:.7,roughness:.4}),wood=new T.MeshStandardMaterial({color:0x20141c,roughness:.72});
  function box(parent,mat,x,y,z,w,h,d){const m=new T.Mesh(new T.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);parent.add(m);return m;}
@@ -39,14 +39,14 @@ export function createRoomTheatre(T,house,floor,{reducedMotion=false}={}){
    const cloth=new T.MeshStandardMaterial({color:theme==='bedroom'?0x570d28:0x203d37,roughness:1,side:T.DoubleSide});
    for(const side of [-1,1]){const geo=new T.PlaneGeometry(.22,1.25,8,12),a=geo.attributes.position;for(let i=0;i<a.count;i++)a.setZ(i,.13+Math.cos(a.getX(i)*90)*.025);geo.computeVertexNormals();const m=new T.Mesh(geo,cloth);m.position.set(side*.63,-.05,0);g.add(m);}
   }
-  actors.push(actor);
+  actor.effects=effectsEnabled&&house.decoration.roomContents?.find(c=>c.roomId===room.id)?.atmosphere?.effects!==false;actors.push(actor);
  }
  // Batch static frame geometry across rooms; moving clock hands stay independent.
  root.updateMatrixWorld(true);const batches=new Map(),remove=[];
  root.traverse(o=>{if(!o.isMesh||o.geometry.type!=='BoxGeometry'||actors.some(a=>a.pivot===o.parent))return;const p=o.geometry.parameters,m=o.matrixWorld.clone().multiply(new T.Matrix4().makeScale(p.width,p.height,p.depth));if(!batches.has(o.material))batches.set(o.material,[]);batches.get(o.material).push(m);remove.push(o);});
  for(const o of remove){o.removeFromParent();o.geometry.dispose();}const unit=new T.BoxGeometry(1,1,1);for(const[material,matrices]of batches){const mesh=new T.InstancedMesh(unit,material,matrices.length);matrices.forEach((m,i)=>mesh.setMatrixAt(i,m));mesh.name='Batched mourning frames';root.add(mesh);}
  let eventRoom='',kind='',until=0;
- return {root,event(e,time){eventRoom=e.roomId;kind=e.kind;until=time+4200;},tick(time,roomId,{quiet=false}={}){const t=reducedMotion?0:time*.001;for(const a of actors){const active=!quiet&&a.roomId===roomId,audition=active&&time<until&&a.roomId===eventRoom;
+ return {root,event(e,time){eventRoom=e.roomId;kind=e.kind;until=time+4200;},tick(time,roomId,{quiet=false}={}){const t=reducedMotion?0:time*.001;for(const a of actors){const active=a.effects&&!quiet&&a.roomId===roomId,audition=active&&time<until&&a.roomId===eventRoom;
    if(a.kind==='reflection'){const phase=(time*.001+a.seed%51)%67,passing=active&&phase>43&&phase<47,show=audition&&kind==='reflection'||passing;const fade=audition?Math.min(1,Math.max(0,(until-time)/900)):Math.max(0,Math.sin((phase-43)/4*Math.PI));a.mat.opacity=show?.28*fade:0;a.silhouette.position.x=reducedMotion?0:Math.sin(t*.8)*.15;}
    else a.pivot.rotation.z=a.base+(audition&&kind==='clock'&&!reducedMotion?Math.sin(t*3)*.3:0);
   }},get actorCount(){return actors.length;}};

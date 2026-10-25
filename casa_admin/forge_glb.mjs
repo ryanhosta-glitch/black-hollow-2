@@ -38,7 +38,20 @@ export const PALETTE=[
 {n:'preserved furniture gilding',c:[.68,.47,.16,1],rough:.36,metal:.72},
 {n:'warm candle emitter',c:[.85,.58,.25,1],rough:.8,emit:[.70,.28,.06]},
 {n:'cool experimental emitter',c:[.48,.68,.85,1],rough:.8,emit:[.22,.42,.65]},
-{n:'aged architectural bronze',c:[.28,.16,.075,1],rough:.61,metal:.60}];
+{n:'aged architectural bronze',c:[.28,.16,.075,1],rough:.61,metal:.60},
+{n:'clear display glass',c:[.48,.63,.62,.16],rough:.28,metal:.02},
+{n:'antique mirror silver',c:[.15,.19,.22,1],rough:.35,metal:.78},
+{n:'faded velvet',c:[.29,.12,.18,1],rough:1,textureMaterial:1},
+{n:'weathered velvet',c:[.21,.19,.16,1],rough:1,textureMaterial:1},
+{n:'verdigris tarnished brass',c:[.22,.28,.17,1],rough:.87,metal:.36},
+{n:'living fern green',c:[.10,.26,.13,1],rough:.94},
+{n:'dried botanical ochre',c:[.32,.25,.12,1],rough:1},
+{n:'overgrown ivy green',c:[.08,.18,.10,1],rough:.96},
+{n:'settled surface dust',c:[.43,.39,.32,1],rough:1},
+{n:'mineral water trace',c:[.25,.27,.21,1],rough:1},
+{n:'weathered funerary stone',c:[.53,.59,.48,1],rough:1,textureMaterial:15},
+{n:'faded blue velvet',c:[.18,.23,.29,1],rough:1,textureMaterial:1},
+{n:'faded heirloom linen',c:[.55,.51,.43,1],rough:1}];
 export function glb(boxes,{exterior=null}={}){const palette=PALETTE.map(m=>({...m}));if(exterior){palette[MAT.siding]={n:exterior.label,c:exterior.color,textureMaterial:exterior.textureMaterial,rough:.93};palette[MAT.trim].c=exterior.trimColor;palette[MAT.roof].c=exterior.roofColor;}const positions=[],normals=[],uvs=[],vertexMap=new Map(),ranges=palette.map(()=>[]);const faces=[[0,1,2,3,[0,0,-1]],[5,4,7,6,[0,0,1]],[4,0,3,7,[-1,0,0]],[1,5,6,2,[1,0,0]],[3,2,6,7,[0,1,0]],[4,5,1,0,[0,-1,0]]];
 for(const b of boxes){
  const [x,y,z]=b.c,[a,d,e]=b.s.map(v=>v/2),verts=b.vertices||[[-a,-d,-e],[a,-d,-e],[a,d,-e],[-a,d,-e],[-a,-d,e],[a,-d,e],[a,d,e],[-a,d,e]];

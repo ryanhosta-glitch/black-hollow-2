@@ -1,0 +1,131 @@
+{
+  "webgl": true,
+  "browser": "154.0.8037.57",
+  "cases": [
+    {
+      "quality": "cinematic",
+      "reducedMotion": false,
+      "effects": true,
+      "start": [
+        18,
+        12,
+        4
+      ],
+      "ranges": [
+        [
+          17.55032754443832,
+          18.449672455561682
+        ],
+        [
+          11.70021836295888,
+          12.29978163704112
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "samePool": true,
+      "dustCapacity": 64,
+      "dustVisible": true,
+      "activeLights": 3,
+      "shadowLights": 1,
+      "draws": 2,
+      "triangles": 12
+    },
+    {
+      "quality": "performance",
+      "reducedMotion": false,
+      "effects": true,
+      "start": [
+        18,
+        12,
+        0
+      ],
+      "ranges": [
+        [
+          18,
+          18
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "samePool": true,
+      "dustCapacity": 0,
+      "dustVisible": false,
+      "activeLights": 2,
+      "shadowLights": 0,
+      "draws": 1,
+      "triangles": 12
+    },
+    {
+      "quality": "cinematic",
+      "reducedMotion": true,
+      "effects": true,
+      "start": [
+        18,
+        12,
+        4
+      ],
+      "ranges": [
+        [
+          18,
+          18
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "samePool": true,
+      "dustCapacity": 0,
+      "dustVisible": false,
+      "activeLights": 3,
+      "shadowLights": 1,
+      "draws": 1,
+      "triangles": 12
+    },
+    {
+      "quality": "cinematic",
+      "reducedMotion": false,
+      "effects": false,
+      "start": [
+        18,
+        12,
+        4
+      ],
+      "ranges": [
+        [
+          18,
+          18
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "samePool": true,
+      "dustCapacity": 64,
+      "dustVisible": false,
+      "activeLights": 3,
+      "shadowLights": 1,
+      "draws": 1,
+      "triangles": 12
+    }
+  ],
+  "errors": []
+}

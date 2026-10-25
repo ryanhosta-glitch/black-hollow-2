@@ -2,7 +2,7 @@ import {usesArchitecturalLuxury} from './room_profiles.mjs';
 import {withRoomComponent} from './room_components.mjs';
 const FT=.3048;
 /** Plaster scrollwork and leaded glass fitted to actual room/window dimensions. */
-export function referenceRoomDetails(room,{identity,y,add,components=null}){
+export function referenceRoomDetails(room,{identity,y,add,components=null,gothic=null}){
  const b=room.boundsFeet||room,x=+b.x*FT,z=+b.y*FT,w=+b.l*FT,d=+b.w*FT,h=+b.h*FT,ornaments=[];
  components?.track(ornaments);
  function ring(cx,cy,cz,rx,rz,tube=.014,mat=21){const triangles=[],steps=28,sides=4;
@@ -18,6 +18,7 @@ export function referenceRoomDetails(room,{identity,y,add,components=null}){
   if(drawn)ornaments.push({id:`plaster:${room.id}`,type:'ornate-plaster-ceiling',positionMeters:[cx,cy,cz],width:rx*2,height:.12});
  },{surface:'ceiling-plaster'});}
  for(const [i,o]of(room.openings||[]).filter(o=>o.type==='window').entries()){withRoomComponent(components,'leaded-window',()=>{
+  if(gothic)return gothic.windowGlass(o,i,ornaments);
   if(['laboratory','crypt','circulation'].includes(identity))return;
   const vertical=o.wall==='left'||o.wall==='right',span=vertical?d:w,at=Math.max(0,Math.min(1,Number(o.pos??.5)))*span;
   const width=Math.min(Number(o.clearWidthMeters||1.65),span-.2),low=Math.min(.95,h*.34),high=Math.min(h-.15,low+1.55),height=high-low;

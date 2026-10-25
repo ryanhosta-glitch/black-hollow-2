@@ -1,3 +1,4 @@
+import {GOTHIC_COMPONENTS,gothicComponentParts} from '../casa_game/gothic_components.mjs';
 import {STORY_OBJECTS,storyObjectParts} from '../casa_game/room_story_objects.mjs';
 import {HEIRLOOM_TYPES} from './forge_heirloom_style.mjs';
 import {heirloomFurnitureParts} from './forge_heirloom_furniture.mjs';
@@ -11,6 +12,7 @@ import {mansionEnvelope} from './forge_envelope_finish.mjs';
 
 /** Forge adapters reuse existing geometry/catalog models; no model payloads are copied. */
 export const FORGE_COMPONENT_REGISTRY=Object.freeze({
+ ...Object.fromEntries(Object.entries(GOTHIC_COMPONENTS).map(([id,spec])=>['gothic:'+id,Object.freeze({...spec,id:'gothic:'+id,type:id,category:spec.family==='glass'?'wall-decoration':'accessory',generate:gothicComponentParts})])),
  ...Object.fromEntries(Object.entries(STORY_OBJECTS).map(([id,spec])=>['story-object:'+id,Object.freeze({...spec,id:'story-object:'+id,category:'accessory',generate:storyObjectParts})])),
  ...Object.fromEntries(Object.entries(ROOM_COMPONENTS).map(([id,component])=>[id,component.generator==='architecturalLuxury'?Object.freeze({...component,generate:architecturalLuxury}):component])),
  ...Object.fromEntries(Object.keys({...FURNITURE_CATALOG,...ROOM_FURNITURE}).map(type=>['furniture:'+type,Object.freeze({

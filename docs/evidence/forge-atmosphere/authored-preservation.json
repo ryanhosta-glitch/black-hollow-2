@@ -1,0 +1,329 @@
+{
+  "archives": 23,
+  "rooms": 443,
+  "allowedDifference": "Generated urns/stands add botanicalState appearance metadata; authored objects unchanged",
+  "results": [
+    {
+      "file": "casa_game/houses/house-03f984fb4d9ae0.casa",
+      "rooms": 36,
+      "furniture": 5,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-0c1593269393e1.casa",
+      "rooms": 49,
+      "furniture": 87,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-0e940e170c5d1b.casa",
+      "rooms": 5,
+      "furniture": 2,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-1a442c2a1b0d74.casa",
+      "rooms": 17,
+      "furniture": 7,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-1aa4a4075a9c05.casa",
+      "rooms": 3,
+      "furniture": 25,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-1af2d7b6042573.casa",
+      "rooms": 15,
+      "furniture": 11,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-2e2423085d130b.casa",
+      "rooms": 7,
+      "furniture": 6,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-389efcfb9f5ac4.casa",
+      "rooms": 23,
+      "furniture": 70,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-41483e0f829339.casa",
+      "rooms": 18,
+      "furniture": 7,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-4729d1cf7ac06a.casa",
+      "rooms": 23,
+      "furniture": 28,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-56d23561d1dad8.casa",
+      "rooms": 26,
+      "furniture": 31,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-5efc01faa87b76.casa",
+      "rooms": 20,
+      "furniture": 14,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-62f82b6454d42d.casa",
+      "rooms": 23,
+      "furniture": 25,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-8102ef435f6dcc.casa",
+      "rooms": 17,
+      "furniture": 22,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-82fed66d1530d5.casa",
+      "rooms": 22,
+      "furniture": 79,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-8758b94897b0ba.casa",
+      "rooms": 31,
+      "furniture": 65,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-956f3c329fefe5.casa",
+      "rooms": 36,
+      "furniture": 63,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-97408b549b8b23.casa",
+      "rooms": 8,
+      "furniture": 13,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-adc95034eb7871.casa",
+      "rooms": 3,
+      "furniture": 19,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-c253d341258532.casa",
+      "rooms": 23,
+      "furniture": 23,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-c3891fccdad9b0.casa",
+      "rooms": 18,
+      "furniture": 25,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/houses/house-eb8f563c3fed01.casa",
+      "rooms": 8,
+      "furniture": 1,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    },
+    {
+      "file": "casa_game/samples/moonveil.casa",
+      "rooms": 12,
+      "furniture": 32,
+      "unchanged": [
+        "source",
+        "furniture identity/placement/style",
+        "artwork",
+        "colliders",
+        "reserved",
+        "changes",
+        "issues"
+      ]
+    }
+  ]
+}

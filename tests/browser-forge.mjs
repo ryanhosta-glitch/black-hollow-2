@@ -45,7 +45,7 @@ try{page=await browser.newPage({viewport:{width:1280,height:1000}});page.on('pag
   stream.clear();
   const result=[sample(wall-.5,1.6,1),sample(wall+.5,1.6,-1),sample(wall-.5,.5,1),sample(wall+.5,.5,-1)];disposeGroup(model);assets.close();return result;
  });
- assert.deepEqual(sharedWallMaterials,['library emerald damask','laboratory glazed ivory tile','dark mahogany','laboratory glazed ivory tile']);
+ assert.deepEqual(sharedWallMaterials,['library emerald damask','laboratory glazed ivory tile','worn mahogany veneer','laboratory glazed ivory tile']);
 
  await page.goto(base+'/casa_game.html');await page.waitForFunction(()=>!document.getElementById('startStreet').disabled);await page.locator('#startStreet').click();await page.waitForFunction(()=>window.__forgeBrowser?.mode==='street'&&!window.__forgeBrowser.busy&&window.__forgeBrowser.walker?.active);
  await page.evaluate(async()=>{await window.__forgeBrowser.loadHouse({id:'browser-fresh',name:'Victorian Visual Estate',package:'/__fresh.casa'});});if(await page.locator('#closeModal').isVisible())await page.locator('#closeModal').click();
