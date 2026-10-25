@@ -1,3 +1,4 @@
+import {usesArchitecturalLuxury} from './room_profiles.mjs';
 import {withRoomComponent} from './room_components.mjs';
 const FT=.3048;
 /** Plaster scrollwork and leaded glass fitted to actual room/window dimensions. */
@@ -10,7 +11,7 @@ export function referenceRoomDetails(room,{identity,y,add,components=null}){
   return add([cx,cy,cz],[(rx+tube)*2,tube*2,(rz+tube)*2],mat,0,{triangles});
  }
  const ornate=['dining','ballroom','gallery','parlor','bedroom'].includes(identity);
- if(ornate&&w>3&&d>3&&h>2.65&&!room.forgeStair){withRoomComponent(components,'plaster-ceiling',()=>{
+ if(!usesArchitecturalLuxury(room)&&ornate&&w>3&&d>3&&h>2.65&&!room.forgeStair){withRoomComponent(components,'plaster-ceiling',()=>{
   const cy=y+h-.08,cx=x+w/2,cz=z+d/2,rx=Math.min(w*.32,1.6),rz=Math.min(d*.32,1.6);let drawn=false;
   drawn=ring(cx,cy,cz,rx,rz)||drawn;ring(cx,cy-.012,cz,rx+.045,rz+.045,.009,8);
   for(let k=0;k<8;k++){const a=k*Math.PI/4,px=cx+Math.cos(a)*rx*.78,pz=cz+Math.sin(a)*rz*.78;ring(px,cy-.022,pz,.16,.23,.012,21);ring(px,cy-.025,pz,.08,.13,.009,21);}

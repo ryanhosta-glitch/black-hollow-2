@@ -1,11 +1,13 @@
+import {usesArchitecturalLuxury} from '../casa_game/room_profiles.mjs';
+import {architecturalLuxury} from './forge_architectural_luxury.mjs';
 import {createRoomComponentSession} from '../casa_game/room_components.mjs';
 import {MAT} from './forge_glb.mjs';
 import {openingShape,exposedRuns} from './forge_architecture.mjs';
 import {roomFinish} from './forge_finishes.mjs';
 /** Fine architectural layers use feet, like the floor compiler. No new floor obstacles. */
-export function mansionEnvelope(floor,fi,levels,{onReport=()=>{},...limits}={}){
+export function mansionEnvelope(floor,fi,levels,{onReport=()=>{},decoration={},...limits}={}){
  const parts=[],base=levels[fi]||0,usage={primitives:0,triangles:0,geometryBytes:0};
- for(const r of floor.rooms){const x=+r.x,z=+r.y,l=+r.l,w=+r.w,h=+r.h,finish=roomFinish(r),components=createRoomComponentSession(r,{limits,roomCount:floor.rooms.length,usage});
+ for(const r of floor.rooms){const x=+r.x,z=+r.y,l=+r.l,w=+r.w,h=+r.h,finish=roomFinish(r),luxury=usesArchitecturalLuxury(r),components=createRoomComponentSession(r,{limits,roomCount:floor.rooms.length,usage});
   const add=(c,s,mat)=>{if(s.every(v=>v>.006))components.emit(c,s,mat);};
   components.run('mansion-envelope',()=>{
   for(const side of ['top','bottom','left','right']){
@@ -14,7 +16,7 @@ export function mansionEnvelope(floor,fi,levels,{onReport=()=>{},...limits}={}){
    const holes=(r.openings||[]).filter(o=>o.wall===side).map(o=>({...openingShape(o,span,h),type:o.type}));
    // Aperture edges split every layer. Trim never bridges a door or removed partition.
    const cuts=[...new Set([.14,span-.14,...holes.flatMap(o=>[Math.max(.14,o.center-o.width/2-.16),Math.min(span-.14,o.center+o.width/2+.16)])])].filter(v=>v>=.14&&v<=span-.14).sort((a,b)=>a-b);
-   for(let j=1;j<cuts.length;j++){const a=cuts[j-1],b=cuts[j],mid=(a+b)/2,len=b-a;if(len<.3||holes.some(o=>Math.abs(mid-o.center)<o.width/2+.15))continue;
+   if(!luxury)for(let j=1;j<cuts.length;j++){const a=cuts[j-1],b=cuts[j],mid=(a+b)/2,len=b-a;if(len<.3||holes.some(o=>Math.abs(mid-o.center)<o.width/2+.15))continue;
     // Built-up base molding, bead rail, and a graduated three-stage crown.
     for(const [yy,hh,depth,offset,mat]of [[.10,.16,.12,.08,finish.panel],[.24,.05,.16,.10,finish.trim],[Math.min(3.1,h*.34),.035,.15,.11,MAT.metal],[h-.28,.10,.18,.11,finish.panel],[h-.17,.07,.23,.14,finish.trim],[h-.08,.06,.30,.17,MAT.plaster]])put(mid,yy,len,hh,depth,offset,mat);
     if(len>1.4){const bays=Math.max(1,Math.floor(len/2.7)),bw=len/bays,ph=Math.min(2.3,h*.24),cy=Math.min(1.65,h*.18);for(let k=0;k<bays;k++){const at=a+(k+.5)*bw,pw=Math.max(.4,bw-.42);for(const sign of [-1,1]){put(at+sign*pw/2,cy,.035,ph,.025,.17,finish.trim);put(at,cy+sign*ph/2,pw,.035,.025,.17,finish.trim);}}}
@@ -27,8 +29,8 @@ export function mansionEnvelope(floor,fi,levels,{onReport=()=>{},...limits}={}){
    }
   }
   // Flush floor inlay borders are under 3 mm high and leave all walking space intact.
-  if(!r.forgeStair&&l>7&&w>7)for(const inset of [.30,.42]){add([x+l/2,base+.006,z+inset],[l-inset*2,.008,.025],MAT.metal);add([x+l/2,base+.006,z+w-inset],[l-inset*2,.008,.025],MAT.metal);add([x+inset,base+.006,z+w/2],[.025,.008,w-inset*2],MAT.metal);add([x+l-inset,base+.006,z+w/2],[.025,.008,w-inset*2],MAT.metal);}
-  });parts.push(...components.primitives);onReport({roomId:r.id,floor:fi,...components.report()});
+  if(!luxury&&!r.forgeStair&&l>7&&w>7)for(const inset of [.30,.42]){add([x+l/2,base+.006,z+inset],[l-inset*2,.008,.025],MAT.metal);add([x+l/2,base+.006,z+w-inset],[l-inset*2,.008,.025],MAT.metal);add([x+inset,base+.006,z+w/2],[.025,.008,w-inset*2],MAT.metal);add([x+l-inset,base+.006,z+w/2],[.025,.008,w-inset*2],MAT.metal);}
+  });if(luxury)architecturalLuxury(r,base,components,{decoration});parts.push(...components.primitives);onReport({roomId:r.id,floor:fi,...components.report()});
  }
  return parts;
 }

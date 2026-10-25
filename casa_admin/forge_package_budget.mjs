@@ -19,10 +19,11 @@ export function readinessStages({playability,decoration,gameplay,budget,roomComp
 
 /** Component omissions are visible findings, not a change to the CASA runtime contract. */
 export function auditRoomComponentBudget(reports=[]){
- const totals={primitives:0,triangles:0,geometryBytes:0},omissions=[];
+ const totals={primitives:0,triangles:0,geometryBytes:0},omissions=[],byComponent={};
  let withinLimits=true;
  for(const report of reports){for(const key of Object.keys(totals)){totals[key]+=report.used?.[key]||0;if((report.used?.[key]||0)>(report.budget?.[key]??Infinity))withinLimits=false;}
+  for(const item of report.emitted||[]){const total=byComponent[item.component]||(byComponent[item.component]={instances:0,primitives:0,triangles:0});total.instances++;total.primitives+=item.primitives;total.triangles+=item.triangles;}
   for(const item of report.omitted||[])omissions.push({roomId:report.roomId,floor:report.floor,...item});
  }
- return {version:1,rooms:new Set(reports.map(r=>JSON.stringify([r.floor,r.roomId]))).size,scopes:reports.length,totals,withinLimits,omissions,geometryBytesEstimated:true,sharedTexturesCountedByPackageInventory:true};
+ return {version:1,rooms:new Set(reports.map(r=>JSON.stringify([r.floor,r.roomId]))).size,scopes:reports.length,totals,withinLimits,byComponent,omissions,geometryBytesEstimated:true,sharedTexturesCountedByPackageInventory:true};
 }

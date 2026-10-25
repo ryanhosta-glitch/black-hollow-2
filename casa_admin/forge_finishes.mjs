@@ -11,3 +11,21 @@ export function roomFinish(room){
 export function authoredFinishIssues(room){
  return Object.entries(room.finishes||{}).filter(([key,value])=>!['floor','wall','ceiling','panel','trim'].includes(key)||!(Number.isInteger(value)&&Object.values(MAT).includes(value))&&!(typeof value==='string'&&Object.hasOwn(MAT,value))).map(([field,value])=>({severity:'ADVISORY',code:'AUTHORED_FINISH_UNSUPPORTED',roomId:room.id,field,value,sourcePreserved:true}));
 }
+
+/** Dimensional finish treatments: the palette remains shared and authored overrides win. */
+export function architecturalTreatment(room){
+ const profile=resolveRoomProfile(room),finish=roomFinish(room),id=profile.identity;
+ const mode=id==='crypt'?'stone':id==='laboratory'?'ceramic':id==='conservatory'?'iron':id==='library'?'mahogany':id==='nursery'?'restrained':id==='circulation'?'passage':id==='bedroom'?'plaster':'carved';
+ const restrained=['restrained','passage','ceramic','iron'].includes(mode),formal=['ballroom','dining','gallery'].includes(id);
+ const authored=room.finishes||{};
+ return {identity:id,mode,restrained,formal,finish,
+  field:finish.panel,relief:authored.panel!=null?finish.panel:mode==='stone'?MAT.stone:mode==='ceramic'?MAT.laboratory:mode==='iron'?MAT.metal:mode==='plaster'||mode==='restrained'?MAT.plaster:MAT.wood,
+  crown:authored.ceiling!=null?finish.ceiling:['stone','ceramic','iron','mahogany'].includes(mode)?finish.panel:MAT.plaster,
+  accent:authored.trim!=null?finish.trim:mode==='stone'?MAT.stone:mode==='ceramic'||mode==='iron'?MAT.metal:id==='nursery'?MAT.trim:MAT.metal,
+  panelHeight:Math.min(+room.h*.35,id==='dining'?4.2:id==='gallery'?3.8:mode==='restrained'?2.8:3.35),
+  bayWidth:id==='dining'?4.4:id==='library'?3.3:4.0,
+  projection:restrained?.22:.32,
+  ceiling:!['passage','ceramic','iron'].includes(mode),
+  cofferMaterial:authored.ceiling!=null?finish.ceiling:mode==='mahogany'?MAT.wood:mode==='stone'?MAT.stone:MAT.plaster
+ };
+}

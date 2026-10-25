@@ -1,3 +1,4 @@
+import {usesArchitecturalLuxury} from './room_profiles.mjs';
 import {stableRoomHash as hash} from './room_profiles.mjs';
 import {resolveRoomProfile} from './room_profiles.mjs';
 import {withRoomComponent} from './room_components.mjs';
@@ -18,7 +19,7 @@ export function dressRoom(room,{identity,y=0,furniture=[],occupied=[],add:emit,c
  // The lowest part always stays above 2.18 m, even in low student rooms.
  if(w>1.25&&d>1.25&&h>2.55&&!room.forgeStair){withRoomComponent(components,'ceiling-chandelier',()=>{
   const radius=Math.min(.65,w*.16,d*.16),drop=Math.min(.80,h-2.3),base=y+h-drop;
-  for(const [size,dy,mat]of [[radius*2,.025,trim],[radius*1.55,.055,3],[radius*.95,.08,trim]])add([cx,y+h-dy,cz],[size,.025,size],mat,Math.PI/4);
+  if(!usesArchitecturalLuxury(room))for(const [size,dy,mat]of [[radius*2,.025,trim],[radius*1.55,.055,3],[radius*.95,.08,trim]])add([cx,y+h-dy,cz],[size,.025,size],mat,Math.PI/4);
   add([cx,y+h-drop/2,cz],[.045,drop,.045],trim);
   for(let k=0;k<6;k++){const angle=k*Math.PI/3,px=cx+Math.sin(angle)*radius,pz=cz+Math.cos(angle)*radius;
    add([cx+Math.sin(angle)*radius/2,base+.12,cz+Math.cos(angle)*radius/2],[.035,.035,radius],trim,angle);

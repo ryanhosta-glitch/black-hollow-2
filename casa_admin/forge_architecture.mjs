@@ -1,3 +1,4 @@
+import {usesArchitecturalLuxury} from '../casa_game/room_profiles.mjs';
 import {roofOrnaments} from './forge_roof_ornaments.mjs';
 import {unionRoofSurfaces,uncoveredRectangles} from './forge_roof_union.mjs';
 // Architectural dimensions are feet until the compiler's single feet→meters conversion.
@@ -52,7 +53,7 @@ export function architecturalDetails(floor,fi,allFloors,levels){
    }
   }
   const shaft=r.forgeStairTraversalEnabled&&/stair/i.test([r.name,r.type,r.roomType].join(' '));
-  if(!shaft&&Math.min(l,w)>6){
+  if(!shaft&&!usesArchitecturalLuxury(r)&&Math.min(l,w)>6){
    // Shallow plaster coffers stay against the ceiling and above walking headroom.
    for(const t of [.25,.5,.75]){
     add([x+l*t,b+h-.055,z+w/2],[.09,.10,Math.max(.1,w-.5)],MAT.trim);

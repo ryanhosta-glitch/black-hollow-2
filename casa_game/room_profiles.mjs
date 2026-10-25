@@ -39,3 +39,10 @@ export function resolveRoomProfile(room={},options={}){
  const detail=Object.hasOwn(DETAIL_LEVELS,candidate)?candidate:base.detail;
  return {...base,detail,detailLevel:DETAIL_LEVELS[detail],variant:stableRoomHash(room.id??room.source?.id??room.name??identity)%7};
 }
+
+/** One owner for optional architectural surfaces; structural geometry is never replaced. */
+export function usesArchitecturalLuxury(room={}){
+ const options=room.forgeDecoration||room.source?.forgeDecoration||{},setting=options.components?.['mansion-envelope'];
+ return resolveRoomProfile(room).detailLevel>=1&&options.architecture!==false&&setting!==false&&setting?.enabled!==false&&
+  !room.forgeStair&&!room.embeddedStair&&!room.stairs&&!/stair|elevator/i.test([room.name,room.type,room.roomType].join(' '));
+}

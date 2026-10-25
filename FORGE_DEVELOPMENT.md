@@ -274,3 +274,7 @@ Validation: 251 core tests, navigation, scenes and actual app-flow checks pass, 
 The development branch `dev/forge-shared-components-pass1` introduces a shared component registry, six inherited room families, deterministic detail selection and atomic geometry-budget enforcement over the existing generators. It preserves all eleven room identities, the CASA/Game loading contract, authored geometry and existing placement/clearance systems. New component diagnostics are optional fields in existing JSON entries; no student archive migration or publication is performed.
 
 See [the foundation report](docs/FORGE_SHARED_COMPONENTS_PASS1.md) for the registry/adapters, configuration examples, budget accounting, duplicate-prevention policy, compatibility details and full test evidence. Run `npm run test:forge-components` for the focused suite. The full test command prepares example-house fixtures; run it in a disposable copy when existing archives must remain untouched.
+
+## Shared architectural luxury — Pass 2
+
+See [the Pass 2 implementation and regression assessment](docs/FORGE_ARCHITECTURAL_LUXURY_PASS2.md) and [rendered before/after study](docs/evidence/forge-luxury/index.html). This work continues on `dev/forge-shared-components-pass1`; it changes export-time shared architecture without deploying or replacing existing CASA archives.

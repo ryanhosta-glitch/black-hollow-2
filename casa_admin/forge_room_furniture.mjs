@@ -1,3 +1,4 @@
+import {fireplaceSurroundParts} from './forge_fireplace_surround.mjs';
 import {REFERENCE_FURNITURE,referenceFurnitureParts} from './forge_reference_furniture.mjs';
 // Small built-in ensembles share the compiler's material palette and collision plan.
 export const ROOM_FURNITURE={bed:{footprint:[1.65,2.1],height:2.35},laboratory_bench:{footprint:[1.5,.72],height:1.25},plant_stand:{footprint:[.64,.64],height:1.25},sarcophagus:{footprint:[.85,1.85],height:.98},console:{footprint:[.86,.38],height:.92}};
@@ -11,7 +12,7 @@ export function roomFurnitureParts(item){const out=[],[x,y,z]=item.positionMeter
 
 Object.assign(ROOM_FURNITURE,REFERENCE_FURNITURE,{
  grandfather_clock:{footprint:[.70,.54],height:2.15},curio_cabinet:{footprint:[.95,.50],height:1.9},
- marble_fireplace:{footprint:[1.55,.48],height:1.45},fern_urn:{footprint:[.72,.72],height:1.38}
+ marble_fireplace:{footprint:[1.55,.48],height:1.45},mahogany_fireplace:{footprint:[1.55,.48],height:1.45},fern_urn:{footprint:[.72,.72],height:1.38}
 });
 export function heirloomParts(item){
  const out=[],[x,y,z]=item.positionMeters,a=item.rotationY||0,cs=Math.cos(a),sn=Math.sin(a),box=(u,v,t,w,h,d,mat=5)=>out.push({c:[x+u*cs+t*sn,y+v,z-u*sn+t*cs],s:[w,h,d],mat,rot:a,rotAxis:'y'});
@@ -26,13 +27,7 @@ export function heirloomParts(item){
   for(let shelf=0;shelf<4;shelf++){const sy=.34+shelf*.36;box(0,sy,0,.83,.035,.34);for(let j=0;j<3;j++){box((j-1)*.23,sy+.12,0,.10,.22,.10,shelf%2?9:3);box((j-1)*.23,sy+.24,0,.06,.025,.06,8);}}
   box(0,1.06,.185,.81,1.47,.015,9);box(0,1.06,.20,.025,1.50,.025,8);for(const sign of [-1,1])box(sign*.045,1.03,.23,.025,.08,.025,8);
  }
- if(item.type==='marble_fireplace'){
-  box(0,.04,0,1.54,.08,.47,7);box(0,.53,-.17,1.36,.98,.10,15);
-  for(const side of [-1,1]){box(side*.57,.63,.01,.23,1.10,.36,7);box(side*.57,.60,.205,.045,.83,.025,8);box(side*.57,1.14,.01,.29,.12,.40,3);}
-  box(0,1.25,0,1.54,.13,.47,7);box(0,1.12,.15,.91,.18,.13,8);box(0,.20,.08,.77,.12,.21,5);
-  for(let k=0;k<7;k++)box((k-3)*.10,.29,.21,.018,.36,.025,8);
-  for(const side of [-1,1]){box(side*.54,1.35,0,.11,.05,.11,8);box(side*.54,1.41,0,.045,.08,.045,3);}
- }
+ if(['marble_fireplace','mahogany_fireplace'].includes(item.type)){out.push(...fireplaceSurroundParts(item));}
  if(item.type==='fern_urn'){
   box(0,.07,0,.45,.14,.45,7);box(0,.33,0,.20,.42,.20,7);box(0,.57,0,.42,.12,.42,8);box(0,.71,0,.37,.20,.37,7);
   for(let k=0;k<8;k++){const t=k*Math.PI/4;box(Math.sin(t)*.13,.94,Math.cos(t)*.13,.06,.36,.09,16);for(let j=0;j<3;j++)box(Math.sin(t)*(.16+j*.045),1.02+j*.07,Math.cos(t)*(.16+j*.045),.12,.055,.14,16);}

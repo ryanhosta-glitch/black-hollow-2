@@ -1,3 +1,4 @@
+import {architecturalLuxury} from './forge_architectural_luxury.mjs';
 import {ROOM_COMPONENTS} from '../casa_game/room_components.mjs';
 import {ROOM_MATERIALS} from '../casa_game/room_materials.mjs';
 import {ROOM_FURNITURE,roomFurnitureParts} from './forge_room_furniture.mjs';
@@ -7,7 +8,7 @@ import {mansionEnvelope} from './forge_envelope_finish.mjs';
 
 /** Forge adapters reuse existing geometry/catalog models; no model payloads are copied. */
 export const FORGE_COMPONENT_REGISTRY=Object.freeze({
- ...ROOM_COMPONENTS,
+ ...Object.fromEntries(Object.entries(ROOM_COMPONENTS).map(([id,component])=>[id,component.generator==='architecturalLuxury'?Object.freeze({...component,generate:architecturalLuxury}):component])),
  ...Object.fromEntries(Object.keys({...FURNITURE_CATALOG,...ROOM_FURNITURE}).map(type=>['furniture:'+type,Object.freeze({
   id:'furniture:'+type,category:'furniture',type,builtIn:!!ROOM_FURNITURE[type],
   specification:ROOM_FURNITURE[type]||FURNITURE_CATALOG[type],

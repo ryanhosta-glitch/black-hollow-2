@@ -1,4 +1,6 @@
-import {TEXTURES} from './forge_textures.mjs';
+import {TEXTURES as BASE_TEXTURES} from './forge_textures.mjs';
+import {ARCHITECTURAL_TEXTURES} from './forge_architectural_materials.mjs';
+const TEXTURES=[...BASE_TEXTURES,...ARCHITECTURAL_TEXTURES];
 const enc=new TextEncoder();
 import {ROOM_MATERIALS} from '../casa_game/room_materials.mjs';
 export const MAT=ROOM_MATERIALS;
@@ -26,7 +28,8 @@ export const PALETTE=[
 {n:'aged marble checker',c:[1,1,1,1],rough:.42},
 {n:'midnight blue damask',c:[.28,.40,.59,1],rough:.85,textureMaterial:1},
 {n:'mulberry damask',c:[.53,.25,.43,1],rough:.86,textureMaterial:1},
-{n:'sage damask',c:[.40,.55,.39,1],rough:.86,textureMaterial:1}];
+{n:'sage damask',c:[.40,.55,.39,1],rough:.86,textureMaterial:1},
+{n:'Carrara fireplace marble',c:[1,1,1,1],rough:.62,metal:0}];
 export function glb(boxes,{exterior=null}={}){const palette=PALETTE.map(m=>({...m}));if(exterior){palette[MAT.siding]={n:exterior.label,c:exterior.color,textureMaterial:exterior.textureMaterial,rough:.93};palette[MAT.trim].c=exterior.trimColor;palette[MAT.roof].c=exterior.roofColor;}const positions=[],normals=[],uvs=[],vertexMap=new Map(),ranges=palette.map(()=>[]);const faces=[[0,1,2,3,[0,0,-1]],[5,4,7,6,[0,0,1]],[4,0,3,7,[-1,0,0]],[1,5,6,2,[1,0,0]],[3,2,6,7,[0,1,0]],[4,5,1,0,[0,-1,0]]];
 for(const b of boxes){
  const [x,y,z]=b.c,[a,d,e]=b.s.map(v=>v/2),verts=b.vertices||[[-a,-d,-e],[a,-d,-e],[a,d,-e],[-a,d,-e],[-a,-d,e],[a,-d,e],[a,d,e],[-a,d,e]];

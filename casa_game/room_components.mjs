@@ -10,7 +10,11 @@ const entries=[
  ['floor-rosette','architecture','artisanDetails',2],['ceiling-chandelier','lighting','dressRoom',1],
  ['wall-panel','wall-decoration','dressRoom',1],['surface-tableau','accessory','dressRoom',1],
  ['corner-web','accessory','dressRoom',1],['plaster-ceiling','architecture','referenceRoomDetails',2],
- ['leaded-window','wall-decoration','referenceRoomDetails',2],['mansion-envelope','architecture','mansionEnvelope',0]
+ ['leaded-window','wall-decoration','referenceRoomDetails',2],['mansion-envelope','architecture','mansionEnvelope',0],
+ ['profiled-cornices','architecture','architecturalLuxury',1],['raised-wainscoting','architecture','architecturalLuxury',1],
+ ['carved-pilasters','architecture','architecturalLuxury',1],['pediment-surrounds','architecture','architecturalLuxury',1],
+ ['coffered-ceilings','architecture','architecturalLuxury',1],['carved-medallions','architecture','architecturalLuxury',1],
+ ['period-floor-inlays','architecture','architecturalLuxury',1],['carved-shelving-surrounds','architecture','architecturalLuxury',1]
 ];
 export const ROOM_COMPONENTS=Object.freeze(Object.fromEntries(entries.map(([id,category,generator,minDetail])=>[id,Object.freeze({id,category,generator,minDetail})])));
 export const ROOM_CONTENT_LIMITS=Object.freeze({maxPrimitives:14000,maxRoomPrimitives:420,maxTriangles:200000,maxRoomTriangles:10000,maxGeometryBytes:24*1024*1024});
@@ -29,7 +33,7 @@ export function createRoomComponentSession(room,{profile=resolveRoomProfile(room
  const used={primitives:0,triangles:0,geometryBytes:0},omitted=[],emitted=[],claims=new Set(),completed=new Set(),arrays=new Set([primitives,occupied]),stack=[];
  const omit=(component,key,reason)=>{const item={component,key:String(key),reason};if(!omitted.some(o=>o.component===component&&o.key===item.key&&o.reason===reason))omitted.push(item);};
  for(const id of Object.keys((room.forgeDecoration||room.source?.forgeDecoration)?.components||{}))if(!ROOM_COMPONENTS[id])omit(id,'configuration','UNKNOWN_COMPONENT');
- const api={profile,budget,used,omitted,emitted,primitives,track:(...items)=>items.forEach(item=>arrays.add(item)),
+ const api={skip:(id,reason,key='room')=>omit(id,key,reason),profile,budget,used,omitted,emitted,primitives,track:(...items)=>items.forEach(item=>arrays.add(item)),
   claim:surface=>{if(claims.has(surface))return false;claims.add(surface);return true;},
   emit(c,s,mat=8,rot=0,shape={}){
    const current=stack.at(-1),p={...shape,c,s,mat,rot,rotAxis:shape.rotAxis||'y'},cost=primitiveCost(p);

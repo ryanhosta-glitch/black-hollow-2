@@ -18,7 +18,7 @@ test('every room identity has portable detail, high fixtures and clear furnishin
  }
 });
 test('all new heirlooms use the same geometry for their clearance footprint',()=>{
- for(const type of ['grandfather_clock','curio_cabinet','marble_fireplace','fern_urn']){const spec=ROOM_FURNITURE[type],parts=roomFurnitureParts({type,positionMeters:[0,0,0]});assert.ok(parts.length>=20,type);for(const p of parts){assert.ok(Math.abs(p.c[0])+p.s[0]/2<=spec.footprint[0]/2+.01,type);assert.ok(Math.abs(p.c[2])+p.s[2]/2<=spec.footprint[1]/2+.01,type);assert.ok(p.c[1]+p.s[1]/2<=spec.height+.01,type);}}
+ for(const type of ['grandfather_clock','curio_cabinet','marble_fireplace','fern_urn']){const spec=ROOM_FURNITURE[type],parts=roomFurnitureParts({type,positionMeters:[0,0,0]});assert.ok(parts.reduce((n,p)=>n+(p.triangles?.length||12),0)>=240,type);for(const p of parts){assert.ok(Math.abs(p.c[0])+p.s[0]/2<=spec.footprint[0]/2+.01,type);assert.ok(Math.abs(p.c[2])+p.s[2]/2<=spec.footprint[1]/2+.01,type);assert.ok(p.c[1]+p.s[1]/2<=spec.height+.01,type);}}
 });
 test('large houses share a bounded dressing budget instead of starving the last rooms',()=>{
  const rooms=Array.from({length:100},(_,i)=>({...room('library',i),floor:0})),contents=planRoomContents(rooms,{furniture:[],artwork:[]});
