@@ -1,8 +1,8 @@
 {
   "schema": "gingerlight.fixture-library",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "date": "2026-10-25",
-  "scope": "Research catalog; five simple direct-control modes are integrated in the student simulator. Advanced modes remain research only. No hardware output.",
+  "scope": "Research catalog; six modes are integrated in the student simulator, including the SlimPAR H6 USB 8CH chart. No hardware output.",
   "profiles": [
     {
       "id": "q-ip-4",
@@ -327,6 +327,41 @@
       "source": "https://www.chauvetdj.com/wp-content/uploads/2021/05/Gobo_Zoom_2_UM_Rev2.pdf",
       "notes": "Pattern replacement, aiming, and zoom are manual; do not invent DMX rotation, pattern selection or movement.",
       "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "h6-usb-8",
+      "manufacturer": "CHAUVET DJ",
+      "model": "SlimPAR H6 USB",
+      "mode": "8CH",
+      "footprint": 8,
+      "protocol": "DMX512",
+      "channel_order": [
+        "dimmer",
+        "red",
+        "green",
+        "blue",
+        "amber",
+        "white",
+        "uv",
+        "strobe"
+      ],
+      "ranges": {
+        "strobe": [
+          {
+            "min": 0,
+            "max": 10,
+            "function": "No function / no strobe"
+          },
+          {
+            "min": 11,
+            "max": 255,
+            "function": "Strobe, slow to fast"
+          }
+        ]
+      },
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2016/01/SlimPAR_H6_USB_UM_Rev1_WO-1.pdf",
+      "notes": "Manufacturer chart p12. Rate in Hz is not specified. Screen UV is violet approximation; strobe is indicated by status, without rapid preview flashing.",
+      "status": "manufacturer_chart_verified_not_hardware_tested"
     }
   ],
   "pixel_template": {

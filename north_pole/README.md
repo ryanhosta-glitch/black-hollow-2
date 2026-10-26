@@ -73,3 +73,18 @@ Primary references:
 New bakes use warm, porous gingerbread panels rather than brick-like walls. Thick icing roof edges, rounded frosting drops, actual piped roof scallops, sugar-pearl window borders, mirrored icing scrolls, spiral red/white candy canes, peppermint medallions, green-striped entrance icing, gumdrop borders and frosted biscuit chimneys are compiled into the GLB. Roof decoration is sampled on the actual union roof surfaces and oriented to its slope; it does not replace student roof shapes. Candy borders leave space around doors. Density controls ornament spacing and detail budgets still apply. Candy materials have no programmed emission; cues continue to drive the student fixtures separately.
 
 These are real model additions, not a backdrop image. House source data and attachment IDs/coordinates are retained; the new geometry correctly produces a new exterior hash. Existing `.ginger`/`.lightshow` packages still open with their original models. To gain the new baked decorations, reopen the original haunt/CASA in the teacher Forge and export a new exterior. Existing lighting projects are not silently rebound to a different exterior. Student demo bakes automatically use the new treatment. More elaborate exports are larger; the 32 MiB GLB limit remains enforced.
+
+## Address map, channel desk and pixels
+
+Additional Patch Map, Console and Pixels workspaces use one shared project. Patch Map displays all 512 addresses of a selected universe, with named colored blocks spanning each fixture's start–end range. Identical shared patches appear as one mirrored block; partial overlaps remain invalid. Empty-cell clicks prepare an address without silently assigning it. Universes are local to each house, so neighboring houses can reuse addresses.
+
+Console exposes one 0–255 slider and numeric field per actual profile channel, with role, absolute address and documented value ranges. Long pixel runs use banks of 16 sliders. Manual overrides are keyed by universe/address, so identical patches follow together. Release returns those channels to playback; transient overrides are not saved. Pixels shows independent nodes/zones, their actual RGB ranges and live values; its grid is an inspector, not a replacement for house placement.
+
+The added CHAUVET SlimPAR H6 USB 8CH mode maps dimmer, red, green, blue, amber, white, UV and strobe in manufacturer order. Strobe 0–10 has no function and 11–255 is slow–fast; the manual gives no calibrated Hz. The preview preserves strobe bytes but shows status instead of rapid flashing. UV uses a violet approximation. Supported wash profiles share the existing two-light preview budget. These are simulated DMX values; hardware transmission and fixture testing are not implemented.
+
+Capture a console look, select a reference channel, calculate its fraction of 255 and musical duration, explain the math, then apply. Project version 2 stores the exact channel byte array; it is not rescaled by the reference fraction. Capture/revision validation binds the reference value, fixture footprint and timing. Version 1 projects still open. Existing effects retain their behavior. Core and browser-console tests cover manufacturer channel roles, master behavior, shared addresses, last address 512, raw cue roundtrip, independent pixels and release.
+
+Primary manual references:
+- The Lighting Controller classic V9: https://download.thelightingcontroller.com/software/V9/manual/English.pdf
+- The Lighting Controller II (manual fader overrides/reset): https://download.thelightingcontroller.com/software/V_II/manual/user_guide.pdf
+- SlimPAR H6 USB, 8-CH chart, printed page 12: https://www.chauvetdj.com/wp-content/uploads/2016/01/SlimPAR_H6_USB_UM_Rev1_WO-1.pdf

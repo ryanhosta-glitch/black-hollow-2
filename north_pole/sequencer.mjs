@@ -46,14 +46,8 @@ export function cueTiming(map,measure,beat,offset,duration,unit){
  if(map.bars.some(b=>b.tick>start&&b.tick<end&&(b.beatTicks!==bar.beatTicks||(unit==='measure'&&b.beats!==bar.beats))))throw Error('Split the cue at a meter change so its beat unit stays clear.');
  return {startTick:start,endTick:end};
 }
-export const PROFILES=[
- {id:'rgb-pixels',name:'RGB pixels · 3 channels per node',channels:['red','green','blue'],pixel:true,source:'HolidayCoro AlphaPix controller mapping'},
- {id:'q-ip-4',name:'SlimPAR Pro Q IP · 4CH RGBA',channels:['red','green','blue','amber']},
- {id:'q-ip-5',name:'SlimPAR Pro Q IP · 5CH dimmer + RGBA',channels:['dimmer','red','green','blue','amber']},
- {id:'colorband-4',name:'COLORband PiX ILS · 12CH / 4 RGB zones',channels:Array.from({length:4},()=>['red','green','blue']).flat(),zones:4},
- {id:'dmx4-1',name:'DMX-4 · 1CH / all outputs together',channels:['dimmer']}
-];
-export const profile=id=>PROFILES.find(p=>p.id===id);
+export {PROFILES,profile} from './fixture_channels.mjs';
+import {PROFILES,profile} from './fixture_channels.mjs';
 export function footprint(f){const p=profile(f.profileId);if(!p)throw Error('Unsupported fixture mode.');return p.channels.length*(p.pixel?f.nodes:1);}
 export function patchReport(fixtures){
  const errors=[],mirrors=[];
@@ -70,7 +64,7 @@ export function patchReport(fixtures){
  return {errors,mirrors};
 }
 export function validateProject(p){
- if(p?.format!=='gingerlight-project'||p.version!==1||!p.house||p.house.format!=='gingerlight-exterior')throw Error('Not a Gingerlight project.');
+ if(p?.format!=='gingerlight-project'||![1,2].includes(p.version)||!p.house||p.house.format!=='gingerlight-exterior')throw Error('Not a Gingerlight project.');
  validateSong(p.song);const map=musicMap(p.song);
  if(!Array.isArray(p.fixtures)||p.fixtures.length>200||!Array.isArray(p.cues)||p.cues.length>2000)throw Error('Project exceeds studio limits.');
  const ids=new Set(),anchors=new Set(p.house.anchors?.map(a=>a.id));
@@ -80,8 +74,9 @@ export function validateProject(p){
  const report=patchReport(p.fixtures);if(report.errors.length)throw Error(report.errors[0]);
  const cues=new Set();
  for(const c of p.cues){
-  if(typeof c.id!=='string'||cues.has(c.id)||!ids.has(c.fixtureId)||!integer(c.startTick,0,p.song.endTick)||!integer(c.endTick,c.startTick+1,p.song.endTick)||!['steady','fade','chase'].includes(c.effect)||!/^#[a-f\d]{6}$/i.test(c.color)||!finite(c.brightness,0,1))throw Error('Invalid lighting cue.');cues.add(c.id);
+  if(typeof c.id!=='string'||cues.has(c.id)||!ids.has(c.fixtureId)||!integer(c.startTick,0,p.song.endTick)||!integer(c.endTick,c.startTick+1,p.song.endTick)||!['steady','fade','chase','channels'].includes(c.effect)||!/^#[a-f\d]{6}$/i.test(c.color)||!finite(c.brightness,0,1))throw Error('Invalid lighting cue.');cues.add(c.id);
   if(!c.math||typeof c.math.prediction!=='string'||typeof c.math.explanation!=='string'||c.math.prediction.length>2000||c.math.explanation.length>4000)throw Error('Cue needs its saved math evidence.');
+  if(c.effect==='channels'){const f=p.fixtures.find(f=>f.id===c.fixtureId),pr=profile(f.profileId),master=(c.math?.referenceChannel||Math.max(1,pr.channels.indexOf('dimmer')+1))-1;if(p.version<2||!Array.isArray(c.channelValues)||c.channelValues.length!==footprint(f)||c.channelValues.some(v=>!integer(v,0,255)))throw Error('Invalid channel snapshot.');if(!integer(master,0,footprint(f)-1)||c.channelValues[master]!==Math.round(c.brightness*255))throw Error('Snapshot reference channel must match the calculated fraction.');}
   const timing=cueTiming(map,c.math.measure,c.math.beat,c.math.offset,c.math.duration,c.math.unit);
   if(Math.abs(fraction(c.math.studentBeats).value-fraction(c.math.duration).value*(c.math.unit==='measure'?map.bars[c.math.measure-1].beats:1))>1e-9||c.math.studentDmx!==Math.round(c.brightness*255))throw Error('Student calculations do not match the applied cue.');
   if(timing.startTick!==c.startTick||timing.endTick!==c.endTick||Math.abs(fraction(c.math.brightness).value-c.brightness)>1e-9)throw Error('Saved math and cue timing disagree.');
@@ -99,7 +94,7 @@ export function evaluate(project,tick){
    let v=role==='dimmer'?g:role==='amber'?0:(color[['red','green','blue'].indexOf(role)]||0)*g;
    // With a master dimmer, color channels stay full-scale and the master carries intensity.
    if(p.channels.includes('dimmer')&&role!=='dimmer')v=role==='amber'?0:(color[['red','green','blue'].indexOf(role)]||0);
-   const addr=f.address-1+i,key=f.universe+':'+addr,byte=Math.round(v*255);
+   const addr=f.address-1+i,key=f.universe+':'+addr,byte=c.effect==='channels'?c.channelValues[i]:Math.round(v*255);
    if(writers.has(key)&&u[addr]!==byte)conflicts.push(key);writers.set(key,c.id);u[addr]=byte;
   }
  }
@@ -110,7 +105,7 @@ export function fixtureColors(f,universes){
  for(let g=0;g<groups;g++){
   const start=f.address-1+(p.pixel||p.zones?g*3:0),channels=p.pixel||p.zones?['red','green','blue']:p.channels;
   const read=role=>{const i=channels.indexOf(role);return i<0?0:u[start+i]/255;},master=channels.includes('dimmer')?read('dimmer'):1;
-  out.push(channels.length===1?[master,master*.8,master*.5]:[Math.min(1,read('red')+read('amber')),Math.min(1,read('green')+read('amber')*.45),read('blue')].map(v=>v*master));
+  out.push(channels.length===1?[master,master*.8,master*.5]:[Math.min(1,read('red')+read('amber')+read('white')+read('uv')*.35),Math.min(1,read('green')+read('amber')*.45+read('white')),Math.min(1,read('blue')+read('white')+read('uv')*.8)].map(v=>v*master));
  }
  return out;
 }

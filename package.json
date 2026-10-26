@@ -25,7 +25,8 @@
     "build:gingerlight": "node tools/build-gingerlight.mjs",
     "test:gingerlight": "node --test tests/ginger-forge.test.mjs tests/ginger-sequencer.test.mjs",
     "test:browser:gingerlight": "node tests/browser-gingerlight.mjs",
-    "test:browser:gingerlight-student": "node tests/browser-gingerlight-student.mjs"
+    "test:browser:gingerlight-student": "node tests/browser-gingerlight-student.mjs",
+    "test:browser:gingerlight-console": "node tests/browser-gingerlight-console.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.62.1",

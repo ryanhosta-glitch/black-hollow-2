@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [atmosphere, storytelling, lighting, heirloom, luxury, playpack, household, nocturne, release-entry, townlife, polish, afterlife, village, magic, playtest-pass, scares, phoenix, forge, stairs, pipeline, reactions, rooms, organ, halloween, town, student-readiness, batch, street-memory, runtime-cleanup, directors-pass, reference, gingerlight, gingerlight-student]
+        suite: [atmosphere, storytelling, lighting, heirloom, luxury, playpack, household, nocturne, release-entry, townlife, polish, afterlife, village, magic, playtest-pass, scares, phoenix, forge, stairs, pipeline, reactions, rooms, organ, halloween, town, student-readiness, batch, street-memory, runtime-cleanup, directors-pass, reference, gingerlight, gingerlight-student, gingerlight-console]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,7 +34,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npx playwright-core install chromium
       - run: node tools/prepare-test-houses.mjs
-      - if: matrix.suite == 'gingerlight' || matrix.suite == 'gingerlight-student'
+      - if: matrix.suite == 'gingerlight' || matrix.suite == 'gingerlight-student' || matrix.suite == 'gingerlight-console'
         run: npm run build:gingerlight
       - run: node tests/browser-${{ matrix.suite }}.mjs
       - uses: actions/upload-artifact@v4
