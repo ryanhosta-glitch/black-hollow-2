@@ -21,10 +21,15 @@
     "test:forge-atmosphere": "node --test tests/forge-atmosphere.test.mjs tests/forge-storytelling.test.mjs tests/forge-lighting.test.mjs tests/forge-luxury.test.mjs tests/forge-components.test.mjs tests/reference-furniture.test.mjs tests/room-completeness.test.mjs tests/room-opulence.test.mjs",
     "test:browser:atmosphere": "node tests/browser-atmosphere.mjs",
     "test:forge-integration": "node --test tests/forge-integration.test.mjs",
-    "test:browser:certification": "node tests/browser-forge-certification.mjs"
+    "test:browser:certification": "node tests/browser-forge-certification.mjs",
+    "build:gingerlight": "node tools/build-gingerlight.mjs",
+    "test:gingerlight": "node --test tests/ginger-forge.test.mjs tests/ginger-sequencer.test.mjs",
+    "test:browser:gingerlight": "node tests/browser-gingerlight.mjs",
+    "test:browser:gingerlight-student": "node tests/browser-gingerlight-student.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.62.1",
-    "three": "0.170.0"
+    "three": "0.170.0",
+    "esbuild": "0.25.12"
   }
 }
