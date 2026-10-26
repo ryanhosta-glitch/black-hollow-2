@@ -66,3 +66,10 @@ Primary references:
 - https://manual.xlights.org/xlights/chapters/chapter-four-sequencer/timing-tracks
 - https://help.malighting.com/grandMA3/2.0/HTML/wvm_add_window.html
 - https://www.etcconnect.com/WebDocs/Controls/EosFamilyOnlineHelp/en/Content/04_System_Basics/02_Displays/DISPLAYS.htm
+
+
+## Baked confectionery geometry
+
+New bakes use warm, porous gingerbread panels rather than brick-like walls. Thick icing roof edges, rounded frosting drops, actual piped roof scallops, sugar-pearl window borders, mirrored icing scrolls, spiral red/white candy canes, peppermint medallions, green-striped entrance icing, gumdrop borders and frosted biscuit chimneys are compiled into the GLB. Roof decoration is sampled on the actual union roof surfaces and oriented to its slope; it does not replace student roof shapes. Candy borders leave space around doors. Density controls ornament spacing and detail budgets still apply. Candy materials have no programmed emission; cues continue to drive the student fixtures separately.
+
+These are real model additions, not a backdrop image. House source data and attachment IDs/coordinates are retained; the new geometry correctly produces a new exterior hash. Existing `.ginger`/`.lightshow` packages still open with their original models. To gain the new baked decorations, reopen the original haunt/CASA in the teacher Forge and export a new exterior. Existing lighting projects are not silently rebound to a different exterior. Student demo bakes automatically use the new treatment. More elaborate exports are larger; the 32 MiB GLB limit remains enforced.

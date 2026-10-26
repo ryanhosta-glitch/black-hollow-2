@@ -9,7 +9,7 @@ export function finishConfectionery(root){
  root.traverse(o=>{if(!o.isMesh)return;o.castShadow=true;o.receiveShadow=true;for(const m of [].concat(o.material||[])){
   if(/sugar glass/.test(m.name)){m.emissiveIntensity=1.15;m.roughness=.24;}
   if(/candy|holly/.test(m.name)){m.roughness=.28;m.metalness=.05;}
-  if(/royal icing/.test(m.name)){m.color.set('#fff3dd');m.roughness=.82;}
+  if(/royal icing/.test(m.name)){m.color.set('#fffdf5');m.emissive.set('#6d655b');m.emissiveIntensity=.4;m.roughness=.68;}
   if(!/gingerbread|biscuit|chocolate/.test(m.name))continue;
   const roof=/roof/.test(m.name),stone=/masonry/.test(m.name);m.roughness=.94;m.metalness=0;
   m.onBeforeCompile=s=>{
@@ -22,9 +22,12 @@ export function finishConfectionery(root){
     vec2 p=an.y>.65?vCookiePosition.xz:(an.z>an.x?vCookiePosition.xy:vCookiePosition.zy);
     float crumb=cookieNoise(floor(p*160.));
     float grain=.86+.17*crumb+.06*cookieNoise(floor(p*21.));
-    ${roof?`if(an.y>.18){vec2 tile=p*vec2(3.8,4.4);float row=floor(tile.y);vec2 cell=fract(tile+vec2(mod(row,2.)*.5,0.));float scallop=abs(length((cell-vec2(.5,.12))*vec2(1.,.8))-.5);float seam=1.-smoothstep(.025,.065,scallop);grain*=1.-.35*seam;float dust=smoothstep(.82,.99,cell.y)*.67+seam*.28;diffuseColor.rgb=mix(diffuseColor.rgb*grain,vec3(.72,.81,.88),clamp(dust,0.,.72));}else{diffuseColor.rgb*=grain;}`:`float row=floor(p.y/${stone?'.22':'.34'});vec2 cell=fract(vec2(p.x/${stone?'.54':'.8'}+mod(row,2.)*.5,p.y/${stone?'.22':'.34'}));float edge=min(min(cell.x,1.-cell.x),min(cell.y,1.-cell.y));float seam=1.-smoothstep(.012,.034,edge);diffuseColor.rgb*=grain*(1.-.25*seam);diffuseColor.rgb+=vec3(.035,.018,.004)*smoothstep(.5,.95,crumb);`}
+    float pore=cookieNoise(floor(p*93.));float dimple=smoothstep(.90,.99,pore);
+    diffuseColor.rgb*=grain*(1.-dimple*.19);diffuseColor.rgb+=vec3(.026,.012,.002)*smoothstep(.40,.85,crumb);
+    ${roof?`if(an.y>.18){float dust=cookieNoise(floor(p*11.));diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.95,.91,.82),smoothstep(.88,.98,dust)*.22);}`:''}
+
    `);
-  };m.customProgramCacheKey=()=>`confectionery-finish-v2-${roof}-${stone}`;m.needsUpdate=true;
+  };m.customProgramCacheKey=()=>`confectionery-finish-v3-${roof}-${stone}`;m.needsUpdate=true;
  }});
 }
 function dispose(root){if(!root)return;const geos=new Set(),mats=new Set();root.traverse(o=>{if(o.geometry)geos.add(o.geometry);for(const m of [].concat(o.material||[]))mats.add(m);});root.removeFromParent();for(const x of [...geos,...mats])x.dispose();}

@@ -1,3 +1,4 @@
+import {confectioner} from './confectionery_details.mjs';
 import {glb,MAT,PALETTE} from '../casa_admin/forge_glb.mjs';
 import {exposedRuns,openingShape,buildRoofs} from '../casa_admin/forge_architecture.mjs';
 import {floorElevationsFeet} from '../casa_admin/forge_readiness_audit.mjs';
@@ -5,7 +6,7 @@ import {sha256} from '../casa_game/archive.mjs';
 import {exteriorDetails} from '../casa_admin/forge_exterior_details.mjs';
 
 export const GINGER_VERSION=1;
-export const STYLES={peppermint:{name:'Peppermint Palace',cookie:[.43,.19,.075,1],candy:[MAT.rubyGlass,MAT.fernLeaf,MAT.warmEmitter,MAT.plumDamask]},winter:{name:'Royal Icing',cookie:[.37,.19,.09,1],candy:[MAT.gilt,MAT.fernLeaf,MAT.rubyGlass]},sugarplum:{name:'Sugarplum Jubilee',cookie:[.27,.105,.065,1],candy:[MAT.plumDamask,MAT.coolEmitter,MAT.rubyGlass,MAT.gilt]}};
+export const STYLES={peppermint:{name:'Peppermint Palace',cookie:[.60,.31,.115,1],candy:[MAT.rubyGlass,MAT.fernLeaf,MAT.warmEmitter,MAT.plumDamask]},winter:{name:'Royal Icing',cookie:[.55,.285,.11,1],candy:[MAT.gilt,MAT.fernLeaf,MAT.rubyGlass]},sugarplum:{name:'Sugarplum Jubilee',cookie:[.49,.235,.10,1],candy:[MAT.plumDamask,MAT.coolEmitter,MAT.rubyGlass,MAT.gilt]}};
 const K=.3048,lerp=(a,b,t)=>a.map((v,i)=>v+(b[i]-v)*t);
 function validate(source){
  if(!source||!Array.isArray(source.floors)||!source.floors.length||source.floors.length>16)throw Error('Choose a haunt with 1–16 floors.');
@@ -21,7 +22,7 @@ export function planGinger(source,{style='peppermint',density=1}={}){
  const pipe=(a,b,r,mat=MAT.trim)=>{const d=b.map((v,i)=>v-a[i]),len=Math.hypot(...d);if(len<.001)return;let u=Math.abs(d[1]/len)<.9?[0,1,0]:[1,0,0];const n=d.map(v=>v/len),cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];u=cross(n,u);u=u.map(v=>v/Math.hypot(...u));const v=cross(n,u),rings=[a,b].map(p=>Array.from({length:6},(_,j)=>p.map((x,i)=>x+r*(u[i]*Math.cos(j*Math.PI/3)+v[i]*Math.sin(j*Math.PI/3))))),triangles=[];for(let i=0;i<6;i++){const j=(i+1)%6;triangles.push([rings[0][i],rings[1][i],rings[1][j]],[rings[0][i],rings[1][j],rings[0][j]],[a,rings[0][j],rings[0][i]],[b,rings[1][i],rings[1][j]]);}if(parts.length>=24000)throw Error('Exterior detail budget exceeded.');parts.push({c:[0,0,0],s:[1,1,1],mat,triangles,smooth:true});};
  const sweet=(p,r,mat)=>{const triangles=[],rows=4,cols=7,pt=(i,j)=>[p[0]+r*Math.sin(i*Math.PI/rows)*Math.cos(j*2*Math.PI/cols),p[1]+r*Math.cos(i*Math.PI/rows),p[2]+r*Math.sin(i*Math.PI/rows)*Math.sin(j*2*Math.PI/cols)];for(let i=0;i<rows;i++)for(let j=0;j<cols;j++){if(i)triangles.push([pt(i,j),pt(i+1,j),pt(i,j+1)]);if(i<rows-1)triangles.push([pt(i,j+1),pt(i+1,j),pt(i+1,j+1)]);}parts.push({c:[0,0,0],s:[1,1,1],mat,triangles,smooth:true});decorations++;};
  const anchor=(id,kind,points,normal,extra={})=>{if(seen.has(id))throw Error('Duplicate attachment ID');seen.add(id);anchors.push({id,kind,pointsMeters:points.map(p=>p.map(v=>v*K)),normal,...extra});};
- const candy=STYLES[style].candy;
+ const candy=STYLES[style].candy,confection=confectioner(parts,density,candy);
  for(const [fi,f]of source.floors.entries())for(const r of f.rooms){const base=levels[fi],h=+r.h;
   for(const side of ['top','bottom','left','right']){const vertical=['left','right'].includes(side),span=+(vertical?r.w:r.l),wall=+(vertical?r.x:r.y)+(['right','bottom'].includes(side)?+(vertical?r.l:r.w):0),out=['top','left'].includes(side)?-1:1;
    const pos=(a,y,offset=.04)=>vertical?[wall+out*offset,base+y,+r.y+a]:[+r.x+a,base+y,wall+out*offset],normal=vertical?[out,0,0]:[0,0,out];
@@ -30,18 +31,27 @@ export function planGinger(source,{style='peppermint',density=1}={}){
    for(const [ri,[lo,hi]]of exposedRuns(r,side,f.rooms).entries()){
     const cuts=[...new Set([lo,hi,...holes.flatMap(o=>[Math.max(lo,Math.min(hi,o.center-o.width/2)),Math.max(lo,Math.min(hi,o.center+o.width/2))])])].sort((a,b)=>a-b);
     for(let i=1;i<cuts.length;i++){const a=cuts[i-1],b=cuts[i],mid=(a+b)/2,active=holes.filter(o=>Math.abs(mid-o.center)<o.width/2),ys=[...new Set([0,h,...active.flatMap(o=>[o.low,o.high])])].sort((a,b)=>a-b);for(let j=1;j<ys.length;j++)if(!active.some(o=>(ys[j]+ys[j-1])/2>o.low&&(ys[j]+ys[j-1])/2<o.high))block(mid,(ys[j]+ys[j-1])/2,b-a,ys[j]-ys[j-1],.24,MAT.siding);}
-    pipe(pos(lo,h),pos(hi,h),.18);pipe(pos(lo,.15),pos(hi,.15),.14);
+    confection.tube([pos(lo,h,.22),pos(hi,h,.22)],.40);confection.tube([pos(lo,.15,.18),pos(hi,.15,.18)],.25);
     anchor('f'+fi+':'+r.id+':'+side+':eave:'+ri,'roofline',[pos(lo,h,.20),pos(hi,h,.20)],normal);
-    const n=Math.min(50,Math.ceil((hi-lo)*density*1.3));for(let j=0;j<=n;j++){const a=lo+(hi-lo)*j/Math.max(1,n),drop=.25+.50*(.5+.5*Math.sin(j*2.399+fi));pipe(pos(a,h-.03,.14),pos(a,h-drop,.14),.075);if(j%2===0)sweet(pos(a,h+.25,.12),.23,candy[(j+fi)%candy.length]);}
-    for(const a of [lo+.1,hi-.1]){pipe(pos(a,.2),pos(a,h),.09);for(let j=0;j<Math.min(18,h*1.5);j++)sweet(pos(a,.5+j*.65,.14),.095,j%2?MAT.rubyGlass:MAT.trim);}
+    const n=Math.min(50,Math.ceil((hi-lo)*density*1.3));for(let j=0;j<=n;j++){const a=lo+(hi-lo)*j/Math.max(1,n),drop=.25+.50*(.5+.5*Math.sin(j*2.399+fi));confection.drip(pos(a,h+.02,.27),drop*1.25,.26);if(j%2===0)sweet(pos(a,h+.36,.24),.36,candy[(j+fi)%candy.length]);}
+    for(const a of [lo+.1,hi-.1]){confection.tube([pos(a,.2,.18),pos(a,h,.18)],.19);for(let j=0;j<Math.min(18,h*1.5);j++)sweet(pos(a,.5+j*.65,.14),.095,j%2?MAT.rubyGlass:MAT.trim);}
+    if(fi===0&&hi-lo>5){const tangent=vertical?[0,0,1]:[1,0,0];for(const [a,sign]of [[lo+.4,1],[hi-.4,-1]])confection.cane(pos(a,.15,.55),Math.min(7.5,h*.78),tangent.map(v=>v*sign),normal,.22);}
+    if(fi===0){let sweetIndex=0;for(let a=lo+.8;a<hi-.4;a+=1.8/density){if(holes.some(o=>o.type==='door'&&Math.abs(a-o.center)<o.width/2+1.25))continue;confection.gumdrop(pos(a,.05,1.0),.43,[...candy,MAT.coolEmitter][sweetIndex++%(candy.length+1)]);}}
+    const pearls=Math.min(45,Math.floor((hi-lo)*density/.65));for(let j=0;j<=pearls;j++)confection.blob(pos(lo+(hi-lo)*j/Math.max(1,pearls),h-.60,.27),[.115,.115,.115]);
+    for(let a=lo+2;a<hi-1.3;a+=4){if(holes.some(o=>Math.abs(a-o.center)<o.width/2+1&&h*.55>o.low-.5&&h*.55<o.high+.7))continue;confection.lace(pos,a-.75,a+.75,h*.55,.85);}
     // Victorian icing swags are dimensional and stay against the wall.
     const swags=Math.max(1,Math.round((hi-lo)/3));for(let j=0;j<swags;j++){const start=lo+(hi-lo)*j/swags,end=lo+(hi-lo)*(j+1)/swags;for(let k=0;k<7;k++)pipe(pos(start+(end-start)*k/7,h-.7-.28*Math.sin(k/7*Math.PI),.19),pos(start+(end-start)*(k+1)/7,h-.7-.28*Math.sin((k+1)/7*Math.PI),.19),.04);}
    }
    for(const o of holes){if(!['window','door'].includes(o.type)||!exposedRuns(r,side,f.rooms).some(([a,b])=>o.center-o.width/2>=a-.01&&o.center+o.width/2<=b+.01))continue;
     const a=o.center-o.width/2,b=o.center+o.width/2,low=o.low,high=o.high,outline=[pos(a,low,.25),pos(a,high,.25),pos(b,high,.25),pos(b,low,.25),pos(a,low,.25)];
     anchor('f'+fi+':'+r.id+':'+side+':'+o.id,o.type==='window'?'window':'door',outline,normal);
-    for(let j=1;j<outline.length;j++)pipe(outline[j-1],outline[j],.14);
+    confection.tube(outline,.27);for(let edge=1;edge<outline.length;edge++){const length=Math.hypot(...outline[edge].map((v,k)=>v-outline[edge-1][k])),n=Math.max(1,Math.floor(length/.45));for(let j=0;j<n;j++){const p=lerp(outline[edge-1],outline[edge],j/n).map((v,k)=>v+normal[k]*.10);confection.blob(p,[.12,.12,.12]);}}
+    confection.lace(pos,a-.1,b+.1,high,Math.max(.2,h-high-.1));
+    if(o.type==='door'){for(const sign of [-1,1]){const at=o.center+sign*(o.width/2+.65);if(at>.5&&at<span-.5)confection.peppermint(pos(at,high-.6,.4),.40,normal,vertical?[0,0,1]:[1,0,0]);}}
     block(o.center,(low+high)/2,o.width,high-low,.04,o.type==='window'?MAT.glass:MAT.wood);
+    if(o.type==='door'){
+     const y=high-.65,arc=[];for(let j=0;j<=20;j++){const t=Math.PI-j/20*Math.PI;arc.push(pos(o.center+Math.cos(t)*(o.width/2+.25),y+Math.sin(t)*o.width*.34,.5));}const path=[pos(a-.25,low,.5),pos(a-.25,y,.5),...arc.slice(1),pos(b+.25,low,.5)];confection.tube(path,.25);for(let j=2;j<arc.length;j+=3)confection.tube(arc.slice(j-1,j+1),.26,MAT.fernLeaf);confection.peppermint(pos(o.center,low+(high-low)*.30,.28),.34,normal,vertical?[0,0,1]:[1,0,0]);
+    }
     if(o.type==='window'){block(o.center,(low+high)/2,.065,high-low,.08,MAT.trim,.09);block(o.center,(low+high)/2,o.width,.065,.08,MAT.trim,.09);}
     // Wreaths frame glass; openings and attachment outlines remain usable.
     const cy=o.type==='door'?high*.70:(low+high)*.5,rr=Math.min(o.width*.25,.85);for(let j=0;j<14;j++){const t=j/14*Math.PI*2;sweet(pos(o.center+Math.cos(t)*rr,cy+Math.sin(t)*rr,.34),rr*.28,MAT.fernLeaf);if(j%3===0)sweet(pos(o.center+Math.cos(t)*rr,cy+Math.sin(t)*rr,.46),rr*.12,MAT.rubyGlass);}for(const sign of [-1,1])block(o.center+sign*.15,cy+rr+.03,.25,.17,.12,MAT.rubyGlass,.42);
@@ -57,7 +67,13 @@ export function planGinger(source,{style='peppermint',density=1}={}){
  for(const [fi,f]of source.floors.entries())for(const r of f.rooms){if(source.floors.slice(fi+1).some(f=>f.rooms.some(q=>+q.x<+r.x+ +r.l&&+q.x+ +q.l>+r.x&&+q.y<+r.y+ +r.w&&+q.y+ +q.w>+r.y)))continue;if(['hip','hipped','tower','mansard','flat','none'].includes(r.roofType||f.roofType||source.roof?.type))continue;const rise=Math.max(.5,Math.min(14,Number(r.roofRise??f.roofRise??source.roof?.rise??Math.min((+r.l+.7)*.65,8)))),radius=Math.min(1.1,+r.l*.10),y=levels[fi]+ +r.h+.2+rise*.45;for(const side of [-1,1]){const z=+r.y+(side>0?+r.w+.38:-.38),center=[+r.x+ +r.l/2,y,z];for(let j=0;j<16;j++){const a=j/16*Math.PI*2,b=(j+1)/16*Math.PI*2;parts.push({c:[0,0,0],s:[1,1,1],mat:j%2?MAT.trim:MAT.rubyGlass,triangles:[[center,[center[0]+Math.cos(a)*radius,y+Math.sin(a)*radius,z],[center[0]+Math.cos(b)*radius,y+Math.sin(b)*radius,z]]]});pipe([center[0]+Math.cos(a)*radius,y+Math.sin(a)*radius,z],[center[0]+Math.cos(b)*radius,y+Math.sin(b)*radius,z],.065);}}}
  // Follow actual boundary edges of the union roof; skip coplanar triangulation diagonals.
  const edges=new Map();for(const p of roofs.filter(p=>p.mat===MAT.roof&&p.triangles))for(const tri of p.triangles){const a=tri[0],b=tri[1],c=tri[2],u=b.map((v,i)=>v-a[i]),v=c.map((v,i)=>v-a[i]),n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],len=Math.hypot(...n);if(!len)continue;for(let j=0;j<3;j++){const a=tri[j],b=tri[(j+1)%3],key=[a,b].map(p=>p.map(n=>n.toFixed(4)).join(',')).sort().join('|');if(!edges.has(key))edges.set(key,{a,b,normals:[]});edges.get(key).normals.push(n.map(x=>x/len));}}
- let edge=0;for(const e of edges.values()){if(e.normals.length>1&&e.normals.every(n=>Math.abs(n.reduce((s,v,i)=>s+v*e.normals[0][i],0))>.999))continue;const a=e.a.map((v,i)=>v+(i===1?.09:0)),b=e.b.map((v,i)=>v+(i===1?.09:0));pipe(a,b,.12);anchor('roof-edge:'+edge++,'roof-edge',[a,b],[0,1,0]);const n=Math.min(32,Math.floor(Math.hypot(...b.map((v,i)=>v-a[i]))*density/.9));for(let j=1;j<n;j++)sweet(lerp(a,b,j/n),.16,candy[j%candy.length]);}
+ let edge=0;for(const e of edges.values()){if(e.normals.length>1&&e.normals.every(n=>Math.abs(n.reduce((s,v,i)=>s+v*e.normals[0][i],0))>.999))continue;const a=e.a.map((v,i)=>v+(i===1?.09:0)),b=e.b.map((v,i)=>v+(i===1?.09:0));confection.tube([a,b],.40);anchor('roof-edge:'+edge++,'roof-edge',[a,b],[0,1,0]);const n=Math.min(32,Math.floor(Math.hypot(...b.map((v,i)=>v-a[i]))*density/.9));for(let j=1;j<n;j++)sweet(lerp(a,b,j/n),.28,candy[j%candy.length]);}
+ confection.roof(roofs);
+ // Frosted biscuit chimneys have rounded icing caps and piped mortar.
+ for(const p of [...roofs,...porch.parts].filter(p=>p.mat===MAT.stone&&p.s[1]>Math.max(2,p.s[0]*1.4)&&p.s[0]<5&&p.s[2]<5)){
+  const [x,y,z]=p.c,[w,h,d]=p.s,top=y+h/2;confection.blob([x,top+.08,z],[w*.68,.35,d*.68]);for(let row=0;row<Math.min(10,Math.ceil(h/.8));row++){const yy=y-h/2+row*.8;confection.tube([[x-w*.52,yy,z-d*.52],[x+w*.52,yy,z-d*.52],[x+w*.52,yy,z+d*.52],[x-w*.52,yy,z+d*.52],[x-w*.52,yy,z-d*.52]],.065);}
+  for(const dx of [-.4,0,.4])confection.drip([x+dx*w,top,z-d*.56],.45+.25*(dx+.5),.14);
+ }
  const rooms=source.floors.flatMap(f=>f.rooms),minX=Math.min(...rooms.map(r=>+r.x)),maxX=Math.max(...rooms.map(r=>+r.x+ +r.l)),minZ=Math.min(...rooms.map(r=>+r.y)),maxZ=Math.max(...rooms.map(r=>+r.y+ +r.w));
  add([(minX+maxX)/2,-.33,(minZ+maxZ)/2],[maxX-minX+10,.35,maxZ-minZ+10],MAT.trim);
  // Confectionery gateposts and snowy topiary frame a clear central approach.
@@ -66,10 +82,11 @@ export function planGinger(source,{style='peppermint',density=1}={}){
  const yardBounds={minX:(minX-5)*K,maxX:(maxX+5)*K,minZ:(minZ-5)*K,maxZ:(maxZ+5)*K};
  const paletteOverrides=Object.fromEntries(PALETTE.map((m,i)=>[i,{...m,textureMaterial:-1}]));
  paletteOverrides[MAT.wood]={n:'dark chocolate joinery',c:[.14,.045,.018,1],rough:.7,textureMaterial:-1};
- paletteOverrides[MAT.stone]={n:'biscuit masonry',c:[.52,.29,.13,1],rough:.95,textureMaterial:-1};
- Object.assign(paletteOverrides,{[MAT.siding]:{n:'baked gingerbread',c:STYLES[style].cookie,rough:.96,textureMaterial:-1},[MAT.roof]:{n:'cocoa biscuit roof',c:[.22,.085,.035,1],rough:.93,textureMaterial:-1},[MAT.trim]:{n:'piped royal icing',c:[1,.95,.83,1],rough:.65,textureMaterial:-1},[MAT.glass]:{n:'amber sugar glass',c:[1,.60,.16,.72],rough:.18,emit:[.8,.28,.035],textureMaterial:-1},[MAT.rubyGlass]:{n:'cherry candy',c:[.8,.025,.055,1],rough:.24,textureMaterial:-1},[MAT.fernLeaf]:{n:'emerald sugar holly',c:[.025,.25,.08,1],rough:.42,textureMaterial:-1},[MAT.plumDamask]:{n:'sugarplum candy',c:[.57,.12,.5,1],rough:.25,textureMaterial:-1}});
+ paletteOverrides[MAT.stone]={n:'biscuit masonry',c:[.61,.34,.14,1],rough:.95,textureMaterial:-1};
+ Object.assign(paletteOverrides,{[MAT.siding]:{n:'baked gingerbread',c:STYLES[style].cookie,rough:.96,textureMaterial:-1},[MAT.roof]:{n:'toasted gingerbread roof',c:[.48,.235,.085,1],rough:.93,textureMaterial:-1},[MAT.trim]:{n:'piped royal icing',c:[1,.95,.83,1],rough:.65,textureMaterial:-1},[MAT.glass]:{n:'amber sugar glass',c:[1,.60,.16,.72],rough:.18,emit:[.8,.28,.035],textureMaterial:-1},[MAT.rubyGlass]:{n:'cherry candy',c:[.8,.025,.055,1],rough:.24,textureMaterial:-1},[MAT.fernLeaf]:{n:'emerald sugar holly',c:[.025,.40,.07,1],rough:.42,textureMaterial:-1},[MAT.plumDamask]:{n:'sugarplum candy',c:[.57,.12,.5,1],rough:.25,textureMaterial:-1}});
+ Object.assign(paletteOverrides,{[MAT.gilt]:{n:'lemon drop candy',c:[1,.70,.025,1],rough:.25,metal:0,emit:[0,0,0],textureMaterial:-1},[MAT.warmEmitter]:{n:'golden sugar candy',c:[1,.65,.035,1],rough:.25,emit:[0,0,0],textureMaterial:-1},[MAT.coolEmitter]:{n:'blue raspberry candy',c:[.025,.48,.85,1],rough:.23,emit:[0,0,0],textureMaterial:-1}});
  const scalePart=p=>({...p,c:p.c.map(v=>v*K),s:p.s.map(v=>v*K),...(p.vertices?{vertices:p.vertices.map(p=>p.map(v=>v*K))}:{}),...(p.triangles?{triangles:p.triangles.map(t=>t.map(p=>p.map(v=>v*K)))}:{})});
- return {parts:parts.map(scalePart),paletteOverrides,anchors,yardBounds,report:{rooms:rooms.length,attachmentPoints:anchors.length,decorativeSweets:decorations,parts:parts.length,interiorIncluded:false,style:STYLES[style].name}};
+ return {parts:parts.map(scalePart),paletteOverrides,anchors,yardBounds,report:{rooms:rooms.length,attachmentPoints:anchors.length,decorativeSweets:decorations,parts:parts.length,confectionery:confection.counts,interiorIncluded:false,style:STYLES[style].name}};
 }
 const b64=bytes=>{let s='';for(let i=0;i<bytes.length;i+=32768)s+=String.fromCharCode(...bytes.subarray(i,i+32768));return btoa(s);};
 export async function compileGinger(source,{houseId,style='peppermint',density=1}={}){
