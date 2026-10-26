@@ -1,5 +1,5 @@
-/** Pass-one mode contract; the player selector is enabled only with a tested ride runtime. */
-export const MIDWAY_EXPERIENCE=Object.freeze({id:'midway',label:'The Haunted Midway',routeEdition:'haunted-midway-route-1',runtimeReady:false});
+/** Runtime capability is separate from the archive's static-only QA flags. */
+export const MIDWAY_EXPERIENCE=Object.freeze({id:'midway',label:'The Haunted Midway',routeEdition:'haunted-midway-route-1',runtimeReady:true});
 const pending=new WeakMap();
 /** Optional sidecars are candidates, not proof that a carriage can be driven in the Game. */
 export async function readMidwayCandidate(house){

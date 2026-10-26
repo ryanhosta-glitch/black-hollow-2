@@ -1,0 +1,18 @@
+[
+  {
+    "suite": "release-entry",
+    "exitCode": 0
+  },
+  {
+    "suite": "pipeline",
+    "exitCode": 0
+  },
+  {
+    "suite": "halloween",
+    "exitCode": 0
+  },
+  {
+    "suite": "runtime-cleanup",
+    "exitCode": 0
+  }
+]

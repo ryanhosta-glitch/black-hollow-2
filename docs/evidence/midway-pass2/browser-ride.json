@@ -1,0 +1,197 @@
+{
+  "browser": "154.0.8037.57",
+  "actualGame": true,
+  "selector": true,
+  "porchBoarding": true,
+  "seatedCamera": true,
+  "pause": true,
+  "hauntedElevator": true,
+  "multiFloor": true,
+  "sameFloorWing": true,
+  "hauntingLayerPreserved": true,
+  "returnedToStation": true,
+  "unloaded": true,
+  "existingModesRestored": true,
+  "abortedTransferCleanly": true,
+  "mobileOverflow": false,
+  "soundControl": true,
+  "seatedLook": true,
+  "guide": true,
+  "saveUnchanged": true,
+  "acceleratedTestClock": true,
+  "stages": [
+    {
+      "name": "boarding",
+      "pose": {
+        "position": [
+          2.7432000000000007,
+          0,
+          2.7432000000000007
+        ],
+        "roomId": "library",
+        "yaw": 0,
+        "speed": 0,
+        "index": 0,
+        "state": "boarding",
+        "paused": false
+      },
+      "transfer": null,
+      "draws": 36,
+      "triangles": 24144,
+      "camera": [
+        2.7432000000000007,
+        1.22,
+        2.778200000000001
+      ]
+    },
+    {
+      "name": "seated-carriage",
+      "pose": {
+        "position": [
+          2.7432000000000007,
+          0,
+          2.7432000000000007
+        ],
+        "roomId": "library",
+        "yaw": 0.3599099999999997,
+        "speed": 0,
+        "index": 1,
+        "state": "running",
+        "paused": false
+      },
+      "transfer": null,
+      "draws": 31,
+      "triangles": 19930,
+      "camera": [
+        2.7555266500397035,
+        1.22,
+        2.7759574983598982
+      ]
+    },
+    {
+      "name": "haunted-elevator",
+      "pose": {
+        "position": [
+          1.3716000000000002,
+          0,
+          0.58
+        ],
+        "roomId": "library",
+        "yaw": 2.2150092214576538,
+        "speed": 0,
+        "index": 2,
+        "state": "transfer",
+        "paused": false
+      },
+      "transfer": {
+        "phase": "cabin",
+        "from": "library",
+        "to": "archive"
+      },
+      "draws": 9,
+      "triangles": 510,
+      "camera": [
+        0,
+        1.22,
+        0.035
+      ]
+    },
+    {
+      "name": "same-floor-wing",
+      "pose": {
+        "position": [
+          11.8872,
+          0,
+          0.715
+        ],
+        "roomId": "archive",
+        "yaw": -3.141592653589793,
+        "speed": 0.3375,
+        "index": 3,
+        "state": "running",
+        "paused": false
+      },
+      "transfer": null,
+      "draws": 42,
+      "triangles": 23210,
+      "camera": [
+        11.8872,
+        1.22,
+        0.6799999999999999
+      ]
+    },
+    {
+      "name": "upper-floor",
+      "pose": {
+        "position": [
+          2.7432000000000003,
+          3.048,
+          0.7521249999999999
+        ],
+        "roomId": "parlor",
+        "yaw": -3.141592653589793,
+        "speed": 0.38250000000000006,
+        "index": 11,
+        "state": "running",
+        "paused": false
+      },
+      "transfer": null,
+      "draws": 37,
+      "triangles": 15473,
+      "camera": [
+        2.7432000000000003,
+        4.268,
+        0.7171249999999999
+      ]
+    },
+    {
+      "name": "mobile-carriage",
+      "pose": {
+        "position": [
+          2.7432000000000003,
+          3.048,
+          0.8729440060000015
+        ],
+        "roomId": "parlor",
+        "yaw": -3.141592653589793,
+        "speed": 0.5025600000000015,
+        "index": 11,
+        "state": "running",
+        "paused": false
+      },
+      "transfer": null,
+      "draws": 29,
+      "triangles": 15056,
+      "camera": [
+        2.7432000000000003,
+        4.268,
+        0.8379440060000015
+      ]
+    },
+    {
+      "name": "station-return",
+      "pose": {
+        "position": [
+          2.7432000000000007,
+          0,
+          2.7432000000000007
+        ],
+        "roomId": "library",
+        "yaw": 1.5707963267948966,
+        "speed": 0,
+        "index": 18,
+        "state": "unloading",
+        "paused": false
+      },
+      "transfer": null,
+      "draws": 36,
+      "triangles": 21778,
+      "camera": [
+        2.778200000000001,
+        1.22,
+        2.7432000000000007
+      ]
+    }
+  ],
+  "errors": []
+}

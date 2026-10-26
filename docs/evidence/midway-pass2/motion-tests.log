@@ -1,0 +1,13 @@
+✔ boarding, bounded acceleration, pause, room cue, atomic elevator and unloading work in order (3.894688ms)
+✔ carriage meshes in all yaw poses fit both certified circular vehicle profiles (9.441ms)
+✔ bad speeds and times fail, suspension freezes motion, and a large frame never skips a route chord (0.302958ms)
+✔ planner workers are terminated, cached plans are detached, and failures can be retried (4.466735ms)
+✔ an occluded lift arrival faces along the checked exit path without moving between its endpoints (0.483786ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.536989

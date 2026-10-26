@@ -1,5 +1,7 @@
 # The Haunted Midway — Pass 1: architecture and route generation
 
+Historical Pass 1 snapshot. [Pass 2](HAUNTED_MIDWAY_PASS2.md) now adds the playable carriage and haunted-elevator runtime; static archive QA flags remain separate from runtime capability.
+
 **Implemented milestone: the route-generation foundation. The playable Midway mode is not enabled.** This is a coherent first pass of the requested five-pass mission, not a completed theme-park release. Vehicles, seated cameras, boarding controls, the theatrical director and park transformation remain subsequent implementation work. No placeholder mode button was added.
 
 Branch: `dev/haunted-midway`, based on the reviewed Forge development head `90bb4ff6726689b1d7fbed3e9e990e965e77fe51`. The final commit is provided in the delivery message. Existing Forge hardware/visual acceptance requirements remain open; this pass does not authorize merging or deployment.

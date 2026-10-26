@@ -1,0 +1,11 @@
+/** Bounded dressing for the existing Game-owned cabin: emissive fittings, no extra lights. */
+export function createHauntedLiftDressing(T,{reducedMotion=false}={}){
+ const root=new T.Group();root.name='Haunted elevator fittings';const brass=new T.MeshStandardMaterial({color:0xb39a64,metalness:.5,roughness:.65}),parts=[],box=(x,y,z,w,h,d)=>parts.push({p:[x,y,z],s:[w,h,d]});
+ for(const x of [-1.02,1.02]){box(x,1.25,-1.02,.04,2.35,.035);box(x,1.93,-1.01,.15,.035,.045);}for(const y of [.12,2.38])box(0,y,-1.02,2.10,.05,.04);
+ for(const x of [-.53,.53])box(x,1.70,-1.01,.025,.33,.035);for(const y of [1.55,1.86])box(0,y,-1.01,1.08,.025,.035);
+ const t=new T.Object3D(),trim=new T.InstancedMesh(new T.BoxGeometry(1,1,1),brass,parts.length);parts.forEach((p,i)=>{t.position.fromArray(p.p);t.scale.fromArray(p.s);t.updateMatrix();trim.setMatrixAt(i,t.matrix);});root.add(trim);
+ const glow=new T.InstancedMesh(new T.SphereGeometry(.045,8,6),new T.MeshStandardMaterial({color:0xb9dbe6,emissive:0x507e92,emissiveIntensity:.7,roughness:.7}),2);for(const [i,x]of[-.84,.84].entries()){t.position.set(x,1.38,-1.00);t.scale.set(1,1,1);t.updateMatrix();glow.setMatrixAt(i,t.matrix);}root.add(glow);
+ const canvas=document.createElement('canvas');canvas.width=512;canvas.height=128;const ctx=canvas.getContext('2d'),texture=new T.CanvasTexture(canvas);texture.colorSpace=T.SRGBColorSpace;texture.generateMipmaps=false;texture.minFilter=T.LinearFilter;const label=new T.Mesh(new T.PlaneGeometry(1.02,.26),new T.MeshBasicMaterial({map:texture}));label.position.set(0,1.70,-.985);root.add(label);
+ const needle=new T.Mesh(new T.BoxGeometry(.012,.12,.012),brass);needle.position.set(0,2.08,-1.0);root.add(needle);
+ return {root,label(from,to){ctx.fillStyle='#121b26';ctx.fillRect(0,0,512,128);ctx.textAlign='center';ctx.fillStyle='#e2c892';ctx.font='22px Georgia';ctx.fillText('THE ELEVATOR THAT REMEMBERS',256,35,490);ctx.font='19px Georgia';ctx.fillText(String(from).slice(0,25)+'  →  '+String(to).slice(0,25),256,78,480);ctx.font='15px Georgia';ctx.fillText('KEEP YOUR SEAT · THE HOUSE IS TURNING',256,109,480);texture.needsUpdate=true;},tick(progress){needle.rotation.z=reducedMotion?0:Math.min(1,Math.max(0,progress))*Math.PI*.75;}};
+}
