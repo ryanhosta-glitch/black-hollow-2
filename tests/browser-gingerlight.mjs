@@ -4,7 +4,7 @@ import {pathToFileURL,fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
 const browser=await chromium.launch({headless:true,executablePath:process.env.GINGER_CHROMIUM_PATH||undefined,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],requests=[];
-page.on('pageerror',e=>errors.push(e.message));await page.route(/^https?:/,r=>{requests.push(r.request().url());return r.abort();});
+page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});await page.route(/^https?:/,r=>{requests.push(r.request().url());return r.abort();});
 try{
  await page.goto(pathToFileURL(fileURLToPath(new URL('../north_pole/gingerlight_studio_standalone.html',import.meta.url))).href);
  await page.waitForFunction(()=>!document.getElementById('save').disabled);

@@ -45,3 +45,24 @@ Cues support steady, fade-in and a single chase through independent nodes/zones.
 Current limits: 200 fixtures, 170 RGB nodes per fixture, 2,000 cues. Fixtures attach to supplied house paths; free yard props, spatial clearance, moving-head controls, full wash/projection rendering, teacher class collection and the musical sleigh-street runtime are later milestones. Bulbs currently use instanced emissive-color geometry, not physical light simulation. This pass does not merge or deploy the branch. Google Sites iframe download/audio permissions and actual school-device performance still need a school check.
 
 Verification: `tests/ginger-sequencer.test.mjs` covers musical units, tempo/meter transitions, approved asset integrity, patch boundaries/mirroring, seek-independent playback, fades/chases/conflicts and project corruption. `tests/browser-gingerlight-student.mjs` blocks HTTP/HTTPS while exercising playback, failed/correct math, mirrors/overlaps, download, fresh-page reopen, corruption rejection and a narrow layout.
+
+
+## Winter visuals
+
+Both teacher and student renderers now share `winter_scene.mjs`: procedural cookie/brick grain and roof scallops, warm sugar glass, a snowy garden with instanced evergreens and Victorian lanterns, softened ground-edge fade, moon/stars, restrained bloom, shadows and gentle snowfall. The student studio includes glow/snow toggles and an expanded preview. Reduced-motion preference suppresses snowfall; bloom starts off on narrow screens. The default example is now the three-level Peppermint Hall. Cosmetic scenery is independent of authored DMX and is not saved as student fixtures.
+
+Student bulbs use instanced geometry and shared halo points, with their colors still read from the resolved DMX bytes. Two pooled spotlights give the supported Q IP wash fixtures surface spill. This is an artistic preview, not calibrated photometry. The winter rendering treatment does not modify a saved exterior's model bytes, attachment coordinates or checksums; existing projects reopen with the new treatment. Future sleigh rendering can reuse this module. All textures/shaders/scenery are generated locally, with no new network requests or image downloads.
+
+
+## Workspaces informed by production lighting tools
+
+The student UI now offers **Layout & Patch**, **Sequence**, **Show Preview**, and **All tools** as fixed workspace presets. They share the same project, selected fixture and audio clock. Switching views is a presentation change, not a new show or an edit to cue math. Layout emphasizes placement/addressing; Sequence emphasizes the timeline with fixture names pinned beside individually distinct rows and a measure-width zoom control; Show Preview hides authoring forms while retaining transport. All tools restores the combined editor. The math inspector remains part of programming, and edits still require the student's calculation and explanation.
+
+Design references reviewed: xLights separates model/house previews, effects settings, timing tracks and saved window perspectives; grandMA3 offers distinct fixture, sequence, layout, 3D and DMX windows; ETC Eos organizes displays into frames and workspaces. These inform the workflow, not the visual identity or file formats. This does not claim compatibility with their show files or reproduce their complete console behavior.
+
+Primary references:
+- https://manual.xlights.org/xlights/chapters/chapter-five-menus/view/perspective-definition
+- https://manual.xlights.org/xlights/chapters/chapter-five-menus/view/windows
+- https://manual.xlights.org/xlights/chapters/chapter-four-sequencer/timing-tracks
+- https://help.malighting.com/grandMA3/2.0/HTML/wvm_add_window.html
+- https://www.etcconnect.com/WebDocs/Controls/EosFamilyOnlineHelp/en/Content/04_System_Basics/02_Displays/DISPLAYS.htm
