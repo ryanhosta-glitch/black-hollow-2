@@ -52,7 +52,7 @@ export const PALETTE=[
 {n:'weathered funerary stone',c:[.53,.59,.48,1],rough:1,textureMaterial:15},
 {n:'faded blue velvet',c:[.18,.23,.29,1],rough:1,textureMaterial:1},
 {n:'faded heirloom linen',c:[.55,.51,.43,1],rough:1}];
-export function glb(boxes,{exterior=null}={}){const palette=PALETTE.map(m=>({...m}));if(exterior){palette[MAT.siding]={n:exterior.label,c:exterior.color,textureMaterial:exterior.textureMaterial,rough:.93};palette[MAT.trim].c=exterior.trimColor;palette[MAT.roof].c=exterior.roofColor;}const positions=[],normals=[],uvs=[],vertexMap=new Map(),ranges=palette.map(()=>[]);const faces=[[0,1,2,3,[0,0,-1]],[5,4,7,6,[0,0,1]],[4,0,3,7,[-1,0,0]],[1,5,6,2,[1,0,0]],[3,2,6,7,[0,1,0]],[4,5,1,0,[0,-1,0]]];
+export function glb(boxes,{exterior=null,paletteOverrides={}}={}){const palette=PALETTE.map((m,i)=>({...m,...paletteOverrides[i]}));if(exterior){palette[MAT.siding]={n:exterior.label,c:exterior.color,textureMaterial:exterior.textureMaterial,rough:.93};palette[MAT.trim].c=exterior.trimColor;palette[MAT.roof].c=exterior.roofColor;}const positions=[],normals=[],uvs=[],vertexMap=new Map(),ranges=palette.map(()=>[]);const faces=[[0,1,2,3,[0,0,-1]],[5,4,7,6,[0,0,1]],[4,0,3,7,[-1,0,0]],[1,5,6,2,[1,0,0]],[3,2,6,7,[0,1,0]],[4,5,1,0,[0,-1,0]]];
 for(const b of boxes){
  const [x,y,z]=b.c,[a,d,e]=b.s.map(v=>v/2),verts=b.vertices||[[-a,-d,-e],[a,-d,-e],[a,d,-e],[-a,d,-e],[-a,-d,e],[a,-d,e],[a,d,e],[-a,d,e]];
  const axis=b.rotAxis||'z',ang=Number(b.rot)||0,co=Math.cos(ang),si=Math.sin(ang);

@@ -22,6 +22,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: npm ci --ignore-scripts
+      - name: Bundle portable Christmas Forge
+        run: npm run build:gingerlight
       - name: Rebuild Moonveil reference mansion with current Forge
         run: node tools/rebuild-reference-mansion.mjs
       - name: Catalog prepared CASA houses
@@ -31,6 +34,7 @@ jobs:
           mkdir _site
           cp index.html casa_game.html casa_admin.html _site/
           cp -R casa_game casa_admin _site/
+          cp -R north_pole _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
