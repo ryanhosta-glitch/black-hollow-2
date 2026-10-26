@@ -1,0 +1,19 @@
+✔ ride graph follows real apertures, rounds clear corners, covers rooms and returns to its valid station (33.507282ms)
+✔ walls, windows, mismatched portals and narrow doors never become ride connections (29.0654ms)
+✔ collision validation rejects tampered paths, aperture bypasses, discontinuities and forged profiles (11.097037ms)
+✔ blocked approaches are excluded while tight dead ends use a stationary maneuver within the capsule (29.163015ms)
+✔ multi-floor links use actual public lift stops and cannot interpolate through floors or unlock secrets (18.115581ms)
+✔ malformed sources and invalid collider data fail closed without mutating authored input (5.846048ms)
+✔ actual Forge archive contains an optional, deterministic route sidecar without altering the source (2248.503423ms)
+✔ ride wall padding applies symmetrically and default walking clearance remains unchanged (0.631785ms)
+✔ a constrained house chooses the safe spectral profile when it covers more actual rooms (9.343941ms)
+✔ continuous ride clearance cannot step over a thin collider or cut across its corner (0.508602ms)
+✔ oversized inventories and tampered route point counts fail closed instead of bypassing budgets (16.03616ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2491.077444

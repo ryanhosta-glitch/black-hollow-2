@@ -1,0 +1,15 @@
+{
+  "browser": "154.0.8037.57",
+  "errors": [],
+  "route": "straight:stairs-low",
+  "rise": 3.048,
+  "keyboardAscent": true,
+  "keyboardDescent": true,
+  "continuousArchExitAndReturn": true,
+  "floorEvictionAndReload": true,
+  "midpointSaveValid": true,
+  "midpointSaveResumed": true,
+  "sampledFrames": 212,
+  "traversalSeconds": 75.16240000000596,
+  "maxResidentFloors": 2
+}

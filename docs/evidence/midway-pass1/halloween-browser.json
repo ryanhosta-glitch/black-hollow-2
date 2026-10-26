@@ -1,0 +1,92 @@
+{
+  "town": {
+    "lots": 25,
+    "pumpkins": 25,
+    "hosts": 25,
+    "visitors": 30,
+    "banner": true,
+    "skeletons": 25,
+    "fences": [
+      "black iron",
+      "white picket",
+      "wooden picket",
+      "black iron",
+      "white picket",
+      "wooden picket",
+      "black iron",
+      "white picket",
+      "wooden picket",
+      "black iron",
+      "white picket",
+      "wooden picket",
+      "black iron",
+      "white picket",
+      "wooden picket",
+      "black iron",
+      "white picket",
+      "wooden picket",
+      "black iron",
+      "white picket",
+      "wooden picket",
+      "black iron",
+      "white picket",
+      "wooden picket",
+      "black iron"
+    ],
+    "boundDoor": true
+  },
+  "yard": {
+    "count": 6,
+    "designs": [
+      "monster-mouth",
+      "disco-spider",
+      "cauldron-witch",
+      "ghost-hound",
+      "pumpkin-ufo",
+      "haunted-carousel"
+    ],
+    "flags": 50,
+    "laserId": "house-2e2423085d130b"
+  },
+  "living": {
+    "features": 20,
+    "families": 4,
+    "sites": [
+      "bowl",
+      "bowl",
+      "bowl",
+      "bowl",
+      "bowl",
+      "bowl",
+      "bowling",
+      "mirror",
+      "firepit",
+      "radio",
+      "stamp",
+      "stamp",
+      "stamp",
+      "stamp",
+      "stamp",
+      "stamp"
+    ],
+    "windows": 2
+  },
+  "score": {
+    "remaining": 575.4923999999345,
+    "candy": 1,
+    "festivalSweets": 0,
+    "neighborhoodSweets": 0,
+    "treats": 3,
+    "tricks": 1,
+    "visits": 4,
+    "streak": 0,
+    "bestStreak": 3,
+    "status": "playing",
+    "pending": null
+  },
+  "timerPaused": true,
+  "expiration": true,
+  "exteriorOnly": true,
+  "returnToStory": true,
+  "errors": []
+}

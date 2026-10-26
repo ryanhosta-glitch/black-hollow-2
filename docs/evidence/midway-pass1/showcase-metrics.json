@@ -1,0 +1,15 @@
+{
+  "beforeArchiveBytes": 5872987,
+  "afterArchiveBytes": 5879224,
+  "midwayPlanBytes": 68390,
+  "generatedMilliseconds": 4498,
+  "allGLBModelsUnchanged": true,
+  "validation": {
+    "valid": true,
+    "issues": [],
+    "checkedPoints": 498,
+    "routeMeters": 196.69,
+    "physicsCertified": false,
+    "renderedRideVerified": false
+  }
+}

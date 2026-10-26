@@ -1,32 +1,32 @@
 import {stairHeight} from '../casa_game/stairs.mjs';
 import {floorElevationsFeet} from './forge_readiness_audit.mjs';
-import {circleTouchesRectangle} from './navigation/door_leaf_collision.mjs';
+import {circleTouchesRectangle,segmentTouchesRectangle} from './navigation/door_leaf_collision.mjs';
 const FT=.3048,EPS=1e-6,WALL_PADDING=.05;
 const opposite={top:'bottom',bottom:'top',left:'right',right:'left'};
 const inward={top:[0,1],bottom:[0,-1],left:[1,0],right:[-1,0]};
 function portal(r,o){const p=Number(o.pos??.5);return [(+r.x+(o.wall==='left'?0:o.wall==='right'?+r.l:+r.l*p))*FT,(+r.y+(o.wall==='top'?0:o.wall==='bottom'?+r.w:+r.w*p))*FT];}
 function width(o){return Number(o.clearWidthMeters??Number(o.width??o.widthFeet??3.54)*FT);}
 function box(r){return {minX:+r.x*FT,maxX:(+r.x+ +r.l)*FT,minZ:+r.y*FT,maxZ:(+r.y+ +r.w)*FT};}
-export function createClearanceWorld(source,decoration,{radius=.24,height=1.75}={}){
+export function createClearanceWorld(source,decoration,{radius=.24,height=1.75,wallPadding=WALL_PADDING,continuousCollision=false}={}){
  const elevations=floorElevationsFeet(source.floors).map(y=>y*FT),rooms=source.floors.flatMap((f,floor)=>f.rooms.map(r=>({...r,floor,box:box(r)}))),byId=new Map(rooms.map(r=>[r.id,r]));
  function canStand(roomId,position){const r=byId.get(roomId);if(!r||!Array.isArray(position)||position.length!==3||!position.every(Number.isFinite))return false;const [x,y,z]=position,b=r.box;
-  if(Math.abs(y-elevations[r.floor])>.06||+r.h*FT<height+.10||x<b.minX+radius+WALL_PADDING-EPS||x>b.maxX-radius-WALL_PADDING+EPS||z<b.minZ+radius+WALL_PADDING-EPS||z>b.maxZ-radius-WALL_PADDING+EPS)return false;
+  if(Math.abs(y-elevations[r.floor])>.06||+r.h*FT<height+.10||x<b.minX+radius+wallPadding-EPS||x>b.maxX-radius-wallPadding+EPS||z<b.minZ+radius+wallPadding-EPS||z>b.maxZ-radius-wallPadding+EPS)return false;
   if(r.forgeStair&&Math.abs(stairHeight(r.forgeStair,z)-y)>.05)return false;
-  return !(decoration?.colliders||[]).some(c=>c.floor===r.floor&&y<c.maxY&&y+height>c.minY&&circleTouchesRectangle(x,z,c.bounds.minX,c.bounds.maxX,c.bounds.minZ,c.bounds.maxZ,radius));
+  return !(decoration?.colliders||[]).some(c=>c.floor===r.floor&&y<c.maxY&&y+height>c.minY&&(continuousCollision?segmentTouchesRectangle(position,position,c.bounds.minX,c.bounds.maxX,c.bounds.minZ,c.bounds.maxZ,radius):circleTouchesRectangle(x,z,c.bounds.minX,c.bounds.maxX,c.bounds.minZ,c.bounds.maxZ,radius)));
  }
- function segment(roomId,a,b){const steps=Math.max(1,Math.ceil(Math.hypot(b[0]-a[0],b[2]-a[2])/.06));for(let i=0;i<=steps;i++){const t=i/steps;if(!canStand(roomId,[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t]))return false;}return true;}
- return {rooms,byId,elevations,radius,height,canStand,segment};
+ function segment(roomId,a,b){if(continuousCollision&&(decoration?.colliders||[]).some(c=>c.floor===byId.get(roomId)?.floor&&a[1]<c.maxY&&a[1]+height>c.minY&&segmentTouchesRectangle(a,b,c.bounds.minX,c.bounds.maxX,c.bounds.minZ,c.bounds.maxZ,radius)))return false;const steps=Math.max(1,Math.ceil(Math.hypot(b[0]-a[0],b[2]-a[2])/.06));for(let i=0;i<=steps;i++){const t=i/steps;if(!canStand(roomId,[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t]))return false;}return true;}
+ return {rooms,byId,elevations,radius,height,wallPadding,canStand,segment};
 }
 /** Conservative grid/analytic route evidence. This is not mesh physics or a rendered walkthrough. */
-export function auditPlayability(source,access,decoration,{radius=.24,height=1.75,spacing=.22,maxCells=180000,maxCellsPerRoom=18000}={}){
- const world=createClearanceWorld(source,decoration,{radius,height}),issues=[],roomReports=[],grids=new Map(),paired=new Map(),connections=[],doorTests=[],arrivalTests=[];let cells=0;
+export function auditPlayability(source,access,decoration,{radius=.24,height=1.75,wallPadding=WALL_PADDING,continuousCollision=false,spacing=.22,maxCells=180000,maxCellsPerRoom=18000}={}){
+ const world=createClearanceWorld(source,decoration,{radius,height,wallPadding,continuousCollision}),issues=[],roomReports=[],grids=new Map(),paired=new Map(),connections=[],doorTests=[],arrivalTests=[];let cells=0;
  const issue=(code,data={})=>issues.push({severity:'BLOCK_GAME_READY',code,...data});
  if(world.rooms.length>512)return {version:1,method:'analytic-capsule-and-grid',rooms:[],doorTests:[],arrivalTests:[],interactions:[],stairTests:[],connections:[],routes:[],issues:[{severity:'BLOCK_GAME_READY',code:'WALK_ROOM_BUDGET_EXCEEDED',rooms:world.rooms.length}],staticRoutesVerified:false,physicsCertified:false,renderedWalkthroughVerified:false,gameplayCertified:false,checkedCells:0};
  for(let i=0;i<world.rooms.length;i++){const a=world.rooms[i];for(let j=i+1;j<world.rooms.length;j++){const b=world.rooms[j];if(a.floor!==b.floor)continue;const ox=Math.min(a.box.maxX,b.box.maxX)-Math.max(a.box.minX,b.box.minX),oz=Math.min(a.box.maxZ,b.box.maxZ)-Math.max(a.box.minZ,b.box.minZ);if(ox>.01&&oz>.01)issue('ROOM_INTERIOR_OVERLAP',{rooms:[a.id,b.id],overlapMeters:[ox,oz]});}}
- for(const r of world.rooms){const b=r.box,y=world.elevations[r.floor],nx=Math.max(1,Math.ceil((b.maxX-b.minX-2*(radius+WALL_PADDING))/spacing)+1),nz=Math.max(1,Math.ceil((b.maxZ-b.minZ-2*(radius+WALL_PADDING))/spacing)+1),count=nx*nz;
+ for(const r of world.rooms){const b=r.box,y=world.elevations[r.floor],nx=Math.max(1,Math.ceil((b.maxX-b.minX-2*(radius+wallPadding))/spacing)+1),nz=Math.max(1,Math.ceil((b.maxZ-b.minZ-2*(radius+wallPadding))/spacing)+1),count=nx*nz;
   if(count>maxCellsPerRoom||cells+count>maxCells){issue('WALK_CHECK_BUDGET_EXCEEDED',{roomId:r.id,cells:count});continue;}cells+=count;
-  const dx=nx===1?0:(b.maxX-b.minX-2*(radius+WALL_PADDING))/(nx-1),dz=nz===1?0:(b.maxZ-b.minZ-2*(radius+WALL_PADDING))/(nz-1),points=[],regions=new Int32Array(count).fill(-1),neighbors=i=>{const x=i%nz,z=Math.floor(i/nz),out=[];if(x>0)out.push(i-1);if(x<nz-1)out.push(i+1);if(z>0)out.push(i-nz);if(z<nx-1)out.push(i+nz);return out;};
-  for(let ix=0;ix<nx;ix++)for(let iz=0;iz<nz;iz++){const p=[nx===1?(b.minX+b.maxX)/2:b.minX+radius+WALL_PADDING+ix*dx,y,nz===1?(b.minZ+b.maxZ)/2:b.minZ+radius+WALL_PADDING+iz*dz];points.push(p);if(world.canStand(r.id,p))regions[points.length-1]=-2;}
+  const dx=nx===1?0:(b.maxX-b.minX-2*(radius+wallPadding))/(nx-1),dz=nz===1?0:(b.maxZ-b.minZ-2*(radius+wallPadding))/(nz-1),points=[],regions=new Int32Array(count).fill(-1),neighbors=i=>{const x=i%nz,z=Math.floor(i/nz),out=[];if(x>0)out.push(i-1);if(x<nz-1)out.push(i+1);if(z>0)out.push(i-nz);if(z<nx-1)out.push(i+nz);return out;};
+  for(let ix=0;ix<nx;ix++)for(let iz=0;iz<nz;iz++){const p=[nx===1?(b.minX+b.maxX)/2:b.minX+radius+wallPadding+ix*dx,y,nz===1?(b.minZ+b.maxZ)/2:b.minZ+radius+wallPadding+iz*dz];points.push(p);if(world.canStand(r.id,p))regions[points.length-1]=-2;}
   let regionCount=0;for(let i=0;i<count;i++)if(regions[i]===-2){const q=[i];regions[i]=regionCount;for(let k=0;k<q.length;k++)for(const j of neighbors(q[k]))if(regions[j]===-2&&world.segment(r.id,points[q[k]],points[j])){regions[j]=regionCount;q.push(j);}regionCount++;}
   const center=[(b.minX+b.maxX)/2,y,(b.minZ+b.maxZ)/2],candidates=points.map((p,i)=>({p,i,d:Math.hypot(p[0]-center[0],p[2]-center[2])})).filter(p=>regions[p.i]>=0).sort((a,b)=>a.d-b.d),hub=candidates[0];
   if(!hub)issue('ROOM_NO_STANDING_CLEARANCE',{roomId:r.id});
@@ -51,5 +51,5 @@ export function auditPlayability(source,access,decoration,{radius=.24,height=1.7
  const exterior=world.rooms.find(r=>r.id===source.gameEntry?.roomId),opening=exterior?.openings.find(o=>o.id===source.gameEntry?.openingId);let entry=null;
  if(exterior&&opening){const p=portal(exterior,opening),normal=inward[opening.wall],approach=normal&&[p[0]+normal[0]*.45,world.elevations[exterior.floor],p[1]+normal[1]*.45],g=grids.get(exterior.id),path=approach&&g?.hub&&g.path(approach,g.hub);entry={roomId:exterior.id,approachMeters:approach,passed:!!path};if(!path)issue('MAIN_ENTRY_APPROACH_BLOCKED',{roomId:exterior.id});else routes.push({id:'route:main-entry',roomId:exterior.id,kind:'entry-to-room',waypointsMeters:path});}else issue('MAIN_ENTRY_UNPROVEN');
  const stairTests=(access.stairRoutes||[]).map(s=>({roomId:s.roomId,physicalTraversalEnabled:!!s.physicalTraversalEnabled,fallback:s.fallback,passed:(s.physicalTraversalEnabled?s.status==='STRAIGHT_STATIC_VALIDATED'&&s.treadMeters>=.25&&s.riserMeters<=.19:s.fallback==='elevator')&&roomReports.find(r=>r.roomId===s.roomId)?.reachable===true,certification:s.physicalTraversalEnabled?'STATIC_STRAIGHT_CONTRACT':'SEALED_ELEVATOR_BYPASS'}));for(const s of stairTests)if(!s.passed)issue('STAIR_SAFETY_UNPROVEN',{roomId:s.roomId});
- return {version:1,method:'analytic-capsule-and-grid',profile:{radiusMeters:radius,heightMeters:height,gridSpacingMeters:spacing,wallInsetMeters:WALL_PADDING},checkedCells:cells,sourceUnchanged:true,rooms:roomReports,doorTests,arrivalTests,interactions,entry,stairTests,connections,routes,issues,staticRoutesVerified:issues.length===0,physicsCertified:false,renderedWalkthroughVerified:false,gameplayCertified:false,limitations:['Grid clearance uses authored room bounds and declared furniture colliders, not exported mesh triangles','Door leaf swing, camera occlusion and dynamic physics require runtime tests','Outdoor walking is not certified','Budget limits fail closed']};
+ return {version:1,method:'analytic-capsule-and-grid',profile:{radiusMeters:radius,heightMeters:height,gridSpacingMeters:spacing,wallInsetMeters:wallPadding},checkedCells:cells,sourceUnchanged:true,rooms:roomReports,doorTests,arrivalTests,interactions,entry,stairTests,connections,routes,issues,staticRoutesVerified:issues.length===0,physicsCertified:false,renderedWalkthroughVerified:false,gameplayCertified:false,limitations:['Grid clearance uses authored room bounds and declared furniture colliders, not exported mesh triangles','Door leaf swing, camera occlusion and dynamic physics require runtime tests','Outdoor walking is not certified','Budget limits fail closed']};
 }
