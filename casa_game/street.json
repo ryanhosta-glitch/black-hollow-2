@@ -264,6 +264,50 @@
       "architect": "Unknown architect",
       "description": "Welcome if you dare. Come and see the last of of the living houses. Don't be scared.",
       "package": "./houses/house-956f3c329fefe5.casa"
+    },
+    {
+      "id": "house-e0576ba584928c",
+      "name": "Haunted Manor",
+      "houseNumber": "1234",
+      "fingerprint": "0c150ab811428bdf6825f42e637b0472a9f6557400ac85795b71aed02d4d9e93",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "A new mystery on Haunted Hollow Street.",
+      "package": "./houses/house-e0576ba584928c.casa"
+    },
+    {
+      "id": "house-b106b193f5930f",
+      "name": "Abandoned Real Estate",
+      "houseNumber": "1928",
+      "fingerprint": "7c6e39f5b57c01d1cdca6693f0d5af37f07388383ebc25e52d2cdb46655e7e1a",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "A new mystery on Haunted Hollow Street.",
+      "package": "./houses/house-b106b193f5930f.casa"
+    },
+    {
+      "id": "house-8246497c9146e7",
+      "name": "Supercalifragilisticexpialidocious Free Puff",
+      "houseNumber": "99",
+      "fingerprint": "80b3ddecfdb64393da45c75c7cf8d63a2080ffabbdb9af9ffe17e3b776a55ccd",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "A new mystery on Haunted Hollow Street.",
+      "package": "./houses/house-8246497c9146e7.casa"
+    },
+    {
+      "id": "house-d99c60d3072f3e",
+      "name": "Addams Family Manor",
+      "houseNumber": "611",
+      "fingerprint": "fdb658c251fbe6a19481d85c3055e12e0a6c64a117f8ac1dde59b81e35919364",
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "architect": "Unknown architect",
+      "description": "Hello, mortals and immortals. There will be plenty of bloo- I mean, uh, stuff for you ghouls and vamps. Meet the Addams, Morticia, Gomez, Wednsday, Pugsley, Fester, Grandma, and Lurch. Good luck. You'll need it.",
+      "package": "./houses/house-d99c60d3072f3e.casa"
     }
   ]
 }
