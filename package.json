@@ -23,8 +23,9 @@
     "test:forge-integration": "node --test tests/forge-integration.test.mjs",
     "test:browser:certification": "node tests/browser-forge-certification.mjs",
     "build:gingerlight": "node tools/build-gingerlight.mjs",
-    "test:gingerlight": "node --test tests/ginger-forge.test.mjs",
-    "test:browser:gingerlight": "node tests/browser-gingerlight.mjs"
+    "test:gingerlight": "node --test tests/ginger-forge.test.mjs tests/ginger-sequencer.test.mjs",
+    "test:browser:gingerlight": "node tests/browser-gingerlight.mjs",
+    "test:browser:gingerlight-student": "node tests/browser-gingerlight-student.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.62.1",
