@@ -2,7 +2,7 @@ name: CASA Forge regressions
 on:
   pull_request:
   push:
-    branches: [main, development/victorian-forge, dev/haunted-midway]
+    branches: [main, development/victorian-forge, dev/haunted-midway, release/haunted-midway-beta]
 permissions:
   contents: read
 jobs:
@@ -23,6 +23,7 @@ jobs:
     timeout-minutes: 15
     strategy:
       fail-fast: false
+      max-parallel: 8
       matrix:
         suite: [midway, midway-signatures, midway-scenes, midway-park, atmosphere, storytelling, lighting, heirloom, luxury, playpack, household, nocturne, release-entry, townlife, polish, afterlife, village, magic, playtest-pass, scares, phoenix, forge, stairs, pipeline, reactions, rooms, organ, halloween, town, student-readiness, batch, street-memory, runtime-cleanup, directors-pass, reference, gingerlight, gingerlight-student, gingerlight-console]
     steps:

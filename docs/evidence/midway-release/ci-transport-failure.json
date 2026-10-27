@@ -1,0 +1,11 @@
+{
+  "developmentRun": "https://github.com/ryanhosta-glitch/black-hollow-2/actions/runs/40489800295",
+  "checkoutFailureJob": "https://github.com/ryanhosta-glitch/black-hollow-2/actions/runs/40489800295/job/122140572902",
+  "checkoutErrors": [
+    "early EOF",
+    "fetch-pack: invalid index-pack output"
+  ],
+  "testsStartedInFailedReferenceJob": false,
+  "polishLocalReproduction": "passed",
+  "action": "full release-branch rerun, browser concurrency bounded to eight; no assertion removed"
+}
