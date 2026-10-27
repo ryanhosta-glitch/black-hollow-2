@@ -1,0 +1,83 @@
+{
+  "cpuInventoryOnly": true,
+  "excludesRendererOverhead": true,
+  "allResident": {
+    "meshDraws": 61,
+    "triangles": 8117,
+    "geometryAndInstanceBytes": 125142,
+    "materials": 21
+  },
+  "active": {
+    "waltz": {
+      "meshDraws": 23,
+      "triangles": 3280,
+      "geometryAndInstanceBytes": 43440,
+      "materials": 8
+    },
+    "pianist": {
+      "meshDraws": 18,
+      "triangles": 2301,
+      "geometryAndInstanceBytes": 31382,
+      "materials": 8
+    },
+    "seance": {
+      "meshDraws": 20,
+      "triangles": 2536,
+      "geometryAndInstanceBytes": 51160,
+      "materials": 9
+    },
+    "farewell": {
+      "meshDraws": 12,
+      "triangles": 1768,
+      "geometryAndInstanceBytes": 20168,
+      "materials": 4
+    },
+    "portrait": {
+      "meshDraws": 3,
+      "triangles": 284,
+      "geometryAndInstanceBytes": 8280,
+      "materials": 2
+    }
+  },
+  "cast": {
+    "porter": {
+      "meshDraws": 12,
+      "triangles": 1876,
+      "geometryAndInstanceBytes": 20296,
+      "materials": 4
+    },
+    "maestro": {
+      "meshDraws": 12,
+      "triangles": 1768,
+      "geometryAndInstanceBytes": 20168,
+      "materials": 4
+    },
+    "medium": {
+      "meshDraws": 11,
+      "triangles": 1476,
+      "geometryAndInstanceBytes": 21456,
+      "materials": 4
+    },
+    "countess": {
+      "meshDraws": 11,
+      "triangles": 1512,
+      "geometryAndInstanceBytes": 23272,
+      "materials": 4
+    },
+    "usher": {
+      "meshDraws": 12,
+      "triangles": 1768,
+      "geometryAndInstanceBytes": 20168,
+      "materials": 4
+    }
+  },
+  "previousClothGuest": {
+    "meshDraws": 2,
+    "triangles": 640,
+    "geometryAndInstanceBytes": 12056,
+    "materials": 2
+  },
+  "newLights": 0,
+  "newTextures": 0,
+  "newRenderLoops": 0
+}

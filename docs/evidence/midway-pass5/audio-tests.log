@@ -1,0 +1,17 @@
+✔ mute cancels future choir notes, thunder and lift audio; unmuting never restarts cancelled effects (8.94546ms)
+✔ hidden tabs suppress new effects, cancel scheduled sources and resume only the current music (0.91329ms)
+✔ generated thunder disconnects on completion and stale entrance endings cannot replace encounter music (2.944561ms)
+✔ adaptive score uses bounded generated voices and releases them when leaving the house or muting (25.829059ms)
+✔ choir listening windows duck recorded backgrounds too, including fallback Hall scenes (1.73247ms)
+✔ recorded music recovers after a choir quiet interval under the adaptive score (2.82174ms)
+✔ spell arpeggios use the controlled bus and cancel future notes when muted (0.742357ms)
+✔ neighborhood sounds use the controlled spatial bus and obey mute and hidden state (2.065272ms)
+✔ signature performance cancellation stops only its own scheduled voices and leaves music playing (1.527748ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 294.38881

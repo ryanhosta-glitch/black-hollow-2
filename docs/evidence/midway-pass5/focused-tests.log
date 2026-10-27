@@ -1,0 +1,54 @@
+
+> test:midway
+> node --test tests/midway-signatures.test.mjs tests/midway-routes.test.mjs tests/midway-motion.test.mjs tests/midway-scenes.test.mjs tests/midway-park.test.mjs
+
+✔ boarding, bounded acceleration, pause, room cue, atomic elevator and unloading work in order (10.808153ms)
+✔ carriage meshes in all yaw poses fit both certified circular vehicle profiles (47.346612ms)
+✔ bad speeds and times fail, suspension freezes motion, and a large frame never skips a route chord (0.771601ms)
+✔ planner workers are terminated, cached plans are detached, and failures can be retried (6.100846ms)
+✔ an occluded lift arrival faces along the checked exit path without moving between its endpoints (0.436445ms)
+✔ planner cancellation terminates the last subscriber without cancelling another boarding request (0.964926ms)
+✔ catalog presentation is bounded, handles malformed/duplicate input, and preserves descriptors (17.481575ms)
+✔ route checks serialize, deduplicate, report failure, retry, and cache only compact fingerprinted profiles (11.381651ms)
+✔ inspection cancellation and queue limits leave no active jobs or late UI changes (3.617806ms)
+✔ failed preview cannot be overwritten by a late route result and changed fingerprints invalidate cached metadata (2.481397ms)
+✔ all four lane rotations keep signs and queues outside pavements, mansion fronts and doorway approaches (7.151459ms)
+✔ park pools cull, reduce quality, avoid steady-state allocations/uploads, freeze motion and dispose resources (113.723399ms)
+✔ occupied verges fall back to an overhead banner and report omitted booth and marquees (29.660815ms)
+✔ ride graph follows real apertures, rounds clear corners, covers rooms and returns to its valid station (148.754435ms)
+✔ walls, windows, mismatched portals and narrow doors never become ride connections (112.679196ms)
+✔ collision validation rejects tampered paths, aperture bypasses, discontinuities and forged profiles (36.210992ms)
+✔ blocked approaches are excluded while tight dead ends use a stationary maneuver within the capsule (92.244579ms)
+✔ multi-floor links use actual public lift stops and cannot interpolate through floors or unlock secrets (85.206838ms)
+✔ malformed sources and invalid collider data fail closed without mutating authored input (28.002642ms)
+✔ actual Forge archive contains an optional, deterministic route sidecar without altering the source (9104.072394ms)
+✔ ride wall padding applies symmetrically and default walking clearance remains unchanged (1.202117ms)
+✔ a constrained house chooses the safe spectral profile when it covers more actual rooms (44.150683ms)
+✔ continuous ride clearance cannot step over a thin collider or cut across its corner (0.699013ms)
+✔ oversized inventories and tampered route point counts fail closed instead of bypassing budgets (93.706464ms)
+✔ eleven room performances, signature and finale are deterministic and do not modify authorship (21.279757ms)
+✔ tight, furnished, stair, low, malformed and authored-disabled rooms omit physical performances safely (11.282183ms)
+✔ stages and rider sightlines avoid colliders and stay in their actual room (0.472208ms)
+✔ single director stages anticipation, reveal, resolution and clears without duplicate cues (2.540795ms)
+✔ effect pools are bounded, fully disposed, and reduced motion stays still (147.806974ms)
+✔ spectral queue boards a separate carriage, opens unloading gate, and owns no dynamic lights (24.15055ms)
+✔ all visible performance meshes fit the checked stage envelope at reveal and resolution (194.211985ms)
+✔ signature choices are deterministic, preserve authored instruments and effects, and omit oversized shows (15.931474ms)
+✔ portrait fallback uses only a visible existing frame, rejecting openings, blockers and malformed mounts (8.336239ms)
+✔ original cast silhouettes and all gestures remain bounded, with no lights or textures (93.360557ms)
+✔ signature pools survive show switching, animate keys, honor reduced motion and dispose once (73.25153ms)
+✔ floor obstruction falls back to an existing portrait without placing props on furniture (9.916585ms)
+✔ resident signature pool stays within its geometry budget and active draw ceiling (5.742095ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9993.292455
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

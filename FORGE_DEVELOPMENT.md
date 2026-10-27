@@ -310,3 +310,5 @@ See the [visual follow-up](docs/FORGE_VISUAL_FOLLOWUP.md) for deeper ceiling rel
 Midway scene direction and the spectral boarding platform: [Pass 3 report](docs/HAUNTED_MIDWAY_PASS3.md).
 
 Haunted Midway neighborhood park and attraction guide: [Pass 4 report](docs/HAUNTED_MIDWAY_PASS4.md).
+
+Haunted Midway original ghost cast, ballroom waltz, spectral pianist, séance and portrait fallback: [Pass 5 report](docs/HAUNTED_MIDWAY_PASS5.md).

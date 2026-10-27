@@ -1,6 +1,6 @@
 import {createMidwayParkState,MIDWAY_PARK_LIMITS,midwayDuration} from './midway_park_state.mjs';
 import {planMidwayVerge,parkFootprint,footprintFree,parkPointBlocked} from './midway_park_layout.mjs';
-import {createMidwayGhost} from './midway_ghost.mjs';
+import {createMidwayCharacter} from './midway_characters.mjs';
 import {disposeGroup} from './resources.mjs';
 export {createMidwayParkState,MIDWAY_PARK_LIMITS} from './midway_park_state.mjs';
 /** One bounded layer on the existing street. No light, audio player, timer or RAF allocation. */
@@ -29,7 +29,7 @@ export function createMidwayPark(T,street,{quality='performance',reducedMotion=f
   addBlocker(b);const booth=new T.Group();booth.name='Haunted ticket booth';booth.position.fromArray(p);root.add(booth);
   addBox(wood,[p[0],.36,p[2]],[1.05,.72,1.45]);addBox(wood,[p[0],2.30,p[2]],[1.3,.14,1.68]);for(const dx of [-.48,.48])for(const dz of [-.68,.68])addBox(gold,[p[0]+dx,1.47,p[2]+dz],[.04,1.65,.04]);
   const label=face(1.25,.31,brandMat,[0,0,.5,.5]);label.position.set(-s*.55,1.93,0);label.rotation.y=-s*Math.PI/2;booth.add(label);
-  const usher=createMidwayGhost(T,{color:0xd8c5a0,kind:4});usher.scale.setScalar(.71);usher.position.set(0,.30,0);usher.rotation.y=-s*Math.PI/2;usher.name='Midway ticket clerk';booth.add(usher);ticketApproach=[p[0]-s*1.95,0,p[2]];break;
+  const usher=createMidwayCharacter(T,{role:'usher',color:0xd8c5a0});usher.scale.setScalar(.71);usher.position.set(0,.30,0);usher.rotation.y=-s*Math.PI/2;usher.name='Midway ticket clerk';booth.add(usher);ticketApproach=[p[0]-s*1.95,0,p[2]];break;
  }
  if(!ticketApproach)diagnostics.push({code:'TICKET_BOOTH_OMITTED_CLEARANCE'});
  for(const [mat,parts]of staticParts)buildBatch(parts,mat);
@@ -37,7 +37,7 @@ export function createMidwayPark(T,street,{quality='performance',reducedMotion=f
  function drawCard(slot,record){const x=slot%2*512,y=Math.floor(slot/2)*256;ctx.fillStyle='#141625';ctx.fillRect(x,y,512,256);ctx.strokeStyle=record.profile?.palette||'#bfa56a';ctx.lineWidth=5;ctx.strokeRect(x+5,y+5,502,246);ctx.textAlign='center';ctx.fillStyle='#e3c789';ctx.font='16px Georgia';ctx.fillText('THE HAUNTED MIDWAY · '+record.number,x+256,y+28,478);ctx.fillStyle='#fff0ca';ctx.font='bold 27px Georgia';const title=record.profile?.name||record.houseName;const words=title.split(' '),lines=[''];for(const word of words){if((lines.at(-1)+' '+word).trim().length>28&&lines.length<2)lines.push(word);else lines[lines.length-1]=(lines.at(-1)+' '+word).trim();}lines.forEach((line,i)=>ctx.fillText(line,x+256,y+65+i*31,474));ctx.fillStyle='#c4d2db';ctx.font='18px Georgia';ctx.fillText('Mansion: '+record.houseName,x+256,y+130,476);ctx.fillText('By '+record.architect,x+256,y+155,476);ctx.fillStyle=record.status==='unavailable'?'#edb7ae':'#e2c897';ctx.font='20px Georgia';ctx.fillText(({ready:'BOARD AT THE MANSION PORCH',checking:'THE USHER IS CHECKING THE ROUTE',unavailable:'ATTRACTION TEMPORARILY CLOSED',unchecked:'ROUTE INSPECTION AWAITS'})[record.status],x+256,y+186,478);ctx.font='17px Georgia';ctx.fillText(midwayDuration(record.profile),x+256,y+213,478);ctx.fillText(record.profile?'Intensity '+record.profile.intensity+'/5 · Student mansion attraction':'Ask at Tickets or open the attraction guide',x+256,y+238,478);map.needsUpdate=true;atlasWrites++;}
  for(let i=0;i<signLimit;i++){const g=new T.Group();g.name='Pooled attraction marquee '+i;g.visible=false;root.add(g);const rect=[i%2/2,1-(Math.floor(i/2)+1)/rows,.5,1/rows];for(const side of [-1,1]){const f=face(1.75,.875,signMat,rect);f.position.set(0,1.82,side*.02);f.rotation.y=side<0?Math.PI:0;g.add(f);}buildBatch([...[ -.78,.78].map(x=>({p:[x,.95,0],s:[.045,1.9,.045]})),{p:[0,2.29,0],s:[1.9,.06,.08]}],gold,g);cards.push({root:g,id:null,revision:-1,layout:null,proxy:proxy({minX:0,maxX:.01,minZ:0,maxZ:.01})});}
  const queueGroup=new T.Group();queueGroup.name='Bounded spectral queue rails';root.add(queueGroup);const rails=new T.InstancedMesh(boxGeo,gold,queueLimit*8);rails.instanceMatrix.setUsage(T.DynamicDrawUsage);rails.count=0;queueGroup.add(rails);
- for(let i=0;i<guestLimit;i++){const g=createMidwayGhost(T,{color:[0xbcdccc,0xd2c2e6,0xbdd3eb,0xe1d3ad,0xbad5df][i],kind:i});g.scale.setScalar(.52);g.name='Midway park ghost guest '+i;g.visible=false;root.add(g);guests.push(g);}
+ for(let i=0;i<guestLimit;i++){const g=createMidwayCharacter(T,{role:['porter','countess','maestro','medium','usher'][i],color:[0xbcdccc,0xd2c2e6,0xbdd3eb,0xe1d3ad,0xbad5df][i]});g.scale.setScalar(.52);g.name='Midway park ghost guest '+i;g.visible=false;root.add(g);guests.push(g);}
  let visibleBlockers=[],activeQueues=[],lastPosition=null;const omittedClearance=new Set(),omittedQueues=new Set();
  function refresh(position){
   const near=lots.map(l=>({lot:l,d:Math.hypot(l.mailbox[0]-position[0],l.mailbox[2]-position[2])})).filter(v=>v.d<MIDWAY_PARK_LIMITS.visibleRange).sort((a,b)=>a.d-b.d||String(a.lot.house.id).localeCompare(String(b.lot.house.id)));

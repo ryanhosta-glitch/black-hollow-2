@@ -1,4 +1,4 @@
-import {createMidwayGhost} from './midway_ghost.mjs';
+import {createMidwayCharacter} from './midway_characters.mjs';
 import {createPhantomCarriage} from './midway_carriage.mjs';
 import {disposeGroup} from './resources.mjs';
 /** A pocket platform, deliberately separate from student geometry, like the existing lift cabin. */
@@ -15,8 +15,8 @@ export function createMidwayStation(T,{vehicle,attraction,reducedMotion=false}={
  for(const x of [-2.85,2.85]){box(glow,[x,2.03,-2.68],[.13,.22,.13]);box(gold,[x,1.84,-2.68],[.22,.05,.22]);}
  const stamp=new T.Object3D();for(const [mat,list]of parts){const mesh=new T.InstancedMesh(new T.BoxGeometry(1,1,1),mat,list.length);list.forEach((v,i)=>{stamp.position.fromArray(v.p);stamp.scale.fromArray(v.s);stamp.updateMatrix();mesh.setMatrixAt(i,stamp.matrix);});root.add(mesh);}
  const gate=new T.Group();gate.name='Carriage loading gate';gate.position.set(-.48,0,.56);root.add(gate);const bar=new T.Mesh(new T.BoxGeometry(.96,.035,.035),gold);bar.position.set(.48,.70,0);gate.add(bar);
- const guests=[];for(let i=0;i<3;i++){const g=createMidwayGhost(T,{kind:i,color:[0xbcdccc,0xd2c2e6,0xbdd3eb][i],detail:'crowd',reducedMotion:true});g.name=i?'Ghost guest waiting in line':'Ghost guest boarding and unloading';g.scale.setScalar(.55);g.position.set(1.8,0,.55+i*.85);root.add(g);guests.push(g);}
- const usher=createMidwayGhost(T,{kind:4,color:0xd6c8a5,detail:'crowd',reducedMotion:true});usher.name='Midway station usher';usher.scale.setScalar(.67);usher.position.set(-1.55,0,-1.6);root.add(usher);const cap=new T.Mesh(new T.CylinderGeometry(.17,.21,.12,10),wood);cap.position.set(0,1.94,0);usher.add(cap);
+ const guests=[];for(let i=0;i<3;i++){const g=createMidwayCharacter(T,{role:['porter','countess','maestro'][i],color:[0xbcdccc,0xd2c2e6,0xbdd3eb][i]});g.name=i?'Ghost guest waiting in line':'Ghost guest boarding and unloading';g.scale.setScalar(.55);g.position.set(1.8,0,.55+i*.85);root.add(g);guests.push(g);}
+ const usher=createMidwayCharacter(T,{role:'usher',color:0xd6c8a5});usher.name='Midway station usher';usher.scale.setScalar(.67);usher.position.set(-1.55,0,-1.6);root.add(usher);
  const cv=document.createElement('canvas');cv.width=1024;cv.height=256;const ctx=cv.getContext('2d'),texture=new T.CanvasTexture(cv);texture.colorSpace=T.SRGBColorSpace;texture.generateMipmaps=false;texture.minFilter=T.LinearFilter;
  const sign=new T.Mesh(new T.PlaneGeometry(5.8,1.0),new T.MeshBasicMaterial({map:texture}));sign.position.set(0,2.53,-2.72);sign.name='Attraction loading and unloading marquee';root.add(sign);
  let phase='waiting',elapsed=0,disposed=false,lastLabel='';

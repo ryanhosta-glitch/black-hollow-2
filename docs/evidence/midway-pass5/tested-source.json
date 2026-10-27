@@ -1,0 +1,36 @@
+{
+  "parentCommit": "8b7ccb10b89b68f665d9a877ef3a0c8596b3aff7",
+  "branch": "dev/haunted-midway",
+  "sourceSha256": {
+    ".github/workflows/forge-tests.yml": "ec8a05eb473a4d89980ad15ca8f19b4523bf9066a594fa6168f33ef4902e732f",
+    "casa_game.html": "a293098258422c96d8948795d05e1755b060ed697ea4c6da6cda9b8b71f20c2c",
+    "casa_game/audio.mjs": "4d9e5b89e44f27d2b49013479eb674c6e1f32d21f462eb2248db3c3ca23f1e4f",
+    "casa_game/midway_park.mjs": "e38451ceee8b538275bec81a250ae9badf72ef5daade98367c93910cacd895f1",
+    "casa_game/midway_ride.mjs": "d7d8f663d75cc1955aac3b7b0c91d68ccd551be01e09761793b24fa9c30305f3",
+    "casa_game/midway_scenes.mjs": "0c276ab2e83d3f4322e2bbd2a53658f4c4244fb79631d4df8c08e6f0921f4d2e",
+    "casa_game/midway_station.mjs": "18de1ab214beda87984c4e1fe95226af7c0055be556610e187f26ebb661b92f3",
+    "casa_game/midway_theatre.mjs": "9e99b46a52dacd8dc32d16ac76536c065c506c25644d1b39a8b48c30f71ee369",
+    "package.json": "a5d639e44e4dbcdbe87cefcf1f7347daa6dba62e874b01543ef3d3ddd2a2de76",
+    "tests/audio-lifecycle.test.mjs": "f0b20e98f96bfcf743ed88b65d35f082226749559fad1e5d01732776317cbd72",
+    "tests/midway-scenes.test.mjs": "7c4060c328c8804085bc93c8fb219f13d46153bc119995664957b42ef88a90f8",
+    "tools/run-browser-tests.mjs": "e1667da3565575bf315bf522e38fe37ab37e36ac556131549876387b1701c4e5",
+    "casa_game/midway_characters.mjs": "534c99e1660ba9c98fb4661e3b46cb9d2b4264feac2bc923a35625b68d662801",
+    "casa_game/midway_signature_shows.mjs": "67e12609c36343f4bf95679158f7df891ac0338e57ff9d05b8ce91628c7fcd13",
+    "tests/midway-signatures.test.mjs": "ab55500cfad6e86586310e0be18d9b67bb0d3c259142133c0cb494f8462a6ceb",
+    "tests/browser-midway-signatures.mjs": "c44ddb8c7a2827a14c5669464a78d821bcbe6c3f9a61a18d8f1dbaf294e6e14b"
+  },
+  "browserSuitesPassed": [
+    "midway-signatures",
+    "midway-scenes",
+    "midway-park",
+    "midway",
+    "halloween",
+    "runtime-cleanup"
+  ],
+  "fullCoreTests": 370,
+  "finalFocusedMidwayTests": 37,
+  "audioLifecycleTests": 9,
+  "studentArchivesUnchanged": true,
+  "remoteCI": "not verified",
+  "hardwareFPS": "not measured"
+}
