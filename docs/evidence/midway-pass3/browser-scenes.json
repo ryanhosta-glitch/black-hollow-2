@@ -1,0 +1,646 @@
+{
+  "browser": "154.0.8037.57",
+  "actualWebGL": true,
+  "acceleratedClock": true,
+  "quality": "autoPerformance (software GPU)",
+  "motion": "standard",
+  "identities": [
+    "library",
+    "ballroom",
+    "bedroom",
+    "laboratory",
+    "conservatory",
+    "crypt"
+  ],
+  "sceneSchedule": {
+    "edition": "midway-scene-director-1",
+    "scenes": [
+      {
+        "index": 0,
+        "roomId": "library",
+        "identity": "library",
+        "finale": false,
+        "signature": true,
+        "variant": 0,
+        "title": "The Unfinished Catalogue",
+        "motif": "books",
+        "hook": "draft",
+        "stage": [
+          3.5308960000000003,
+          0,
+          1.9808960000000002
+        ],
+        "anchor": [
+          3.5308960000000003,
+          0,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Brass Atlas",
+        "supportedObjectIds": [
+          "forge:library:furniture:generated-0",
+          "forge:library:furniture:generated-1",
+          "forge:library:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "The pages turn to a name that should not be here.",
+        "reveal": "The librarian offers you the final volume.",
+        "resolution": "Your name fades from the catalogue."
+      },
+      {
+        "index": 4,
+        "roomId": "ballroom",
+        "identity": "ballroom",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "One Last Dance",
+        "motif": "music",
+        "hook": "clock",
+        "stage": [
+          15.444096000000002,
+          0,
+          3.5308960000000003
+        ],
+        "anchor": [
+          13.894096000000001,
+          0,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Last Record",
+        "supportedObjectIds": [
+          "forge:ballroom:furniture:generated-0",
+          "forge:ballroom:furniture:generated-1",
+          "forge:ballroom:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A dance card opens at the final name.",
+        "reveal": "A vanished guest bows as the music rises.",
+        "resolution": "The dancer leaves a place for you next time."
+      },
+      {
+        "index": 12,
+        "roomId": "bedroom",
+        "identity": "bedroom",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "The Guest Expected Home",
+        "motif": "ribbon",
+        "hook": "draft",
+        "stage": [
+          25.807296,
+          0,
+          3.5308960000000003
+        ],
+        "anchor": [
+          24.257296,
+          0,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Unsent Letter",
+        "supportedObjectIds": [
+          "forge:bedroom:furniture:generated-0",
+          "forge:bedroom:furniture:generated-1"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A ribbon lifts from an unseen invitation.",
+        "reveal": "The missing guest returns to keep watch.",
+        "resolution": "The ribbon settles. The guest can rest."
+      },
+      {
+        "index": 20,
+        "roomId": "laboratory",
+        "identity": "laboratory",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Midnight Experiment",
+        "motif": "bottles",
+        "hook": "glow",
+        "stage": [
+          5.080896,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "anchor": [
+          3.5308960000000003,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Green Experiment",
+        "supportedObjectIds": [
+          "forge:laboratory:furniture:generated-0",
+          "forge:laboratory:furniture:generated-2",
+          "forge:laboratory:furniture:generated-4"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "The experiment begins without its experimenter.",
+        "reveal": "The scientist returns with a spectral formula.",
+        "resolution": "The bottles dim; the final observation remains unwritten."
+      },
+      {
+        "index": 28,
+        "roomId": "conservatory",
+        "identity": "conservatory",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Patient Garden",
+        "motif": "leaves",
+        "hook": "draft",
+        "stage": [
+          15.444096000000002,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "anchor": [
+          13.894096000000001,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Glass Garden",
+        "supportedObjectIds": [
+          "forge:conservatory:furniture:generated-0",
+          "forge:conservatory:furniture:generated-1",
+          "forge:conservatory:furniture:generated-4",
+          "forge:conservatory:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "Pale leaves turn toward your carriage.",
+        "reveal": "The gardener emerges from the remembered garden.",
+        "resolution": "The leaves fold around a secret seed."
+      },
+      {
+        "index": 36,
+        "roomId": "crypt",
+        "identity": "crypt",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "Expected Home",
+        "motif": "memorial",
+        "hook": "glow",
+        "stage": [
+          25.807296,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "anchor": [
+          24.257296,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Patient Memorial",
+        "supportedObjectIds": [
+          "forge:crypt:furniture:generated-0",
+          "forge:crypt:furniture:generated-1",
+          "forge:crypt:furniture:generated-3",
+          "forge:crypt:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A memorial wreath opens for one last visitor.",
+        "reveal": "The keeper raises an offering to the forgotten.",
+        "resolution": "The procession leaves your place unfilled."
+      },
+      {
+        "index": 41,
+        "roomId": "library",
+        "identity": "library",
+        "finale": true,
+        "signature": false,
+        "variant": 0,
+        "title": "The Last Guest Takes a Bow",
+        "motif": "lanterns",
+        "hook": "glow",
+        "stage": [
+          1.9808960000000002,
+          0,
+          3.5308960000000003
+        ],
+        "anchor": [
+          3.5308960000000003,
+          0,
+          3.5308960000000003
+        ],
+        "duration": 5,
+        "compiledStoryTitle": "The Brass Atlas",
+        "supportedObjectIds": [
+          "forge:library:furniture:generated-0",
+          "forge:library:furniture:generated-1",
+          "forge:library:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "One last lantern answers the carriage.",
+        "reveal": "The last guest bows. You are free to return to the living.",
+        "resolution": "The usher is waiting at the unloading platform."
+      }
+    ],
+    "omitted": [],
+    "budget": {
+      "maxActiveScenes": 1,
+      "maxGhosts": 1,
+      "maxProps": 6,
+      "dynamicLights": 0
+    }
+  },
+  "stationLoading": true,
+  "stationUnloading": true,
+  "ghostQueue": true,
+  "boardingPause": true,
+  "loadingAbortCleanly": true,
+  "effectCancellation": true,
+  "finale": true,
+  "pictures": [
+    {
+      "name": "ghost-queue",
+      "scene": null,
+      "station": {
+        "phase": "waiting",
+        "elapsed": 0.3,
+        "ready": false
+      },
+      "draws": 27,
+      "triangles": 5826,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nWelcome, living guest. The ghosts ahead are boarding the next carriage. Your usher invites you aboard.\n\nBoard the phantom carriage\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "ghost-boarding",
+      "scene": null,
+      "station": {
+        "phase": "loading",
+        "elapsed": 1.850000000000001,
+        "ready": false
+      },
+      "draws": 27,
+      "triangles": 5826,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nNow boarding. Keep hands, feet and unfinished business inside the carriage.\n\nPause ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "scene-library",
+      "scene": {
+        "index": 0,
+        "roomId": "library",
+        "identity": "library",
+        "finale": false,
+        "signature": true,
+        "variant": 0,
+        "title": "The Unfinished Catalogue",
+        "motif": "books",
+        "hook": "draft",
+        "stage": [
+          3.5308960000000003,
+          0,
+          1.9808960000000002
+        ],
+        "anchor": [
+          3.5308960000000003,
+          0,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Brass Atlas",
+        "supportedObjectIds": [
+          "forge:library:furniture:generated-0",
+          "forge:library:furniture:generated-1",
+          "forge:library:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "The pages turn to a name that should not be here.",
+        "reveal": "The librarian offers you the final volume.",
+        "resolution": "Your name fades from the catalogue.",
+        "phase": "reveal",
+        "elapsed": 1.0500000000000003,
+        "progress": 0.26250000000000007
+      },
+      "station": {
+        "phase": null,
+        "elapsed": 0.8000000000000002,
+        "ready": false
+      },
+      "draws": 49,
+      "triangles": 40441,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready. Signature scene · The Unfinished Catalogue — The librarian offers you the final volume.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "scene-library-disabled",
+      "scene": null,
+      "station": {
+        "phase": null,
+        "elapsed": 0.8000000000000002,
+        "ready": false
+      },
+      "draws": 42,
+      "triangles": 39201,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready. Signature scene · The Unfinished Catalogue — The librarian offers you the final volume.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "scene-ballroom",
+      "scene": {
+        "index": 4,
+        "roomId": "ballroom",
+        "identity": "ballroom",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "One Last Dance",
+        "motif": "music",
+        "hook": "clock",
+        "stage": [
+          15.444096000000002,
+          0,
+          3.5308960000000003
+        ],
+        "anchor": [
+          13.894096000000001,
+          0,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Last Record",
+        "supportedObjectIds": [
+          "forge:ballroom:furniture:generated-0",
+          "forge:ballroom:furniture:generated-1",
+          "forge:ballroom:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A dance card opens at the final name.",
+        "reveal": "A vanished guest bows as the music rises.",
+        "resolution": "The dancer leaves a place for you next time.",
+        "phase": "reveal",
+        "elapsed": 0.9500000000000003,
+        "progress": 0.23750000000000007
+      },
+      "station": {
+        "phase": null,
+        "elapsed": 0.8000000000000002,
+        "ready": false
+      },
+      "draws": 70,
+      "triangles": 53136,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready. One Last Dance — A vanished guest bows as the music rises.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "scene-bedroom",
+      "scene": {
+        "index": 12,
+        "roomId": "bedroom",
+        "identity": "bedroom",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "The Guest Expected Home",
+        "motif": "ribbon",
+        "hook": "draft",
+        "stage": [
+          25.807296,
+          0,
+          3.5308960000000003
+        ],
+        "anchor": [
+          24.257296,
+          0,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Unsent Letter",
+        "supportedObjectIds": [
+          "forge:bedroom:furniture:generated-0",
+          "forge:bedroom:furniture:generated-1"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A ribbon lifts from an unseen invitation.",
+        "reveal": "The missing guest returns to keep watch.",
+        "resolution": "The ribbon settles. The guest can rest.",
+        "phase": "reveal",
+        "elapsed": 0.9500000000000003,
+        "progress": 0.23750000000000007
+      },
+      "station": {
+        "phase": null,
+        "elapsed": 0.8000000000000002,
+        "ready": false
+      },
+      "draws": 41,
+      "triangles": 46198,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready. The Guest Expected Home — The missing guest returns to keep watch.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "scene-laboratory",
+      "scene": {
+        "index": 20,
+        "roomId": "laboratory",
+        "identity": "laboratory",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Midnight Experiment",
+        "motif": "bottles",
+        "hook": "glow",
+        "stage": [
+          5.080896,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "anchor": [
+          3.5308960000000003,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Green Experiment",
+        "supportedObjectIds": [
+          "forge:laboratory:furniture:generated-0",
+          "forge:laboratory:furniture:generated-2",
+          "forge:laboratory:furniture:generated-4"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "The experiment begins without its experimenter.",
+        "reveal": "The scientist returns with a spectral formula.",
+        "resolution": "The bottles dim; the final observation remains unwritten.",
+        "phase": "reveal",
+        "elapsed": 0.9500000000000003,
+        "progress": 0.23750000000000007
+      },
+      "station": {
+        "phase": null,
+        "elapsed": 0.8000000000000002,
+        "ready": false
+      },
+      "draws": 70,
+      "triangles": 40674,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready. The Midnight Experiment — The scientist returns with a spectral formula.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "scene-conservatory",
+      "scene": {
+        "index": 28,
+        "roomId": "conservatory",
+        "identity": "conservatory",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Patient Garden",
+        "motif": "leaves",
+        "hook": "draft",
+        "stage": [
+          15.444096000000002,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "anchor": [
+          13.894096000000001,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Glass Garden",
+        "supportedObjectIds": [
+          "forge:conservatory:furniture:generated-0",
+          "forge:conservatory:furniture:generated-1",
+          "forge:conservatory:furniture:generated-4",
+          "forge:conservatory:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "Pale leaves turn toward your carriage.",
+        "reveal": "The gardener emerges from the remembered garden.",
+        "resolution": "The leaves fold around a secret seed.",
+        "phase": "reveal",
+        "elapsed": 0.9500000000000003,
+        "progress": 0.23750000000000007
+      },
+      "station": {
+        "phase": null,
+        "elapsed": 0.8000000000000002,
+        "ready": false
+      },
+      "draws": 58,
+      "triangles": 35966,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready. The Patient Garden — The gardener emerges from the remembered garden.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "scene-crypt",
+      "scene": {
+        "index": 36,
+        "roomId": "crypt",
+        "identity": "crypt",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "Expected Home",
+        "motif": "memorial",
+        "hook": "glow",
+        "stage": [
+          25.807296,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "anchor": [
+          24.257296,
+          3.6576000000000004,
+          3.5308960000000003
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Patient Memorial",
+        "supportedObjectIds": [
+          "forge:crypt:furniture:generated-0",
+          "forge:crypt:furniture:generated-1",
+          "forge:crypt:furniture:generated-3",
+          "forge:crypt:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A memorial wreath opens for one last visitor.",
+        "reveal": "The keeper raises an offering to the forgotten.",
+        "resolution": "The procession leaves your place unfilled.",
+        "phase": "reveal",
+        "elapsed": 0.9500000000000003,
+        "progress": 0.23750000000000007
+      },
+      "station": {
+        "phase": null,
+        "elapsed": 0.8000000000000002,
+        "ready": false
+      },
+      "draws": 41,
+      "triangles": 29966,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready. Expected Home — The keeper raises an offering to the forgotten.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "finale",
+      "scene": {
+        "index": 41,
+        "roomId": "library",
+        "identity": "library",
+        "finale": true,
+        "signature": false,
+        "variant": 0,
+        "title": "The Last Guest Takes a Bow",
+        "motif": "lanterns",
+        "hook": "glow",
+        "stage": [
+          1.9808960000000002,
+          0,
+          3.5308960000000003
+        ],
+        "anchor": [
+          3.5308960000000003,
+          0,
+          3.5308960000000003
+        ],
+        "duration": 5,
+        "compiledStoryTitle": "The Brass Atlas",
+        "supportedObjectIds": [
+          "forge:library:furniture:generated-0",
+          "forge:library:furniture:generated-1",
+          "forge:library:furniture:generated-5"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "One last lantern answers the carriage.",
+        "reveal": "The last guest bows. You are free to return to the living.",
+        "resolution": "The usher is waiting at the unloading platform.",
+        "phase": "reveal",
+        "elapsed": 1.1500000000000004,
+        "progress": 0.23000000000000007
+      },
+      "station": {
+        "phase": null,
+        "elapsed": 0.8000000000000002,
+        "ready": false
+      },
+      "draws": 51,
+      "triangles": 42080,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready. The Last Guest Takes a Bow — The last guest bows. You are free to return to the living.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "ghost-disembarking",
+      "scene": null,
+      "station": {
+        "phase": "unloading",
+        "elapsed": 1.0000000000000002,
+        "ready": false
+      },
+      "draws": 27,
+      "triangles": 5826,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe carriage is paused. Resume whenever you are ready.\n\nResume ride\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    },
+    {
+      "name": "ghost-unloading",
+      "scene": null,
+      "station": {
+        "phase": "ready-exit",
+        "elapsed": 3.7333000000000123,
+        "ready": true
+      },
+      "draws": 24,
+      "triangles": 4706,
+      "text": "The Unfinished Catalogue · The Midnight Guests\n\nThe gate is open. Step off to your left; take all mortal belongings with you.\n\nStep off the carriage\nSlow\nStandard\nBrisk\n Scene cues\nSound on\nReturn to the Midway"
+    }
+  ],
+  "errors": [],
+  "timings": []
+}

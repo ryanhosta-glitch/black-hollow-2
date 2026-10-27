@@ -1,0 +1,20 @@
+{
+  "station": {
+    "allocatedMeshObjects": 19,
+    "geometryBufferBytes": 59580,
+    "maxTrianglesAllPools": 3658,
+    "textureCount": 1
+  },
+  "theatre": {
+    "allocatedMeshObjects": 10,
+    "geometryBufferBytes": 23064,
+    "maxTrianglesAllPools": 2176,
+    "textureCount": 0
+  },
+  "stationTextureBytes": 1048576,
+  "newModuleSourceBytes": 19597,
+  "dynamicLightsAdded": 0,
+  "newReflectionPasses": 0,
+  "newRenderLoops": 0,
+  "note": "Array byte counts omit JS, instance matrices, renderer overhead and existing assets. Theatre triangle sum includes hidden pools and is not an actual frame cost."
+}

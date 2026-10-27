@@ -1,0 +1,1556 @@
+{
+  "staticOnly": true,
+  "archiveCount": 23,
+  "roomCount": 443,
+  "physicalStages": 207,
+  "sceneCount": 466,
+  "omittedCount": 259,
+  "houses": [
+    {
+      "path": "casa_game/houses/house-03f984fb4d9ae0.casa",
+      "validRoute": true,
+      "rooms": 36,
+      "scenes": 37,
+      "physicalStages": 6,
+      "signatureStaged": true,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 0,
+          "roomId": "r3m10ut2",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 4,
+          "roomId": "r2hrhnp9",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 8,
+          "roomId": "ru7wug8c",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 16,
+          "roomId": "ree82f24",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "r7wnc5es",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 24,
+          "roomId": "ro325nrg",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 32,
+          "roomId": "rxp26uor",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 44,
+          "roomId": "rxa23ir0",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 52,
+          "roomId": "rrskawq4",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 60,
+          "roomId": "rtctl22m",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 68,
+          "roomId": "rktahtmc",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 83,
+          "roomId": "rldv4q9b",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 87,
+          "roomId": "rbq66ykf",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 95,
+          "roomId": "rv4pdlz7",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 106,
+          "roomId": "rqpwiyjm",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 114,
+          "roomId": "ryesweh7",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 122,
+          "roomId": "r3lw723q",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 126,
+          "roomId": "rtm8cx0u",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 137,
+          "roomId": "rm403tha",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 141,
+          "roomId": "rjn085qn",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 159,
+          "roomId": "rsk1ac4p",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 171,
+          "roomId": "r5lc09z8",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 179,
+          "roomId": "r7qimmqf",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 187,
+          "roomId": "rxfp4gzn",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 195,
+          "roomId": "rs90m216",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 221,
+          "roomId": "r4x1bvqb",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 238,
+          "roomId": "r2mcsoqs",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 242,
+          "roomId": "r6cfq6hk",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 246,
+          "roomId": "ryhx8gjh",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 260,
+          "roomId": "ruuxc3fn",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 265,
+          "roomId": "r3m10ut2",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-0c1593269393e1.casa",
+      "validRoute": true,
+      "rooms": 49,
+      "scenes": 50,
+      "physicalStages": 38,
+      "signatureStaged": true,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 0,
+          "roomId": "rgo78x7t",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 44,
+          "roomId": "rttgdli7",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 66,
+          "roomId": "r2dramr4",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 70,
+          "roomId": "rkytfmcg",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 86,
+          "roomId": "rw8nlsgg",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 90,
+          "roomId": "rk9oieot",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 94,
+          "roomId": "rbptd9rg",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 98,
+          "roomId": "rwoiklot",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 141,
+          "roomId": "ro8lr3s2",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 169,
+          "roomId": "r1kfiq7r",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 340,
+          "roomId": "rqg155i0",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 365,
+          "roomId": "rgo78x7t",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-0e940e170c5d1b.casa",
+      "validRoute": true,
+      "rooms": 5,
+      "scenes": 6,
+      "physicalStages": 1,
+      "signatureStaged": true,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 0,
+          "roomId": "rtadpwwe",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 4,
+          "roomId": "r3lwmnx1",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 16,
+          "roomId": "r22l6iez",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "rvr2vdde",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 31,
+          "roomId": "rtadpwwe",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-1a442c2a1b0d74.casa",
+      "validRoute": true,
+      "rooms": 17,
+      "scenes": 18,
+      "physicalStages": 4,
+      "signatureStaged": false,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 0,
+          "roomId": "riyqex6l",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 4,
+          "roomId": "rov6tlm7",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 12,
+          "roomId": "r6ju3d27",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "r8b6nui4",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 36,
+          "roomId": "rnf1dypx",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 40,
+          "roomId": "rwnqyhea",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 51,
+          "roomId": "r0kbw6oz",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 63,
+          "roomId": "r5jvbfgi",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 67,
+          "roomId": "rijj9gcb",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 71,
+          "roomId": "r0ce7ixl",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 92,
+          "roomId": "rwa4bxtu",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 96,
+          "roomId": "rm2ii49d",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 100,
+          "roomId": "r31rsbld",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 120,
+          "roomId": "riyqex6l",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-1aa4a4075a9c05.casa",
+      "validRoute": true,
+      "rooms": 3,
+      "scenes": 4,
+      "physicalStages": 4,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": []
+    },
+    {
+      "path": "casa_game/houses/house-1af2d7b6042573.casa",
+      "validRoute": true,
+      "rooms": 15,
+      "scenes": 16,
+      "physicalStages": 4,
+      "signatureStaged": false,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 4,
+          "roomId": "r42wdilg",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 8,
+          "roomId": "rv8rpmja",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 27,
+          "roomId": "ra7kaasm",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 39,
+          "roomId": "rxuup3a2",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 43,
+          "roomId": "rt60t2ia",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 54,
+          "roomId": "rhmco45e",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 62,
+          "roomId": "r36b12u0",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 70,
+          "roomId": "rww6zwis",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 78,
+          "roomId": "r6ed2dzw",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 82,
+          "roomId": "r8p3ezj6",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 90,
+          "roomId": "rlcwkr7e",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 98,
+          "roomId": "rgfhrdzk",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-2e2423085d130b.casa",
+      "validRoute": true,
+      "rooms": 7,
+      "scenes": 8,
+      "physicalStages": 3,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 4,
+          "roomId": "r4jx8axf",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 12,
+          "roomId": "rbaqgi0n",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "rcnb4uxl",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 36,
+          "roomId": "rlb3mgy7",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 44,
+          "roomId": "rrtkwqo3",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-389efcfb9f5ac4.casa",
+      "validRoute": true,
+      "rooms": 23,
+      "scenes": 24,
+      "physicalStages": 10,
+      "signatureStaged": false,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 0,
+          "roomId": "rd3mjlne",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 4,
+          "roomId": "roo7by0g",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 8,
+          "roomId": "rx6nbpt3",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 16,
+          "roomId": "rxs2plvm",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "r0ihr149",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 40,
+          "roomId": "r10jhzcz",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 56,
+          "roomId": "rckcwakk",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 64,
+          "roomId": "r0pd49bx",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 68,
+          "roomId": "rj9sixac",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 82,
+          "roomId": "rcwmv3x6",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 98,
+          "roomId": "rd2x9b47",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 121,
+          "roomId": "raqa70tc",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 125,
+          "roomId": "r8iufqx5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 129,
+          "roomId": "r710k20b",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-41483e0f829339.casa",
+      "validRoute": true,
+      "rooms": 18,
+      "scenes": 19,
+      "physicalStages": 10,
+      "signatureStaged": false,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 16,
+          "roomId": "rme6aoiy",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 44,
+          "roomId": "rl51kc6s",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 52,
+          "roomId": "rvnfugv8",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 64,
+          "roomId": "rscu1vmj",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 72,
+          "roomId": "r1trakri",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 88,
+          "roomId": "rq30gft8",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 96,
+          "roomId": "ru91mv67",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 115,
+          "roomId": "rtsbawjn",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 132,
+          "roomId": "r5m1jjsx",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-4729d1cf7ac06a.casa",
+      "validRoute": true,
+      "rooms": 23,
+      "scenes": 24,
+      "physicalStages": 13,
+      "signatureStaged": false,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 8,
+          "roomId": "rjmr89j1",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 12,
+          "roomId": "rxojvdkr",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 32,
+          "roomId": "rpq1gdb1",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 43,
+          "roomId": "rj5hn38v",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 51,
+          "roomId": "ru84guen",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 71,
+          "roomId": "rpeajzxj",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 82,
+          "roomId": "rn2s49lb",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 105,
+          "roomId": "rp7n2wos",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 133,
+          "roomId": "rne3jbmd",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 141,
+          "roomId": "r2qacb1d",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 145,
+          "roomId": "rfwh266w",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-56d23561d1dad8.casa",
+      "validRoute": true,
+      "rooms": 26,
+      "scenes": 27,
+      "physicalStages": 8,
+      "signatureStaged": false,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 4,
+          "roomId": "rg38lza1",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 12,
+          "roomId": "rd9aa4ii",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 24,
+          "roomId": "rq2gxr7t",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 32,
+          "roomId": "rqji9dfp",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 67,
+          "roomId": "rtbmm74i",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 71,
+          "roomId": "r00k5hyp",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 82,
+          "roomId": "r67rtk8a",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 90,
+          "roomId": "r132h1qf",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 94,
+          "roomId": "r4hc73v3",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 98,
+          "roomId": "r1fb7t5q",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 102,
+          "roomId": "rml4tofi",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 106,
+          "roomId": "rlb0uhj5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 114,
+          "roomId": "rk3734ez",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 131,
+          "roomId": "rgelrn5a",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 139,
+          "roomId": "rb4hzjbs",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 153,
+          "roomId": "r31x67ul",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 157,
+          "roomId": "r3c04ayk",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 161,
+          "roomId": "resg6bgi",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 169,
+          "roomId": "rigx924k",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-5efc01faa87b76.casa",
+      "validRoute": true,
+      "rooms": 20,
+      "scenes": 21,
+      "physicalStages": 10,
+      "signatureStaged": false,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 0,
+          "roomId": "rg34zy26",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 16,
+          "roomId": "raj97us8",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 24,
+          "roomId": "rol1pabi",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 32,
+          "roomId": "r8vosl94",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 40,
+          "roomId": "r69jyz6u",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 44,
+          "roomId": "rms96ijq",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 48,
+          "roomId": "rofd9nio",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 52,
+          "roomId": "r5zd37bb",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 60,
+          "roomId": "r1fyrqw3",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 99,
+          "roomId": "ro8hmvrj",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 143,
+          "roomId": "rg34zy26",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-62f82b6454d42d.casa",
+      "validRoute": true,
+      "rooms": 23,
+      "scenes": 24,
+      "physicalStages": 5,
+      "signatureStaged": false,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 4,
+          "roomId": "re3qruow",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 12,
+          "roomId": "rd5xr4d4",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "r7jquvkm",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 24,
+          "roomId": "rsbog9zv",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 28,
+          "roomId": "r7pig85f",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 32,
+          "roomId": "rjrbafg1",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 49,
+          "roomId": "reihzmsi",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 61,
+          "roomId": "r6i3z0vd",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 69,
+          "roomId": "rhc6lej7",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 77,
+          "roomId": "rrkexjky",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 81,
+          "roomId": "r30ovnzi",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 104,
+          "roomId": "rvazgk1s",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 112,
+          "roomId": "rj3nkhip",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 116,
+          "roomId": "rgl2erzf",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 120,
+          "roomId": "rkg8xw8y",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 124,
+          "roomId": "rpb0k395",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 132,
+          "roomId": "rrwh4dk9",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 136,
+          "roomId": "r1ka0eua",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 150,
+          "roomId": "rjwyuk1q",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-8102ef435f6dcc.casa",
+      "validRoute": true,
+      "rooms": 17,
+      "scenes": 18,
+      "physicalStages": 6,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 8,
+          "roomId": "rebd2mav",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 12,
+          "roomId": "rn92fzm0",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 23,
+          "roomId": "rfb1w99t",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 31,
+          "roomId": "rhorx869",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 35,
+          "roomId": "raf9j5sj",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 46,
+          "roomId": "rqv6s6xx",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 54,
+          "roomId": "r9eyc1g1",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 58,
+          "roomId": "rk5hbxiu",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 66,
+          "roomId": "rs6rw79g",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 83,
+          "roomId": "rwpqw165",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 91,
+          "roomId": "ro6mijdy",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 107,
+          "roomId": "r3d45z1j",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-82fed66d1530d5.casa",
+      "validRoute": true,
+      "rooms": 22,
+      "scenes": 23,
+      "physicalStages": 20,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 63,
+          "roomId": "rbb5yli6",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 75,
+          "roomId": "rwrxaic1",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 90,
+          "roomId": "rgrl5lv0",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-8758b94897b0ba.casa",
+      "validRoute": true,
+      "rooms": 31,
+      "scenes": 32,
+      "physicalStages": 13,
+      "signatureStaged": true,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 0,
+          "roomId": "rrp60b28",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 4,
+          "roomId": "rpwo2jzp",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 16,
+          "roomId": "rnows04l",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 32,
+          "roomId": "r5kouch2",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 66,
+          "roomId": "rpd4vlai",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 74,
+          "roomId": "rjztbg2y",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 100,
+          "roomId": "rttdog48",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 108,
+          "roomId": "rfhggel0",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 123,
+          "roomId": "r8xboge6",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 131,
+          "roomId": "r7y9o01b",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 142,
+          "roomId": "rj3pjwnb",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 170,
+          "roomId": "rmzb3tb8",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 178,
+          "roomId": "reqk2r6h",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 182,
+          "roomId": "rh3vr5u9",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 193,
+          "roomId": "rpfbhmm5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 201,
+          "roomId": "rvei5lfw",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 205,
+          "roomId": "rduqvo95",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 216,
+          "roomId": "rkey5oh6",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 227,
+          "roomId": "rrp60b28",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-956f3c329fefe5.casa",
+      "validRoute": true,
+      "rooms": 36,
+      "scenes": 37,
+      "physicalStages": 13,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 4,
+          "roomId": "rito63rf",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 12,
+          "roomId": "ro6fdngl",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "rt3luzft",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 28,
+          "roomId": "r4wieveq",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 36,
+          "roomId": "rb78i6qt",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 44,
+          "roomId": "rhspjoa3",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 52,
+          "roomId": "rrx3md15",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 60,
+          "roomId": "r5ddxye5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 76,
+          "roomId": "rx7pj8pp",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 80,
+          "roomId": "rar5vupy",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 84,
+          "roomId": "rssgbewo",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 88,
+          "roomId": "rzjjs36r",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 92,
+          "roomId": "ry9t8m5z",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 96,
+          "roomId": "r6rdz0gi",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 100,
+          "roomId": "rnt7j4qb",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 111,
+          "roomId": "r6gdzotw",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 119,
+          "roomId": "r6c696jx",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 130,
+          "roomId": "rpjp41tk",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 155,
+          "roomId": "rhxkfec5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 159,
+          "roomId": "ree0tv67",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 163,
+          "roomId": "rd8h9w55",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 167,
+          "roomId": "rmd9wxky",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 196,
+          "roomId": "rnlvlg0i",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 246,
+          "roomId": "rc2n9yo9",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-97408b549b8b23.casa",
+      "validRoute": true,
+      "rooms": 8,
+      "scenes": 9,
+      "physicalStages": 4,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 4,
+          "roomId": "rtqolfeo",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "rypokcw5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 28,
+          "roomId": "r9maz5k5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 40,
+          "roomId": "rpwe62pz",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 48,
+          "roomId": "rqgbt4z2",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-adc95034eb7871.casa",
+      "validRoute": true,
+      "rooms": 3,
+      "scenes": 4,
+      "physicalStages": 3,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 12,
+          "roomId": "rizif5yq",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-c253d341258532.casa",
+      "validRoute": true,
+      "rooms": 23,
+      "scenes": 24,
+      "physicalStages": 4,
+      "signatureStaged": true,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 4,
+          "roomId": "rnu7d654",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 12,
+          "roomId": "rbh93ufe",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 20,
+          "roomId": "re0utc51",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 28,
+          "roomId": "r8d41o20",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 32,
+          "roomId": "rkpajwg4",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 44,
+          "roomId": "r9rsm0dy",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 52,
+          "roomId": "rrgrueny",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 56,
+          "roomId": "r83jxz4b",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 64,
+          "roomId": "rtjmblns",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 79,
+          "roomId": "r2hr2rl9",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 87,
+          "roomId": "r4tshcc2",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 95,
+          "roomId": "r1pwvpoa",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 99,
+          "roomId": "ro1adohu",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 110,
+          "roomId": "rrwl3yl6",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 121,
+          "roomId": "ryfffs25",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 133,
+          "roomId": "rvfecn66",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 141,
+          "roomId": "rdogy02n",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 149,
+          "roomId": "r1y83p09",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 157,
+          "roomId": "rhprucwe",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 171,
+          "roomId": "rgj85d71",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-c3891fccdad9b0.casa",
+      "validRoute": true,
+      "rooms": 18,
+      "scenes": 19,
+      "physicalStages": 14,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": [
+        {
+          "index": 12,
+          "roomId": "rqw38sdz",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 42,
+          "roomId": "rx8drqnq",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 60,
+          "roomId": "r53av949",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 80,
+          "roomId": "rf67g1ut",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 113,
+          "roomId": "ruc57y99",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/houses/house-eb8f563c3fed01.casa",
+      "validRoute": true,
+      "rooms": 8,
+      "scenes": 9,
+      "physicalStages": 1,
+      "signatureStaged": false,
+      "finaleStaged": false,
+      "omitted": [
+        {
+          "index": 0,
+          "roomId": "ryau3di1",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 4,
+          "roomId": "ri0z95u5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 8,
+          "roomId": "rycxense",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 16,
+          "roomId": "r0q2jztf",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 24,
+          "roomId": "rdqp4rr4",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 28,
+          "roomId": "rs9hjl3u",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 32,
+          "roomId": "romykis5",
+          "reason": "no-clear-visible-stage"
+        },
+        {
+          "index": 52,
+          "roomId": "ryau3di1",
+          "reason": "no-clear-visible-stage"
+        }
+      ]
+    },
+    {
+      "path": "casa_game/samples/moonveil.casa",
+      "validRoute": true,
+      "rooms": 12,
+      "scenes": 13,
+      "physicalStages": 13,
+      "signatureStaged": true,
+      "finaleStaged": true,
+      "omitted": []
+    }
+  ]
+}

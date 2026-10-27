@@ -306,3 +306,5 @@ See the [visual follow-up](docs/FORGE_VISUAL_FOLLOWUP.md) for deeper ceiling rel
 [Pass 1 investigation, validated route contracts and continuation plan](docs/HAUNTED_MIDWAY_PASS1.md) documents the new development branch. Forge can emit separate static ride plans; the playable Midway selector, vehicle and theatrical runtime remain subsequent passes. Original student archives remain unchanged.
 
 [Haunted Midway Pass 2](docs/HAUNTED_MIDWAY_PASS2.md) adds the playable carriage, seated camera and haunted elevator handover, with actual Game browser evidence. Stair-carriage transitions and the larger park/theatrical expansion remain pending.
+
+Midway scene direction and the spectral boarding platform: [Pass 3 report](docs/HAUNTED_MIDWAY_PASS3.md).
