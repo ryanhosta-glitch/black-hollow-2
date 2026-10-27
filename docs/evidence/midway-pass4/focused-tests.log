@@ -1,0 +1,48 @@
+
+> test:midway
+> node --test tests/midway-routes.test.mjs tests/midway-motion.test.mjs tests/midway-scenes.test.mjs tests/midway-park.test.mjs
+
+✔ boarding, bounded acceleration, pause, room cue, atomic elevator and unloading work in order (7.923999ms)
+✔ carriage meshes in all yaw poses fit both certified circular vehicle profiles (24.30067ms)
+✔ bad speeds and times fail, suspension freezes motion, and a large frame never skips a route chord (0.452359ms)
+✔ planner workers are terminated, cached plans are detached, and failures can be retried (4.656938ms)
+✔ an occluded lift arrival faces along the checked exit path without moving between its endpoints (0.59498ms)
+✔ planner cancellation terminates the last subscriber without cancelling another boarding request (1.58229ms)
+✔ catalog presentation is bounded, handles malformed/duplicate input, and preserves descriptors (31.838499ms)
+✔ route checks serialize, deduplicate, report failure, retry, and cache only compact fingerprinted profiles (27.210504ms)
+✔ inspection cancellation and queue limits leave no active jobs or late UI changes (1.8794ms)
+✔ failed preview cannot be overwritten by a late route result and changed fingerprints invalidate cached metadata (3.704288ms)
+✔ all four lane rotations keep signs and queues outside pavements, mansion fronts and doorway approaches (2.234715ms)
+✔ park pools cull, reduce quality, avoid steady-state allocations/uploads, freeze motion and dispose resources (108.134839ms)
+✔ occupied verges fall back to an overhead banner and report omitted booth and marquees (10.598125ms)
+✔ ride graph follows real apertures, rounds clear corners, covers rooms and returns to its valid station (67.083651ms)
+✔ walls, windows, mismatched portals and narrow doors never become ride connections (36.750303ms)
+✔ collision validation rejects tampered paths, aperture bypasses, discontinuities and forged profiles (50.541179ms)
+✔ blocked approaches are excluded while tight dead ends use a stationary maneuver within the capsule (51.2041ms)
+✔ multi-floor links use actual public lift stops and cannot interpolate through floors or unlock secrets (36.55264ms)
+✔ malformed sources and invalid collider data fail closed without mutating authored input (5.158979ms)
+✔ actual Forge archive contains an optional, deterministic route sidecar without altering the source (4310.860478ms)
+✔ ride wall padding applies symmetrically and default walking clearance remains unchanged (0.757721ms)
+✔ a constrained house chooses the safe spectral profile when it covers more actual rooms (14.003045ms)
+✔ continuous ride clearance cannot step over a thin collider or cut across its corner (0.738632ms)
+✔ oversized inventories and tampered route point counts fail closed instead of bypassing budgets (34.139747ms)
+✔ eleven room performances, signature and finale are deterministic and do not modify authorship (11.256478ms)
+✔ tight, furnished, stair, low, malformed and authored-disabled rooms omit physical performances safely (1.341604ms)
+✔ stages and rider sightlines avoid colliders and stay in their actual room (0.393402ms)
+✔ single director stages anticipation, reveal, resolution and clears without duplicate cues (0.86539ms)
+✔ effect pools are bounded, fully disposed, and reduced motion stays still (16.004991ms)
+✔ spectral queue boards a separate carriage, opens unloading gate, and owns no dynamic lights (14.468549ms)
+✔ all visible performance meshes fit the checked stage envelope at reveal and resolution (27.846175ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 31
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4782.900444
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

@@ -308,3 +308,5 @@ See the [visual follow-up](docs/FORGE_VISUAL_FOLLOWUP.md) for deeper ceiling rel
 [Haunted Midway Pass 2](docs/HAUNTED_MIDWAY_PASS2.md) adds the playable carriage, seated camera and haunted elevator handover, with actual Game browser evidence. Stair-carriage transitions and the larger park/theatrical expansion remain pending.
 
 Midway scene direction and the spectral boarding platform: [Pass 3 report](docs/HAUNTED_MIDWAY_PASS3.md).
+
+Haunted Midway neighborhood park and attraction guide: [Pass 4 report](docs/HAUNTED_MIDWAY_PASS4.md).

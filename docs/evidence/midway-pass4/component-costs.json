@@ -1,0 +1,73 @@
+{
+  "component": "midway-park-1",
+  "newModuleSourceBytes": 20692,
+  "tiers": [
+    {
+      "quality": "performance",
+      "meshObjectsIncludingCulled": 27,
+      "materials": 13,
+      "geometryAndInstanceBufferBytes": 53484,
+      "trianglesAllPools": 3074,
+      "newLights": 0,
+      "budget": {
+        "edition": "midway-park-1",
+        "records": 12,
+        "queued": 0,
+        "activeChecks": 0,
+        "ready": 0,
+        "unavailable": 0,
+        "diagnostics": [],
+        "signLimit": 4,
+        "visibleSigns": 4,
+        "distanceOrBudgetCulled": 8,
+        "omittedQueues": [],
+        "omittedMarquees": [],
+        "queueLimit": 2,
+        "visibleQueues": 2,
+        "guestLimit": 3,
+        "staff": 1,
+        "visibleGuests": 3,
+        "textureBytes": 3145728,
+        "atlasWrites": 4,
+        "newDynamicLights": 0,
+        "newRenderLoops": 0,
+        "fullArch": true,
+        "ticketBooth": true
+      }
+    },
+    {
+      "quality": "cinematic",
+      "meshObjectsIncludingCulled": 43,
+      "materials": 17,
+      "geometryAndInstanceBufferBytes": 80508,
+      "trianglesAllPools": 4658,
+      "newLights": 0,
+      "budget": {
+        "edition": "midway-park-1",
+        "records": 12,
+        "queued": 0,
+        "activeChecks": 0,
+        "ready": 0,
+        "unavailable": 0,
+        "diagnostics": [],
+        "signLimit": 8,
+        "visibleSigns": 8,
+        "distanceOrBudgetCulled": 4,
+        "omittedQueues": [],
+        "omittedMarquees": [],
+        "queueLimit": 4,
+        "visibleQueues": 4,
+        "guestLimit": 5,
+        "staff": 1,
+        "visibleGuests": 5,
+        "textureBytes": 5242880,
+        "atlasWrites": 8,
+        "newDynamicLights": 0,
+        "newRenderLoops": 0,
+        "fullArch": true,
+        "ticketBooth": true
+      }
+    }
+  ],
+  "note": "Geometry bytes include unique typed attribute/index/instance arrays. Excludes JS, canvas CPU backing stores, renderer overhead and existing street. All-pool triangles are not a rendered frame measurement."
+}

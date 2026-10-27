@@ -14,3 +14,10 @@ test('planner workers are terminated, cached plans are detached, and failures ca
 });
 
 test('an occluded lift arrival faces along the checked exit path without moving between its endpoints',()=>{const plan=source();plan.legs[3].drive='forward';const m=createMidwayMotion(plan);m.board();for(let i=0;i<3000&&m.state!=='transfer';i++)m.tick(.05);const before=m.pose;assert.throws(()=>m.completeTransfer({fullyOccluded:false}));assert.deepEqual(m.pose,before);m.completeTransfer({fullyOccluded:true});assert.deepEqual(m.pose.position,plan.legs[2].points[1]);assert.ok(Math.abs(Math.abs(m.pose.yaw)-Math.PI)<.00001);});
+
+test('planner cancellation terminates the last subscriber without cancelling another boarding request',async()=>{
+ const {prepareMidwayRide}=await import('../casa_game/midway_prepare.mjs'),original=globalThis.Worker;let made=0,ended=0,worker;
+ try{globalThis.Worker=class{constructor(){made++;worker=this;}postMessage(){}terminate(){ended++;}};const house={},a=new AbortController(),b=new AbortController(),first=prepareMidwayRide(house,{signal:a.signal}),second=prepareMidwayRide(house,{signal:b.signal});await Promise.resolve();assert.equal(made,1);a.abort();await assert.rejects(first,{name:'AbortError'});assert.equal(ended,0);worker.onmessage({data:{plan:source()}});assert.ok((await second).validation.valid);assert.equal(ended,1);
+ const c=new AbortController(),pending=prepareMidwayRide({}, {signal:c.signal});await Promise.resolve();c.abort();await assert.rejects(pending,{name:'AbortError'});assert.equal(ended,2);const d=new AbortController();d.abort();await assert.rejects(prepareMidwayRide({}, {signal:d.signal}),{name:'AbortError'});assert.equal(made,2);
+ }finally{if(original===undefined)delete globalThis.Worker;else globalThis.Worker=original;}
+});

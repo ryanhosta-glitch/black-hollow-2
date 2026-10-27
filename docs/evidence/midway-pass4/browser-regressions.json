@@ -1,0 +1,47 @@
+[
+  {
+    "suite": "midway",
+    "status": 0,
+    "signal": null
+  },
+  {
+    "suite": "midway-scenes",
+    "status": 0,
+    "signal": null
+  },
+  {
+    "suite": "release-entry",
+    "status": 0,
+    "signal": null
+  },
+  {
+    "suite": "halloween",
+    "status": 0,
+    "signal": null
+  },
+  {
+    "suite": "runtime-cleanup",
+    "status": 0,
+    "signal": null
+  },
+  {
+    "suite": "pipeline",
+    "status": 0,
+    "signal": null
+  },
+  {
+    "suite": "scares",
+    "status": 0,
+    "signal": null
+  },
+  {
+    "suite": "atmosphere",
+    "status": 0,
+    "signal": null
+  },
+  {
+    "suite": "phoenix",
+    "status": 0,
+    "signal": null
+  }
+]

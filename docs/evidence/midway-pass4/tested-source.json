@@ -1,0 +1,60 @@
+{
+  "sourceMatchesDisposableTests": true,
+  "files": [
+    {
+      "path": "casa_game/main.mjs",
+      "sha256": "13e002142c07dcc8800e225780bb901fa56f75fc164c0c8dca288576012aa4f2",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "casa_game/audio.mjs",
+      "sha256": "d8ac813a69a381bc229317fe720b1e22c5d82666dadf3f4bac5d97e1cb078afe",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "casa_game/midway_prepare.mjs",
+      "sha256": "203ed451ef3f947496f92199bee896f7231b2f741dd837aa61ed3e5340468ccd",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "casa_game/midway_park.mjs",
+      "sha256": "a331ac2ec7c1f22d041a574aa6f3435117f9acb582981bbe18dde0d5c08100ff",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "casa_game/midway_park_state.mjs",
+      "sha256": "26c8a3e96bf2c7f73648d563eb95430593a10d4d5dfbce8d9608c51ed4f534e3",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "casa_game/midway_park_layout.mjs",
+      "sha256": "ff2b769272964c17f40bf7bc31f2414dc01735faf19d332ff6cfd5bb41ca93d2",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "casa_game.html",
+      "sha256": "8ca345c767d5e6bc21ed76a8a7a5562093e83178ab13813a0d7cfdb5eec8f7ea",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "0c6e87accc87a65cfd74f588357b83bf3b2025043a99093845a857679ed02e36",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "tests/midway-motion.test.mjs",
+      "sha256": "aabb84a5e95e22e92a6be10a6d1bf8447b87a896a6429e243b5cb2c23b0be871",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "tests/midway-park.test.mjs",
+      "sha256": "a637cfac46f97e8f4586809a520f466a821dddef4b77aa6115205748cf107336",
+      "matchesDisposableTestCheckout": true
+    },
+    {
+      "path": "tests/browser-midway-park.mjs",
+      "sha256": "1a649344e2b7230d08739e517b83689f211adecfd0aa353f05999dedb78c66f8",
+      "matchesDisposableTestCheckout": true
+    }
+  ]
+}
