@@ -63,6 +63,11 @@ jobs:
         if: steps.release.outputs.publish == 'true'
         with:
           node-version: 22
+      - run: npm ci --ignore-scripts
+        if: steps.release.outputs.publish == 'true'
+      - name: Preserve portable Christmas Forge builds
+        if: steps.release.outputs.publish == 'true'
+        run: npm run build:gingerlight
       - name: Copy committed site without rebuilding student archives
         if: steps.release.outputs.publish == 'true'
         env:
@@ -74,6 +79,7 @@ jobs:
           mkdir _site
           cp index.html casa_game.html casa_admin.html _site/
           cp -R casa_game casa_admin _site/
+          cp -R north_pole _site/
           touch _site/.nojekyll
           node --input-type=module -e 'import {writeFileSync} from "node:fs"; writeFileSync("_site/release-build.json",JSON.stringify({commit:process.env.RELEASE_SHA,archivesRebuilt:false,mode:"Haunted Midway Beta release or recorded rollback"},null,2)+"\n")'
           sha256sum --check /tmp/release-archives.sha256

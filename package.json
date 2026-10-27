@@ -22,6 +22,11 @@
     "test:browser:atmosphere": "node tests/browser-atmosphere.mjs",
     "test:forge-integration": "node --test tests/forge-integration.test.mjs",
     "test:browser:certification": "node tests/browser-forge-certification.mjs",
+    "build:gingerlight": "node tools/build-gingerlight.mjs",
+    "test:gingerlight": "node --test tests/ginger-forge.test.mjs tests/ginger-sequencer.test.mjs",
+    "test:browser:gingerlight": "node tests/browser-gingerlight.mjs",
+    "test:browser:gingerlight-student": "node tests/browser-gingerlight-student.mjs",
+    "test:browser:gingerlight-console": "node tests/browser-gingerlight-console.mjs",
     "test:midway": "node --test tests/midway-signatures.test.mjs tests/midway-routes.test.mjs tests/midway-motion.test.mjs tests/midway-scenes.test.mjs tests/midway-park.test.mjs",
     "midway:sidecars": "node tools/build-midway-sidecars.mjs",
     "test:browser:midway": "node tests/browser-midway.mjs",
@@ -30,6 +35,7 @@
   },
   "devDependencies": {
     "playwright-core": "^1.62.1",
-    "three": "0.170.0"
+    "three": "0.170.0",
+    "esbuild": "0.25.12"
   }
 }

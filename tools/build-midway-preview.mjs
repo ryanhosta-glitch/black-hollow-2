@@ -9,7 +9,7 @@ const destination=process.argv[2];
 if(!destination)throw Error('Usage: node tools/build-midway-preview.mjs /path/to/NEW-directory');
 const out=resolve(destination),inside=relative(root,out);
 if(!inside||(!inside.startsWith(`..${sep}`)&&inside!=='..'))throw Error('Preview output must be outside the source checkout.');
-const originals=JSON.parse(await readFile(new URL('../docs/evidence/forge-integration/protected-originals.json',import.meta.url),'utf8'));
+const originals=JSON.parse(await readFile(new URL('../docs/evidence/midway-release/protected-originals.json',import.meta.url),'utf8'));
 async function verify(){for(const [file,expected] of Object.entries(originals)){
  const digest=createHash('sha256').update(await readFile(resolve(root,file))).digest('hex');
  if(digest!==expected)throw Error(`Protected original changed: ${file}`);
@@ -17,7 +17,7 @@ async function verify(){for(const [file,expected] of Object.entries(originals)){
 await verify();
 // Exclusive directory creation intentionally rejects existing destinations.
 await mkdir(out,{recursive:false});
-for(const dir of ['casa_game','casa_admin'])await cp(resolve(root,dir),resolve(out,dir),{recursive:true,errorOnExist:true,force:false});
+for(const dir of ['casa_game','casa_admin','north_pole'])await cp(resolve(root,dir),resolve(out,dir),{recursive:true,errorOnExist:true,force:false});
 let html=await readFile(resolve(root,'casa_game.html'),'utf8');
 html=html.replace('<title>','<title>Beta Preview · ').replace('<div class="welcome-copy">','<div class="welcome-copy"><p role="note" style="border:1px solid #c9b27d;padding:10px;color:#f5e6c8">BETA PREVIEW — A separate test copy of Black Hollow. Select The Haunted Midway below. Rides and performance are still being refined.</p>');
 if(!html.includes('BETA PREVIEW'))throw Error('Preview notice injection failed');

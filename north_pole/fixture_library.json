@@ -1,0 +1,428 @@
+{
+  "schema": "gingerlight.fixture-library",
+  "version": "0.2.0",
+  "date": "2026-10-25",
+  "scope": "Research catalog; six modes are integrated in the student simulator, including the SlimPAR H6 USB 8CH chart. No hardware output.",
+  "profiles": [
+    {
+      "id": "q-ip-4",
+      "manufacturer": "CHAUVET DJ",
+      "model": "SlimPAR Pro Q IP",
+      "mode": "4CH",
+      "footprint": 4,
+      "protocol": "DMX512",
+      "channel_order": [
+        "red",
+        "green",
+        "blue",
+        "amber"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2021/12/SlimPAR_Pro-Q-IP_UM_Rev2.pdf",
+      "notes": "",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "q-ip-5",
+      "manufacturer": "CHAUVET DJ",
+      "model": "SlimPAR Pro Q IP",
+      "mode": "5CH",
+      "footprint": 5,
+      "protocol": "DMX512",
+      "channel_order": [
+        "dimmer",
+        "red",
+        "green",
+        "blue",
+        "amber"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2021/12/SlimPAR_Pro-Q-IP_UM_Rev2.pdf",
+      "notes": "Manual menu address limits conflict internally; protocol maximum = 513 - footprint. Confirm actual firmware limits before hardware patch.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "hex-12",
+      "manufacturer": "CHAUVET DJ",
+      "model": "SlimPAR PRO H USB",
+      "mode": "12CH",
+      "footprint": 12,
+      "protocol": "DMX512",
+      "channel_order": [
+        "dimmer",
+        "red",
+        "green",
+        "blue",
+        "amber",
+        "white",
+        "uv",
+        "strobe",
+        "color_macros",
+        "auto_sound_program",
+        "speed_sensitivity",
+        "dimmer_speed"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2016/01/SlimPAR_PRO_H_USB_UM_Rev5.pdf",
+      "notes": "Advanced decoder not yet supplied; do not treat all channels as intensity. Direct color playback: channels 8-12 = 0, dimmer > 0.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "colorband-1",
+      "manufacturer": "CHAUVET DJ",
+      "model": "COLORband PiX ILS",
+      "mode": "3CH",
+      "footprint": 3,
+      "protocol": "DMX512",
+      "channel_order": [
+        "red_1",
+        "green_1",
+        "blue_1"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2022/10/COLORband_PiX_ILS_UM_Rev1.pdf",
+      "notes": "1 equal zones across 12 emitters. Preserve physical zone direction from manual diagram.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "colorband-2",
+      "manufacturer": "CHAUVET DJ",
+      "model": "COLORband PiX ILS",
+      "mode": "6CH",
+      "footprint": 6,
+      "protocol": "DMX512",
+      "channel_order": [
+        "red_1",
+        "green_1",
+        "blue_1",
+        "red_2",
+        "green_2",
+        "blue_2"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2022/10/COLORband_PiX_ILS_UM_Rev1.pdf",
+      "notes": "2 equal zones across 12 emitters. Preserve physical zone direction from manual diagram.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "colorband-3",
+      "manufacturer": "CHAUVET DJ",
+      "model": "COLORband PiX ILS",
+      "mode": "9CH",
+      "footprint": 9,
+      "protocol": "DMX512",
+      "channel_order": [
+        "red_1",
+        "green_1",
+        "blue_1",
+        "red_2",
+        "green_2",
+        "blue_2",
+        "red_3",
+        "green_3",
+        "blue_3"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2022/10/COLORband_PiX_ILS_UM_Rev1.pdf",
+      "notes": "3 equal zones across 12 emitters. Preserve physical zone direction from manual diagram.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "colorband-4",
+      "manufacturer": "CHAUVET DJ",
+      "model": "COLORband PiX ILS",
+      "mode": "12CH",
+      "footprint": 12,
+      "protocol": "DMX512",
+      "channel_order": [
+        "red_1",
+        "green_1",
+        "blue_1",
+        "red_2",
+        "green_2",
+        "blue_2",
+        "red_3",
+        "green_3",
+        "blue_3",
+        "red_4",
+        "green_4",
+        "blue_4"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2022/10/COLORband_PiX_ILS_UM_Rev1.pdf",
+      "notes": "4 equal zones across 12 emitters. Preserve physical zone direction from manual diagram.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "colorband-6",
+      "manufacturer": "CHAUVET DJ",
+      "model": "COLORband PiX ILS",
+      "mode": "18CH",
+      "footprint": 18,
+      "protocol": "DMX512",
+      "channel_order": [
+        "red_1",
+        "green_1",
+        "blue_1",
+        "red_2",
+        "green_2",
+        "blue_2",
+        "red_3",
+        "green_3",
+        "blue_3",
+        "red_4",
+        "green_4",
+        "blue_4",
+        "red_5",
+        "green_5",
+        "blue_5",
+        "red_6",
+        "green_6",
+        "blue_6"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2022/10/COLORband_PiX_ILS_UM_Rev1.pdf",
+      "notes": "6 equal zones across 12 emitters. Preserve physical zone direction from manual diagram.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "colorband-12",
+      "manufacturer": "CHAUVET DJ",
+      "model": "COLORband PiX ILS",
+      "mode": "36CH",
+      "footprint": 36,
+      "protocol": "DMX512",
+      "channel_order": [
+        "red_1",
+        "green_1",
+        "blue_1",
+        "red_2",
+        "green_2",
+        "blue_2",
+        "red_3",
+        "green_3",
+        "blue_3",
+        "red_4",
+        "green_4",
+        "blue_4",
+        "red_5",
+        "green_5",
+        "blue_5",
+        "red_6",
+        "green_6",
+        "blue_6",
+        "red_7",
+        "green_7",
+        "blue_7",
+        "red_8",
+        "green_8",
+        "blue_8",
+        "red_9",
+        "green_9",
+        "blue_9",
+        "red_10",
+        "green_10",
+        "blue_10",
+        "red_11",
+        "green_11",
+        "blue_11",
+        "red_12",
+        "green_12",
+        "blue_12"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2022/10/COLORband_PiX_ILS_UM_Rev1.pdf",
+      "notes": "12 equal zones across 12 emitters. Preserve physical zone direction from manual diagram.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "spot-5",
+      "manufacturer": "CHAUVET DJ",
+      "model": "Intimidator Spot 160 ILS",
+      "mode": "05CH",
+      "footprint": 5,
+      "protocol": "DMX512",
+      "channel_order": [
+        "pan",
+        "tilt",
+        "color_wheel",
+        "gobo_wheel",
+        "shutter"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2022/05/Intimidator_Spot_160_ILS_UM_Rev3.pdf",
+      "notes": "No separate dimmer in this mode; color/gobo are indexed wheels, not RGB. Pan maximum 540 degrees; tilt maximum 229 degrees; menu settings can restrict movement.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "spot-11",
+      "manufacturer": "CHAUVET DJ",
+      "model": "Intimidator Spot 160 ILS",
+      "mode": "11CH",
+      "footprint": 11,
+      "protocol": "DMX512",
+      "channel_order": [
+        "pan",
+        "pan_fine",
+        "tilt",
+        "tilt_fine",
+        "pan_tilt_speed",
+        "color_wheel",
+        "gobo_wheel",
+        "dimmer",
+        "shutter",
+        "control",
+        "movement_macros"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2022/05/Intimidator_Spot_160_ILS_UM_Rev3.pdf",
+      "notes": "16-bit pan/tilt = coarse*256 + fine. Full wheel/control/macro decoder must be completed from linked manual before implementation. Direct playback: control=0, movement_macros=0; shutter=255.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "dmx4-4",
+      "manufacturer": "CHAUVET DJ",
+      "model": "DMX-4",
+      "mode": "4CH",
+      "footprint": 4,
+      "protocol": "DMX512",
+      "channel_order": [
+        "output_1",
+        "output_2",
+        "output_3",
+        "output_4"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2015/12/DMX-4_UM_Rev3_WO-1.pdf",
+      "notes": "Each output pair shares control. Only dim compatible loads; fixed-color strings do not gain RGB.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "dmx4-2",
+      "manufacturer": "CHAUVET DJ",
+      "model": "DMX-4",
+      "mode": "2CH",
+      "footprint": 2,
+      "protocol": "DMX512",
+      "channel_order": [
+        "outputs_1_2",
+        "outputs_3_4"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2015/12/DMX-4_UM_Rev3_WO-1.pdf",
+      "notes": "",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "dmx4-1",
+      "manufacturer": "CHAUVET DJ",
+      "model": "DMX-4",
+      "mode": "1CH",
+      "footprint": 1,
+      "protocol": "DMX512",
+      "channel_order": [
+        "all_outputs"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2015/12/DMX-4_UM_Rev3_WO-1.pdf",
+      "notes": "",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "gobo-1",
+      "manufacturer": "CHAUVET DJ",
+      "model": "Gobo Zoom 2",
+      "mode": "1CH",
+      "footprint": 1,
+      "protocol": "DMX512",
+      "channel_order": [
+        "dimmer"
+      ],
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2021/05/Gobo_Zoom_2_UM_Rev2.pdf",
+      "notes": "Pattern replacement, aiming, and zoom are manual; do not invent DMX rotation, pattern selection or movement.",
+      "status": "researched_definition_not_hardware_tested"
+    },
+    {
+      "id": "h6-usb-8",
+      "manufacturer": "CHAUVET DJ",
+      "model": "SlimPAR H6 USB",
+      "mode": "8CH",
+      "footprint": 8,
+      "protocol": "DMX512",
+      "channel_order": [
+        "dimmer",
+        "red",
+        "green",
+        "blue",
+        "amber",
+        "white",
+        "uv",
+        "strobe"
+      ],
+      "ranges": {
+        "strobe": [
+          {
+            "min": 0,
+            "max": 10,
+            "function": "No function / no strobe"
+          },
+          {
+            "min": 11,
+            "max": 255,
+            "function": "Strobe, slow to fast"
+          }
+        ]
+      },
+      "source": "https://www.chauvetdj.com/wp-content/uploads/2016/01/SlimPAR_H6_USB_UM_Rev1_WO-1.pdf",
+      "notes": "Manufacturer chart p12. Rate in Hz is not specified. Screen UV is violet approximation; strobe is indicated by status, without rapid preview flashing.",
+      "status": "manufacturer_chart_verified_not_hardware_tested"
+    }
+  ],
+  "pixel_template": {
+    "id": "rgb-pixel-run",
+    "manufacturer": "generic controller mapping",
+    "reference_controller": "HolidayCoro AlphaPix Classic 4",
+    "source": "https://www.holidaycoro.com/AlphaPix-4-V3-RGB-Pixel-Controller-p/722-v3.htm",
+    "protocol_path": [
+      "sACN E1.31 or Art-Net",
+      "pixel controller",
+      "SPI pixels"
+    ],
+    "footprint": "3 * independently_addressable_nodes",
+    "logical_order": [
+      "red",
+      "green",
+      "blue"
+    ],
+    "physical_color_order": "configurable at controller; record RGB/GRB/etc explicitly",
+    "universe_policy": "Studio default: reserve 510 slots for 170 complete RGB nodes; not a universal DMX requirement. Controller universe sizing must match export.",
+    "settings": [
+      "controller_id",
+      "output_port",
+      "start_universe",
+      "start_address",
+      "node_count",
+      "color_order",
+      "reverse",
+      "zigzag",
+      "null_nodes"
+    ],
+    "notes": "A physical LED is not always an independent node. Grouped strip LEDs can share one IC. Geometry does not change addressing."
+  },
+  "display_models": [
+    "roofline",
+    "window_frame",
+    "arch",
+    "mini_tree",
+    "mega_tree",
+    "star",
+    "snowflake",
+    "candy_cane",
+    "matrix"
+  ],
+  "rules": {
+    "address_range": [
+      1,
+      512
+    ],
+    "value_range": [
+      0,
+      255
+    ],
+    "end_address": "start + footprint - 1",
+    "latest_start": "513 - footprint",
+    "duplicates": "Allow intentional same-universe/address/profile/mode with matching settings. Shared signals do not guarantee same physical orientation.",
+    "overlap": "Warn on partial or incompatible overlap; require correction or explicit advanced acknowledgement.",
+    "network": "Distinct universes or independent outputs can reuse addresses. All houses in a game use house-local namespaces; physical merged rigs need a globally valid patch.",
+    "cue_resolution": "Resolve cues to universe/channel values before rendering; mirrored fixtures read the same values. Flag competing cue writes.",
+    "interpolation": "Interpolate intensity and motion; select indexed wheel values discretely.",
+    "brightness": "Convert fraction f to round(255*f); retain exact fraction and rounded byte separately.",
+    "hardware_output": "Standalone HTML is a simulator/file authoring tool. Real DMX requires a tested bridge/controller and matching profile/firmware."
+  }
+}

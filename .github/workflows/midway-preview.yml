@@ -15,6 +15,7 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run test:midway
+      - run: npm run build:gingerlight
       - name: Build standalone site without rebuilding student archives
         run: node tools/build-midway-preview.mjs "$RUNNER_TEMP/haunted-midway-beta"
       - uses: actions/upload-artifact@v4
