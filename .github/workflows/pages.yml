@@ -1,10 +1,18 @@
 name: Deploy GitHub Pages
 on:
-  push:
+  workflow_run:
+    workflows: [CASA Forge regressions]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
+    inputs:
+      rollback_midway:
+        description: Restore the recorded production revision from before Midway Beta
+        type: boolean
+        default: false
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 concurrency:
@@ -12,29 +20,70 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Select certified release or recorded rollback
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+          EVENT_SHA: ${{ github.event.workflow_run.head_sha }}
+          ROLLBACK: ${{ inputs.rollback_midway }}
+        run: |
+          set -euo pipefail
+          current_main=$(git rev-parse origin/main)
+          if [ "$ROLLBACK" = "true" ]; then
+            target=$(git rev-parse 'rollback/pre-midway-beta-2026-10-27^{commit}')
+          elif [ "$EVENT" = "workflow_run" ]; then
+            target="$EVENT_SHA"
+            if [ "$target" != "$current_main" ]; then
+              echo "Skipping a superseded release."
+              echo 'publish=false' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          else
+            target="$current_main"
+            passed=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/forge-tests.yml/runs?branch=main&head_sha=$target&status=completed&per_page=100" --jq '[.workflow_runs[] | select(.head_sha == "'"$target"'" and .conclusion == "success")] | length')
+            test "$passed" -gt 0 || { echo 'This revision has no successful full regression run.'; exit 1; }
+          fi
+          git checkout --detach "$target"
+          echo "sha=$target" >> "$GITHUB_OUTPUT"
+          echo 'publish=true' >> "$GITHUB_OUTPUT"
       - uses: actions/configure-pages@v5
+        if: steps.release.outputs.publish == 'true'
       - uses: actions/setup-node@v4
+        if: steps.release.outputs.publish == 'true'
         with:
           node-version: 22
-      - name: Rebuild Moonveil reference mansion with current Forge
-        run: node tools/rebuild-reference-mansion.mjs
-      - name: Catalog prepared CASA houses
-        run: node tools/build-casa-street.mjs
-      - name: Prepare static site
+      - name: Copy committed site without rebuilding student archives
+        if: steps.release.outputs.publish == 'true'
+        env:
+          RELEASE_SHA: ${{ steps.release.outputs.sha }}
         run: |
+          set -euo pipefail
+          find casa_game -type f -name '*.casa' -print0 | sort -z | xargs -0 sha256sum > /tmp/release-archives.sha256
+          sha256sum casa_game/street.json > /tmp/release-catalog.sha256
           mkdir _site
           cp index.html casa_game.html casa_admin.html _site/
           cp -R casa_game casa_admin _site/
           touch _site/.nojekyll
+          node --input-type=module -e 'import {writeFileSync} from "node:fs"; writeFileSync("_site/release-build.json",JSON.stringify({commit:process.env.RELEASE_SHA,archivesRebuilt:false,mode:"Haunted Midway Beta release or recorded rollback"},null,2)+"\n")'
+          sha256sum --check /tmp/release-archives.sha256
+          sha256sum --check /tmp/release-catalog.sha256
+          (cd _site && sha256sum --check /tmp/release-archives.sha256 && sha256sum --check /tmp/release-catalog.sha256)
       - uses: actions/upload-pages-artifact@v3
+        if: steps.release.outputs.publish == 'true'
         with:
           path: _site
       - name: Deploy
+        if: steps.release.outputs.publish == 'true'
         id: deployment
         uses: actions/deploy-pages@v4
