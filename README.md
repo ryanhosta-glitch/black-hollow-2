@@ -12,7 +12,7 @@ For real browser checks, install Chromium with `npx playwright-core install chro
 
 ## Publish
 
-Push to `main` to deploy GitHub Pages through `.github/workflows/pages.yml`. The workflow catalogs existing prepared CASA archives and publishes the current Game and House Office. It never compiles blueprints or silently replaces mansion geometry.
+A successful full CASA Forge regression run on `main` triggers GitHub Pages through `.github/workflows/pages.yml`. The workflow copies the committed house archives and catalog unchanged, builds the portable Christmas Forge tools, and publishes the Game and House Office. It does not rebuild mansions or rewrite the catalog. See [Midway Beta release and rollback](docs/HAUNTED_MIDWAY_BETA_RELEASE.md) for the recorded rollback procedure.
 
 Upload all student blueprints together in House Office's Mansion Foundry. Preparation is sequential, resumable on the same browser, and reports failed houses individually. Prepared mansions publish with one catalog change and one non-forced Git commit. A repository-scoped Contents read/write token is needed only for permanent publication. Local Game imports also accept class-sized selections and never upload files.
 

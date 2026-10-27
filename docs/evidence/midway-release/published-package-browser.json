@@ -1,0 +1,541 @@
+{
+  "actualPackagedSite": true,
+  "actualPublishedCatalog": true,
+  "house": {
+    "id": "demo-moonveil",
+    "houseNumber": "6426",
+    "fingerprint": "ecb23c8953311f134d5ca665ee53ced4532816ebdd10fe927b67339cd88babb8",
+    "previousFingerprints": [
+      "6572ef239b3d0441a48183d39e293f608ee8a9f7cdb1242f31a293f5f2fdbf86",
+      "3b10e863f472dc3998ff0008cd9b5ac1d59057eaad6a3f53051b3997dbd48e70",
+      "ee75c05e034c738bd00e6109fbf83d41dd6590b82c524f3a6e17be0af3094469",
+      "f00051cba46c44d2431bb85d9a09810a5f31f29ff9066e3fe67b45f65b833b30",
+      "d0f17a9f9e29289dacde52396ae5556a32c7bdc2fd86ce16c5b3deaaab0ace1d",
+      "e741badf7fafaaa921cfb72e70b110092fb6099a9767cf9b60ac9df6f19ca38e",
+      "8accad5d1aaf125e63867af879097f95aefc51efb3f797de839a7aca6d7310bf",
+      "df43e6d0deb417e1ab42718ae79fce496cdd08f08738c38b73c57832d39db411",
+      "791d7059aaf7325c5938f6564c0b8bb835fab258cbd1115ac143cdacad5db292"
+    ],
+    "geometryLevel": "victorian-textured-architecture-4.3",
+    "forgeRevision": "whole-house-1",
+    "name": "Moonveil Manor — Three-Level Staircase Test Estate",
+    "package": "./samples/moonveil.casa",
+    "architect": "Black Hollow Forge",
+    "description": "A prepared house with a different mystery whenever you begin a new haunting.",
+    "publishedVersion": {
+      "id": "demo-moonveil",
+      "houseNumber": "6426",
+      "fingerprint": "ecb23c8953311f134d5ca665ee53ced4532816ebdd10fe927b67339cd88babb8",
+      "previousFingerprints": [
+        "6572ef239b3d0441a48183d39e293f608ee8a9f7cdb1242f31a293f5f2fdbf86",
+        "3b10e863f472dc3998ff0008cd9b5ac1d59057eaad6a3f53051b3997dbd48e70",
+        "ee75c05e034c738bd00e6109fbf83d41dd6590b82c524f3a6e17be0af3094469",
+        "f00051cba46c44d2431bb85d9a09810a5f31f29ff9066e3fe67b45f65b833b30",
+        "d0f17a9f9e29289dacde52396ae5556a32c7bdc2fd86ce16c5b3deaaab0ace1d",
+        "e741badf7fafaaa921cfb72e70b110092fb6099a9767cf9b60ac9df6f19ca38e",
+        "8accad5d1aaf125e63867af879097f95aefc51efb3f797de839a7aca6d7310bf",
+        "df43e6d0deb417e1ab42718ae79fce496cdd08f08738c38b73c57832d39db411",
+        "791d7059aaf7325c5938f6564c0b8bb835fab258cbd1115ac143cdacad5db292"
+      ],
+      "geometryLevel": "victorian-textured-architecture-4.3",
+      "forgeRevision": "whole-house-1",
+      "name": "Moonveil Manor — Three-Level Staircase Test Estate",
+      "package": "./samples/moonveil.casa",
+      "architect": "Black Hollow Forge",
+      "description": "A prepared house with a different mystery whenever you begin a new haunting."
+    },
+    "townIndex": 0
+  },
+  "completeRide": true,
+  "roomsVisited": [
+    "mv-foyer",
+    "mv-library",
+    "mv-conservatory",
+    "mv-dining",
+    "mv-stair-up-main",
+    "mv-stair-main",
+    "mv-crypt",
+    "mv-stair-basement",
+    "mv-gallery",
+    "mv-bedchamber",
+    "mv-stair-up-upper",
+    "mv-observatory"
+  ],
+  "hauntedTransfers": [
+    "mv-library>mv-crypt",
+    "mv-crypt>mv-gallery",
+    "mv-gallery>mv-crypt",
+    "mv-crypt>mv-library"
+  ],
+  "returnedToStreet": true,
+  "existingModesSwitched": true,
+  "acceleratedClock": true,
+  "softwareGPU": true,
+  "cdnReplacedWithMatchingLocalThreeForTest": true,
+  "sceneSchedule": {
+    "edition": "midway-scene-director-2",
+    "scenes": [
+      {
+        "index": 0,
+        "roomId": "mv-foyer",
+        "identity": "gallery",
+        "finale": false,
+        "signature": true,
+        "variant": 1,
+        "title": "The Unfinished Séance",
+        "motif": "frames",
+        "hook": "portrait",
+        "show": "seance",
+        "stageKind": "floor",
+        "stageRadius": 0.78,
+        "stageHeight": 1.9,
+        "stage": [
+          2.0071692307692306,
+          3.048,
+          1.018293333333333
+        ],
+        "anchor": [
+          2.0071692307692306,
+          3.048,
+          2.568293333333333
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Absent Sitter",
+        "supportedObjectIds": [
+          "forge:mv-foyer:furniture:generated-0",
+          "forge:mv-foyer:furniture:generated-1",
+          "forge:mv-foyer:furniture:generated-2"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A pale face gathers inside the spirit glass.",
+        "reveal": "Mara Thorne calls the forgotten guest into view.",
+        "resolution": "The spirit fades. Your place at the table stays empty."
+      },
+      {
+        "index": 4,
+        "roomId": "mv-library",
+        "identity": "library",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "The Letter That Writes Back",
+        "motif": "books",
+        "hook": "draft",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          8.865200000000002,
+          3.048,
+          2.568293333333333
+        ],
+        "anchor": [
+          7.315200000000001,
+          3.048,
+          2.568293333333333
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Brass Atlas",
+        "supportedObjectIds": [
+          "forge:mv-library:furniture:generated-0",
+          "forge:mv-library:furniture:generated-1"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "The pages turn to a name that should not be here.",
+        "reveal": "The librarian offers you the final volume.",
+        "resolution": "Your name fades from the catalogue."
+      },
+      {
+        "index": 8,
+        "roomId": "mv-conservatory",
+        "identity": "conservatory",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "The Glasshouse Gardener",
+        "motif": "leaves",
+        "hook": "draft",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          7.315200000000001,
+          3.048,
+          8.433969230769232
+        ],
+        "anchor": [
+          7.315200000000001,
+          3.048,
+          6.883969230769232
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Glass Garden",
+        "supportedObjectIds": [
+          "forge:mv-conservatory:furniture:generated-0",
+          "forge:mv-conservatory:furniture:generated-1"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "Pale leaves turn toward your carriage.",
+        "reveal": "The gardener emerges from the remembered garden.",
+        "resolution": "The leaves fold around a secret seed."
+      },
+      {
+        "index": 12,
+        "roomId": "mv-dining",
+        "identity": "dining",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "The Untouched Setting",
+        "motif": "plates",
+        "hook": "reflection",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          0.7571692307692306,
+          3.048,
+          6.883969230769232
+        ],
+        "anchor": [
+          2.0071692307692306,
+          3.048,
+          6.883969230769232
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Supper Kept Warm",
+        "supportedObjectIds": [
+          "forge:mv-dining:furniture:generated-0"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "An untouched place setting rises for a late guest.",
+        "reveal": "The host arrives to announce the final course.",
+        "resolution": "The plates lower. Supper will wait another night."
+      },
+      {
+        "index": 20,
+        "roomId": "mv-stair-up-main",
+        "identity": "circulation",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Next Door",
+        "motif": "lanterns",
+        "hook": "draft",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          13.320290909090911,
+          3.048,
+          6.096000000000002
+        ],
+        "anchor": [
+          12.070290909090911,
+          3.048,
+          6.096000000000001
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "Marks along the passage",
+        "supportedObjectIds": [],
+        "requiredForQuest": false,
+        "anticipation": "A distant lantern holds its breath.",
+        "reveal": "A lost usher points the way onward.",
+        "resolution": "The passage remembers where it leads."
+      },
+      {
+        "index": 31,
+        "roomId": "mv-stair-main",
+        "identity": "circulation",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Next Door",
+        "motif": "lanterns",
+        "hook": "draft",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          13.320290909090911,
+          3.048,
+          1.2192
+        ],
+        "anchor": [
+          12.070290909090911,
+          3.048,
+          1.2192
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "Marks along the passage",
+        "supportedObjectIds": [],
+        "requiredForQuest": false,
+        "anticipation": "A distant lantern holds its breath.",
+        "reveal": "A lost usher points the way onward.",
+        "resolution": "The passage remembers where it leads."
+      },
+      {
+        "index": 39,
+        "roomId": "mv-crypt",
+        "identity": "crypt",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Unfinished Séance",
+        "motif": "memorial",
+        "hook": "glow",
+        "show": "seance",
+        "stageKind": "floor",
+        "stageRadius": 0.78,
+        "stageHeight": 1.9,
+        "stage": [
+          5.3084,
+          0,
+          6.122
+        ],
+        "anchor": [
+          5.3084,
+          0,
+          4.572
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Patient Memorial",
+        "supportedObjectIds": [
+          "forge:mv-crypt:furniture:generated-0",
+          "forge:mv-crypt:furniture:generated-1",
+          "forge:mv-crypt:furniture:generated-3",
+          "forge:mv-crypt:furniture:generated-4",
+          "forge:mv-crypt:furniture:generated-6",
+          "forge:mv-crypt:furniture:generated-7",
+          "forge:mv-crypt:furniture:generated-9",
+          "forge:mv-crypt:furniture:generated-10"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A pale face gathers inside the spirit glass.",
+        "reveal": "Mara Thorne calls the forgotten guest into view.",
+        "resolution": "The spirit fades. Your place at the table stays empty."
+      },
+      {
+        "index": 43,
+        "roomId": "mv-stair-basement",
+        "identity": "circulation",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Next Door",
+        "motif": "lanterns",
+        "hook": "draft",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          13.320290909090911,
+          0,
+          1.2192
+        ],
+        "anchor": [
+          12.070290909090911,
+          0,
+          1.2192
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "Marks along the passage",
+        "supportedObjectIds": [],
+        "requiredForQuest": false,
+        "anticipation": "A distant lantern holds its breath.",
+        "reveal": "A lost usher points the way onward.",
+        "resolution": "The passage remembers where it leads."
+      },
+      {
+        "index": 51,
+        "roomId": "mv-gallery",
+        "identity": "gallery",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Unfinished Séance",
+        "motif": "frames",
+        "hook": "portrait",
+        "show": "seance",
+        "stageKind": "floor",
+        "stageRadius": 0.78,
+        "stageHeight": 1.9,
+        "stage": [
+          8.46829339961307,
+          6.096,
+          3.1686062615372608
+        ],
+        "anchor": [
+          7.315200000000001,
+          6.096,
+          2.568293333333333
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Absent Sitter",
+        "supportedObjectIds": [
+          "forge:mv-gallery:furniture:generated-1",
+          "forge:mv-gallery:furniture:generated-2"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A pale face gathers inside the spirit glass.",
+        "reveal": "Mara Thorne calls the forgotten guest into view.",
+        "resolution": "The spirit fades. Your place at the table stays empty."
+      },
+      {
+        "index": 55,
+        "roomId": "mv-bedchamber",
+        "identity": "bedroom",
+        "finale": false,
+        "signature": false,
+        "variant": 1,
+        "title": "The Guest Expected Home",
+        "motif": "ribbon",
+        "hook": "draft",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          7.315200000000001,
+          6.096,
+          8.433969230769232
+        ],
+        "anchor": [
+          7.315200000000001,
+          6.096,
+          6.883969230769232
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "A guest expected home",
+        "supportedObjectIds": [
+          "forge:mv-bedchamber:furniture:generated-0",
+          "forge:mv-bedchamber:furniture:generated-1"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "A ribbon lifts from an unseen invitation.",
+        "reveal": "The missing guest returns to keep watch.",
+        "resolution": "The ribbon settles. The guest can rest."
+      },
+      {
+        "index": 59,
+        "roomId": "mv-stair-up-upper",
+        "identity": "circulation",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Next Door",
+        "motif": "lanterns",
+        "hook": "draft",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          13.320290909090911,
+          6.096,
+          6.096000000000002
+        ],
+        "anchor": [
+          12.070290909090911,
+          6.096,
+          6.096000000000001
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "Marks along the passage",
+        "supportedObjectIds": [],
+        "requiredForQuest": false,
+        "anticipation": "A distant lantern holds its breath.",
+        "reveal": "A lost usher points the way onward.",
+        "resolution": "The passage remembers where it leads."
+      },
+      {
+        "index": 70,
+        "roomId": "mv-observatory",
+        "identity": "library",
+        "finale": false,
+        "signature": false,
+        "variant": 0,
+        "title": "The Unfinished Catalogue",
+        "motif": "books",
+        "hook": "draft",
+        "show": null,
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          0.7571692307692306,
+          6.096,
+          2.568293333333333
+        ],
+        "anchor": [
+          2.0071692307692306,
+          6.096,
+          2.568293333333333
+        ],
+        "duration": 4,
+        "compiledStoryTitle": "The Brass Atlas",
+        "supportedObjectIds": [
+          "forge:mv-observatory:furniture:generated-0",
+          "forge:mv-observatory:furniture:generated-1"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "The pages turn to a name that should not be here.",
+        "reveal": "The librarian offers you the final volume.",
+        "resolution": "Your name fades from the catalogue."
+      },
+      {
+        "index": 84,
+        "roomId": "mv-foyer",
+        "identity": "gallery",
+        "finale": true,
+        "signature": false,
+        "variant": 1,
+        "title": "The Last Guest Takes a Bow",
+        "motif": "lanterns",
+        "hook": "glow",
+        "show": "farewell",
+        "stageKind": "floor",
+        "stageRadius": 0.43,
+        "stageHeight": 1.9,
+        "stage": [
+          3.5571692307692304,
+          3.048,
+          2.5682933333333335
+        ],
+        "anchor": [
+          2.0071692307692306,
+          3.048,
+          2.568293333333333
+        ],
+        "duration": 5,
+        "compiledStoryTitle": "The Absent Sitter",
+        "supportedObjectIds": [
+          "forge:mv-foyer:furniture:generated-0",
+          "forge:mv-foyer:furniture:generated-1",
+          "forge:mv-foyer:furniture:generated-2"
+        ],
+        "requiredForQuest": false,
+        "anticipation": "One last lantern answers the carriage.",
+        "reveal": "The last guest bows. You are free to return to the living.",
+        "resolution": "The usher is waiting at the unloading platform."
+      }
+    ],
+    "omitted": [],
+    "upgradesOmitted": [],
+    "budget": {
+      "maxActiveScenes": 1,
+      "maxGhosts": 2,
+      "maxProps": 6,
+      "maxSignatureCharacters": 2,
+      "maxPianoKeys": 32,
+      "dynamicLights": 0
+    }
+  },
+  "errors": []
+}
