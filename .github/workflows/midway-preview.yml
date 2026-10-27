@@ -1,0 +1,25 @@
+name: Build isolated Midway Beta preview
+on:
+  push:
+    branches: [dev/haunted-midway]
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run test:midway
+      - name: Build standalone site without rebuilding student archives
+        run: node tools/build-midway-preview.mjs "$RUNNER_TEMP/haunted-midway-beta"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: haunted-midway-beta
+          path: ${{ runner.temp }}/haunted-midway-beta/
+          include-hidden-files: true
+          retention-days: 14
