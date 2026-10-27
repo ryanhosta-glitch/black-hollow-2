@@ -1,0 +1,30 @@
+name: Diagnose mobile polish
+on:
+  push:
+    branches: [diagnostic/midway-mobile-polish]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright-core install chromium
+      - run: node tools/prepare-test-houses.mjs
+      - name: Reproduce mobile timing failure with original assertions
+        run: |
+          for attempt in 1 2 3; do
+            echo "Diagnostic attempt $attempt"
+            node tests/browser-polish.mjs || exit 1
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-polish-diagnostic
+          path: tests/artifacts/
