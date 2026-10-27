@@ -17,6 +17,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npx playwright-core install chromium
       - run: node tools/prepare-test-houses.mjs
+      - run: node --test tests/magic.test.mjs
       - name: Reproduce mobile timing failure with original assertions
         run: |
           for attempt in 1 2 3; do
