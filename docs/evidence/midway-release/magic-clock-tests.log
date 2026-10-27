@@ -1,0 +1,18 @@
+✔ spellbook saves discoveries independently, rejects duplicate and invalid marks, and survives storage failure (3.954473ms)
+✔ witch marks respect room boundaries, furniture, certified reachable rooms and reserved quest/lift positions (4.906711ms)
+✔ every spell is bounded, illuminated without scene lights, finite and disposed without detaching its owner (24.054075ms)
+✔ Wildbloom grows from four to eight flowers as the atlas fills (3.127922ms)
+✔ room magic gates casting, reveals optional marks, records once and bounds effects even under repeated answers (27.166218ms)
+✔ reduced motion freezes shader movement, orbit transforms and enchanted footsteps (4.757941ms)
+✔ moonflower petals unfurl radially in all four horizontal directions (1.137871ms)
+✔ the eight atlas pages outlast bounded room discovery history (301.38376ms)
+✔ a new scene clears the old spell cooldown as well as its visuals (4.434152ms)
+✔ slow rendering uses active time for spell readiness without advancing visual effects or movement in large steps (3.51197ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 571.332413

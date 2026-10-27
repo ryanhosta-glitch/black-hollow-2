@@ -1,0 +1,12 @@
+{
+  "failedMainRun": "https://github.com/ryanhosta-glitch/black-hollow-2/actions/runs/40491343555",
+  "diagnosticRun": "https://github.com/ryanhosta-glitch/black-hollow-2/actions/runs/40492996312",
+  "timeout": "waiting for magicButton.disabled to become false within 30000ms",
+  "observedUI": "Witchlight \u00b7 1s",
+  "rootCause": "spell cooldown consumed capped animation time rather than existing active time",
+  "fix": "separate cooldown elapsed time, preserve bounded animation and pause/visibility guards",
+  "assertionsRemoved": 0,
+  "localFullCoreTests": 373,
+  "localMagicTests": 10,
+  "localPolishBrowser": "passed"
+}
