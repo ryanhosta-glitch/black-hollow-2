@@ -1,0 +1,35 @@
+
+> test:gingerlight
+> node --test tests/ginger-forge.test.mjs tests/ginger-sequencer.test.mjs
+
+✔ all treatments preserve source, build bounded finite geometry and stable exterior anchors (1707.954428ms)
+✔ ginger roundtrip preserves CASA-compatible identity, embedded assets and tamper detection (5361.800122ms)
+✔ custom palette is opt-in and leaves ordinary Forge GLBs byte-identical (3.711515ms)
+✔ invalid houses, incompatible packages and oversized decorations fail clearly (0.503323ms)
+✔ fractions reject executable input and zero denominator (1.918044ms)
+✔ 4/4, 3/4 and 6/8 use the right whole and subdivision (40.900179ms)
+✔ Silent Night remains exact approved MIDI/audio and tempo map (219.699932ms)
+✔ other embedded arrangements verify independently (364.753963ms)
+✔ meter changes on boundaries and tempo changes invert correctly (25.388186ms)
+✔ last channel, deliberate mirrors and partial overlaps (1.01514ms)
+✔ mirrors read identical values after seek and cues end dark (0.877356ms)
+✔ fade, chase and conflicting mirror cues resolve deterministically (0.27053ms)
+✔ roundtrip preserves math and rejects altered cues or invalid references (137.439972ms)
+✔ fractional answers remain exact when MIDI ticks require rounding (58.151167ms)
+✔ song integrity binds the tempo map as well as audio bytes (24.014793ms)
+✔ real H6 USB eight-channel profile preserves raw values and master behavior (99.347816ms)
+✔ eight channel manufacturer roles include amber, white, UV and a range-based shutter (1.264419ms)
+✔ pixel snapshots can use a chosen color channel for the fraction calculation (130.993114ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7186.145623
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

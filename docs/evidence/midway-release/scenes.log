@@ -1,0 +1,53 @@
+
+> test:scenes
+> node tests/casa-navigation.test.mjs node_modules/three/build/three.module.js && node tests/casa-scenes.test.mjs node_modules/three/build/three.module.js node_modules/three/examples/jsm/loaders/GLTFLoader.js && node tests/casa-flow.test.mjs node_modules/three/build/three.module.js node_modules/three/examples/jsm/loaders/GLTFLoader.js && node tests/casa-flow.test.mjs node_modules/three/build/three.module.js node_modules/three/examples/jsm/loaders/GLTFLoader.js --fresh-forge
+
+PASS: continuous forward/reverse doorway traversal, solid walls, mismatched apertures, turning, blur recovery, exit camera state, orbit ownership
+Loaded compiled floor 0 with one-floor residency
+Loaded compiled floor 1 with one-floor residency
+Loaded compiled floor 2 with one-floor residency
+Loaded compiled floor 0 with one-floor residency
+PASS: posed wraith arms, independent head/spine/arms/fingers/legs, actual skin deformation, disposal and reduced motion.
+PASS: real compiled geometry, filtered artwork, signature metadata, recovered ghost, bounded lights, reduced-motion storms, wildlife, street lots and resource eviction.
+PASS: complete compiled exterior, outdoor-only decoration, organic cloth geometry, flowing folds and reduced motion.
+PASS: readable front/rear sign faces, head-attached top hat, grounded organic explorer, reduced-motion sky and bounded haunting layers.
+PASS: automatic elevator doors, creepy gallery and proximity wildlife escape.
+PASS: articulated wall spiders, climbing, owls and infrequent room-contained bats.
+PASS: actual app startup, street, Hall orientation, strict cabin menu, floor streaming, dialogue/escape resume, full quest, 13 spatial echoes, map reward, saved completion and return to street. No WebGL renderer was used.
+PASS: authored main-house doorway and both physical Hall stair routes automatically open cabin destinations.
+PASS: third CASA complete investigation including evidence puzzles, disconnected-room access, memories and return.
+PASS: physical starting-Hall door enters each of the three CASA interiors, independent of elevator boarding.
+PASS: automatic ghost and Hall portrait encounters, scene distribution and persisted discovery keys.
+PASS: Halloween mode, exterior-only visits, bucket, paused timer, round summary and return to Investigation.
+PASS: published sample migration resumes an explicitly mapped previous fingerprint.
+PASS: Phoenix vigil real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix choir real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix escort real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix loop real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix masquerade real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix bargain real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix heist real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix garden real scene objects, modal choices, world holds, ending, journal and save.
+PASS: all eight actual endings awaken the Ninth Door, physical interaction chooses morning, and the street remembers on return.
+Testing the actual Game with three freshly recompiled Forge exports.
+PASS: actual app startup, street, Hall orientation, strict cabin menu, floor streaming, dialogue/escape resume, full quest, 13 spatial echoes, map reward, saved completion and return to street. No WebGL renderer was used.
+PASS: authored main-house doorway and both physical Hall stair routes automatically open cabin destinations.
+PASS: third CASA complete investigation including evidence puzzles, disconnected-room access, memories and return.
+PASS: physical starting-Hall door enters each of the three CASA interiors, independent of elevator boarding.
+PASS: automatic ghost and Hall portrait encounters, scene distribution and persisted discovery keys.
+PASS: Halloween mode, exterior-only visits, bucket, paused timer, round summary and return to Investigation.
+PASS: published sample migration resumes an explicitly mapped previous fingerprint.
+PASS: Phoenix vigil real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix choir real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix escort real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix loop real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix masquerade real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix bargain real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix heist real scene objects, modal choices, world holds, ending, journal and save.
+PASS: Phoenix garden real scene objects, modal choices, world holds, ending, journal and save.
+PASS: all eight actual endings awaken the Ninth Door, physical interaction chooses morning, and the street remembers on return.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

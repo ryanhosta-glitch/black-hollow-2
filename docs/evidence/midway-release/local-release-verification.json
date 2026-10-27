@@ -1,0 +1,34 @@
+{
+  "candidate": "508a8cf3b6cce4f9a2ea8a19a15201fdf0926e9b",
+  "gateCases": [
+    {
+      "case": "successful-main",
+      "passed": true,
+      "outputs": "sha=508a8cf3b6cce4f9a2ea8a19a15201fdf0926e9b\npublish=true"
+    },
+    {
+      "case": "superseded-main",
+      "passed": true,
+      "outputs": "publish=false"
+    },
+    {
+      "case": "uncertified-manual",
+      "passed": true,
+      "outputs": ""
+    },
+    {
+      "case": "certified-manual",
+      "passed": true,
+      "outputs": "sha=508a8cf3b6cce4f9a2ea8a19a15201fdf0926e9b\npublish=true"
+    },
+    {
+      "case": "recorded-rollback",
+      "passed": true,
+      "outputs": "sha=642fdb7db2856f9ff89013ec17427c4b3cefea8e\npublish=true"
+    }
+  ],
+  "mockGitHubCertificationCounts": true,
+  "productionPackageArchivesAndCatalogUnchanged": 30,
+  "christmasStandalonePreserved": true,
+  "packagePath": "/tmp/midway-release-gate-fapg_2gg/repo/_site"
+}

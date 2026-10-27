@@ -27,3 +27,11 @@ Stop the pilot for repeated browser unresponsiveness, blocked unloading, wall cl
 Native Mac and phone GPU performance has not been certified in the cloud environment. The richer cast increases draws despite bounded geometry. The previous development reports contain actual WebGL screenshots, component costs and regression results; they do not establish student-device frame rates.
 
 The final release record in `docs/evidence/midway-release/` distinguishes GitHub checks, local verification, remote branch state and live-site verification. A successful push is not proof of a successful Pages deployment.
+
+## Integration findings
+
+The initial comparison found that development preceded the 27-house production catalog and Christmas Forge work. The candidate now merges production `642fdb7`, preserving its archive/catalog bytes exactly and retaining all Christmas source, builds and tests. The regression matrix combines all 38 browser suites. The new release inventory covers 30 production files; older evidence inventories remain historical records.
+
+The first integrated local core run had 371/372 passing tests. Its failure was the legacy cleanup assertion that rejected the word `archive` anywhere in the deployment YAML, including the new preservation checks. The corrected test checks the actual publication source allowlist and required entry points, keeping retired root engine directories excluded. No runtime assertion or gameplay behavior was weakened. The initial failure log is retained.
+
+After the cleanup-test correction: **372/372 core tests passed**, the full navigation/scene/gameplay flow suites passed, **37/37 Midway tests passed**, and **18/18 Christmas Forge tests passed**. Both Christmas standalone builds succeeded. The read-only current-production audit covers 27 archives / 468 rooms / 495 scene stops; its per-house route validity and scene omissions are retained in the evidence. A locally exercised copy of the actual release-gate shell passed five cases (successful main, superseded main, uncertified manual rejection, certified manual and recorded rollback); GitHub API counts were mocked for that local gate test. The actual packaging shell preserved all 30 protected production files and both standalone Christmas outputs.

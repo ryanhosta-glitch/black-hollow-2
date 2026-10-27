@@ -1,8 +1,8 @@
 # Isolated Haunted Midway Beta preview
 
-The Beta remains the third game option. This package is a complete static test copy, with a visible Beta notice. It does not replace the production GitHub Pages site. The Midway is an early playable vertical slice; the complete theatrical catalog and park presentation are not finished.
+The Beta remains the third game option. This package is a complete static test copy, with a visible Beta notice. It does not replace the production GitHub Pages site. The Midway includes the park, ghost boarding/unloading, signature shows and haunted-elevator transfers; hardware playtesting and further cinematic polish remain.
 
-The `Build isolated Midway Beta preview` workflow runs on `dev/haunted-midway` pushes. It tests the route/vehicle system and uploads `haunted-midway-beta` as a downloadable Actions artifact. It has read-only repository permissions and no Pages/deployment steps. The original Pages workflow is unchanged. This artifact is **not a hosted URL**.
+The `Build isolated Midway Beta preview` workflow runs on `dev/haunted-midway` pushes. It tests the route/vehicle system and uploads `haunted-midway-beta` as a downloadable Actions artifact. It has read-only repository permissions and no Pages/deployment steps. The production Pages workflow is separately gated on successful main regressions; a development preview cannot publish it. This artifact is **not a hosted URL**.
 
 To host the preview without changing production:
 
@@ -20,6 +20,6 @@ node tools/build-midway-preview.mjs /tmp/haunted-midway-beta
 python3 -m http.server 8080 --directory /tmp/haunted-midway-beta
 ```
 
-Visit `http://localhost:8080`; opening HTML via `file://` does not support the required workers/modules. Three.js still requires CDN access, as in the existing game. Build outputs must be new directories outside the checkout. SHA-256 verification protects the recorded original archives/catalog before and after packaging. `preview-build.json` identifies the source commit.
+Visit `http://localhost:8080`; opening HTML via `file://` does not support the required workers/modules. Three.js still requires CDN access, as in the existing game. Build outputs must be new directories outside the checkout. SHA-256 verification protects the current production archives/catalog, recorded in `docs/evidence/midway-release/protected-originals.json`, before and after packaging. The preview also includes the current Christmas Forge files; run `npm run build:gingerlight` before packaging to include its downloadable standalone tools. `preview-build.json` identifies the source commit.
 
 GitHub API access is blocked in the current Codex environment. A live independent site cannot be created/configured here; uploading this prepared artifact to a new host is the remaining deployment step. Nothing should be described as hosted until the resulting URL is verified.
