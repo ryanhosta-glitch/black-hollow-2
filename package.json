@@ -23,7 +23,7 @@
     "test:forge-integration": "node --test tests/forge-integration.test.mjs",
     "test:browser:certification": "node tests/browser-forge-certification.mjs",
     "build:gingerlight": "node tools/build-gingerlight.mjs",
-    "test:gingerlight": "node --test tests/ginger-forge.test.mjs tests/ginger-sequencer.test.mjs",
+    "test:gingerlight": "node --test tests/ginger-forge.test.mjs tests/ginger-sequencer.test.mjs tests/ginger-creative.test.mjs tests/ginger-midi.test.mjs tests/ginger-pixel-screen.test.mjs tests/ginger-display-models.test.mjs tests/ginger-code-save.test.mjs tests/ginger-academy.test.mjs tests/ginger-phrases.test.mjs tests/ginger-show-starter.test.mjs tests/ginger-first-show.test.mjs",
     "test:browser:gingerlight": "node tests/browser-gingerlight.mjs",
     "test:browser:gingerlight-student": "node tests/browser-gingerlight-student.mjs",
     "test:browser:gingerlight-console": "node tests/browser-gingerlight-console.mjs",
@@ -31,7 +31,11 @@
     "midway:sidecars": "node tools/build-midway-sidecars.mjs",
     "test:browser:midway": "node tests/browser-midway.mjs",
     "test:browser:midway-scenes": "node tests/browser-midway-scenes.mjs",
-    "test:browser:midway-park": "node tests/browser-midway-park.mjs"
+    "test:browser:midway-park": "node tests/browser-midway-park.mjs",
+    "test:browser:gingerlight-creative": "node tests/browser-gingerlight-creative.mjs",
+    "test:browser:gingerlight-pixels": "node tests/browser-gingerlight-pixels.mjs",
+    "serve:gingerlight": "node tools/serve-gingerlight.mjs",
+    "build:gingerlight-preview": "node tools/build-gingerlight-preview.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.62.1",

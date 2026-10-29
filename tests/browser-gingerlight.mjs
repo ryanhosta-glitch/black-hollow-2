@@ -1,3 +1,4 @@
+import {openStandalone} from './gingerlight-browser-page.mjs';
 import {chromium} from 'playwright-core';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {pathToFileURL,fileURLToPath} from 'node:url';
@@ -6,7 +7,7 @@ const browser=await chromium.launch({headless:true,executablePath:process.env.GI
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],requests=[];
 page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});await page.route(/^https?:/,r=>{requests.push(r.request().url());return r.abort();});
 try{
- await page.goto(pathToFileURL(fileURLToPath(new URL('../north_pole/gingerlight_studio_standalone.html',import.meta.url))).href);
+ await openStandalone(page,new URL('../north_pole/gingerlight_studio_standalone.html',import.meta.url));
  await page.waitForFunction(()=>!document.getElementById('save').disabled);
  for(const style of ['winter','sugarplum','peppermint']){await page.selectOption('#style',style);await page.click('#bake');await page.waitForFunction(()=>!document.getElementById('bake').disabled);assert.equal(await page.locator('#error').innerText(),'');}
  await page.check('#anchors');
