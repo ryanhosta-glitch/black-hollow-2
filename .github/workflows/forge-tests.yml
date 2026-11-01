@@ -43,3 +43,25 @@ jobs:
         with:
           name: forge-browser-evidence-${{ matrix.suite }}
           path: tests/artifacts/
+
+  student-first-show:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright-core install chromium
+      - run: npm run test:gingerlight
+      - name: Test the actual published student preview
+        env:
+          GINGER_FIRST_SHOW_FILE: north_pole/student_preview.html
+        run: node tests/browser-gingerlight-first-show.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: student-first-show-evidence
+          path: tests/artifacts/first-show-*.png

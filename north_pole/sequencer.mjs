@@ -1,3 +1,8 @@
+import {validatePhrases,routedGain} from './phrase_engine.mjs';
+import {validateLearning} from './learning_progress.mjs';
+import {validateDisplayModel,projectPaths} from './display_models.mjs';
+import {validatePixelScreen} from './pixel_screen.mjs';
+import {EFFECTS,effectSample} from './effects.mjs';
 // Pure musical-time, patch and playback engine. No browser or wall-clock dependencies.
 export const PPQ=960;
 export function fraction(text){
@@ -18,6 +23,7 @@ export function validateSong(s){
  }
  if(!Array.isArray(s.notes)||s.notes.length>200000||s.notes.some(n=>!Array.isArray(n)||n.length!==5||!integer(n[0],0,s.endTick)||!integer(n[1],n[0],s.endTick)||!integer(n[2],0,127)||!integer(n[3],0,15)||!integer(n[4],1,127)))throw Error('Invalid note map.');
  if(s.audio?.mimeType!=='audio/mpeg'||typeof s.audio.data!=='string'||s.audio.data.length>32*1024*1024||!/^[A-Za-z0-9+/]*={0,2}$/.test(s.audio.data))throw Error('Invalid embedded audio.');
+ if(s.tracks!==undefined&&(!Array.isArray(s.tracks)||s.tracks.length>256||s.tracks.some(t=>!integer(t.index,0,255)||typeof t.name!=='string'||t.name.length>100||!Array.isArray(t.noteIndices)||t.noteIndices.length>s.notes.length||t.noteIndices.some(i=>!integer(i,0,s.notes.length-1)))))throw Error('Invalid MIDI track map.');
  return s;
 }
 export function musicMap(song){
@@ -64,17 +70,27 @@ export function patchReport(fixtures){
  return {errors,mirrors};
 }
 export function validateProject(p){
- if(p?.format!=='gingerlight-project'||![1,2].includes(p.version)||!p.house||p.house.format!=='gingerlight-exterior')throw Error('Not a Gingerlight project.');
- validateSong(p.song);const map=musicMap(p.song);
+ if(p?.format!=='gingerlight-project'||![1,2,3].includes(p.version)||!p.house||p.house.format!=='gingerlight-exterior')throw Error('Not a Gingerlight project.');
+ validateLearning(p.learning);validatePhrases(p.phrases,p.song);validateSong(p.song);const map=musicMap(p.song);
  if(!Array.isArray(p.fixtures)||p.fixtures.length>200||!Array.isArray(p.cues)||p.cues.length>2000)throw Error('Project exceeds studio limits.');
- const ids=new Set(),anchors=new Set(p.house.anchors?.map(a=>a.id));
+ if(p.pixelScreens!==undefined){if(p.version<3||!Array.isArray(p.pixelScreens)||p.pixelScreens.length>8||new Set(p.pixelScreens.map(s=>s.id)).size!==p.pixelScreens.length)throw Error('Invalid pixel screen collection.');p.pixelScreens.forEach(validatePixelScreen);}
+ if(p.props!==undefined){if(p.version<3||!Array.isArray(p.props)||p.props.length>32||new Set(p.props.map(x=>x.id)).size!==p.props.length)throw Error('Invalid display model collection.');p.props.forEach(validateDisplayModel);}
+ if(p.houseRole!==undefined&&!['training','student'].includes(p.houseRole))throw Error('Invalid house role.');
+ const ids=new Set(),anchors=new Set(projectPaths(p).map(a=>a.id));
  for(const f of p.fixtures){
-  if(typeof f.id!=='string'||ids.has(f.id)||typeof f.name!=='string'||f.name.length>80||!anchors.has(f.anchorId)||!profile(f.profileId)||!integer(f.nodes,1,170))throw Error('Invalid fixture or attachment path.');ids.add(f.id);
+  if(typeof f.id!=='string'||ids.has(f.id)||typeof f.name!=='string'||f.name.length>80||!anchors.has(f.anchorId)||!profile(f.profileId)||!integer(f.nodes,1,170))throw Error('Invalid fixture or attachment path.');ids.add(f.id);if(f.matrix&&(!p.pixelScreens?.some(s=>s.id===f.matrix.screenId)||!integer(f.matrix.row,0,15)||f.matrix.columns!==16||f.matrix.rows!==16||f.nodes!==16||f.profileId!=='rgb-pixels'))throw Error('Invalid pixel screen row mapping.');
  }
  const report=patchReport(p.fixtures);if(report.errors.length)throw Error(report.errors[0]);
  const cues=new Set();
  for(const c of p.cues){
-  if(typeof c.id!=='string'||cues.has(c.id)||!ids.has(c.fixtureId)||!integer(c.startTick,0,p.song.endTick)||!integer(c.endTick,c.startTick+1,p.song.endTick)||!['steady','fade','chase','channels'].includes(c.effect)||!/^#[a-f\d]{6}$/i.test(c.color)||!finite(c.brightness,0,1))throw Error('Invalid lighting cue.');cues.add(c.id);
+  if(typeof c.id!=='string'||cues.has(c.id)||!ids.has(c.fixtureId)||!integer(c.startTick,0,p.song.endTick)||!integer(c.endTick,c.startTick+1,p.song.endTick)||![...EFFECTS,'channels','pixel-screen','routed-chase'].includes(c.effect)||!/^#[a-f\d]{6}$/i.test(c.color)||!finite(c.brightness,0,1))throw Error('Invalid lighting cue.');cues.add(c.id);
+  if(c.parameters&&(!finite(c.parameters.speed,.1,20)||![1,-1].includes(c.parameters.direction)||!finite(c.parameters.phase,0,1)))throw Error('Invalid effect parameters.');
+  if(c.phraseId!==undefined&&(!p.phrases?.some(x=>x.id===c.phraseId)))throw Error('Cue references a missing musical phrase.');
+  const fixture=p.fixtures.find(f=>f.id===c.fixtureId),groups=profile(fixture.profileId).pixel?fixture.nodes:profile(fixture.profileId).zones||1;
+  if(c.effect==='routed-chase'&&(!c.route||!integer(c.route.offset,0,34000)||!integer(c.route.total,1,34000)||c.route.count!==groups||c.route.offset+groups>c.route.total||!integer(c.route.arrivalTick,c.startTick+1,c.endTick-1)||!integer(c.route.tail,1,32)||(c.route.reverse!==undefined&&typeof c.route.reverse!=='boolean')))throw Error('Invalid routed chase timing or pixel map.');
+  if(c.spatialPhase&&(!integer(c.spatialPhase.offset,0,34000)||!integer(c.spatialPhase.total,1,34000)||c.spatialPhase.offset+groups>c.spatialPhase.total))throw Error('Invalid spatial rainbow map.');
+  if(c.effect==='pixel-screen'&&!p.fixtures.find(f=>f.id===c.fixtureId)?.matrix)throw Error('Pixel animation needs a mapped screen row.');
+  if(c.authoredWith==='creative'){if(p.version<3||c.effect==='channels')throw Error('Creative cues require project version 3.');continue;}
   if(!c.math||typeof c.math.prediction!=='string'||typeof c.math.explanation!=='string'||c.math.prediction.length>2000||c.math.explanation.length>4000)throw Error('Cue needs its saved math evidence.');
   if(c.effect==='channels'){const f=p.fixtures.find(f=>f.id===c.fixtureId),pr=profile(f.profileId),master=(c.math?.referenceChannel||Math.max(1,pr.channels.indexOf('dimmer')+1))-1;if(p.version<2||!Array.isArray(c.channelValues)||c.channelValues.length!==footprint(f)||c.channelValues.some(v=>!integer(v,0,255)))throw Error('Invalid channel snapshot.');if(!integer(master,0,footprint(f)-1)||c.channelValues[master]!==Math.round(c.brightness*255))throw Error('Snapshot reference channel must match the calculated fraction.');}
   const timing=cueTiming(map,c.math.measure,c.math.beat,c.math.offset,c.math.duration,c.math.unit);
@@ -90,10 +106,11 @@ export function evaluate(project,tick){
  for(const c of project.cues.filter(c=>tick>=c.startTick&&tick<c.endTick).sort((a,b)=>a.startTick-b.startTick)){
   const f=project.fixtures.find(f=>f.id===c.fixtureId);if(!f)continue;const p=profile(f.profileId),u=universes.get(f.universe),progress=(tick-c.startTick)/(c.endTick-c.startTick),color=rgb(c.color),gain=c.brightness*(c.effect==='fade'?progress:1),groups=p.pixel?f.nodes:(p.zones||1);
   for(let i=0;i<footprint(f);i++){
-   const group=p.pixel||p.zones?Math.floor(i/3):0,role=p.channels[i%p.channels.length],chase=c.effect!=='chase'||group===Math.min(groups-1,Math.floor(progress*groups)),g=gain*(chase?1:0);
-   let v=role==='dimmer'?g:role==='amber'?0:(color[['red','green','blue'].indexOf(role)]||0)*g;
+   const group=p.pixel||p.zones?Math.floor(i/(p.pixel?p.channels.length:3)):0,role=p.channels[i%p.channels.length],chase=c.effect!=='chase'||group===Math.min(groups-1,Math.floor(progress*groups)),sample=effectSample(c,progress,group,groups),g=gain*(chase?1:0)*sample.gain*(c.effect==='routed-chase'?routedGain(c.route,tick,c.startTick,group):1);let shade=sample.color||color;if(c.effect==='rainbow'&&c.spatialPhase){const phase=((c.spatialPhase.offset+group)/c.spatialPhase.total*(c.parameters?.direction??1)+progress*(c.parameters?.speed??1))%1;shade=[0,2/3,1/3].map(o=>Math.max(0,Math.min(1,Math.abs((((phase+o)%1+1)%1)*6-3)-1)));}
+   if(c.effect==='pixel-screen'){const screen=project.pixelScreens.find(s=>s.id===f.matrix.screenId),frame=Math.floor((tick-c.startTick)/screen.ticksPerFrame)%screen.frames.length;const hex=screen.frames[frame][f.matrix.row*16+group];shade=rgb(hex);}
+   let v=role==='dimmer'?g:role==='amber'?0:(shade[['red','green','blue'].indexOf(role)]||0)*g;
    // With a master dimmer, color channels stay full-scale and the master carries intensity.
-   if(p.channels.includes('dimmer')&&role!=='dimmer')v=role==='amber'?0:(color[['red','green','blue'].indexOf(role)]||0);
+   if(p.channels.includes('dimmer')&&role!=='dimmer')v=role==='amber'?0:(shade[['red','green','blue'].indexOf(role)]||0);
    const addr=f.address-1+i,key=f.universe+':'+addr,byte=c.effect==='channels'?c.channelValues[i]:Math.round(v*255);
    if(writers.has(key)&&u[addr]!==byte)conflicts.push(key);writers.set(key,c.id);u[addr]=byte;
   }
@@ -103,7 +120,7 @@ export function evaluate(project,tick){
 export function fixtureColors(f,universes){
  const p=profile(f.profileId),u=universes.get(f.universe)||new Uint8Array(512),groups=p.pixel?f.nodes:(p.zones||1),out=[];
  for(let g=0;g<groups;g++){
-  const start=f.address-1+(p.pixel||p.zones?g*3:0),channels=p.pixel||p.zones?['red','green','blue']:p.channels;
+  const start=f.address-1+(p.pixel?g*p.channels.length:p.zones?g*3:0),channels=p.zones?['red','green','blue']:p.channels;
   const read=role=>{const i=channels.indexOf(role);return i<0?0:u[start+i]/255;},master=channels.includes('dimmer')?read('dimmer'):1;
   out.push(channels.length===1?[master,master*.8,master*.5]:[Math.min(1,read('red')+read('amber')+read('white')+read('uv')*.35),Math.min(1,read('green')+read('amber')*.45+read('white')),Math.min(1,read('blue')+read('white')+read('uv')*.8)].map(v=>v*master));
  }
