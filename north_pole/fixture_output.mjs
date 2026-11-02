@@ -15,8 +15,8 @@ export function shutterState(f,universes,seconds,{reducedMotion=false}={}){
  const range=p.ranges?.strobe?.find(r=>value>=r.min&&value<=r.max);const active=Boolean(range&&/strobe active/i.test(range.label));
  if(!active)return {gain:1,active:false,approximate:false};
  // Manufacturer chart gives a slow-to-fast range but no calibrated frequency.
- // This deterministic 1–8 Hz envelope is illustrative, not fixture photometry.
- const hz=1+7*(value-range.min)/Math.max(1,range.max-range.min),phase=((seconds*hz)%1+1)%1;
+ // This deterministic 1–2 Hz envelope is illustrative, not fixture photometry.
+ const hz=1+(value-range.min)/Math.max(1,range.max-range.min),phase=((seconds*hz)%1+1)%1;
  return {gain:reducedMotion?1:(phase<.5?1:0),active:true,approximate:true,reducedMotion};
 }
 export function pixelRadiance(color){return color.map(v=>Math.max(0,Math.min(1,v)));}

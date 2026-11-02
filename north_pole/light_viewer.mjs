@@ -13,12 +13,12 @@ export function createViewer(viewport,{presentation=false}={}){
  const scene=new T.Scene(),camera=new T.PerspectiveCamera(42,1,.05,1500),controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.maxPolarAngle=Math.PI*.49;
  const sky=new T.HemisphereLight(0xb6d8ff,0x35202b,.7),sun=new T.DirectionalLight(0xffd4ad,1.1);sun.position.set(-20,30,-25);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.bias=-.0004;sun.shadow.normalBias=.035;scene.add(sky,sun);const winter=winterScene(scene,renderer,camera);const washes=[];
  let model,pkg,groups=[],propAnchors=[],supports=[],highlight,night=true,ticket=0,lastRender=0,houseBrightness=1,tourBounds=null;const originalMaterials=new WeakMap();let fixtureSignature='';const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const accuracy=document.createElement('span');accuracy.className='preview-accuracy';accuracy.style.cssText='position:absolute;left:12px;top:52px;z-index:2;max-width:80%;padding:5px 8px;background:#09202bd9;font:10px system-ui;color:#c3d8ce;pointer-events:none';viewport.append(accuracy);
+ const accuracy=document.createElement('span');accuracy.className='preview-accuracy';accuracy.style.cssText='position:absolute;left:12px;top:52px;z-index:2;max-width:80%;padding:5px 8px;background:#09202bd9;font:10px system-ui;color:#c3d8ce;pointer-events:auto';viewport.append(accuracy);
  function setHouseBrightness(value){
   if(!Number.isFinite(value))return houseBrightness;houseBrightness=Math.max(0,Math.min(1,value));
   // Dim ambient scenery illumination, not surface reflectance. Programmed washes
   // must remain visible on a dimmed house rather than being attenuated twice.
-  sky.intensity=(night?.7:2.3)*(.01+.99*houseBrightness);sun.intensity=(night?1.1:3.2)*houseBrightness;
+  winter.setSceneryBrightness(houseBrightness);sky.intensity=(night?.7:2.3)*(.01+.99*houseBrightness);sun.intensity=(night?1.1:3.2)*houseBrightness;
   model?.traverse(o=>{for(const m of [].concat(o.material||[])){if(!m.color)continue;if(!originalMaterials.has(m))originalMaterials.set(m,{color:m.color.clone(),emissiveIntensity:m.emissiveIntensity??1});const base=originalMaterials.get(m);m.color.copy(base.color);if(m.emissive)m.emissiveIntensity=base.emissiveIntensity*houseBrightness;}});return houseBrightness;
  }
  function dispose(root){if(!root)return;root.traverse(o=>{o.geometry?.dispose();for(const m of o.material?(Array.isArray(o.material)?o.material:[o.material]):[])m.dispose();});root.removeFromParent();}
@@ -78,8 +78,8 @@ export function createViewer(viewport,{presentation=false}={}){
    if(spill){for(let i=0;i<patches.length;i++){const patch=patches[i],c=test?[1,.75,.4]:[0,1,2].map(k=>colors.slice(patch.start,patch.end).reduce((sum,color)=>sum+color[k],0)/Math.max(1,patch.end-patch.start));spill.setColorAt(i,new T.Color(...pixelRadiance(c)));}spill.instanceColor.needsUpdate=true;}
    if(profile(f.profileId).wash&&wash<washes.length){const c=test?[1,.75,.4]:colors[0],light=washes[wash++],at=positions[0];light.position.copy(at).addScaledVector(normal,1.6);light.target.position.copy(at).addScaledVector(normal,-.12);const peak=Math.max(...c);light.color.setRGB(...c.map(v=>peak?v/peak:0));light.intensity=peak*30;}
   }
-  const message=shutter?(reducedMotion?'Shutter active · pulse animation paused for reduced motion.':'Shutter pulse is illustrative; manufacturer frequency is not specified.'):'Color and timing preview · surface spill is illustrative.';
-  if(accuracy.textContent!==message)accuracy.textContent=message;
+  const message=shutter?(reducedMotion?'Shutter active · pulse animation paused for reduced motion.':'Strobe preview · slow illustration.'):'Lighting simulation';
+  if(accuracy.textContent!==message)accuracy.textContent=message;accuracy.title=shutter?'The manufacturer does not specify a calibrated frequency. The preview uses slow illustrative pulses.':'Color and timing follow computed DMX. Wall glow is simplified, not a calibrated photometric prediction.';
   controls.update();winter.render();
  }
  function setTour(progress){if(!model)return;const box=tourBounds||new T.Box3().setFromObject(model);const center=box.getCenter(new T.Vector3()),size=box.getSize(new T.Vector3()),distance=Math.max(size.y,size.x/camera.aspect,size.z)*1.65,angle=(progress-.5)*.85;controls.enabled=false;controls.target.copy(center).add(new T.Vector3(0,size.y*.04,0));camera.position.copy(center).add(new T.Vector3(Math.sin(angle)*distance,distance*(.19+.055*Math.sin(progress*Math.PI)),-Math.cos(angle)*distance));camera.lookAt(controls.target);controls.update();}
