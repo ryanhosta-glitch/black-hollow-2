@@ -55,3 +55,5 @@ Remaining: full theatrical tracking, multiple playback HTP/LTP mixing, calibrate
 photometry, moving-head beam/gobo modeling, and fresh uncoached student observation.
 The optional classroom save server remains unhosted; the packaged launcher and
 local-data ignore rule are included. Hardware remains disabled by default.
+
+Starter placement now distributes roof outlines and front eaves across the actual facade, rather than taking the first compiler paths (which included a back eave and a tiny side fragment). Windows receive a similar front-facing spread. Existing fixtures and custom model placement are retained.

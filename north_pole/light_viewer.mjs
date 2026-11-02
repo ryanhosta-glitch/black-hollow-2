@@ -12,7 +12,7 @@ export function createViewer(viewport,{presentation=false}={}){
  const renderer=new T.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));configurePreviewRenderer(renderer,{presentation});renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;viewport.append(renderer.domElement);
  const scene=new T.Scene(),camera=new T.PerspectiveCamera(42,1,.05,1500),controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.maxPolarAngle=Math.PI*.49;
  const sky=new T.HemisphereLight(0xb6d8ff,0x35202b,.7),sun=new T.DirectionalLight(0xffd4ad,1.1);sun.position.set(-20,30,-25);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.bias=-.0004;sun.shadow.normalBias=.035;scene.add(sky,sun);const winter=winterScene(scene,renderer,camera);const washes=[];
- let model,pkg,groups=[],propAnchors=[],supports=[],highlight,night=true,ticket=0,lastRender=0,houseBrightness=1,tourBounds=null;const originalMaterials=new WeakMap();let fixtureSignature='';const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let model,pkg,groups=[],propAnchors=[],supports=[],highlight,night=true,ticket=0,lastRender=0,houseBrightness=1,tourBounds=null,selectedCount=0;const originalMaterials=new WeakMap();let fixtureSignature='';const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
  const accuracy=document.createElement('span');accuracy.className='preview-accuracy';accuracy.style.cssText='position:absolute;left:12px;top:52px;z-index:2;max-width:80%;padding:5px 8px;background:#09202bd9;font:10px system-ui;color:#c3d8ce;pointer-events:auto';viewport.append(accuracy);
  function setHouseBrightness(value){
   if(!Number.isFinite(value))return houseBrightness;houseBrightness=Math.max(0,Math.min(1,value));
@@ -60,8 +60,8 @@ export function createViewer(viewport,{presentation=false}={}){
   }
  }
  function selectFixtures(ids,routes=[]){
-  dispose(highlight);highlight=new T.Group();const selected=groups.filter(g=>ids.includes(g.f.id));
-  for(const g of selected){const line=new T.Line(new T.BufferGeometry().setFromPoints(g.positions),new T.LineBasicMaterial({color:0xffd08b,depthTest:false,transparent:true,opacity:.85}));line.renderOrder=4;highlight.add(line);
+  dispose(highlight);highlight=new T.Group();const selected=groups.filter(g=>ids.includes(g.f.id));selectedCount=selected.length;
+  for(const g of selected){const line=new T.Line(new T.BufferGeometry().setFromPoints(g.positions),new T.LineDashedMaterial({color:0x82dcff,dashSize:.16,gapSize:.12,depthTest:false,transparent:true,opacity:.65}));line.computeLineDistances();line.renderOrder=4;highlight.add(line);
    const route=routes.find(r=>r.fixtureId===g.f.id);if(route&&g.positions.length>1){const start=g.positions[route.reverse?g.positions.length-1:0],end=g.positions[route.reverse?Math.max(0,g.positions.length-2):1],direction=end.clone().sub(start);if(direction.lengthSq()>.00001){const arrow=new T.ArrowHelper(direction.normalize(),start,.55,0x8dffcf,.18,.12);arrow.line.material.depthTest=false;arrow.cone.material.depthTest=false;arrow.renderOrder=5;highlight.add(arrow);}}
   }scene.add(highlight);
  }
@@ -78,7 +78,7 @@ export function createViewer(viewport,{presentation=false}={}){
    if(spill){for(let i=0;i<patches.length;i++){const patch=patches[i],c=test?[1,.75,.4]:[0,1,2].map(k=>colors.slice(patch.start,patch.end).reduce((sum,color)=>sum+color[k],0)/Math.max(1,patch.end-patch.start));spill.setColorAt(i,new T.Color(...pixelRadiance(c)));}spill.instanceColor.needsUpdate=true;}
    if(profile(f.profileId).wash&&wash<washes.length){const c=test?[1,.75,.4]:colors[0],light=washes[wash++],at=positions[0];light.position.copy(at).addScaledVector(normal,1.6);light.target.position.copy(at).addScaledVector(normal,-.12);const peak=Math.max(...c);light.color.setRGB(...c.map(v=>peak?v/peak:0));light.intensity=peak*30;}
   }
-  const message=shutter?(reducedMotion?'Shutter active · pulse animation paused for reduced motion.':'Strobe preview · slow illustration.'):'Lighting simulation';
+  const message=shutter?(reducedMotion?'Shutter active · pulse animation paused for reduced motion.':'Strobe preview · slow illustration.'):selectedCount?'Lighting simulation · dashed lines mark selection':'Lighting simulation';
   if(accuracy.textContent!==message)accuracy.textContent=message;accuracy.title=shutter?'The manufacturer does not specify a calibrated frequency. The preview uses slow illustrative pulses.':'Color and timing follow computed DMX. Wall glow is simplified, not a calibrated photometric prediction.';
   controls.update();winter.render();
  }

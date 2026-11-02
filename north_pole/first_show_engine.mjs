@@ -1,3 +1,4 @@
+import {starterPaths} from './starter_rig.mjs';
 import {orderedRoute} from './group_routes.mjs';
 import {autoPatch,estimateNodes} from './creative_engine.mjs';
 import {buildStarterShow} from './show_starter.mjs';
@@ -7,13 +8,11 @@ export function prepareFirstShow(project){
  if(project.cues.length)throw Error('Open your existing show below. Your programming will stay unchanged.');
  const next=structuredClone(project);
  if(!next.fixtures.length){
- const paths=projectPaths(next),selected=[];
- for(const [kind,limit]of [['roof',3],['window',4],['door',1]])selected.push(...paths.filter(p=>p.kind.includes(kind)).slice(0,limit));
- if(!selected.length)selected.push(...paths.slice(0,8));
- for(const p of selected)next.fixtures.push(autoPatch(next.fixtures,{id:crypto.randomUUID(),name:p.name||p.kind,anchorId:p.id,profileId:'rgb-pixels',nodes:Math.min(100,estimateNodes(p,.2))}));
+ const selected=starterPaths(next.house),counts={};
+ for(const p of selected){const type=p.kind.includes('roof')?'Roof segment':p.kind.includes('window')?'Window':p.kind.includes('door')?'Door':'Lights',index=counts[type]=(counts[type]||0)+1;next.fixtures.push(autoPatch(next.fixtures,{id:crypto.randomUUID(),name:(p.name||type).slice(0,72)+' '+index,anchorId:p.id,profileId:'rgb-pixels',nodes:Math.min(100,estimateNodes(p,.2))}));}
  const b=next.house.yardBounds;
- if(b){const center=(b.minX+b.maxX)/2,models=[...[-1,0,1].map((v,i)=>newDisplayModel('arch',next.house,{name:'Arch '+(i+1),x:center+v*3,z:b.minZ-2,nodes:24})),newDisplayModel('strand-tree',next.house,{name:'Light tree',x:b.maxX+2,z:b.minZ,height:3,width:2,strands:8,nodes:24})];
- next.props=[...(next.props||[]),...models];for(const model of models)for(const p of displayPaths(model))next.fixtures.push(autoPatch(next.fixtures,{id:crypto.randomUUID(),name:p.name,anchorId:p.id,profileId:'rgb-pixels',nodes:model.nodes}));}
+ if(b){const center=(b.minX+b.maxX)/2,models=next.props?.length?next.props:[...[-1,0,1].map((v,i)=>newDisplayModel('arch',next.house,{name:'Arch '+(i+1),x:center+v*3,z:b.minZ-2,nodes:24})),newDisplayModel('strand-tree',next.house,{name:'Light tree',x:b.maxX+2,z:b.minZ,height:3,width:2,strands:8,nodes:24})];
+ next.props=models;for(const model of models)for(const p of displayPaths(model)){if(next.fixtures.length>=200)throw Error('This yard needs more than 200 fixtures. Reduce its models or use the full studio.');next.fixtures.push(autoPatch(next.fixtures,{id:crypto.randomUUID(),name:p.name,anchorId:p.id,profileId:'rgb-pixels',nodes:model.nodes}));}}
  }
  const show=buildStarterShow(next);next.version=Math.max(next.version,3);next.fixtures=show.fixtures;next.cues=show.cues;return next;
 }
@@ -24,6 +23,7 @@ export function editFirstShow(project,group,section,change){
  if(!group||!section)throw Error('Choose some lights and a song part first.');
  if(change.color!==undefined&&!/^#[a-f\d]{6}$/i.test(change.color))throw Error('Choose a valid color.');
  if(change.brightness!==undefined&&(!Number.isFinite(change.brightness)||change.brightness<0||change.brightness>1))throw Error('Brightness must be between zero and full.');
+ if(change.arrivalTick!==undefined&&(!Number.isInteger(change.arrivalTick)||change.arrivalTick<=section.startTick||change.arrivalTick>=section.endTick))throw Error('Choose an arrival time inside this song part.');
  if(change.fadeInTicks!==undefined&&(!Number.isInteger(change.fadeInTicks)||change.fadeInTicks<0||change.fadeInTicks>section.endTick-section.startTick))throw Error('The fade must fit inside this song part.');
  if(change.effect!==undefined&&!safeEffects.has(change.effect))throw Error('Choose an available effect.');
  const members=new Set(group.fixtures.map(f=>f.id));
@@ -32,11 +32,14 @@ export function editFirstShow(project,group,section,change){
  if(!affected.length)throw Error('There is no look in this part. Use the full studio to add one.');
  for(const f of group.fixtures){const cues=affected.filter(c=>c.fixtureId===f.id);if(cues.length!==1||cues[0].startTick!==section.startTick||cues[0].endTick!==section.endTick||cues[0].math||(cues[0].route&&!cues[0].simpleRoute)||cues[0].spatialPhase||cues[0].effect==='channels'||cues[0].effect==='pixel-screen')throw Error('This part has detailed programming. It is safe in the full studio; simple editing will not change it.');}
  if(change.effect==='chase'&&section.endTick-section.startTick<2)throw Error('Choose a longer part for a traveling chase.');
- const ids=new Set(affected.map(c=>c.id)),routes=change.effect==='chase'?orderedRoute(project,group.fixtures,{reverse:change.reverse===true,fixtureOrder:change.fixtureOrder||null}):null;
+ const bar=musicMap(project.song).bars.find(b=>section.endTick-1>=b.tick&&section.endTick-1<b.endTick);let arrival=bar?bar.tick+Math.floor((section.endTick-bar.tick-1)/bar.beatTicks)*bar.beatTicks:section.startTick;
+ if(arrival<=section.startTick)arrival=section.startTick+Math.max(1,Math.floor((section.endTick-section.startTick)*.8));arrival=Math.min(section.endTick-1,arrival);
+ const ids=new Set(affected.map(c=>c.id));let routes=change.effect==='chase'?orderedRoute(project,group.fixtures,{reverse:change.reverse===true,fixtureOrder:change.fixtureOrder||null}):null;
+ if(change.reverseCurrent){if(!affected.every(c=>c.simpleRoute&&c.route))throw Error('Choose Chase before reversing its route.');const ordered=affected.slice().sort((a,b)=>b.route.offset-a.route.offset),total=ordered.reduce((sum,c)=>sum+c.route.count,0);let offset=0;routes=ordered.map(c=>{const result={fixtureId:c.fixtureId,offset,count:c.route.count,total,reverse:!c.route.reverse};offset+=c.route.count;return result;});}
  return project.cues.map(c=>{if(!ids.has(c.id))return c;const next={...structuredClone(c)};for(const key of ['color','effect','brightness','fadeInTicks'])if(change[key]!==undefined)next[key]=change[key];
   if(change.color!==undefined&&change.effect===undefined&&['rainbow','snowfall','firelight','candle'].includes(c.effect))next.effect='steady';
   if(change.effect!==undefined&&change.effect!=='chase'){delete next.route;delete next.simpleRoute;delete next.routeDirection;}
-  if(routes){const route=routes.find(r=>r.fixtureId===c.fixtureId);next.effect='routed-chase';next.simpleRoute=true;next.routeDirection=change.reverse?-1:1;next.route={offset:route.offset,count:route.count,total:route.total,reverse:route.reverse,arrivalTick:section.endTick-1,tail:1};}
+  if(routes){const route=routes.find(r=>r.fixtureId===c.fixtureId);next.effect='routed-chase';next.simpleRoute=true;next.routeDirection=change.reverseCurrent?-(c.routeDirection||1):change.reverse?-1:1;next.route={offset:route.offset,count:route.count,total:route.total,reverse:route.reverse,arrivalTick:change.arrivalTick??(c.simpleRoute?c.route.arrivalTick:arrival),tail:1};}
   return next;});
 }
 export function auditionTick(section){return Math.floor((section.startTick+section.endTick)/2);}
@@ -45,7 +48,7 @@ export function copyFirstLook(project,source,target,section){
  const cues=project.cues.filter(c=>source.fixtures.some(f=>f.id===c.fixtureId)&&c.startTick===section.startTick&&c.endTick===section.endTick);
  if(!cues.length||cues.some(c=>c.math||c.effect==='channels'||c.effect==='pixel-screen'||c.spatialPhase||(c.route&&!c.simpleRoute)))throw Error('Use the full studio to copy this detailed look.');
  const first=cues[0];if(cues.some(c=>c.color!==first.color||c.brightness!==first.brightness||c.effect!==first.effect))throw Error('This group has mixed looks. Give it one look before copying.');
- const copied=editFirstShow(project,target,section,{color:first.color,effect:first.effect==='routed-chase'?'chase':first.effect,reverse:first.routeDirection===-1,brightness:first.brightness,fadeInTicks:first.fadeInTicks||0});return copied.map(c=>target.fixtures.some(f=>f.id===c.fixtureId)&&c.startTick===section.startTick&&c.endTick===section.endTick?{...c,parameters:{...c.parameters,speed:first.parameters?.speed??2,direction:first.parameters?.direction??1}}:c);
+ const copied=editFirstShow(project,target,section,{color:first.color,effect:first.effect==='routed-chase'?'chase':first.effect,reverse:first.routeDirection===-1,arrivalTick:first.route?.arrivalTick,brightness:first.brightness,fadeInTicks:first.fadeInTicks||0});return copied.map(c=>target.fixtures.some(f=>f.id===c.fixtureId)&&c.startTick===section.startTick&&c.endTick===section.endTick?{...c,parameters:{...c.parameters,speed:first.parameters?.speed??2,direction:first.parameters?.direction??1}}:c);
 }
 
 export function requiredProjectVersion(cues){return cues.some(c=>c.fadeInTicks!==undefined||c.simpleRoute!==undefined||c.authoredWith==='console')?4:3;}
