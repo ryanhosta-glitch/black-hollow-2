@@ -29,7 +29,7 @@ export function createPixelEditor({root,getProject,onChange,onProgram,getBeatSec
  function paint(i,b){if(!current())return;current().frames[frame][i]=$('pixelErase').checked?'#000000':$('pixelPaint').value;b.style.background=current().frames[frame][i];}
  document.addEventListener('pointerup',()=>{if(painting&&painted)onChange();painting=false;painted=false;});
  $('pixelCoordinateMode').onchange=()=>{stop();draw();};
- $('newPixelScreen').onclick=()=>{if(screens().length>=8){$('pixelEditorStatus').textContent='Use up to eight screens per show.';return;}const s=newPixelScreen($('pixelTemplate').value);getProject().pixelScreens??=[];getProject().pixelScreens.push(s);getProject().version=3;screenId=s.id;frame=0;refresh();onChange();};
+ $('newPixelScreen').onclick=()=>{if(screens().length>=8){$('pixelEditorStatus').textContent='Use up to eight screens per show.';return;}const s=newPixelScreen($('pixelTemplate').value);getProject().pixelScreens??=[];getProject().pixelScreens.push(s);getProject().version=Math.max(getProject().version,3);screenId=s.id;frame=0;refresh();onChange();};
  $('pixelScreenList').onchange=()=>{screenId=$('pixelScreenList').value;frame=0;refresh();};$('pixelFrame').onchange=()=>{stop();frame=Number($('pixelFrame').value);draw();};
  $('copyPixelFrame').onclick=()=>{const s=current();if(!s)return;if(s.frames.length>=32){$('pixelEditorStatus').textContent='Use up to 32 frames per screen.';return;}s.frames.splice(frame+1,0,s.frames[frame].slice());frame++;refresh();onChange();};
  $('removePixelFrame').onclick=()=>{const s=current();if(!s||s.frames.length===1)return;s.frames.splice(frame,1);refresh();onChange();};

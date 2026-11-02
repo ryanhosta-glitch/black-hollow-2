@@ -70,7 +70,7 @@ export function patchReport(fixtures){
  return {errors,mirrors};
 }
 export function validateProject(p){
- if(p?.format!=='gingerlight-project'||![1,2,3].includes(p.version)||!p.house||p.house.format!=='gingerlight-exterior')throw Error('Not a Gingerlight project.');
+ if(p?.format!=='gingerlight-project'||![1,2,3,4].includes(p.version)||!p.house||p.house.format!=='gingerlight-exterior')throw Error('Not a Gingerlight project.');
  validateLearning(p.learning);validatePhrases(p.phrases,p.song);validateSong(p.song);const map=musicMap(p.song);
  if(!Array.isArray(p.fixtures)||p.fixtures.length>200||!Array.isArray(p.cues)||p.cues.length>2000)throw Error('Project exceeds studio limits.');
  if(p.pixelScreens!==undefined){if(p.version<3||!Array.isArray(p.pixelScreens)||p.pixelScreens.length>8||new Set(p.pixelScreens.map(s=>s.id)).size!==p.pixelScreens.length)throw Error('Invalid pixel screen collection.');p.pixelScreens.forEach(validatePixelScreen);}
@@ -84,12 +84,19 @@ export function validateProject(p){
  const cues=new Set();
  for(const c of p.cues){
   if(typeof c.id!=='string'||cues.has(c.id)||!ids.has(c.fixtureId)||!integer(c.startTick,0,p.song.endTick)||!integer(c.endTick,c.startTick+1,p.song.endTick)||![...EFFECTS,'channels','pixel-screen','routed-chase'].includes(c.effect)||!/^#[a-f\d]{6}$/i.test(c.color)||!finite(c.brightness,0,1))throw Error('Invalid lighting cue.');cues.add(c.id);
+  if(p.version<4&&(c.fadeInTicks!==undefined||c.simpleRoute!==undefined||c.authoredWith==='console'))throw Error('Entry fades, spatial group routes and console recordings require project version 4.');
+  if(c.fadeInTicks!==undefined&&(!integer(c.fadeInTicks,0,c.endTick-c.startTick)||!['creative','console'].includes(c.authoredWith)))throw Error('Invalid cue entry fade.');
+  if(c.routeDirection!==undefined&&(!c.simpleRoute||![1,-1].includes(c.routeDirection)))throw Error('Invalid simple route direction.');
+  if(c.simpleRoute!==undefined&&(c.simpleRoute!==true||c.effect!=='routed-chase'||c.authoredWith!=='creative'))throw Error('Invalid simple lighting route.');
   if(c.parameters&&(!finite(c.parameters.speed,.1,20)||![1,-1].includes(c.parameters.direction)||!finite(c.parameters.phase,0,1)))throw Error('Invalid effect parameters.');
   if(c.phraseId!==undefined&&(!p.phrases?.some(x=>x.id===c.phraseId)))throw Error('Cue references a missing musical phrase.');
   const fixture=p.fixtures.find(f=>f.id===c.fixtureId),groups=profile(fixture.profileId).pixel?fixture.nodes:profile(fixture.profileId).zones||1;
   if(c.effect==='routed-chase'&&(!c.route||!integer(c.route.offset,0,34000)||!integer(c.route.total,1,34000)||c.route.count!==groups||c.route.offset+groups>c.route.total||!integer(c.route.arrivalTick,c.startTick+1,c.endTick-1)||!integer(c.route.tail,1,32)||(c.route.reverse!==undefined&&typeof c.route.reverse!=='boolean')))throw Error('Invalid routed chase timing or pixel map.');
   if(c.spatialPhase&&(!integer(c.spatialPhase.offset,0,34000)||!integer(c.spatialPhase.total,1,34000)||c.spatialPhase.offset+groups>c.spatialPhase.total))throw Error('Invalid spatial rainbow map.');
   if(c.effect==='pixel-screen'&&!p.fixtures.find(f=>f.id===c.fixtureId)?.matrix)throw Error('Pixel animation needs a mapped screen row.');
+  if(c.authoredWith==='console'){
+   if(p.version<4||c.effect!=='channels'||typeof c.name!=='string'||c.name.length>80||!Array.isArray(c.channelValues)||c.channelValues.length!==footprint(fixture)||c.channelValues.some(v=>!integer(v,0,255))||c.math)throw Error('Invalid console recording.');continue;
+  }
   if(c.authoredWith==='creative'){if(p.version<3||c.effect==='channels')throw Error('Creative cues require project version 3.');continue;}
   if(!c.math||typeof c.math.prediction!=='string'||typeof c.math.explanation!=='string'||c.math.prediction.length>2000||c.math.explanation.length>4000)throw Error('Cue needs its saved math evidence.');
   if(c.effect==='channels'){const f=p.fixtures.find(f=>f.id===c.fixtureId),pr=profile(f.profileId),master=(c.math?.referenceChannel||Math.max(1,pr.channels.indexOf('dimmer')+1))-1;if(p.version<2||!Array.isArray(c.channelValues)||c.channelValues.length!==footprint(f)||c.channelValues.some(v=>!integer(v,0,255)))throw Error('Invalid channel snapshot.');if(!integer(master,0,footprint(f)-1)||c.channelValues[master]!==Math.round(c.brightness*255))throw Error('Snapshot reference channel must match the calculated fraction.');}
@@ -100,20 +107,35 @@ export function validateProject(p){
  return p;
 }
 function rgb(hex){return [1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255);}
-export function evaluate(project,tick){
- const universes=new Map(),conflicts=[];const writers=new Map();
- for(const f of project.fixtures)if(!universes.has(f.universe))universes.set(f.universe,new Uint8Array(512));
- for(const c of project.cues.filter(c=>tick>=c.startTick&&tick<c.endTick).sort((a,b)=>a.startTick-b.startTick)){
-  const f=project.fixtures.find(f=>f.id===c.fixtureId);if(!f)continue;const p=profile(f.profileId),u=universes.get(f.universe),progress=(tick-c.startTick)/(c.endTick-c.startTick),color=rgb(c.color),gain=c.brightness*(c.effect==='fade'?progress:1),groups=p.pixel?f.nodes:(p.zones||1);
-  for(let i=0;i<footprint(f);i++){
+function cueBytes(project,c,tick){
+  const f=project.fixtures.find(f=>f.id===c.fixtureId);if(!f)return [];const p=profile(f.profileId),progress=(tick-c.startTick)/(c.endTick-c.startTick),color=rgb(c.color),gain=c.brightness*(c.effect==='fade'?progress:1),groups=p.pixel?f.nodes:(p.zones||1);
+  const bytes=[];for(let i=0;i<footprint(f);i++){
    const group=p.pixel||p.zones?Math.floor(i/(p.pixel?p.channels.length:3)):0,role=p.channels[i%p.channels.length],chase=c.effect!=='chase'||group===Math.min(groups-1,Math.floor(progress*groups)),sample=effectSample(c,progress,group,groups),g=gain*(chase?1:0)*sample.gain*(c.effect==='routed-chase'?routedGain(c.route,tick,c.startTick,group):1);let shade=sample.color||color;if(c.effect==='rainbow'&&c.spatialPhase){const phase=((c.spatialPhase.offset+group)/c.spatialPhase.total*(c.parameters?.direction??1)+progress*(c.parameters?.speed??1))%1;shade=[0,2/3,1/3].map(o=>Math.max(0,Math.min(1,Math.abs((((phase+o)%1+1)%1)*6-3)-1)));}
    if(c.effect==='pixel-screen'){const screen=project.pixelScreens.find(s=>s.id===f.matrix.screenId),frame=Math.floor((tick-c.startTick)/screen.ticksPerFrame)%screen.frames.length;const hex=screen.frames[frame][f.matrix.row*16+group];shade=rgb(hex);}
    let v=role==='dimmer'?g:role==='amber'?0:(shade[['red','green','blue'].indexOf(role)]||0)*g;
    // With a master dimmer, color channels stay full-scale and the master carries intensity.
    if(p.channels.includes('dimmer')&&role!=='dimmer')v=role==='amber'?0:(shade[['red','green','blue'].indexOf(role)]||0);
-   const addr=f.address-1+i,key=f.universe+':'+addr,byte=c.effect==='channels'?c.channelValues[i]:Math.round(v*255);
-   if(writers.has(key)&&u[addr]!==byte)conflicts.push(key);writers.set(key,c.id);u[addr]=byte;
+   bytes.push(c.effect==='channels'?c.channelValues[i]:Math.round(v*255));
+  }return bytes;
+}
+export function evaluate(project,tick){
+ const universes=new Map(),conflicts=[],writers=new Map();
+ for(const f of project.fixtures)if(!universes.has(f.universe))universes.set(f.universe,new Uint8Array(512));
+ const sorted=project.cues.slice().sort((a,b)=>a.startTick-b.startTick),ending=new Map();for(const c of sorted)ending.set(c.fixtureId+':'+c.endTick,c);
+ for(const c of sorted.filter(c=>tick>=c.startTick&&tick<c.endTick)){
+  const f=project.fixtures.find(f=>f.id===c.fixtureId);if(!f)continue;
+  const p=profile(f.profileId),bytes=cueBytes(project,c,tick),u=universes.get(f.universe);
+  if(c.fadeInTicks&&tick<c.startTick+c.fadeInTicks){
+   const chain=[];let current=c,at=tick;
+   while(current&&current.fadeInTicks&&at<current.startTick+current.fadeInTicks){
+    chain.push({bytes:cueBytes(project,current,at),alpha:(at-current.startTick)/current.fadeInTicks});
+    current=ending.get(c.fixtureId+':'+current.startTick);if(current)at=current.endTick-1;
+   }
+   let resolved=current?cueBytes(project,current,at):[];
+   for(const step of chain.reverse()){resolved=step.bytes.map((value,i)=>['red','green','blue','white','amber','uv','dimmer'].includes(p.channels[i%p.channels.length])?Math.round((resolved[i]||0)+(value-(resolved[i]||0))*step.alpha):value);}
+   bytes.splice(0,bytes.length,...resolved);
   }
+  for(let i=0;i<bytes.length;i++){const address=f.address-1+i,key=f.universe+':'+address;if(writers.has(key)&&u[address]!==bytes[i])conflicts.push(key);writers.set(key,c.id);u[address]=bytes[i];}
  }
  return {universes,conflicts:[...new Set(conflicts)]};
 }

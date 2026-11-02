@@ -60,8 +60,12 @@ jobs:
         env:
           GINGER_FIRST_SHOW_FILE: north_pole/student_preview.html
         run: node tests/browser-gingerlight-first-show.mjs
+      - name: Verify rendered light behavior and console recording
+        run: node tests/browser-gingerlight-behavior.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: student-first-show-evidence
-          path: tests/artifacts/first-show-*.png
+          path: |
+            tests/artifacts/first-show-*.png
+            tests/artifacts/light-behavior-*.png
