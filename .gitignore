@@ -1,3 +1,6 @@
 node_modules/
 _site/
 tests/artifacts/
+
+# Local classroom save data; never publish student projects.
+.gingerlight-data/

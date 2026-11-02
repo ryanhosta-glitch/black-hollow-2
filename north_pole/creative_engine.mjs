@@ -1,3 +1,4 @@
+import {applyOutputMaster} from './fixture_output.mjs';
 // Pure helpers shared by both operator interfaces. No hardware transport.
 import {footprint,patchReport} from './sequencer.mjs';
 export {EFFECTS,effectSample} from './effects.mjs';
@@ -15,4 +16,4 @@ export function remapReport(fixtures,oldHouse,newHouse){
  return fixtures.map(f=>{const old=oldHouse.anchors.find(a=>a.id===f.anchorId),next=newHouse.anchors.find(a=>a.id===f.anchorId);return {fixtureId:f.id,anchorId:f.anchorId,status:!next?'missing':old?.kind!==next.kind?'review':'matched',oldLength:old?pathLength(old):null,newLength:next?pathLength(next):null};});
 }
 export function creativeCue({fixtureId,startTick,endTick,effect='steady',color='#ff3355',brightness=.75,parameters={speed:2,direction:1,phase:0}}){return {id:crypto.randomUUID(),fixtureId,startTick,endTick,effect,color,brightness,parameters,authoredWith:'creative'};}
-export function outputFrame(universes,{master=1,blackout=false}={}){return new Map([...universes].map(([u,bytes])=>[u,Uint8Array.from(bytes,v=>blackout?0:Math.round(v*Math.max(0,Math.min(1,master))))]));}
+export function outputFrame(universes,{master=1,blackout=false,fixtures=[]}={}){return applyOutputMaster(universes,fixtures,{master,blackout});}
