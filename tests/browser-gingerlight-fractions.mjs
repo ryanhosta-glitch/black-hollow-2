@@ -33,7 +33,26 @@ try{
  await page.setInputFiles('#projectFile',{name:'fraction-show.lightshow',mimeType:'application/json',buffer:saved});
  await page.waitForFunction(()=>document.getElementById('notice').textContent.includes('Project reopened'));await page.click('#fractionDetails > summary');await page.click('#fractionDetails > summary');
  await page.selectOption('#fractionParts','8');await page.fill('#fractionPrediction','3');await page.click('#fractionCheck');
- assert.match(await page.locator('#fractionMath').innerText(),/5\/8 lit/);
+ assert.match(await page.locator('#fractionMath').innerText(),/5\\/8 lit/);
+ // Day 3: a separate song scene with half white and one-fourth red.
+ await page.selectOption('#fractionSong',{index:1});await page.selectOption('#fractionParts','4');await page.fill('#fractionPrediction','6');await page.click('#fractionCheck');
+ for(const i of [0,1])await page.locator('#fractionSections button').nth(i).click();
+ await page.click('[data-paint="#ffffff"]');await page.locator('#fractionSections button').nth(2).click();await page.click('[data-paint="#ef4444"]');
+ assert.match(await page.locator('#fractionMath').innerText(),/2\\/4 white \\+ 1\\/4 red = 3\\/4 lit/);await page.click('#fractionApply');
+ // Day 4: three different song sections, with an exact subtraction and addition.
+ const scenePatterns=[[2,[0,1,2,3,4,5,6],21],[3,[0,1,2,3,4],15],[4,[0,1,2,3,4,7],18]];
+ for(const [index,litSections,total] of scenePatterns){
+ await page.selectOption('#fractionSong',{index});await page.selectOption('#fractionParts','8');await page.fill('#fractionPrediction','3');await page.click('#fractionCheck');
+ for(const i of litSections)await page.locator('#fractionSections button').nth(i).click();
+ await page.click('[data-paint="#ef4444"]');
+ assert.match(await page.locator('#fractionCounts').innerText(),new RegExp(total+' pixels ON'));
+ await page.click('#fractionApply');
+ }
+ const [finalDownload]=await Promise.all([page.waitForEvent('download'),page.click('#firstSave')]);
+ const finished=JSON.parse(await readFile(await finalDownload.path(),'utf8'));
+ const chosen=finished.fixtures.find(f=>f.name.startsWith('Arch 1'));
+ const scenes=finished.cues.filter(c=>c.fixtureId===chosen.id).sort((a,b)=>a.startTick-b.startTick);
+ assert.deepEqual(scenes.slice(0,5).map(c=>c.pixelColors.filter(hex=>hex!=='#000000').length),[15,18,21,15,18]);
  assert.deepEqual(errors,[]);await page.close();
  }
 }finally{await browser.close();}
