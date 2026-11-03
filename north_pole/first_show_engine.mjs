@@ -62,7 +62,7 @@ export function programFractionPixels(project,fixture,section,colors){
  const overlap=project.cues.filter(c=>c.fixtureId===fixture.id&&c.startTick<section.endTick&&c.endTick>section.startTick);
  if(overlap.length!==1||overlap[0].startTick!==section.startTick||overlap[0].endTick!==section.endTick)throw Error('This song part has detailed timing. Use a new starter show rather than overwrite it.');
  const original=overlap[0];
- if(original.math||original.route&&!original.simpleRoute||original.spatialPhase||original.effect==='channels'||original.effect==='pixel-screen')throw Error('This is detailed programming. The fraction editor will not overwrite it.');
+ if(original.math||original.route||original.spatialPhase||original.fadeInTicks||original.phraseId||original.effect==='channels'||original.effect==='pixel-screen')throw Error('This is detailed programming. The fraction editor will not overwrite it.');
  const cue={id:original.id,fixtureId:fixture.id,startTick:section.startTick,endTick:section.endTick,effect:'fraction-pixels',color:'#ffffff',brightness:1,authoredWith:'creative',pixelColors:colors.slice()};
  const cues=project.cues.map(c=>c.id===original.id?cue:c);
  return cues;
