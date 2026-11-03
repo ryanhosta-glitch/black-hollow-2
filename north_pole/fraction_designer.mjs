@@ -1,6 +1,6 @@
 import {partitionPixels,paintSections,DARK,countLit,validateFractionColors} from './fraction_arch.mjs';
 import {firstShowSections} from './first_show_engine.mjs';
-export function createFractionDesigner({host,getProject,onApply,onPause,onSeek,onError}){
+export function createFractionDesigner({host,getProject,onApply,onPause,onSeek,onSongSelect,onError}){
  const panel=document.createElement('section');panel.id='fractionDesigner';panel.className='fraction-designer';
  panel.innerHTML=`<details id="fractionDetails"><summary>✦ Fraction Light Designer · program parts of a real arch</summary>
  <div class="fraction-body"><p>Fractions tell the computer which actual pixels to light. First predict the size of each equal section, then program it.</p>
@@ -35,13 +35,13 @@ export function createFractionDesigner({host,getProject,onApply,onPause,onSeek,o
  if(!fs.length)message('No pixel arch is ready. Start a new First Show on the model house to get three 24-pixel arches.');}
  function reload(){const f=currentFixture(),s=currentSection();checked=false;selected.clear();$('fractionEditor').hidden=true;$('fractionPrediction').value='';if(!f||!s)return;colors=existingColors(f,s);message('Predict the number of bulbs in each part and click Check and divide.');}
  $('fractionFixture').onchange=()=>{fixtureId=$('fractionFixture').value;reload();};
- $('fractionSong').onchange=()=>{sectionId=$('fractionSong').value;onPause();onSeek(currentSection().startTick);reload();};
+ $('fractionSong').onchange=()=>{sectionId=$('fractionSong').value;onPause();onSeek(currentSection().startTick);onSongSelect?.(currentSection());reload();};
  $('fractionParts').onchange=()=>{parts=Number($('fractionParts').value);reload();};
  $('fractionCheck').onclick=()=>{try{const f=currentFixture();if(!f)throw Error('Start the First Show to create a 24-pixel arch first.');const ranges=partitionPixels(f.nodes,parts);if(Number($('fractionPrediction').value)!==ranges[0].count)throw Error('Try again: '+f.nodes+' lights ÷ '+parts+' equal parts.');checked=true;$('fractionEditor').hidden=false;message('Correct! Each section contains '+ranges[0].count+' actual pixels. Select numbered sections to color.');update();}catch(e){message(e.message);}};
  for(const b of panel.querySelectorAll('[data-paint]'))b.onclick=()=>{if(!checked||!selected.size){message('Select one or more numbered sections first.');return;}colors=paintSections(colors,parts,[...selected],b.dataset.paint);selected.clear();update();message('Color changed in your design. Click Program these real lights to apply it.');};
  $('fractionReset').onclick=()=>{colors=Array(currentFixture().nodes).fill(DARK);selected.clear();update();};
  $('fractionCopy').onclick=()=>{const ss=firstShowSections(getProject()),i=ss.findIndex(s=>s.id===sectionId);if(i<1){message('Opening has no previous song part to copy.');return;}const f=currentFixture();colors=existingColors(f,ss[i-1]);selected.clear();update();message('Copied previous fraction design. Choose changes for this song part.');};
- $('fractionApply').onclick=()=>{try{if(!checked)throw Error('Check your partition first.');onPause();onApply(currentFixture(),currentSection(),colors.slice());message('Programmed! This is now a real pixel cue. Click Play this part or Save my show.');}catch(e){message(e.message);onError(e);}};
+ $('fractionApply').onclick=()=>{try{if(!checked)throw Error('Check your partition first.');onPause();onSongSelect?.(currentSection());onApply(currentFixture(),currentSection(),colors.slice());message('Programmed! This is now a real pixel cue. Click Play this part or Save my show.');}catch(e){message(e.message);onError(e);}};
  panel.querySelector('#fractionDetails').addEventListener('toggle',()=>{if($('fractionDetails').open)sync(true);});
  sync(true);return {refresh(){sync();},open(){panel.querySelector('#fractionDetails').open=true;sync(true);}};
 }
