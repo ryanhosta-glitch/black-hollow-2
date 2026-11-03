@@ -4,6 +4,7 @@ import {autoPatch,estimateNodes} from './creative_engine.mjs';
 import {buildStarterShow} from './show_starter.mjs';
 import {newDisplayModel,displayPaths,projectPaths} from './display_models.mjs';
 import {musicMap,footprint} from './sequencer.mjs';
+import {validateFractionColors} from './fraction_arch.mjs';
 export function prepareFirstShow(project){
  if(project.cues.length)throw Error('Open your existing show below. Your programming will stay unchanged.');
  const next=structuredClone(project);
@@ -30,7 +31,7 @@ export function editFirstShow(project,group,section,change){
  for(const f of group.fixtures)if(project.fixtures.some(other=>other.id!==f.id&&other.universe===f.universe&&other.address<f.address+footprint(f)&&f.address<other.address+footprint(other)))throw Error('These lights share channels with another group. Use the full studio to review their shared patch.');
  const affected=project.cues.filter(c=>members.has(c.fixtureId)&&c.startTick<section.endTick&&c.endTick>section.startTick);
  if(!affected.length)throw Error('There is no look in this part. Use the full studio to add one.');
- for(const f of group.fixtures){const cues=affected.filter(c=>c.fixtureId===f.id);if(cues.length!==1||cues[0].startTick!==section.startTick||cues[0].endTick!==section.endTick||cues[0].math||(cues[0].route&&!cues[0].simpleRoute)||cues[0].spatialPhase||cues[0].effect==='channels'||cues[0].effect==='pixel-screen')throw Error('This part has detailed programming. It is safe in the full studio; simple editing will not change it.');}
+ for(const f of group.fixtures){const cues=affected.filter(c=>c.fixtureId===f.id);if(cues.length!==1||cues[0].startTick!==section.startTick||cues[0].endTick!==section.endTick||cues[0].math||(cues[0].route&&!cues[0].simpleRoute)||cues[0].spatialPhase||cues[0].effect==='channels'||cues[0].effect==='pixel-screen'||cues[0].effect==='fraction-pixels')throw Error('This part has detailed programming. It is safe in the full studio; simple editing will not change it.');}
  if(change.effect==='chase'&&section.endTick-section.startTick<2)throw Error('Choose a longer part for a traveling chase.');
  const bar=musicMap(project.song).bars.find(b=>section.endTick-1>=b.tick&&section.endTick-1<b.endTick);let arrival=bar?bar.tick+Math.floor((section.endTick-bar.tick-1)/bar.beatTicks)*bar.beatTicks:section.startTick;
  if(arrival<=section.startTick)arrival=section.startTick+Math.max(1,Math.floor((section.endTick-section.startTick)*.8));arrival=Math.min(section.endTick-1,arrival);
@@ -52,3 +53,17 @@ export function copyFirstLook(project,source,target,section){
 }
 
 export function requiredProjectVersion(cues){return cues.some(c=>c.fadeInTicks!==undefined||c.simpleRoute!==undefined||c.authoredWith==='console')?4:3;}
+
+export function programFractionPixels(project,fixture,section,colors){
+ if(!fixture||fixture.profileId!=='rgb-pixels'||!validateFractionColors(colors,fixture.nodes))throw Error('Choose a real addressable RGB arch and valid pixels.');
+ if(!project.fixtures.some(f=>f.id===fixture.id))throw Error('This arch is not in your project.');
+ if(!section||!Number.isInteger(section.startTick)||!Number.isInteger(section.endTick))throw Error('Choose a valid song part.');
+ if(project.fixtures.some(f=>f.id!==fixture.id&&f.universe===fixture.universe&&f.address<fixture.address+footprint(fixture)&&fixture.address<f.address+footprint(f)))throw Error('This arch shares DMX channels. Use the full studio to correct its patch.');
+ const overlap=project.cues.filter(c=>c.fixtureId===fixture.id&&c.startTick<section.endTick&&c.endTick>section.startTick);
+ if(overlap.length!==1||overlap[0].startTick!==section.startTick||overlap[0].endTick!==section.endTick)throw Error('This song part has detailed timing. Use a new starter show rather than overwrite it.');
+ const original=overlap[0];
+ if(original.math||original.route&&!original.simpleRoute||original.spatialPhase||original.effect==='channels'||original.effect==='pixel-screen')throw Error('This is detailed programming. The fraction editor will not overwrite it.');
+ const cue={id:original.id,fixtureId:fixture.id,startTick:section.startTick,endTick:section.endTick,effect:'fraction-pixels',color:'#ffffff',brightness:1,authoredWith:'creative',pixelColors:colors.slice()};
+ const cues=project.cues.map(c=>c.id===original.id?cue:c);
+ return cues;
+}
