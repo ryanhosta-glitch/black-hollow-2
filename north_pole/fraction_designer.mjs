@@ -22,8 +22,8 @@ export function createFractionDesigner({host,getProject,onApply,onPause,onSeek,o
  function message(s){$('fractionFeedback').textContent=s;}
  function update(){const f=currentFixture(),s=currentSection();if(!f||!s)return;$('fractionBulbs').replaceChildren();for(const [i,c] of colors.entries()){const light=document.createElement('span');light.title='Pixel '+(i+1);light.style.background=c;light.className='fraction-bulb';$('fractionBulbs').append(light);}
  $('fractionSections').replaceChildren();const ranges=partitionPixels(f.nodes,parts);for(const [i,r]of ranges.entries()){const b=document.createElement('button');b.type='button';b.className='fraction-part';b.setAttribute('aria-pressed',String(selected.has(i)));b.textContent=(i+1)+'/'+parts;b.title='Pixels '+(r.start+1)+'–'+r.end;b.onclick=()=>{selected.has(i)?selected.delete(i):selected.add(i);update();};$('fractionSections').append(b);}
- const lit=countLit(colors),groups={};for(const c of colors)groups[c]=(groups[c]||0)+1;const colored=Object.entries(groups).filter(([c])=>c!==DARK).map(([c,n])=>n+'/'+f.nodes+' '+(c==='#ef4444'?'red':c==='#22c55e'?'green':c==='#ffffff'?'white':'colored'));
- $('fractionMath').textContent=colored.length?colored.join(' + ')+' = '+lit+'/'+f.nodes+' lit':'0/'+f.nodes+' lit';
+ const lit=countLit(colors),groups={};for(const c of colors)groups[c]=(groups[c]||0)+1;const colored=Object.entries(groups).filter(([c])=>c!==DARK).map(([c,n])=>(n/(f.nodes/parts))+'/'+parts+' '+(c==='#ef4444'?'red':c==='#22c55e'?'green':c==='#ffffff'?'white':'colored'));
+ $('fractionMath').textContent=colored.length?colored.join(' + ')+' = '+(lit/(f.nodes/parts))+'/'+parts+' lit':'0/'+parts+' lit';
  $('fractionCounts').textContent=lit+' pixels ON · '+(f.nodes-lit)+' pixels OFF · '+parts+' equal sections of '+(f.nodes/parts)+' pixels each.';
  }
  function sync(force=false){const p=getProject(),fs=archFixtures(),ss=firstShowSections(p);const signature=JSON.stringify([fs.map(f=>[f.id,f.nodes]),ss.map(s=>s.id)]);if(!force&&signature===stamp)return;stamp=signature;
