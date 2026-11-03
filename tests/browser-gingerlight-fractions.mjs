@@ -33,12 +33,12 @@ try{
  await page.setInputFiles('#projectFile',{name:'fraction-show.lightshow',mimeType:'application/json',buffer:saved});
  await page.waitForFunction(()=>document.getElementById('notice').textContent.includes('Project reopened'));await page.click('#fractionDetails > summary');await page.click('#fractionDetails > summary');
  await page.selectOption('#fractionParts','8');await page.fill('#fractionPrediction','3');await page.click('#fractionCheck');
- assert.match(await page.locator('#fractionMath').innerText(),/5\\/8 lit/);
+ assert.match(await page.locator('#fractionMath').innerText(),/5\/8 lit/);
  // Day 3: a separate song scene with half white and one-fourth red.
  await page.selectOption('#fractionSong',{index:1});await page.selectOption('#fractionParts','4');await page.fill('#fractionPrediction','6');await page.click('#fractionCheck');
  for(const i of [0,1])await page.locator('#fractionSections button').nth(i).click();
  await page.click('[data-paint="#ffffff"]');await page.locator('#fractionSections button').nth(2).click();await page.click('[data-paint="#ef4444"]');
- assert.match(await page.locator('#fractionMath').innerText(),/2\\/4 white \\+ 1\\/4 red = 3\\/4 lit/);await page.click('#fractionApply');
+ assert.match(await page.locator('#fractionMath').innerText(),/2\/4 white \+ 1\/4 red = 3\/4 lit/);await page.click('#fractionApply');
  // Day 4: three different song sections, with an exact subtraction and addition.
  const scenePatterns=[[2,[0,1,2,3,4,5,6],21],[3,[0,1,2,3,4],15],[4,[0,1,2,3,4,7],18]];
  for(const [index,litSections,total] of scenePatterns){
