@@ -2,6 +2,7 @@ import {validatePhrases,routedGain} from './phrase_engine.mjs';
 import {validateLearning} from './learning_progress.mjs';
 import {validateDisplayModel,projectPaths} from './display_models.mjs';
 import {validatePixelScreen} from './pixel_screen.mjs';
+import {validateFractionColors} from './fraction_arch.mjs';
 import {EFFECTS,effectSample} from './effects.mjs';
 // Pure musical-time, patch and playback engine. No browser or wall-clock dependencies.
 export const PPQ=960;
@@ -83,7 +84,7 @@ export function validateProject(p){
  const report=patchReport(p.fixtures);if(report.errors.length)throw Error(report.errors[0]);
  const cues=new Set();
  for(const c of p.cues){
-  if(typeof c.id!=='string'||cues.has(c.id)||!ids.has(c.fixtureId)||!integer(c.startTick,0,p.song.endTick)||!integer(c.endTick,c.startTick+1,p.song.endTick)||![...EFFECTS,'channels','pixel-screen','routed-chase'].includes(c.effect)||!/^#[a-f\d]{6}$/i.test(c.color)||!finite(c.brightness,0,1))throw Error('Invalid lighting cue.');cues.add(c.id);
+  if(typeof c.id!=='string'||cues.has(c.id)||!ids.has(c.fixtureId)||!integer(c.startTick,0,p.song.endTick)||!integer(c.endTick,c.startTick+1,p.song.endTick)||![...EFFECTS,'channels','pixel-screen','routed-chase','fraction-pixels'].includes(c.effect)||!/^#[a-f\d]{6}$/i.test(c.color)||!finite(c.brightness,0,1))throw Error('Invalid lighting cue.');cues.add(c.id);
   if(p.version<4&&(c.fadeInTicks!==undefined||c.simpleRoute!==undefined||c.authoredWith==='console'))throw Error('Entry fades, spatial group routes and console recordings require project version 4.');
   if(c.fadeInTicks!==undefined&&(!integer(c.fadeInTicks,0,c.endTick-c.startTick)||!['creative','console'].includes(c.authoredWith)))throw Error('Invalid cue entry fade.');
   if(c.routeDirection!==undefined&&(!c.simpleRoute||![1,-1].includes(c.routeDirection)))throw Error('Invalid simple route direction.');
@@ -94,6 +95,8 @@ export function validateProject(p){
   if(c.effect==='routed-chase'&&(!c.route||!integer(c.route.offset,0,34000)||!integer(c.route.total,1,34000)||c.route.count!==groups||c.route.offset+groups>c.route.total||!integer(c.route.arrivalTick,c.startTick+1,c.endTick-1)||!integer(c.route.tail,1,32)||(c.route.reverse!==undefined&&typeof c.route.reverse!=='boolean')))throw Error('Invalid routed chase timing or pixel map.');
   if(c.spatialPhase&&(!integer(c.spatialPhase.offset,0,34000)||!integer(c.spatialPhase.total,1,34000)||c.spatialPhase.offset+groups>c.spatialPhase.total))throw Error('Invalid spatial rainbow map.');
   if(c.effect==='pixel-screen'&&!p.fixtures.find(f=>f.id===c.fixtureId)?.matrix)throw Error('Pixel animation needs a mapped screen row.');
+   if(c.effect==='fraction-pixels'&&(p.version<3||fixture.profileId!=='rgb-pixels'||!validateFractionColors(c.pixelColors,fixture.nodes)||c.authoredWith!=='creative'||c.math||c.route||c.spatialPhase))throw Error('Invalid fraction pixel cue.');
+   if(c.effect!=='fraction-pixels'&&c.pixelColors!==undefined)throw Error('Pixel color data needs a fraction cue.');
   if(c.authoredWith==='console'){
    if(p.version<4||c.effect!=='channels'||typeof c.name!=='string'||c.name.length>80||!Array.isArray(c.channelValues)||c.channelValues.length!==footprint(fixture)||c.channelValues.some(v=>!integer(v,0,255))||c.math)throw Error('Invalid console recording.');continue;
   }
@@ -112,6 +115,7 @@ function cueBytes(project,c,tick){
   const bytes=[];for(let i=0;i<footprint(f);i++){
    const group=p.pixel||p.zones?Math.floor(i/(p.pixel?p.channels.length:3)):0,role=p.channels[i%p.channels.length],chase=c.effect!=='chase'||group===Math.min(groups-1,Math.floor(progress*groups)),sample=effectSample(c,progress,group,groups),g=gain*(chase?1:0)*sample.gain*(c.effect==='routed-chase'?routedGain(c.route,tick,c.startTick,group):1);let shade=sample.color||color;if(c.effect==='rainbow'&&c.spatialPhase){const phase=((c.spatialPhase.offset+group)/c.spatialPhase.total*(c.parameters?.direction??1)+progress*(c.parameters?.speed??1))%1;shade=[0,2/3,1/3].map(o=>Math.max(0,Math.min(1,Math.abs((((phase+o)%1+1)%1)*6-3)-1)));}
    if(c.effect==='pixel-screen'){const screen=project.pixelScreens.find(s=>s.id===f.matrix.screenId),frame=Math.floor((tick-c.startTick)/screen.ticksPerFrame)%screen.frames.length;const hex=screen.frames[frame][f.matrix.row*16+group];shade=rgb(hex);}
+    if(c.effect==='fraction-pixels')shade=rgb(c.pixelColors[group]);
    let v=role==='dimmer'?g:role==='amber'?0:(shade[['red','green','blue'].indexOf(role)]||0)*g;
    // With a master dimmer, color channels stay full-scale and the master carries intensity.
    if(p.channels.includes('dimmer')&&role!=='dimmer')v=role==='amber'?0:(shade[['red','green','blue'].indexOf(role)]||0);

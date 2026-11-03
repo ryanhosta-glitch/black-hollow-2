@@ -56,12 +56,17 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npx playwright-core install chromium
       - run: npm run test:gingerlight
+      - run: npm run build:gingerlight-preview
       - name: Test the actual published student preview
         env:
           GINGER_FIRST_SHOW_FILE: north_pole/student_preview.html
         run: node tests/browser-gingerlight-first-show.mjs
       - name: Verify rendered light behavior and console recording
         run: node tests/browser-gingerlight-behavior.mjs
+      - name: Verify real fraction pixel programming and capture student guide screenshots
+        env:
+          GINGER_FIRST_SHOW_FILE: north_pole/student_preview.html
+        run: node tests/browser-gingerlight-fractions.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -69,3 +74,4 @@ jobs:
           path: |
             tests/artifacts/first-show-*.png
             tests/artifacts/light-behavior-*.png
+            tests/artifacts/fraction-*.png
