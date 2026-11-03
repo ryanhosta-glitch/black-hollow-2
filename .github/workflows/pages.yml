@@ -65,9 +65,9 @@ jobs:
           node-version: 22
       - run: npm ci --ignore-scripts
         if: steps.release.outputs.publish == 'true'
-      - name: Preserve portable Christmas Forge builds
+      - name: Build current portable Gingerlight and certified student preview
         if: steps.release.outputs.publish == 'true'
-        run: npm run build:gingerlight
+        run: npm run build:gingerlight-preview
       - name: Copy committed site without rebuilding student archives
         if: steps.release.outputs.publish == 'true'
         env:
