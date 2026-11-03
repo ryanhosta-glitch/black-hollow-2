@@ -56,6 +56,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npx playwright-core install chromium
       - run: npm run test:gingerlight
+      - run: npm run build:gingerlight-preview
       - name: Test the actual published student preview
         env:
           GINGER_FIRST_SHOW_FILE: north_pole/student_preview.html
