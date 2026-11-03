@@ -53,8 +53,8 @@
 
 1. Reopen yesterday’s saved project; choose Arch 1 and **Eighths**, predict **3**, check.
 2. For song part 3, color seven eighths red: `7/8 = 21/24` lights ON. Program.
-3. Choose song part 4, click **Copy the previous song part**, check the eighths again if prompted, select two of the red eighths, click **Turn off**, then **Program**. Calculate `7/8 − 2/8 = 5/8 = 15` lights.
-4. Choose song part 5, **Copy the previous song part**, select one dark eighth, click **Color green** and **Program**. Calculate `5/8 + 1/8 = 6/8 = 18` lights.
+3. Choose song part 4, select **Eighths**, enter **3** and click **Check and divide**. Click **Copy the previous song part**, select two of the red eighths, click **Turn off**, then **Program**. Calculate `7/8 − 2/8 = 5/8 = 15` lights.
+4. Choose song part 5, select **Eighths**, enter **3** and click **Check and divide**. Click **Copy the previous song part**, select one dark eighth, click **Color green** and **Program**. Calculate `5/8 + 1/8 = 6/8 = 18` lights.
 5. Play the whole show, verify all three scenes change at their song sections, save and reopen.
 6. Submit the final `.lightshow`, three equations, a screenshot and a short explanation of why fractions helped make the effect.
 
